@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#E5E5E5</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGray">#888888</color>
+    <color name="colorGrayLight">#D8D8D8</color>
+    <color name="colorGreenSearchingMatch">#1ABC9C</color>
+    <color name="colorInvisible">#FFFFFFFF</color>
+
+    <!-- Tool Bar -->
+    <color name="color_toolbar_title">#313131</color>
+
+    <!-- Login Activity -->
+    <color name="color_login_naver">#22B600</color>
+    <color name="color_login_naver_text">#FFFFFF</color>
+    <color name="color_login_kakao">#FFE001</color>
+    <color name="color_login_kakao_text">#544A44</color>
+    <color name="color_login_agreement_text">#313131</color>
+    <color name="color_login_warning_text">#BCBCBC</color>
+
+    <!-- SearchingMatch Activity -->
+    <color name="color_searchingmatch_title">#959595</color>
+    <color name="color_searchingmatch_select">#00AE55</color>
+    <color name="color_searchingmatch_line">#959595</color>
+
+    <color name="color_searchingmatch_button_select_enable">#FFFFFF</color>
+    <color name="color_searchingmatch_button_select_enable_stroke">#DCDCDC</color>
+    <color name="color_searchingmatch_button_select_enable_text">#D4D4D4</color>
+    <color name="color_searchingmatch_button_select_press">#00AE55</color>
+    <color name="color_searchingmatch_button_select_press_stroke">#00AE55</color>
+    <color name="color_searchingmatch_button_select_press_text">#FFFFFF</color>
+    <color name="color_searchingmatch_button_search_enable">#007338</color>
+    <color name="color_searchingmatch_button_search_enable_stroke">#007338</color>
+    <color name="color_searchingmatch_button_search_enable_text">#FFFFFF</color>
+    <color name="color_searchingmatch_button_search_press">#007338</color>
+    <color name="color_searchingmatch_button_search_press_stroke">#007338</color>
+    <color name="color_searchingmatch_button_search_press_text">#FFFFFF</color>
+</resources>

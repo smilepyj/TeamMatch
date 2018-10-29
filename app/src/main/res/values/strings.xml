@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">TeamMatch</string>
+    <string name="application">TEAM_MATCH</string>
+
+    <!-- Naver Login Data -->
+    <string name="login_naver_client_id">NLUdTPJLKxmZ0qCaYnaS</string>
+    <string name="login_naver_client_secret">Hyy3LgZI30</string>
+
+    <!-- System Message-->
+    <string name="exit_message">Back 버튼을 한번 더 누르면 어플리케이션이 종료됩니다.</string>
+    <string name="cording_message">현재 시스템 개발 중입니다...</string>
+
+    <!-- Intro Activity-->
+    <string name="intro_version">Ver. </string>
+
+    <!-- Login Activity -->
+    <string name="login">로그인</string>
+    <string name="login_kakao">카카오톡 로그인</string>
+    <string name="login_naver">네이버 로그인</string>
+    <string name="login_agreement_1">로그인 / 회원가입 시</string>
+    <string name="login_agreement_2"><u>이용약관,&#160;</u></string>
+    <string name="login_agreement_3"><u>개인정보 취급방침</u></string>
+    <string name="login_agreement_4">&#160;에 동의하게 됩니다.</string>
+    <string name="login_space">&#160;</string>
+    <string name="login_warning">로그인이 원활하지 않으실 경우 futsal0800@naver.com으로 문의주시기 바랍니다.</string>
+
+    <!-- Main Activity -->
+    <string name="main_search_match">매칭 검색</string>
+    <string name="main_registration_match">매칭 등록</string>
+    <string name="main_in_progress_matching">진행중 매칭</string>
+    <string name="main_ranking">팀별 랭킹</string>
+
+    <!-- ToolBar -->
+    <string name="toolbar_item_navigation">메 뉴</string>
+
+    <!-- Navigation -->
+    <string name="navigation_header_main"> 님 반갑습니다.</string>
+    <string name="navigation_item_user">내 정보 수정</string>
+    <string name="navigation_item_setting">설 정</string>
+
+    <!-- UserInfo Activity -->
+    <string name="user_info_title">회원 정보</string>
+    <string name="user_info_user_name">이 름</string>
+    <string name="user_info_phone_number">전화번호</string>
+    <string name="user_info_team_name">팀 이름</string>
+    <string name="user_info_team_age">팀 연령</string>
+    <string name="user_info_hope_field">희망구장</string>
+    <string name="user_info_team_level">팀 레벨</string>
+    <string name="user_info_self_check">자가진단</string>
+    
+    <!-- SerchingMatch Activity -->
+    <string name="searching_match_title">매칭 검색</string>
+    <string name="searching_match_select_field">01 매치 구장을 선택해 주세요</string>
+    <string name="searching_match_select_day">02 매치 날짜를 선택해 주세요</string>
+    <string name="searching_match_start_time">03 매치 시작 시간을 선택해 주세요</string>
+    <string name="searching_match_select_number">04 매치 인원을 선택해 주세요</string>
+    <string name="searching_match_select_level">05 희망 팀 레벨을 선택해 주세요(중복 가능)</string>
+
+    <string name="searching_match_base_select">선 택</string>
+    <string name="searching_match_number_5">5 vs 5</string>
+    <string name="searching_match_number_6">6 vs 6</string>
+    <string name="searching_match_number_nothing">무 관</string>
+    <string name="searching_match_level_challenger">상</string>
+    <string name="searching_match_level_diamond">중상</string>
+    <string name="searching_match_level_platinum">중</string>
+    <string name="searching_match_level_gold">중하</string>
+    <string name="searching_match_level_silver">하</string>
+    <string name="searching_match_level_nothing">무관</string>
+    <string name="searching_match_search">검색하기</string>
+</resources>
