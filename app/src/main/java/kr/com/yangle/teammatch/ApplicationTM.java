@@ -1,6 +1,8 @@
 package kr.com.yangle.teammatch;
 
+import android.app.Activity;
 import android.app.Application;
+import android.app.ProgressDialog;
 import android.app.Service;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -63,5 +65,39 @@ public class ApplicationTM extends Application {
 
     public void closeToast() {
         mToast.cancel();
+    }
+
+    /**
+     * Progress Dialog
+     * Created by maloman72 on 2018-10-31
+     * */
+    private ProgressDialog mProgressDialog;
+
+    public void startProgress(Context context, String message) {
+        if(context != null && !((Activity)context).isFinishing()) {
+            if(mProgressDialog != null) {
+                mProgressDialog.dismiss();
+                mProgressDialog = null;
+            }
+
+            mProgressDialog = new ProgressDialog(context);
+            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+
+            if("".equals(message)) {
+                mProgressDialog.setMessage("잠시만 기다려 주세요...");
+            } else {
+                mProgressDialog.setMessage(message);
+            }
+
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.show();
+        }
+    }
+
+    public void stopProgress() {
+        if(mProgressDialog != null) {
+            mProgressDialog.dismiss();
+            mProgressDialog = null;
+        }
     }
 }

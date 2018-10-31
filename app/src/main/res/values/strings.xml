@@ -6,9 +6,15 @@
     <string name="login_naver_client_id">NLUdTPJLKxmZ0qCaYnaS</string>
     <string name="login_naver_client_secret">Hyy3LgZI30</string>
 
+    <!-- Service URL -->
+    <string name="service_url">http://fm0800.cafe24.com:15101/tmServer/</string>
+
     <!-- System Message-->
     <string name="exit_message">Back 버튼을 한번 더 누르면 어플리케이션이 종료됩니다.</string>
     <string name="cording_message">현재 시스템 개발 중입니다...</string>
+
+    <!-- Error Message -->
+    <string name="error_network">서비스 통신 중 에러가 발생하였습니다. 잠시 후 다시 시도하여 주십시오.</string>
 
     <!-- Intro Activity-->
     <string name="intro_version">Ver. </string>
