@@ -1,17 +1,25 @@
 package kr.com.yangle.teammatch;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
 import android.app.ProgressDialog;
 import android.app.Service;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class ApplicationTM extends Application {
     private final String TAG = this.getClass().getSimpleName();
@@ -99,5 +107,83 @@ public class ApplicationTM extends Application {
             mProgressDialog.dismiss();
             mProgressDialog = null;
         }
+    }
+
+/**
+ * Alert Dialogs
+ * Created by maloman72 on 2017-02-17
+ * */
+
+    /** Common */
+    public void commonAlertDialog(Context context, String title, String message) {
+        AlertDialog.Builder mBuilder;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mBuilder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            mBuilder = new AlertDialog.Builder(context);
+        }
+
+        mBuilder.setTitle(title);
+        mBuilder.setMessage(message);
+        mBuilder.setCancelable(false);
+        mBuilder.setNegativeButton(context.getString(R.string.alert_dialog_close), null);
+        mBuilder.show();
+    }
+
+    /** UserInfoActivity_Input_Exit */
+    public void UserInfoExitDialog(final Activity activity, Context context, String title, String message) {
+        AlertDialog.Builder mBuilder;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mBuilder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            mBuilder = new AlertDialog.Builder(context);
+        }
+
+        mBuilder.setTitle(title);
+        mBuilder.setMessage(message);
+        mBuilder.setCancelable(false);
+        mBuilder.setPositiveButton(context.getString(R.string.alert_dialog_exit), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                activity.finish();
+                android.os.Process.killProcess(android.os.Process.myPid());
+            }
+        });
+        mBuilder.setNegativeButton(context.getString(R.string.alert_dialog_cancel), null);
+        mBuilder.show();
+    }
+
+
+    /**
+     * ArrayList to String
+     * Created by maloman72 on 2018-11-01
+     * */
+    public String ArrayListToStringParser(ArrayList<String> arrayList) {
+        String returnData = null;
+
+        for(int i = 0; i < arrayList.size(); i++) {
+            returnData += arrayList.get(i);
+
+            if(i != arrayList.size() - 1) {
+                returnData += "|";
+            }
+        }
+
+        return returnData;
+    }
+
+    /**
+     * Data 선언 - User Email
+     * Created by maloman72 on 2018-10-31
+     * */
+    public void setUserEmail(String email) {
+        mEditor.putString("USER_EMAIL", email);
+        mEditor.apply();
+    }
+
+    public String getUserEmail() {
+        return mSharedPreferences.getString("USER_EMAIL", "maloman72@winitech.co.kr");
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+        android:gravity="center"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:titleTextColor="@color/color_toolbar_title" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,27 +42,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="@color/colorGrayLight"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     android:weightSum="10">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_weight="2.75"
                         android:gravity="center_vertical"
-                        android:layout_weight="3"
                         android:text="@string/user_info_user_name"
                         android:textSize="@dimen/font_size_20"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/et_user_info_user_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="6"
-                        android:textSize="@dimen/font_size_25"
-                        android:background="@color/colorWhite"/>
+                        android:layout_weight="6.25"
+                        android:background="@color/colorWhite"
+                        android:textSize="@dimen/font_size_25" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -71,26 +74,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="@color/colorGrayLight"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     android:weightSum="10">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_weight="2.75"
                         android:gravity="center_vertical"
-                        android:layout_weight="3"
                         android:text="@string/user_info_phone_number"
                         android:textSize="@dimen/font_size_20"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/et_user_info_phone_number"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="6"
-                        android:textSize="@dimen/font_size_25"
-                        android:background="@color/colorWhite"/>
+                        android:layout_weight="6.25"
+                        android:inputType="phone"
+                        android:background="@color/colorWhite"
+                        android:textSize="@dimen/font_size_25" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -102,26 +107,115 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="@color/colorGrayLight"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     android:weightSum="10">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_weight="2.75"
                         android:gravity="center_vertical"
-                        android:layout_weight="3"
                         android:text="@string/user_info_team_name"
                         android:textSize="@dimen/font_size_20"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/et_user_info_team_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="6"
-                        android:textSize="@dimen/font_size_25"
-                        android:background="@color/colorWhite"/>
+                        android:layout_weight="6.25"
+                        android:background="@color/colorWhite"
+                        android:textSize="@dimen/font_size_25" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.25" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorGrayLight"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.75"
+                        android:gravity="center_vertical"
+                        android:text="@string/user_info_team_age"
+                        android:textSize="@dimen/font_size_20"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6.25"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <Button
+                            android:id="@+id/bt_user_info_age_10"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:background="@drawable/selector_button_select"
+                            android:minHeight="0dp"
+                            android:text="@string/user_info_age_10"
+                            android:textColor="@drawable/selector_button_select_text"
+                            android:textSize="@dimen/font_size_20" />
+
+                        <Button
+                            android:id="@+id/bt_user_info_age_20"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:background="@drawable/selector_button_select"
+                            android:minHeight="0dp"
+                            android:text="@string/user_info_age_20"
+                            android:textColor="@drawable/selector_button_select_text"
+                            android:textSize="@dimen/font_size_20" />
+
+                        <Button
+                            android:id="@+id/bt_user_info_age_30"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:background="@drawable/selector_button_select"
+                            android:minHeight="0dp"
+                            android:text="@string/user_info_age_30"
+                            android:textColor="@drawable/selector_button_select_text"
+                            android:textSize="@dimen/font_size_20" />
+
+                        <Button
+                            android:id="@+id/bt_user_info_age_40"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:background="@drawable/selector_button_select"
+                            android:minHeight="0dp"
+                            android:text="@string/user_info_age_40"
+                            android:textColor="@drawable/selector_button_select_text"
+                            android:textSize="@dimen/font_size_20" />
+
+                        <Button
+                            android:id="@+id/bt_user_info_age_50"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:background="@drawable/selector_button_select"
+                            android:minHeight="0dp"
+                            android:text="@string/user_info_age_50"
+                            android:textColor="@drawable/selector_button_select_text"
+                            android:textSize="@dimen/font_size_20" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -133,28 +227,96 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:gravity="center"
                     android:background="@color/colorGrayLight"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     android:weightSum="10">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_weight="2.75"
                         android:gravity="center_vertical"
-                        android:layout_weight="3"
                         android:text="@string/user_info_hope_field"
                         android:textSize="@dimen/font_size_20"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:orientation="horizontal"
+                        android:layout_weight="6.25"
+                        android:orientation="vertical"
+                        android:gravity="center"
                         android:weightSum="10">
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="4.75"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
 
+                            <Button
+                                android:id="@+id/bt_user_info_hope_grounds_1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4.75"
+                                android:text="@string/user_info_hope_grounds_1"
+                                android:background="@drawable/selector_button_search"
+                                android:textColor="@drawable/selector_button_search_text"
+                                android:textSize="@dimen/font_size_15"/>
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"/>
+
+                            <Button
+                                android:id="@+id/bt_user_info_hope_grounds_2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4.75"
+                                android:text="@string/user_info_hope_grounds_2"
+                                android:background="@drawable/selector_button_search"
+                                android:textColor="@drawable/selector_button_search_text"
+                                android:textSize="@dimen/font_size_15"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="4.75"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <Button
+                                android:id="@+id/bt_user_info_hope_grounds_3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4.75"
+                                android:text="@string/user_info_hope_grounds_3"
+                                android:background="@drawable/selector_button_search"
+                                android:textColor="@drawable/selector_button_search_text"
+                                android:textSize="@dimen/font_size_15"/>
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"/>
+
+                            <Button
+                                android:id="@+id/bt_user_info_hope_grounds_4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4.75"
+                                android:text="@string/user_info_hope_grounds_4"
+                                android:background="@drawable/selector_button_search"
+                                android:textColor="@drawable/selector_button_search_text"
+                                android:textSize="@dimen/font_size_15"/>
+
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -167,55 +329,102 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="@color/colorGrayLight"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     android:weightSum="10">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_weight="2.75"
                         android:gravity="center_vertical"
-                        android:layout_weight="3"
                         android:text="@string/user_info_team_level"
                         android:textSize="@dimen/font_size_20"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="6"
+                        android:layout_weight="6.25"
+                        android:gravity="center"
                         android:orientation="horizontal"
-                        android:weightSum="10"
-                        android:gravity="center_vertical">
+                        android:weightSum="10">
 
-                        <TextView
-                            android:id="@+id/tv_user_info_team_level"
+                        <Button
+                            android:id="@+id/bt_user_info_level_challenger"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="6"
-                            android:text="중상"
-                            android:textSize="@dimen/font_size_25"/>
+                            android:layout_weight="1.6"
+                            android:background="@drawable/selector_button_select"
+                            android:minHeight="0dp"
+                            android:text="@string/user_info_level_challenger"
+                            android:textColor="@drawable/selector_button_select_text"
+                            android:textSize="@dimen/font_size_20" />
 
-                        <LinearLayout
+                        <Space
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:gravity="center"
-                            android:weightSum="10"
-                            android:orientation="vertical">
+                            android:layout_weight="0.2" />
 
-                            <TextView
-                                android:id="@+id/bt_user_info_self_check"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="6"
-                                android:gravity="center"
-                                android:background="@color/colorPrimary"
-                                android:text="@string/user_info_self_check"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/font_size_20"/>
-                        </LinearLayout>
+                        <Button
+                            android:id="@+id/bt_user_info_level_diamond"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.2"
+                            android:background="@drawable/selector_button_select"
+                            android:minHeight="0dp"
+                            android:text="@string/user_info_level_diamond"
+                            android:textColor="@drawable/selector_button_select_text"
+                            android:textSize="@dimen/font_size_20" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2" />
+
+                        <Button
+                            android:id="@+id/bt_user_info_level_platinum"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.6"
+                            android:background="@drawable/selector_button_select"
+                            android:minHeight="0dp"
+                            android:text="@string/user_info_level_platinum"
+                            android:textColor="@drawable/selector_button_select_text"
+                            android:textSize="@dimen/font_size_20" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2" />
+
+                        <Button
+                            android:id="@+id/bt_user_info_level_gold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.2"
+                            android:background="@drawable/selector_button_select"
+                            android:minHeight="0dp"
+                            android:text="@string/user_info_level_gold"
+                            android:textColor="@drawable/selector_button_select_text"
+                            android:textSize="@dimen/font_size_20" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2" />
+
+                        <Button
+                            android:id="@+id/bt_user_info_level_silver"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.6"
+                            android:background="@drawable/selector_button_select"
+                            android:minHeight="0dp"
+                            android:text="@string/user_info_level_silver"
+                            android:textColor="@drawable/selector_button_select_text"
+                            android:textSize="@dimen/font_size_20" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -223,9 +432,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.25" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <Button
+                        android:id="@+id/bt_user_info_save"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="6"
+                        android:background="@drawable/selector_button_search"
+                        android:text="@string/user_info_save"
+                        android:textColor="@drawable/selector_button_search_text"
+                        android:textSize="@dimen/font_size_22" />
+                </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
-    </LinearLayout>
 
+    </LinearLayout>
 </LinearLayout>

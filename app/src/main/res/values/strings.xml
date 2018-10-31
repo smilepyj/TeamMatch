@@ -12,9 +12,24 @@
     <!-- System Message-->
     <string name="exit_message">Back 버튼을 한번 더 누르면 어플리케이션이 종료됩니다.</string>
     <string name="cording_message">현재 시스템 개발 중입니다...</string>
+    <string name="cording_message_search_grounds">구장 검색화면을 개발 중이여서 4개 구장을 강제로 입력합니다.</string>
 
     <!-- Error Message -->
     <string name="error_network">서비스 통신 중 에러가 발생하였습니다. 잠시 후 다시 시도하여 주십시오.</string>
+    
+    <!-- Service Parameter-->
+    <string name="result_code">result_code</string>
+    <string name="result_message">result_msg</string>
+    <string name="result_data">data</string>
+    
+    <!-- Service Error Code -->
+    <string name="service_sucess">000</string>
+
+    <!-- Alert Dialog -->
+    <string name="aloer_dialog_title">알림</string>
+    <string name="alert_dialog_close">닫기</string>
+    <string name="alert_dialog_cancel">취소</string>
+    <string name="alert_dialog_exit">종료</string>
 
     <!-- Intro Activity-->
     <string name="intro_version">Ver. </string>
@@ -45,6 +60,15 @@
     <string name="navigation_item_setting">설 정</string>
 
     <!-- UserInfo Activity -->
+    <string name="user_info_intent_extra">ACTIVITY_TYPE</string>
+    <string name="user_info_type_input">INPUT</string>
+    <string name="user_info_type_update">UPDTAE</string>
+
+    <string name="user_info_check_input_space">란을 입력하여 주십시오.</string>
+    <string name="user_info_check_select_not">을 하나 선택하여 주십시오.</string>
+    <string name="user_info_service_input_sucess">회원 정보 저장에 성공하였습니다.</string>
+    <string name="user_info_input_exit">회원정보를 저장하지 않고 나갈 경우 회원 가입을 새로이 진행하셔야 합니다.\n그래도 정말 종료하시겠습니까?</string>
+
     <string name="user_info_title">회원 정보</string>
     <string name="user_info_user_name">이 름</string>
     <string name="user_info_phone_number">전화번호</string>
@@ -53,6 +77,25 @@
     <string name="user_info_hope_field">희망구장</string>
     <string name="user_info_team_level">팀 레벨</string>
     <string name="user_info_self_check">자가진단</string>
+    <string name="user_info_save">저장하기</string>
+    <string name="user_info_update">수정하기</string>
+
+    <string name="user_info_age_10">10대</string>
+    <string name="user_info_age_20">20대</string>
+    <string name="user_info_age_30">30대</string>
+    <string name="user_info_age_40">40대</string>
+    <string name="user_info_age_50">50대</string>
+
+    <string name="user_info_hope_grounds_1">시지풋살장</string>
+    <string name="user_info_hope_grounds_2">수성풋살장</string>
+    <string name="user_info_hope_grounds_3">복현풋살클럽</string>
+    <string name="user_info_hope_grounds_4">반야월풋살장</string>
+
+    <string name="user_info_level_challenger">상</string>
+    <string name="user_info_level_diamond">중상</string>
+    <string name="user_info_level_platinum">중</string>
+    <string name="user_info_level_gold">중하</string>
+    <string name="user_info_level_silver">하</string>
     
     <!-- SerchingMatch Activity -->
     <string name="searching_match_title">매칭 검색</string>

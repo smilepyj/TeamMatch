@@ -121,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.it_navigation_user :
                     mIntent = new Intent(mContext, UserInfoActivity.class);
+                    mIntent.putExtra(getString(R.string.user_info_intent_extra), getString(R.string.user_info_type_update));
                     startActivity(mIntent);
                     break;
                 case R.id.it_navigation_setting :

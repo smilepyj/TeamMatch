@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="default_team_code">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    
+    <string-array name="C001">
+        <item>C001001</item>
+        <item>C001002</item>
+        <item>C001003</item>
+        <item>C001004</item>
+        <item>C001005</item>
+    </string-array>
+    
+    <string-array name="C002">
+        <item>C002001</item>
+        <item>C002002</item>
+        <item>C002003</item>
+        <item>C002004</item>
+        <item>C002005</item>
+    </string-array>
+    
+</resources>
