@@ -67,6 +67,10 @@ public class Service {
         }
     }
 
+    /**
+     * 회원정보 등록 서비스
+     * Created by maloman72 on 2018-10-31
+     * */
     public void insertUserInfo(ResponseListener responseListener, String email_id, String user_name, String user_telnum, String team_name, ArrayList<String> hope_grounds, String team_level_code, String team_age_code) {
         try {
             String mURL = mContext.getString(R.string.service_url) + "user/insertUserInfo";
@@ -86,6 +90,11 @@ public class Service {
         }
     }
 
+
+    /**
+     * 회원정보 조회 서비스
+     * Created by maloman72 on 2018-10-31
+     * */
     public void searchUserInfo(ResponseListener responseListener, String email_id) {
         try {
             String mURL = mContext.getString(R.string.service_url) + "user/searchUserInfo";
@@ -97,5 +106,32 @@ public class Service {
         } catch (Exception e) {
             Log.e(TAG, "insertUserInfo - " + e);
         }
+    }
+
+    /**
+     * 매칭 검색 서비스
+     * Created by maloman72 on 218-11-01
+     * */
+    public void searchMatchList(ResponseListener responseListener, String search_date, String search_time, String search_area, String search_ground, String search_team_member, String search_team_lvl) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + "match/searchMatchList";
+            String email_id = mApplicationTM.getUserEmail(), search_count = "50", search_page = "1";
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put("email_id", email_id);
+            mJSONObject.put("search_date", search_date);
+            mJSONObject.put("search_time", search_time);
+            mJSONObject.put("search_area", search_area);
+            mJSONObject.put("search_ground", search_ground);
+            mJSONObject.put("search_team_member", search_team_member);
+            mJSONObject.put("search_team_lvl", search_team_lvl);
+            mJSONObject.put("search_count", search_count);
+            mJSONObject.put("search_page", search_page);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchMatchList - " + e);
+        }
+
     }
 }

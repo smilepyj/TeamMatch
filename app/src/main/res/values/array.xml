@@ -23,5 +23,10 @@
         <item>C002004</item>
         <item>C002005</item>
     </string-array>
+
+    <string-array name="C003">
+        <item>C003001</item>
+        <item>C003002</item>
+    </string-array>
     
 </resources>

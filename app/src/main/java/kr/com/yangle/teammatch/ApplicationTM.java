@@ -18,8 +18,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ApplicationTM extends Application {
     private final String TAG = this.getClass().getSimpleName();
@@ -161,7 +166,7 @@ public class ApplicationTM extends Application {
      * Created by maloman72 on 2018-11-01
      * */
     public String ArrayListToStringParser(ArrayList<String> arrayList) {
-        String returnData = null;
+        String returnData = "";
 
         for(int i = 0; i < arrayList.size(); i++) {
             returnData += arrayList.get(i);
@@ -185,5 +190,58 @@ public class ApplicationTM extends Application {
 
     public String getUserEmail() {
         return mSharedPreferences.getString("USER_EMAIL", "maloman72@winitech.co.kr");
+    }
+
+    /**
+     * Data 선언 - User Hope Grounds
+     * Created by maloman72 on 2018-11-01
+     * */
+    public void setHopeGrounds(JSONArray jsonArray) {
+        mEditor.putString("HOPE_GROUNDS", jsonArray.toString());
+        mEditor.apply();
+    }
+
+    public Map<String, String> getHopeGrounds() {
+        Map<String, String> mMap = new HashMap<>();
+
+        try {
+            JSONArray mJSONArray = new JSONArray(mSharedPreferences.getString("HOPE_GROUNDS", ""));
+
+            for(int i = 0; i < mJSONArray.length(); i++) {
+                JSONObject mJSONobject = mJSONArray.getJSONObject(i);
+                String mKey = mJSONobject.names().getString(0);
+                mMap.put(mKey, mJSONobject.getString(mKey));
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "getHopeGrounds - " + e);
+        }
+
+        return mMap;
+    }
+
+    /**
+     * Data 선언 - User Team Age
+     * Createc by maloman72 on 2018-11-01
+     * */
+    public void setTeamAge(String teamAge) {
+        mEditor.putString("TEAM_AGE", teamAge);
+        mEditor.apply();
+    }
+
+    public String getTeamAge() {
+        return mSharedPreferences.getString("TEAM_AGE", "");
+    }
+
+    /**
+     * Data 선언 - User Team Level
+     * Created by maloman72 on 2018-11-01
+     * */
+    public void setTeamLevel(String teamLevel) {
+        mEditor.putString("TEAM_LEVEL", teamLevel);
+        mEditor.apply();
+    }
+
+    public String getTeamLevel() {
+        return mSharedPreferences.getString("TEAM_LEVEL", "");
     }
 }

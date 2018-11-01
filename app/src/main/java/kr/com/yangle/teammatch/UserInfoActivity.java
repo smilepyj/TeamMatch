@@ -340,6 +340,7 @@ public class UserInfoActivity extends AppCompatActivity {
                     et_user_info_phone_number.setText(mResult.get("user_telnum").toString());
                     et_user_info_team_name.setText(mResult.get("team_name").toString());
 
+                    mApplicationTM.setTeamAge(mResult.get("team_age_code").toString());
                     if(mResult.get("team_age_code").equals(C001[0])) {
                         bt_user_info_age_10.setSelected(true);
                     } else if(mResult.get("team_age_code").equals(C001[1])) {
@@ -352,6 +353,7 @@ public class UserInfoActivity extends AppCompatActivity {
                         bt_user_info_age_50.setSelected(true);
                     }
 
+                    mApplicationTM.setTeamAge(mResult.get("team_level_code").toString());
                     if(mResult.get("team_level_code").equals(C002[0])) {
                         bt_user_info_level_challenger.setSelected(true);
                     } else if(mResult.get("team_level_code").equals(C002[1])) {
@@ -363,6 +365,8 @@ public class UserInfoActivity extends AppCompatActivity {
                     } else if(mResult.get("team_level_code").equals(C002[4])) {
                         bt_user_info_level_silver.setSelected(true);
                     }
+
+                    mApplicationTM.setHopeGrounds(mResult.getJSONArray("hope_grounds"));
                 } else {
                     mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
                 }
