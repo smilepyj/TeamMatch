@@ -139,7 +139,7 @@ public class Service {
      * 구장 검색 서비스
      * Created by maloman72 on 218-11-04
      * */
-    public void searchGroundList(ResponseListener responseListener, String search_type_code, String search_loc_lat, String search_loc_lon, String search_area_code) {
+    public void searchGroundList(ResponseListener responseListener, String search_type_code, String search_loc_lat, String search_loc_lon, String search_area_code, String search_area_group_code) {
         try {
             String mURL = mContext.getString(R.string.service_url) + "ground/searchGroundList";
             String email_id = mApplicationTM.getUserEmail(), search_count = "50", search_page = "1";
@@ -150,6 +150,7 @@ public class Service {
             mJSONObject.put("search_loc_lat", search_loc_lat);
             mJSONObject.put("search_loc_lon", search_loc_lon);
             mJSONObject.put("search_area_code", search_area_code);
+            mJSONObject.put("search_area_group_code", search_area_group_code);
             mJSONObject.put("search_count", search_count);
             mJSONObject.put("search_page", search_page);
 
