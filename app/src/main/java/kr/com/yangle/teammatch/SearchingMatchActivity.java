@@ -109,9 +109,12 @@ public class SearchingMatchActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.ll_searching_match_field :
-                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message_search_grounds));
+                    Intent mIntent = new Intent(mContext, SearchGroundActivity.class);
+                    startActivity(mIntent);
+
+                    /*mApplicationTM.makeToast(mContext, getString(R.string.cording_message_search_grounds));
                     tv_searching_match_field.setText(getString(R.string.searching_match_hope_grounds_1) + ", " + getString(R.string.searching_match_hope_grounds_2) + ", " + getString(R.string.searching_match_hope_grounds_3) + ", " + getString(R.string.searching_match_hope_grounds_4));
-                    search_ground = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.default_team_code)));
+                    search_ground = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.default_team_code)));*/
                     break;
                 case R.id.ll_searching_match_day :
                     setMatchDayDatePickerDialog();

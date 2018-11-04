@@ -81,6 +81,12 @@
     <string name="searching_match_level_nothing">무관</string>
     <string name="searching_match_search">검색하기</string>
 
+    <!-- SearchGround Activity -->
+    <string name="search_ground_title">구장검색</string>
+    <string name="search_ground_type_1">나의 선호구장</string>
+    <string name="search_ground_type_2">가까운 구장</string>
+    <string name="search_ground_type_3">지역</string>
+
     <!-- SearchResult Activity -->
     <string name="search_result_title">실시간 매치정보</string>
     <string name="search_result_condition_ground">구장</string>

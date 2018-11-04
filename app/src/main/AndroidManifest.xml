@@ -35,6 +35,7 @@
             android:name=".SearchingMatchActivity"
             android:screenOrientation="sensorPortrait" />
         <activity android:name=".SearchResutActivity"></activity>
+        <activity android:name=".SearchGroundActivity"></activity>
     </application>
 
 </manifest>

@@ -134,4 +134,88 @@ public class Service {
         }
 
     }
+
+    /**
+     * 구장 검색 서비스
+     * Created by maloman72 on 218-11-04
+     * */
+    public void searchGroundList(ResponseListener responseListener, String search_type_code, String search_loc_lat, String search_loc_lon, String search_area_code) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + "ground/searchGroundList";
+            String email_id = mApplicationTM.getUserEmail(), search_count = "50", search_page = "1";
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put("email_id", email_id);
+            mJSONObject.put("search_type_code", search_type_code);
+            mJSONObject.put("search_loc_lat", search_loc_lat);
+            mJSONObject.put("search_loc_lon", search_loc_lon);
+            mJSONObject.put("search_area_code", search_area_code);
+            mJSONObject.put("search_count", search_count);
+            mJSONObject.put("search_page", search_page);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchGroundList - " + e);
+        }
+
+    }
+
+    /**
+     * 구장 정보 상세 조회 서비스
+     * Created by maloman72 on 218-11-04
+     * */
+    public void searchGroundDetail(ResponseListener responseListener, String ground_id) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + "ground/searchGroundDetail";
+            String email_id = mApplicationTM.getUserEmail();
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put("email_id", email_id);
+            mJSONObject.put("ground_id", ground_id);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchGroundDetail - " + e);
+        }
+
+    }
+
+    /**
+     * 지역 그룹 코드 조회 서비스
+     * Created by maloman72 on 218-11-04
+     * */
+    public void searchAreaGroupList(ResponseListener responseListener) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + "etc/searchAreaGroupList";
+            String email_id = mApplicationTM.getUserEmail();
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put("email_id", email_id);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchAreaGroupList - " + e);
+        }
+
+    }
+
+    /**
+     * 지역 코드 조회 서비스
+     * Created by maloman72 on 218-11-04
+     * */
+    public void searchAreaList(ResponseListener responseListener, String area_group_code) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + "etc/searchAreaList";
+            String email_id = mApplicationTM.getUserEmail();
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put("email_id", email_id);
+            mJSONObject.put("area_group_code", area_group_code);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchAreaList - " + e);
+        }
+
+    }
 }
