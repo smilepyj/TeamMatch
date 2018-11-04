@@ -20,14 +20,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1.25"
             android:gravity="center"
-            android:weightSum="10"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <CheckBox
                 android:id="@+id/cb_listview_search_ground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:button="@drawable/selector_checkbox"/>
+                android:button="@drawable/selector_checkbox" />
         </LinearLayout>
 
         <LinearLayout

@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:orientation="horizontal"
+    android:layout_height="60dp"
     android:gravity="center"
+    android:orientation="horizontal"
     android:weightSum="10">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:weightSum="10">
+        android:layout_weight="9"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|start">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:orientation="horizontal"
-            android:weightSum="10">
-
-            <TextView
-                android:id="@+id/tv_listview_search_ground_type_3_2_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:singleLine="true"
-                android:textColor="@color/color_listview_search_result_contents"
-                android:textSize="@dimen/font_size_14" />
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_listview_search_ground_type_3_2_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="@drawable/selector_listview_text"
+            android:textSize="@dimen/font_size_16" />
     </LinearLayout>
+
 </LinearLayout>

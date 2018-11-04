@@ -28,7 +28,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.9"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="10">
@@ -111,51 +111,79 @@
                     android:id="@+id/lv_search_ground_type_3_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3.3" />
+                    android:choiceMode="singleChoice"
+                    android:layout_weight="3" />
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_search_ground_border" />
 
                 <ListView
                     android:id="@+id/lv_search_ground_type_3_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3.3" />
+                    android:choiceMode="singleChoice"
+                    android:layout_weight="3" />
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_search_ground_border" />
 
                 <ListView
                     android:id="@+id/lv_search_ground_type_3_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3.3" />
+                    android:layout_weight="4" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/color_search_result_button_change_border" />
-        
+            android:background="@color/color_search_ground_border" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/color_search_ground_layout_select_ground"
-            android:orientation="horizontal">
-            
-            
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_search_ground_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search_ground_select"
+                    android:textColor="@color/color_search_ground_contents"
+                    android:textSize="@dimen/font_size_16"/>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/color_search_result_button_change_border" />
-        
+            android:background="@color/color_search_ground_border" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.1"
             android:orientation="horizontal"
             android:background="@color/color_search_ground_layout_select_ground"
             android:weightSum="10"
             android:gravity="center">
-            
+
             <Button
                 android:id="@+id/bt_search_ground_select_end"
                 android:layout_width="0dp"

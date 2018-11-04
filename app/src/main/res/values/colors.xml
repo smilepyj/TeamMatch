@@ -54,13 +54,15 @@
     <color name="color_listview_search_result_border">#D2D2D2</color>
 
     <!-- SearchGround Activity -->
+    <color name="color_search_ground_contents">#A0A0A0</color>
+    <color name="color_search_ground_border">#D2D2D2</color>
+    <color name="color_search_ground_layout_select_ground">#F8F8FA</color>
+
     <color name="color_search_ground_button_type_enable">#F8F8FA</color>
     <color name="color_search_ground_button_type_enable_text">#A0A0A0</color>
     <color name="color_search_ground_button_type_press">#00AE55</color>
     <color name="color_search_ground_button_type_press_text">#FFFFFF</color>
     <color name="color_search_ground_button_stroke">#E5E5E5</color>
-
-    <color name="color_search_ground_layout_select_ground">#F8F8FA</color>
 
     <color name="color_search_ground_button_select_end_enable">#007338</color>
     <color name="color_search_ground_button_select_end_enable_stroke">#007338</color>
@@ -71,4 +73,5 @@
 
     <!-- Listview SearchGround -->
     <color name="color_listview_search_ground_contents">#313131</color>
+    <color name="color_listview_search_ground_contents_active">#00AE55</color>
 </resources>

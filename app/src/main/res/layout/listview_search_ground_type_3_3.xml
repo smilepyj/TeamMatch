@@ -1,44 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:orientation="horizontal"
+    android:layout_height="60dp"
     android:gravity="center"
+    android:orientation="horizontal"
     android:weightSum="10">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_weight="2.75"
         android:gravity="center"
-        android:weightSum="10">
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:orientation="horizontal"
-            android:weightSum="10">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2">
-
-                <CheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_listview_search_ground_type_3_3_1"
-                android:layout_width="0dp"
-                android:layout_weight="8"
-                android:layout_height="match_parent"
-                android:singleLine="true"
-                android:textColor="@color/color_listview_search_result_contents"
-                android:textSize="@dimen/font_size_14" />
-
-        </LinearLayout>
+        <CheckBox
+            android:id="@+id/cb_listview_search_ground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/selector_checkbox" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="7.25"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|start">
+
+        <TextView
+            android:id="@+id/tv_listview_search_ground_type_3_3_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="@color/color_listview_search_ground_contents"
+            android:textSize="@dimen/font_size_16" />
+    </LinearLayout>
+
 </LinearLayout>

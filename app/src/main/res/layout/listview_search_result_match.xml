@@ -88,7 +88,7 @@
                                 android:layout_height="wrap_content"
                                 android:singleLine="true"
                                 android:textColor="@color/color_listview_search_result_contents_accent"
-                                android:textSize="@dimen/sont_size_16" />
+                                android:textSize="@dimen/font_size_16" />
                         </LinearLayout>
                     </LinearLayout>
 
