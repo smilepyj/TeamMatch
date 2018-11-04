@@ -286,7 +286,7 @@ public class SearchingMatchActivity extends AppCompatActivity {
         DatePickerDialog mDatePickerDialog = new DatePickerDialog(mContext, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                String mDateData = String.format(getString(R.string.searching_match_date_format_param), year, month + 1, dayOfMonth);
+                String mDateData = String.format(getString(R.string.searching_match_date_format_param), year, month + 1, String.format("%02d", dayOfMonth));
                 search_date = mDateData;
 
                 mCalendar.set(year, month, dayOfMonth);

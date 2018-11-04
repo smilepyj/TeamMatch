@@ -40,7 +40,7 @@
     <string name="searching_match_hope_grounds_3">복현풋살클럽</string>
     <string name="searching_match_hope_grounds_4">반야월풋살장</string>
 
-    <string name="searching_match_date_format_param">%d%d%d</string>
+    <string name="searching_match_date_format_param">%d%d%s</string>
     <string name="searching_match_date_format_view">%d년 %d월 %d일 %s</string>
     <string name="searching_match_time_format_param">%d%d%d</string>
     <string name="searching_match_time_format_view">%d시 %d분</string>
