@@ -70,13 +70,13 @@ public class SearchResutActivity extends AppCompatActivity {
 
         bt_search_result_change_condition.setOnClickListener(mOnClickListener);
 
-        search_date = getIntent().getStringExtra("search_date");
-        search_time = getIntent().getStringExtra("search_time");
-        search_ground = getIntent().getStringExtra("search_ground");
-        search_ground_cnt = getIntent().getIntExtra("search_ground_cnt", 0);
-        search_team_member = getIntent().getStringExtra("search_team_member");
-        search_team_lvl = getIntent().getStringExtra("search_team_lvl");
-        search_team_lvl_cnt = getIntent().getIntExtra("search_team_lvl_cnt", 0);
+        search_date = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_date));
+        search_time = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_time));
+        search_ground = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_ground));
+        search_ground_cnt = getIntent().getIntExtra(getString(R.string.searching_match_extra_search_ground_cnt), 0);
+        search_team_member = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_team_member));
+        search_team_lvl = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_team_lvl));
+        search_team_lvl_cnt = getIntent().getIntExtra(getString(R.string.searching_match_extra_search_team_lvl_cnt), 0);
 
         setSearchCondition();
 
@@ -120,28 +120,28 @@ public class SearchResutActivity extends AppCompatActivity {
                 tv_search_result_ground.setText(search_ground);
             }
 
-            Date mDate = new SimpleDateFormat("yyyymmdd", Locale.getDefault()).parse(search_date);
-            String mHopeDate = new SimpleDateFormat("yyyy년 mm월 dd일", Locale.getDefault()).format(mDate);
+            Date mDate = new SimpleDateFormat(getString(R.string.search_result_date_format_base), Locale.getDefault()).parse(search_date);
+            String mHopeDate = new SimpleDateFormat(getString(R.string.search_result_date_format_view), Locale.getDefault()).format(mDate);
             tv_search_result_date.setText(mHopeDate);
 
             if(!"".equals(search_time)) {
-                Date mTime = new SimpleDateFormat("hhmmss", Locale.getDefault()).parse(search_time);
-                String mHopeTime = new SimpleDateFormat("hh시 mm분", Locale.getDefault()).format(mTime);
+                Date mTime = new SimpleDateFormat(getString(R.string.search_result_time_format_base), Locale.getDefault()).parse(search_time);
+                String mHopeTime = new SimpleDateFormat(getString(R.string.search_result_time_format_view), Locale.getDefault()).format(mTime);
                 tv_search_result_time.setText(mHopeTime);
             } else {
-                tv_search_result_time.setText("시간 무관");
+                tv_search_result_time.setText(getString(R.string.search_result_nothing_time));
             }
 
             if(!"".equals(search_team_member)) {
                 tv_search_result_member.setText(search_team_member);
             } else {
-                tv_search_result_member.setText("인원 무관");
+                tv_search_result_member.setText(getString(R.string.search_result_nothing_level));
             }
 
             if(search_team_lvl_cnt != 0) {
                 tv_search_result_level.setText(getString(R.string.search_result_condition_level) + "(" + search_team_lvl_cnt + ")");
             } else {
-                tv_search_result_level.setText("레벨 무관");
+                tv_search_result_level.setText(getString(R.string.search_result_nothing_level));
             }
 
         } catch (Exception e) {

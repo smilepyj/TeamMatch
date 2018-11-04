@@ -3,6 +3,8 @@ package kr.com.yangle.teammatch.network;
 import android.content.Context;
 import android.util.Log;
 
+import com.nhn.android.naverlogin.OAuthLogin;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -50,6 +52,16 @@ public class Service {
         }
     }
 
+    private void NaverOffer(String serviceURL, String serviceData, ResponseListener responseListener) {
+        try {
+            mApplicationTM.startProgress(mContext, "");
+
+            mDefinitionNetwork.NaverNetworking(serviceURL, serviceData, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "NaverOffer - " + e);
+        }
+    }
+
     /**
      * 로그인 서비스
      * Created by maloman72 on 2018-10-31
@@ -65,6 +77,16 @@ public class Service {
         } catch (Exception e) {
             Log.e(TAG, "userLogin - " + e);
         }
+    }
+
+    /**
+     * 네이버 아이디로 로그인 - 회원 프로필조회
+     * Created by maloman72 on 2018-11-04
+     * */
+    public void naverSearchProfile(ResponseListener responseListener, OAuthLogin oAuthLogin) {
+        String mURL = mContext.getString(R.string.login_naver_url);
+
+        NaverOffer(mURL, oAuthLogin.getAccessToken(mContext), responseListener);
     }
 
     /**
@@ -114,19 +136,19 @@ public class Service {
      * */
     public void searchMatchList(ResponseListener responseListener, String search_date, String search_time, String search_area, String search_ground, String search_team_member, String search_team_lvl) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + "match/searchMatchList";
-            String email_id = mApplicationTM.getUserEmail(), search_count = "50", search_page = "1";
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchmatchlist_service);
+            String email_id = mApplicationTM.getUserEmail();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put("email_id", email_id);
-            mJSONObject.put("search_date", search_date);
-            mJSONObject.put("search_time", search_time);
-            mJSONObject.put("search_area", search_area);
-            mJSONObject.put("search_ground", search_ground);
-            mJSONObject.put("search_team_member", search_team_member);
-            mJSONObject.put("search_team_lvl", search_team_lvl);
-            mJSONObject.put("search_count", search_count);
-            mJSONObject.put("search_page", search_page);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_date), search_date);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_time), search_time);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area), search_area);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_ground), search_ground);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_team_member), search_team_member);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_team_lvl), search_team_lvl);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_count), mContext.getString(R.string.searchmatchlist_param_search_count_data));
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_page), mContext.getString(R.string.searchmatchlist_param_search_page_data));
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {

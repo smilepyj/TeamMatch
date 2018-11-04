@@ -78,7 +78,6 @@ public class IntroActivity extends AppCompatActivity {
      * userLogin Service Listener
      * Created by maloman72 on 2018-11-02
      * */
-
     ResponseListener userLogin_Listener = new ResponseListener() {
         @Override
         public void receive(ResponseEvent responseEvent) {

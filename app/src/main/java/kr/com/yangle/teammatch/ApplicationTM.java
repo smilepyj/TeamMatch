@@ -50,18 +50,18 @@ public class ApplicationTM extends Application {
      * Created by maloman72 on 2018-11-01
      * */
     private void setMapbyCode() {
+        C001 = new HashMap<>();
         String[] C001_code = getResources().getStringArray(R.array.C001_code);
         String[] C001_data = getResources().getStringArray(R.array.C001_data);
 
-        C001 = new HashMap<String, String>();
         for(int i = 0; i < C001_code.length; i++) {
             C001.put(C001_code[i], C001_data[i]);
         }
 
+        C002 = new HashMap<>();
         String[] C002_code = getResources().getStringArray(R.array.C002_code);
         String[] C002_data = getResources().getStringArray(R.array.C002_data);
 
-        C002 = new HashMap<String, String>();
         for(int i = 0; i < C002_code.length; i++) {
             C002.put(C002_code[i], C002_data[i]);
         }
@@ -69,15 +69,15 @@ public class ApplicationTM extends Application {
         String[] C003_code = getResources().getStringArray(R.array.C003_code);
         String[] C003_data = getResources().getStringArray(R.array.C003_data);
 
-        C003 = new HashMap<String, String>();
+        C003 = new HashMap<>();
         for(int i = 0; i < C003_code.length; i++) {
             C003.put(C003_code[i], C003_data[i]);
         }
 
+        C004 = new HashMap<>();
         String[] C004_code = getResources().getStringArray(R.array.C004_code);
         String[] C004_data = getResources().getStringArray(R.array.C004_data);
 
-        C004 = new HashMap<String, String>();
         for(int i = 0; i < C004_code.length; i++) {
             C004.put(C004_code[i], C004_data[i]);
         }
@@ -130,7 +130,20 @@ public class ApplicationTM extends Application {
     }
 
     public String getUserEmail() {
-        return mSharedPreferences.getString("USER_EMAIL", "maloman72@winitech.com");
+        return mSharedPreferences.getString("USER_EMAIL", "");
+    }
+
+    /**
+     * Data 선언 - User Name
+     * Created by maloman72 on 2018-11-04
+     * */
+    public void setUserName(String name) {
+        mEditor.putString("USER_NAME", name);
+        mEditor.apply();
+    }
+
+    public String getUserName() {
+        return mSharedPreferences.getString("USER_NAME", "");
     }
 
     /**

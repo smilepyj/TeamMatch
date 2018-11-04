@@ -77,17 +77,17 @@ public class SearchResultListViewAdapter extends BaseAdapter {
         try {
             JSONObject mJSONObject = mDataJSONArray.getJSONObject(position);
 
-            tv_listview_search_result_area.setText(mJSONObject.get("match_hope_ground_sido_name").toString() + " - " + mJSONObject.get("match_hope_ground_gugun_name").toString());
-            tv_listview_search_result_ground.setText(mJSONObject.get("match_hope_ground_name").toString());
-            Date mDate = new SimpleDateFormat("yyyymmdd", Locale.getDefault()).parse(mJSONObject.get("match_hope_date").toString());
-            String mHopeDate = new SimpleDateFormat("yyyy년 mm월 dd일", Locale.getDefault()).format(mDate);
+            tv_listview_search_result_area.setText(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_ground_sido_name)).toString() + mContext.getString(R.string.search_result_list_hyphen) + mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_ground_gugun_name)).toString());
+            tv_listview_search_result_ground.setText(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_ground_name)).toString());
+            Date mDate = new SimpleDateFormat(mContext.getString(R.string.search_result_date_format_base), Locale.getDefault()).parse(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_date)).toString());
+            String mHopeDate = new SimpleDateFormat(mContext.getString(R.string.search_result_date_format_view), Locale.getDefault()).format(mDate);
             tv_listview_search_result_day.setText(mHopeDate);
-            Date mTime = new SimpleDateFormat("hhmmss", Locale.getDefault()).parse(mJSONObject.get("match_hope_time").toString());
-            String mHopeTime = new SimpleDateFormat("hh시 mm분", Locale.getDefault()).format(mTime);
+            Date mTime = new SimpleDateFormat(mContext.getString(R.string.search_result_time_format_base), Locale.getDefault()).parse(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_time)).toString());
+            String mHopeTime = new SimpleDateFormat(mContext.getString(R.string.search_result_time_format_view), Locale.getDefault()).format(mTime);
             tv_listview_search_result_time.setText(mHopeTime);
-            tv_listview_search_result_team_name.setText(mJSONObject.get("match_host_name").toString());
-            tv_listview_search_result_team_level.setText(mJSONObject.get("match_hope_team_lvl").toString());
-            tv_listview_search_result_team_member.setText(mJSONObject.get("match_hope_team_member").toString());
+            tv_listview_search_result_team_name.setText(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_host_name)).toString());
+            tv_listview_search_result_team_level.setText(mApplicationTM.getC002().get(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_team_lvl)).toString()));
+            tv_listview_search_result_team_member.setText(mApplicationTM.getC003().get(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_team_member)).toString()));
         } catch (Exception e) {
             Log.e(TAG, "getView - " + e);
             mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));

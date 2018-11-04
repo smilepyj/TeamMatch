@@ -50,6 +50,20 @@ public class DefinitionNetwork {
     }
 
     /**
+     * Naver API AsyncTask 호출부
+     * Created by maloman72 on 2018-11-04
+     * */
+    public void NaverNetworking(String serviceURL, String serviceData, ResponseListener responseListener) {
+        try {
+            NaverLoginAsyncTask mNaverLoginAsyncTask = new NaverLoginAsyncTask(responseListener);
+            mNaverLoginAsyncTask.execute(serviceURL, serviceData);
+        } catch (Exception e) {
+            Log.e(TAG, "NaverNetworking - " + e);
+            mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
+        }
+    }
+
+    /**
      * HttpURLConnection AsyncTask 정의
      * Created by maloman72 on 2018-10-31
      * */
@@ -132,4 +146,67 @@ public class DefinitionNetwork {
         return mString;
     }
 
+
+    /**
+     * Naver Login profile HttpURLConnection AsyncTask 정의
+     * Created by maloman72 on 2018-11-04
+     * */
+    private class NaverLoginAsyncTask extends AsyncTask<String, Void, ResponseEvent> {
+        private ResponseListener mResponseListener;
+
+        public NaverLoginAsyncTask(ResponseListener responseListener) {
+            mResponseListener = responseListener;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected ResponseEvent doInBackground(String... params) {
+            String resultData = null, serviceUrl = params[0], serviceData = "Bearer " + params[1];
+            HttpURLConnection mHttpURLConnection = null;
+
+            try {
+                URL mURL = new URL(serviceUrl);
+                mHttpURLConnection = (HttpURLConnection)mURL.openConnection();
+                mHttpURLConnection.setConnectTimeout(10000);
+                mHttpURLConnection.setReadTimeout(10000);
+                mHttpURLConnection.setRequestMethod("GET");
+                mHttpURLConnection.setRequestProperty("Authorization", serviceData);
+
+                int reponseCode = mHttpURLConnection.getResponseCode();
+
+                if(reponseCode == HttpURLConnection.HTTP_OK) {
+                    InputStream mInputStream = mHttpURLConnection.getInputStream();
+                    ByteArrayOutputStream mByteArrayOutputStream = new ByteArrayOutputStream();
+                    byte[] mByteBuffer = new byte[1024];
+                    byte[] mByteData;
+                    int mLength;
+
+                    while ((mLength = mInputStream.read(mByteBuffer, 0, mByteBuffer.length)) != -1) {
+                        mByteArrayOutputStream.write(mByteBuffer, 0, mLength);
+                    }
+
+                    mByteData = mByteArrayOutputStream.toByteArray();
+
+                    resultData = new String(mByteData);
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "ServiceAsyncTask - " + e);
+            } finally {
+                if(mHttpURLConnection != null) {
+                    mHttpURLConnection.disconnect();
+                }
+            }
+
+            return new ResponseEvent(resultData);
+        }
+
+        @Override
+        protected void onPostExecute(ResponseEvent responseEvent) {
+            mResponseListener.receive(responseEvent);
+        }
+    }
 }

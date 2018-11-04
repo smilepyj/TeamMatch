@@ -186,12 +186,17 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="9.75"
-                android:orientation="vertical">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="10">
 
                 <ListView
                     android:id="@+id/lv_search_result_match"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="0dp"
+                    android:layout_weight="9.75"
+                    android:divider="@null"
+                    android:dividerHeight="0dp" />
             </LinearLayout>
         </LinearLayout>
 

@@ -261,14 +261,14 @@ public class SearchingMatchActivity extends AppCompatActivity {
         DatePickerDialog mDatePickerDialog = new DatePickerDialog(mContext, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                String mDateData = String.format("%d%d%d", year, month + 1, dayOfMonth);
+                String mDateData = String.format(getString(R.string.searching_match_date_format_param), year, month + 1, dayOfMonth);
                 search_date = mDateData;
 
                 mCalendar.set(year, month, dayOfMonth);
                 SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat("EEEE", Locale.getDefault());
                 String mWeekDay = mSimpleDateFormat.format(mCalendar.getTime());
 
-                tv_searching_match_day.setText(String.format("%d년 %d월 %d일 %s", year, month + 1, dayOfMonth, mWeekDay));
+                tv_searching_match_day.setText(String.format(getString(R.string.searching_match_date_format_view), year, month + 1, dayOfMonth, mWeekDay));
 
             }
         }, mCalendar.get(Calendar.YEAR), mCalendar.get(Calendar.MONTH), mCalendar.get(Calendar.DATE));
@@ -285,10 +285,10 @@ public class SearchingMatchActivity extends AppCompatActivity {
         TimePickerDialog mTimePickerDialog = new TimePickerDialog(mContext, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                String mTimeData = String.format("%d%d%d", hourOfDay, minute, 00);
+                String mTimeData = String.format(getString(R.string.searching_match_time_format_param), hourOfDay, minute, 00);
                 search_time = mTimeData;
 
-                tv_searching_match_time.setText(String.format("%d시 %d분", hourOfDay, minute));
+                tv_searching_match_time.setText(String.format(getString(R.string.searching_match_time_format_view), hourOfDay, minute));
             }
         }, mCalendar.get(Calendar.HOUR_OF_DAY), mCalendar.get(Calendar.MINUTE), true);
 
@@ -321,14 +321,14 @@ public class SearchingMatchActivity extends AppCompatActivity {
         }
 
         Intent mIntent = new Intent(mContext, SearchResutActivity.class);
-        mIntent.putExtra("search_date", search_date);
-        mIntent.putExtra("search_time", search_time);
+        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_date), search_date);
+        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_time), search_time);
 //        mIntent.putExtra("search_area", search_area);
-        mIntent.putExtra("search_ground", mApplicationTM.ArrayListToStringParser(search_ground));
-        mIntent.putExtra("search_ground_cnt", search_ground.size());
-        mIntent.putExtra("search_team_member", search_team_member);
-        mIntent.putExtra("search_team_lvl", mApplicationTM.ArrayListToStringParser(search_team_lvl));
-        mIntent.putExtra("search_team_lvl_cnt", search_team_lvl.size());
+        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_ground), mApplicationTM.ArrayListToStringParser(search_ground));
+        mIntent.putExtra(getString(R.string.searching_match_extra_search_ground_cnt), search_ground.size());
+        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_team_member), search_team_member);
+        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_team_lvl), mApplicationTM.ArrayListToStringParser(search_team_lvl));
+        mIntent.putExtra(getString(R.string.searching_match_extra_search_team_lvl_cnt), search_team_lvl.size());
         startActivity(mIntent);
     }
 }

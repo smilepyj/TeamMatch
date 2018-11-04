@@ -16,6 +16,9 @@
     <string name="alert_dialog_cancel">취소</string>
     <string name="alert_dialog_exit">종료</string>
 
+    <!-- Login Activity -->
+    <string name="login_kakao_not_support">카카오톡 로그인은 아직 지원하지 않습니다.\n네이버 로그인을 이용해 주세요.</string>
+
     <!-- UserInfo Activity -->
     <string name="user_info_intent_extra">ACTIVITY_TYPE</string>
     <string name="user_info_type_input">INPUT</string>
@@ -36,5 +39,25 @@
     <string name="searching_match_hope_grounds_2">수성풋살장</string>
     <string name="searching_match_hope_grounds_3">복현풋살클럽</string>
     <string name="searching_match_hope_grounds_4">반야월풋살장</string>
+
+    <string name="searching_match_date_format_param">%d%d%d</string>
+    <string name="searching_match_date_format_view">%d년 %d월 %d일 %s</string>
+    <string name="searching_match_time_format_param">%d%d%d</string>
+    <string name="searching_match_time_format_view">%d시 %d분</string>
+
+    <string name="searching_match_extra_search_ground_cnt">search_ground_cnt</string>
+    <string name="searching_match_extra_search_team_lvl_cnt">search_team_lvl_cnt</string>
+
+    <!-- SearchResult Activity -->
+    <string name="search_result_date_format_base">yyyymmdd</string>
+    <string name="search_result_date_format_view">yyyy년 mm월 dd일</string>
+    <string name="search_result_time_format_base">hhmmss</string>
+    <string name="search_result_time_format_view">hh시 mm분</string>
+    
+    <string name="search_result_nothing_time">시간 무관</string>
+    <string name="search_result_nothing_member">인원 무관</string>
+    <string name="search_result_nothing_level">레벨 무관</string>
+    
+    <string name="search_result_list_hyphen"> - </string>
 
 </resources>

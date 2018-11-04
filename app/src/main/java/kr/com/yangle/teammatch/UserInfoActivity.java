@@ -99,6 +99,8 @@ public class UserInfoActivity extends AppCompatActivity {
             bt_user_info_save.setText(getString(R.string.user_info_update));
 
             mService.searchUserInfo(searchUserInfo_Listener, mApplicationTM.getUserEmail());
+        } else {
+            et_user_info_user_name.setText(mApplicationTM.getUserName());
         }
     }
 

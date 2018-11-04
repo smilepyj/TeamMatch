@@ -3,6 +3,14 @@
     <!-- Naver Login Data -->
     <string name="login_naver_client_id">NLUdTPJLKxmZ0qCaYnaS</string>
     <string name="login_naver_client_secret">Hyy3LgZI30</string>
+    <string name="login_naver_url">https://openapi.naver.com/v1/nid/me</string>
+    <string name="login_naver_result_code">resultcode</string>
+    <string name="login_naver_response">response</string>
+
+    <string name="login_naver_result_email">email</string>
+    <string name="login_naver_result_name">name</string>
+
+    <string name="login_naver_success">00</string>
 
     <!-- Service URL -->
     <string name="service_url">http://fm0800.cafe24.com:15101/tmServer/</string>
@@ -53,5 +61,17 @@
     <string name="searchmatchlist_param_search_team_member">search_team_member</string>
     <string name="searchmatchlist_param_search_team_lvl">search_team_lvl</string>
     <string name="searchmatchlist_param_search_count">search_count</string>
+    <string name="searchmatchlist_param_search_count_data">50</string>
     <string name="searchmatchlist_param_search_page">search_page</string>
+    <string name="searchmatchlist_param_search_page_data">1</string>
+
+    <string name="searchmatchlist_result_match_hope_ground_sido_name">match_hope_ground_sido_name</string>
+    <string name="searchmatchlist_result_match_hope_ground_gugun_name">match_hope_ground_gugun_name</string>
+    <string name="searchmatchlist_result_match_hope_ground_name">match_hope_ground_name</string>
+    <string name="searchmatchlist_result_match_hope_date">match_hope_date</string>
+    <string name="searchmatchlist_result_match_hope_time">match_hope_time</string>
+    <string name="searchmatchlist_result_match_host_name">match_host_name</string>
+    <string name="searchmatchlist_result_match_hope_team_lvl">match_hope_team_lvl</string>
+    <string name="searchmatchlist_result_match_hope_team_member">match_hope_team_member</string>
+
 </resources>
