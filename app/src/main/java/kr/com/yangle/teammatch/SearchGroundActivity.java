@@ -57,7 +57,7 @@ public class SearchGroundActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(getString(R.string.search_result_title));
+        getSupportActionBar().setTitle(getString(R.string.search_ground_title));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
 
@@ -88,6 +88,9 @@ public class SearchGroundActivity extends AppCompatActivity {
 
         lv_search_ground_type_3_1.setOnItemClickListener(mOnItemClickListener_3_1);
         lv_search_ground_type_3_2.setOnItemClickListener(mOnItemClickListener_3_2);
+
+
+        bt_search_ground_type_1.setSelected(true);
 
         /*tv_search_result_ground = findViewById(R.id.tv_search_result_ground);
         tv_search_result_date = findViewById(R.id.tv_search_result_date);
@@ -130,6 +133,9 @@ public class SearchGroundActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.bt_search_ground_type_1 :
+                    setButtonGroundType();
+                    bt_search_ground_type_1.setSelected(true);
+
                     ll_search_ground_type_1.setVisibility(View.VISIBLE);
                     ll_search_ground_type_2.setVisibility(View.GONE);
                     ll_search_ground_type_3.setVisibility(View.GONE);
@@ -143,6 +149,9 @@ public class SearchGroundActivity extends AppCompatActivity {
                     mService.searchGroundList(searchGroundList1_Listener, search_type_code, search_loc_lat, search_loc_lon, search_area_code, search_area_group_code);
                     break;
                 case R.id.bt_search_ground_type_2 :
+                    setButtonGroundType();
+                    bt_search_ground_type_2.setSelected(true);
+
                     ll_search_ground_type_1.setVisibility(View.GONE);
                     ll_search_ground_type_2.setVisibility(View.VISIBLE);
                     ll_search_ground_type_3.setVisibility(View.GONE);
@@ -156,6 +165,9 @@ public class SearchGroundActivity extends AppCompatActivity {
                     mService.searchGroundList(searchGroundList2_Listener, search_type_code, search_loc_lat, search_loc_lon, search_area_code, search_area_group_code);
                     break;
                 case R.id.bt_search_ground_type_3 :
+                    setButtonGroundType();
+                    bt_search_ground_type_3.setSelected(true);
+
                     JSONArray mJSONArray = new JSONArray();
                     SearchGroundType3_2ListViewAdapter mSearchGroundType3_2ListViewAdapter = new SearchGroundType3_2ListViewAdapter(mContext, mJSONArray);
                     lv_search_ground_type_3_2.setAdapter(mSearchGroundType3_2ListViewAdapter);
@@ -237,6 +249,16 @@ public class SearchGroundActivity extends AppCompatActivity {
         }
 
     };
+
+    /**
+     * 구장 선택 종류 탭 초기화
+     * Created by maloman72 on 2018-11-04
+     * */
+    private void setButtonGroundType() {
+        bt_search_ground_type_1.setSelected(false);
+        bt_search_ground_type_2.setSelected(false);
+        bt_search_ground_type_3.setSelected(false);
+    }
 
 //    /**
 //     * 화면 진입 시 검색 조건 정보 로딩
