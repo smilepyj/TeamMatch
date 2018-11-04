@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -29,7 +31,7 @@ public class SearchGroundType1ListViewAdapter extends BaseAdapter {
     private Context mContext;
     private ApplicationTM mApplicationTM;
 
-    private String ground_id;
+    private boolean[] isCheckedConfrim;
 
     public SearchGroundType1ListViewAdapter(Context context, JSONArray jsonArray) {
         mDataJSONArray = jsonArray;
@@ -37,6 +39,8 @@ public class SearchGroundType1ListViewAdapter extends BaseAdapter {
 
         mContext = context;
         mApplicationTM = (ApplicationTM) mContext.getApplicationContext();
+
+        isCheckedConfrim = new boolean[mDataJSONArrayCnt];
     }
 
     @Override
@@ -46,7 +50,11 @@ public class SearchGroundType1ListViewAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        try {
+            return mDataJSONArray.get(position);
+        }catch(Exception e) {
+            return null;
+        }
     }
 
     @Override
@@ -54,7 +62,56 @@ public class SearchGroundType1ListViewAdapter extends BaseAdapter {
         return 0;
     }
 
-    public String getGround_id() { return ground_id; }
+    public Object getItems() {
+        return mDataJSONArray;
+    }
+
+    public void setAllChecked(boolean ischeked) {
+        int tempSize = isCheckedConfrim.length;
+        for(int a=0 ; a<tempSize ; a++){
+            isCheckedConfrim[a] = ischeked;
+        }
+    }
+
+    public void setChecked(int position) {
+        isCheckedConfrim[position] = !isCheckedConfrim[position];
+    }
+
+    public void setChecked(int position, boolean ischeked) {
+        isCheckedConfrim[position] = ischeked;
+    }
+
+    public boolean getChecked(int position) {
+        return isCheckedConfrim[position];
+    }
+
+    public boolean[] getCheckedAll() {
+        return isCheckedConfrim;
+    }
+
+    public ArrayList<Integer> getChecked(){
+        int tempSize = isCheckedConfrim.length;
+        ArrayList<Integer> mArrayList = new ArrayList<Integer>();
+        for(int b=0 ; b<tempSize ; b++){
+            if(isCheckedConfrim[b]){
+                mArrayList.add(b);
+            }
+        }
+        return mArrayList;
+    }
+
+    public boolean isTotalChecked() {
+        boolean bTemp = true;
+
+        int tempSize = isCheckedConfrim.length;
+        for(int i = 1 ; i < tempSize ; i++){
+            if(!isCheckedConfrim[i]){
+                bTemp = false;
+                break;
+            }
+        }
+        return bTemp;
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -68,12 +125,15 @@ public class SearchGroundType1ListViewAdapter extends BaseAdapter {
             convertView = mLayoutInflater.inflate(R.layout.listview_search_ground_type_1, parent, false);
         }
 
+        CheckBox cb_listview_search_ground = convertView.findViewById(R.id.cb_listview_search_ground);
         TextView tv_listview_search_ground_type_1 = convertView.findViewById(R.id.tv_listview_search_ground_type_1);
 
         try {
             JSONObject mJSONObject = mDataJSONArray.getJSONObject(position);
 
-            ground_id = mJSONObject.get("ground_id").toString();
+            cb_listview_search_ground.setClickable(false);
+            cb_listview_search_ground.setFocusable(false);
+            cb_listview_search_ground.setChecked(isCheckedConfrim[position]);
             tv_listview_search_ground_type_1.setText(mJSONObject.get("ground_name").toString());
         } catch (Exception e) {
             Log.e(TAG, "getView - " + e);

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,7 @@ public class SearchingMatchActivity extends AppCompatActivity {
     Toolbar toolbar;
 
     ArrayList<String> search_ground, search_area, search_team_lvl;
+    ArrayList<String> search_ground_name;
     String search_date = "-", search_time = "-", search_team_member = "-";
 
     LinearLayout ll_searching_match_field, ll_searching_match_day, ll_searching_match_time;
@@ -38,6 +40,9 @@ public class SearchingMatchActivity extends AppCompatActivity {
 
     Button bt_searching_match_time_nothing, bt_searching_match_number_nothing, bt_searching_match_number_5, bt_searching_match_number_6, bt_searching_match_level_challenger, bt_searching_match_level_diamond,
             bt_searching_match_level_platinum, bt_searching_match_level_gold, bt_searching_match_level_silver, bt_searching_match_level_nothing, bt_searching_match_search;
+
+    String intent_search_area, intent_search_ground;
+    int intent_search_ground_cnt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +93,26 @@ public class SearchingMatchActivity extends AppCompatActivity {
         bt_searching_match_level_silver.setOnClickListener(mOnClickListener);
         bt_searching_match_level_nothing.setOnClickListener(mOnClickListener);
         bt_searching_match_search.setOnClickListener(mOnClickListener);
+
+
+        //search_area = getIntent().getStringArrayListExtra(getString(R.string.searchmatchlist_param_search_area));
+        search_ground = getIntent().getStringArrayListExtra(getString(R.string.searchmatchlist_param_search_ground));
+        search_ground_name = getIntent().getStringArrayListExtra("search_ground_name");
+
+        if(search_ground_name != null) {
+
+            String ground_text = "";
+
+            for (int i = 0; i < search_ground_name.size(); i++) {
+                if (i != 0)
+                    ground_text += ", ";
+                ground_text += search_ground_name.get(i);
+            }
+
+            Log.e(TAG, ground_text);
+
+            tv_searching_match_field.setText(ground_text);
+        }
 
         setLoadTeamLevel();
     }

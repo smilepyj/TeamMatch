@@ -1,6 +1,7 @@
 package kr.com.yangle.teammatch;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +15,11 @@ import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import kr.com.yangle.teammatch.adapter.SearchGroundType1ListViewAdapter;
 import kr.com.yangle.teammatch.adapter.SearchGroundType2ListViewAdapter;
@@ -35,9 +41,17 @@ public class SearchGroundActivity extends AppCompatActivity {
     Toolbar toolbar;
 
     String search_type_code, search_loc_lat, search_loc_lon, search_area_code, area_group_code, search_area_group_code;
-    Button bt_search_ground_type_1, bt_search_ground_type_2, bt_search_ground_type_3;
+    Button bt_search_ground_type_1, bt_search_ground_type_2, bt_search_ground_type_3, bt_search_ground_select_end;
     ListView lv_search_ground_type_1, lv_search_ground_type_2, lv_search_ground_type_3_1, lv_search_ground_type_3_2, lv_search_ground_type_3_3;
     LinearLayout ll_search_ground_type_1, ll_search_ground_type_2, ll_search_ground_type_3;
+
+    SearchGroundType1ListViewAdapter mSearchGroundType1ListViewAdapter;
+    SearchGroundType2ListViewAdapter mSearchGroundType2ListViewAdapter;
+    SearchGroundType3_1ListViewAdapter mSearchGroundType3_1ListViewAdapter;
+    SearchGroundType3_2ListViewAdapter mSearchGroundType3_2ListViewAdapter;
+    SearchGroundType3_3ListViewAdapter mSearchGroundType3_3ListViewAdapter;
+
+    List<JSONObject> search_grounds = new ArrayList<JSONObject>();
 
 //    String search_date, search_time, search_ground, search_team_member, search_team_lvl;
 //    int search_ground_cnt, search_team_lvl_cnt;
@@ -71,6 +85,7 @@ public class SearchGroundActivity extends AppCompatActivity {
         bt_search_ground_type_1 = findViewById(R.id.bt_search_ground_type_1);
         bt_search_ground_type_2 = findViewById(R.id.bt_search_ground_type_2);
         bt_search_ground_type_3 = findViewById(R.id.bt_search_ground_type_3);
+        bt_search_ground_select_end = findViewById(R.id.bt_search_ground_select_end);
 
         lv_search_ground_type_1 = findViewById(R.id.lv_search_ground_type_1);
         lv_search_ground_type_2 = findViewById(R.id.lv_search_ground_type_2);
@@ -85,35 +100,15 @@ public class SearchGroundActivity extends AppCompatActivity {
         bt_search_ground_type_1.setOnClickListener(mOnClickListener);
         bt_search_ground_type_2.setOnClickListener(mOnClickListener);
         bt_search_ground_type_3.setOnClickListener(mOnClickListener);
+        bt_search_ground_select_end.setOnClickListener(mOnClickListener);
 
+        lv_search_ground_type_1.setOnItemClickListener(mOnItemClickListener_1);
         lv_search_ground_type_3_1.setOnItemClickListener(mOnItemClickListener_3_1);
         lv_search_ground_type_3_2.setOnItemClickListener(mOnItemClickListener_3_2);
 
 
         bt_search_ground_type_1.setSelected(true);
 
-        /*tv_search_result_ground = findViewById(R.id.tv_search_result_ground);
-        tv_search_result_date = findViewById(R.id.tv_search_result_date);
-        tv_search_result_time = findViewById(R.id.tv_search_result_time);
-        tv_search_result_member = findViewById(R.id.tv_search_result_member);
-        tv_search_result_level = findViewById(R.id.tv_search_result_level);
-        bt_search_result_change_condition = findViewById(R.id.bt_search_result_change_condition);
-
-        lv_search_result_match = findViewById(R.id.lv_search_result_match);
-
-        bt_search_result_change_condition.setOnClickListener(mOnClickListener);
-
-        search_date = getIntent().getStringExtra("search_date");
-        search_time = getIntent().getStringExtra("search_time");
-        search_ground = getIntent().getStringExtra("search_ground");
-        search_ground_cnt = getIntent().getIntExtra("search_ground_cnt", 0);
-        search_team_member = getIntent().getStringExtra("search_team_member");
-        search_team_lvl = getIntent().getStringExtra("search_team_lvl");
-        search_team_lvl_cnt = getIntent().getIntExtra("search_team_lvl_cnt", 0);
-
-        setSearchCondition();
-
-        mService.searchMatchList(searchMatchList_Listener, search_date, search_time, "", search_ground, search_team_member, search_team_lvl);*/
     }
 
     @Override
@@ -169,9 +164,9 @@ public class SearchGroundActivity extends AppCompatActivity {
                     bt_search_ground_type_3.setSelected(true);
 
                     JSONArray mJSONArray = new JSONArray();
-                    SearchGroundType3_2ListViewAdapter mSearchGroundType3_2ListViewAdapter = new SearchGroundType3_2ListViewAdapter(mContext, mJSONArray);
+                    mSearchGroundType3_2ListViewAdapter = new SearchGroundType3_2ListViewAdapter(mContext, mJSONArray);
                     lv_search_ground_type_3_2.setAdapter(mSearchGroundType3_2ListViewAdapter);
-                    SearchGroundType3_3ListViewAdapter mSearchGroundType3_3ListViewAdapter = new SearchGroundType3_3ListViewAdapter(mContext, mJSONArray);
+                    mSearchGroundType3_3ListViewAdapter = new SearchGroundType3_3ListViewAdapter(mContext, mJSONArray);
                     lv_search_ground_type_3_3.setAdapter(mSearchGroundType3_3ListViewAdapter);
 
                     ll_search_ground_type_1.setVisibility(View.GONE);
@@ -180,10 +175,79 @@ public class SearchGroundActivity extends AppCompatActivity {
 
                     mService.searchAreaGroupList(searchAreaGroupList_Listener);
                     break;
+                case R.id.bt_search_ground_select_end :
+                    try {
+                        ArrayList<String> search_ground_ids = new ArrayList<String>();
+                        ArrayList<String> search_ground_names = new ArrayList<String>();
+                        for (JSONObject search_ground : search_grounds) {
+                            search_ground_ids.add(search_ground.get("ground_id").toString());
+                            search_ground_names.add(search_ground.get("ground_name").toString());
+                        }
+
+                        Intent mIntent = new Intent(mContext, SearchingMatchActivity.class);
+                        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_area), "");
+                        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_ground), search_ground_ids);
+                        mIntent.putExtra("search_ground_name", search_ground_names);
+                        startActivity(mIntent);
+                    }catch(Exception e) {
+                        mApplicationTM.makeToast(mContext, getString(R.string.error_network));
+                        Log.e(TAG, "mOnClickListener - " + e);
+                    }
+
+                    break;
                 default :
                     break;
             }
         }
+    };
+
+    AdapterView.OnItemClickListener mOnItemClickListener_1 = new AdapterView.OnItemClickListener() {
+
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View v, int position, long id) {
+
+            try {
+                JSONObject jsonObject = (JSONObject) adapterView.getAdapter().getItem(position);
+
+                String ground_id = jsonObject.get("ground_id")==null?"":jsonObject.get("ground_id").toString();
+
+                Log.e(TAG, ground_id + "");
+
+                boolean curChecked = mSearchGroundType1ListViewAdapter.getChecked(position);
+
+                if("".equals(ground_id)) {
+                    mSearchGroundType1ListViewAdapter.setAllChecked(!curChecked);
+                }else {
+                    mSearchGroundType1ListViewAdapter.setChecked(position);
+                    if(mSearchGroundType1ListViewAdapter.isTotalChecked()) {
+                        mSearchGroundType1ListViewAdapter.setChecked(0, true);
+                    }else {
+                        mSearchGroundType1ListViewAdapter.setChecked(0, false);
+                    }
+                }
+                mSearchGroundType1ListViewAdapter.notifyDataSetChanged();
+
+                search_grounds.clear();
+
+                boolean[] isCheckedAll = mSearchGroundType1ListViewAdapter.getCheckedAll();
+
+                for(int i = 1 ; i < isCheckedAll.length ; i++) {
+                    if(isCheckedAll[i]) {
+                        mSearchGroundType1ListViewAdapter.getItem(i);
+                        search_grounds.add((JSONObject) mSearchGroundType1ListViewAdapter.getItem(i));
+                    }
+                }
+
+                Log.e(TAG, search_grounds + "");
+
+
+            }catch(Exception e) {
+                mApplicationTM.makeToast(mContext, getString(R.string.error_network));
+                Log.e(TAG, "mOnItemClickListener - " + e);
+            }
+
+        }
+
     };
 
     AdapterView.OnItemClickListener mOnItemClickListener_3_1 = new AdapterView.OnItemClickListener() {
@@ -193,9 +257,8 @@ public class SearchGroundActivity extends AppCompatActivity {
 
             try {
                 JSONArray mJSONArray = new JSONArray();
-                SearchGroundType3_3ListViewAdapter mSearchGroundType3_3ListViewAdapter = new SearchGroundType3_3ListViewAdapter(mContext, mJSONArray);
+                mSearchGroundType3_3ListViewAdapter = new SearchGroundType3_3ListViewAdapter(mContext, mJSONArray);
                 lv_search_ground_type_3_3.setAdapter(mSearchGroundType3_3ListViewAdapter);
-
 
                 JSONObject jsonObject = (JSONObject) adapterView.getAdapter().getItem(position);
 
@@ -260,48 +323,6 @@ public class SearchGroundActivity extends AppCompatActivity {
         bt_search_ground_type_3.setSelected(false);
     }
 
-//    /**
-//     * 화면 진입 시 검색 조건 정보 로딩
-//     * Created by maloman72 on 2018-11-01
-//     * */
-//    private void setSearchCondition() {
-//        try {
-//            if(search_ground_cnt > 1) {
-//                tv_search_result_ground.setText(getString(R.string.search_result_condition_ground) + "(" + search_ground_cnt + ")");
-//            } else if (search_ground_cnt == 1) {
-//                tv_search_result_ground.setText(search_ground);
-//            }
-//
-//            Date mDate = new SimpleDateFormat("yyyymmdd", Locale.getDefault()).parse(search_date);
-//            String mHopeDate = new SimpleDateFormat("yyyy년 mm월 dd일", Locale.getDefault()).format(mDate);
-//            tv_search_result_date.setText(mHopeDate);
-//
-//            if(!"".equals(search_time)) {
-//                Date mTime = new SimpleDateFormat("hhmmss", Locale.getDefault()).parse(search_time);
-//                String mHopeTime = new SimpleDateFormat("hh시 mm분", Locale.getDefault()).format(mTime);
-//                tv_search_result_time.setText(mHopeTime);
-//            } else {
-//                tv_search_result_time.setText("시간 무관");
-//            }
-//
-//            if(!"".equals(search_team_member)) {
-//                tv_search_result_member.setText(search_team_member);
-//            } else {
-//                tv_search_result_member.setText("인원 무관");
-//            }
-//
-//            if(search_team_lvl_cnt != 0) {
-//                tv_search_result_level.setText(getString(R.string.search_result_condition_level) + "(" + search_team_lvl_cnt + ")");
-//            } else {
-//                tv_search_result_level.setText("레벨 무관");
-//            }
-//
-//        } catch (Exception e) {
-//            Log.e(TAG, "setSearchCondition - " + e);
-//        }
-//
-//    }
-
     ResponseListener searchGroundList1_Listener = new ResponseListener() {
         @Override
         public void receive(ResponseEvent responseEvent) {
@@ -313,7 +334,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
 
-                    SearchGroundType1ListViewAdapter mSearchGroundType1ListViewAdapter = new SearchGroundType1ListViewAdapter(mContext, mJSONArray);
+                    mSearchGroundType1ListViewAdapter = new SearchGroundType1ListViewAdapter(mContext, mJSONArray);
                     lv_search_ground_type_1.setAdapter(mSearchGroundType1ListViewAdapter);
 
                 } else {
@@ -339,7 +360,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
 
-                    SearchGroundType2ListViewAdapter mSearchGroundType2ListViewAdapter = new SearchGroundType2ListViewAdapter(mContext, mJSONArray);
+                    mSearchGroundType2ListViewAdapter = new SearchGroundType2ListViewAdapter(mContext, mJSONArray);
                     lv_search_ground_type_2.setAdapter(mSearchGroundType2ListViewAdapter);
 
                 } else {
@@ -365,13 +386,13 @@ public class SearchGroundActivity extends AppCompatActivity {
                 if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
 
-                    SearchGroundType3_3ListViewAdapter mSearchGroundType3_3ListViewAdapter = new SearchGroundType3_3ListViewAdapter(mContext, mJSONArray);
+                    mSearchGroundType3_3ListViewAdapter = new SearchGroundType3_3ListViewAdapter(mContext, mJSONArray);
                     lv_search_ground_type_3_3.setAdapter(mSearchGroundType3_3ListViewAdapter);
 
                 } else if(mContext.getString(R.string.service_nothing).equals(mJSONObject.get(getString(R.string.result_code)))){
                     JSONArray mJSONArray = new JSONArray();
 
-                    SearchGroundType3_3ListViewAdapter mSearchGroundType3_3ListViewAdapter = new SearchGroundType3_3ListViewAdapter(mContext, mJSONArray);
+                    mSearchGroundType3_3ListViewAdapter = new SearchGroundType3_3ListViewAdapter(mContext, mJSONArray);
                     lv_search_ground_type_3_3.setAdapter(mSearchGroundType3_3ListViewAdapter);
 
                     mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
@@ -398,7 +419,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
 
-                    SearchGroundType3_1ListViewAdapter mSearchGroundType3_1ListViewAdapter = new SearchGroundType3_1ListViewAdapter(mContext, mJSONArray);
+                    mSearchGroundType3_1ListViewAdapter = new SearchGroundType3_1ListViewAdapter(mContext, mJSONArray);
                     lv_search_ground_type_3_1.setAdapter(mSearchGroundType3_1ListViewAdapter);
 
                 } else {
@@ -424,7 +445,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
 
-                    SearchGroundType3_2ListViewAdapter mSearchGroundType3_2ListViewAdapter = new SearchGroundType3_2ListViewAdapter(mContext, mJSONArray);
+                    mSearchGroundType3_2ListViewAdapter = new SearchGroundType3_2ListViewAdapter(mContext, mJSONArray);
                     lv_search_ground_type_3_2.setAdapter(mSearchGroundType3_2ListViewAdapter);
 
                 } else {

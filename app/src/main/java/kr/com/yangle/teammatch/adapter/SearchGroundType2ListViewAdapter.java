@@ -11,6 +11,8 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import kr.com.yangle.teammatch.ApplicationTM;
 import kr.com.yangle.teammatch.R;
 
@@ -24,7 +26,7 @@ public class SearchGroundType2ListViewAdapter extends BaseAdapter {
     private Context mContext;
     private ApplicationTM mApplicationTM;
 
-    private String ground_id;
+    private boolean[] isCheckedConfrim;
 
     public SearchGroundType2ListViewAdapter(Context context, JSONArray jsonArray) {
         mDataJSONArray = jsonArray;
@@ -32,6 +34,8 @@ public class SearchGroundType2ListViewAdapter extends BaseAdapter {
 
         mContext = context;
         mApplicationTM = (ApplicationTM) mContext.getApplicationContext();
+
+        isCheckedConfrim = new boolean[mDataJSONArrayCnt];
     }
 
     @Override
@@ -41,7 +45,11 @@ public class SearchGroundType2ListViewAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        try {
+            return mDataJSONArray.get(position);
+        }catch(Exception e) {
+            return null;
+        }
     }
 
     @Override
@@ -49,7 +57,31 @@ public class SearchGroundType2ListViewAdapter extends BaseAdapter {
         return 0;
     }
 
-    public String getGround_id() { return ground_id; }
+    public void setAllChecked(boolean ischeked) {
+        int tempSize = isCheckedConfrim.length;
+        for(int a=0 ; a<tempSize ; a++){
+            isCheckedConfrim[a] = ischeked;
+        }
+    }
+
+    public void setChecked(int position) {
+        isCheckedConfrim[position] = !isCheckedConfrim[position];
+    }
+
+    public boolean getChecked(int position) {
+        return isCheckedConfrim[position];
+    }
+
+    public ArrayList<Integer> getChecked(){
+        int tempSize = isCheckedConfrim.length;
+        ArrayList<Integer> mArrayList = new ArrayList<Integer>();
+        for(int b=0 ; b<tempSize ; b++){
+            if(isCheckedConfrim[b]){
+                mArrayList.add(b);
+            }
+        }
+        return mArrayList;
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -69,7 +101,6 @@ public class SearchGroundType2ListViewAdapter extends BaseAdapter {
         try {
             JSONObject mJSONObject = mDataJSONArray.getJSONObject(position);
 
-            ground_id = mJSONObject.get("ground_id").toString();
             tv_listview_search_ground_type_2_1.setText(mJSONObject.get("ground_name").toString());
 
             double distance = Math.round((double)mJSONObject.get("distance")*10)/10.0;

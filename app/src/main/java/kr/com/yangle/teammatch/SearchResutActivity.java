@@ -114,11 +114,12 @@ public class SearchResutActivity extends AppCompatActivity {
      * */
     private void setSearchCondition() {
         try {
-            if(search_ground_cnt > 1) {
-                tv_search_result_ground.setText(getString(R.string.search_result_condition_ground) + "(" + search_ground_cnt + ")");
-            } else if (search_ground_cnt == 1) {
-                tv_search_result_ground.setText(search_ground);
-            }
+            tv_search_result_ground.setText(getString(R.string.search_result_condition_ground) + "(" + search_ground_cnt + ")");
+//            if(search_ground_cnt > 1) {
+//                tv_search_result_ground.setText(getString(R.string.search_result_condition_ground) + "(" + search_ground_cnt + ")");
+//            } else if (search_ground_cnt == 1) {
+//                tv_search_result_ground.setText(search_ground);
+//            }
 
             Date mDate = new SimpleDateFormat(getString(R.string.search_result_date_format_base), Locale.getDefault()).parse(search_date);
             String mHopeDate = new SimpleDateFormat(getString(R.string.search_result_date_format_view), Locale.getDefault()).format(mDate);
