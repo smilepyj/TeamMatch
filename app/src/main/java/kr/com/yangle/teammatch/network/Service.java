@@ -119,7 +119,7 @@ public class Service {
      * */
     public void searchUserInfo(ResponseListener responseListener, String email_id) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchuserinfo_email_id);
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchuserinfo_service);
 
             JSONObject mJSONObject = new JSONObject();
             mJSONObject.put(mContext.getString(R.string.searchuserinfo_email_id), email_id);

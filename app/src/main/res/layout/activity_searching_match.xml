@@ -179,6 +179,7 @@
 
                             <Button
                                 android:id="@+id/bt_searching_match_time_nothing"
+                                style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
@@ -235,6 +236,7 @@
 
                             <Button
                                 android:id="@+id/bt_searching_match_number_nothing"
+                                style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2.75"
@@ -251,6 +253,7 @@
 
                             <Button
                                 android:id="@+id/bt_searching_match_number_5"
+                                style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2.75"
@@ -267,6 +270,7 @@
 
                             <Button
                                 android:id="@+id/bt_searching_match_number_6"
+                                style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2.75"
@@ -326,6 +330,7 @@
 
                             <Button
                                 android:id="@+id/bt_searching_match_level_challenger"
+                                style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.4"
@@ -337,6 +342,7 @@
 
                             <Button
                                 android:id="@+id/bt_searching_match_level_diamond"
+                                style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.8"
@@ -348,6 +354,7 @@
 
                             <Button
                                 android:id="@+id/bt_searching_match_level_platinum"
+                                style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.4"
@@ -359,6 +366,7 @@
 
                             <Button
                                 android:id="@+id/bt_searching_match_level_gold"
+                                style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.8"
@@ -370,6 +378,7 @@
 
                             <Button
                                 android:id="@+id/bt_searching_match_level_silver"
+                                style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.4"
@@ -381,6 +390,7 @@
 
                             <Button
                                 android:id="@+id/bt_searching_match_level_nothing"
+                                style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.8"
@@ -417,6 +427,7 @@
 
                     <Button
                         android:id="@+id/bt_searching_match_search"
+                        style="?android:attr/borderlessButtonStyle"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="8"
