@@ -8,17 +8,18 @@
     tools:context=".SearchingMatchActivity">
 
     <android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="@color/colorPrimary"
-    android:gravity="center"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    app:titleTextColor="@color/color_toolbar_title" />
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:titleTextColor="@color/color_toolbar_title" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorWhite"
         android:gravity="center"
         android:orientation="horizontal"
         android:weightSum="10">
@@ -72,8 +73,8 @@
                             android:id="@+id/tv_searching_match_field"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/searching_match_field_bssic"
                             android:singleLine="true"
+                            android:text="@string/searching_match_field_bssic"
                             android:textColor="@color/color_searchingmatch_select"
                             android:textSize="@dimen/font_size_25" />
 
@@ -184,7 +185,7 @@
                                 android:background="@drawable/selector_button_search"
                                 android:text="@string/searching_match_time_nothing"
                                 android:textColor="@drawable/selector_button_search_text"
-                                android:textSize="@dimen/font_size_18"/>
+                                android:textSize="@dimen/font_size_18" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -303,9 +304,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:singleLine="true"
                             android:text="@string/searching_match_select_level"
                             android:textColor="@color/color_searchingmatch_title"
-                            android:singleLine="true"
                             android:textSize="@dimen/font_size_20" />
                     </LinearLayout>
 
