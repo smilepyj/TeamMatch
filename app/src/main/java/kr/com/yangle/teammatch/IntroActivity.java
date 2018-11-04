@@ -74,14 +74,17 @@ public class IntroActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    /**
+     * userLogin Service Listener
+     * Created by maloman72 on 2018-11-02
+     * */
+
     ResponseListener userLogin_Listener = new ResponseListener() {
         @Override
         public void receive(ResponseEvent responseEvent) {
             try {
                 if(responseEvent.getResultData() != null) {
                     JSONObject mJSONObject = new JSONObject(responseEvent.getResultData());
-
-                    Log.e(TAG, mJSONObject.toString());
 
                     if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                         JSONObject mResult = mJSONObject.getJSONObject(mContext.getString(R.string.result_data));

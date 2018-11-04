@@ -35,8 +35,6 @@ public class UserInfoActivity extends AppCompatActivity {
 
     String mActivityType;
 
-    String[] C001, C002;
-
     EditText et_user_info_user_name, et_user_info_phone_number, et_user_info_team_name;
 
     Button bt_user_info_hope_grounds_1, bt_user_info_hope_grounds_2, bt_user_info_hope_grounds_3, bt_user_info_hope_grounds_4;
@@ -53,9 +51,6 @@ public class UserInfoActivity extends AppCompatActivity {
         mApplicationTM = (ApplicationTM) getApplication();
 
         mService = new Service(mContext);
-
-        C001 = getResources().getStringArray(R.array.C001);
-        C002 = getResources().getStringArray(R.array.C002);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -262,15 +257,15 @@ public class UserInfoActivity extends AppCompatActivity {
             return;
         } else {
             if(bt_user_info_age_10.isSelected()) {
-                team_age_code = C001[0];
+                team_age_code = getResources().getStringArray(R.array.C001_code)[0];
             } else if(bt_user_info_age_20.isSelected()) {
-                team_age_code = C001[1];
+                team_age_code = getResources().getStringArray(R.array.C001_code)[1];
             } else if(bt_user_info_age_30.isSelected()) {
-                team_age_code = C001[2];
+                team_age_code = getResources().getStringArray(R.array.C001_code)[2];
             } else if(bt_user_info_age_40.isSelected()) {
-                team_age_code = C001[3];
+                team_age_code = getResources().getStringArray(R.array.C001_code)[3];
             } else if(bt_user_info_age_50.isSelected()) {
-                team_age_code = C001[4];
+                team_age_code = getResources().getStringArray(R.array.C001_code)[4];
             }
         }
 
@@ -279,21 +274,25 @@ public class UserInfoActivity extends AppCompatActivity {
             return;
         } else {
             if(bt_user_info_level_challenger.isSelected()) {
-                team_level_code = C002[0];
+                team_level_code = getResources().getStringArray(R.array.C002_code)[0];
             } else if(bt_user_info_level_diamond.isSelected()) {
-                team_level_code = C002[0];
+                team_level_code = getResources().getStringArray(R.array.C002_code)[1];
             } else if(bt_user_info_level_platinum.isSelected()) {
-                team_level_code = C002[0];
+                team_level_code = getResources().getStringArray(R.array.C002_code)[2];
             } else if(bt_user_info_level_gold.isSelected()) {
-                team_level_code = C002[0];
+                team_level_code = getResources().getStringArray(R.array.C002_code)[3];
             } else if(bt_user_info_level_silver.isSelected()) {
-                team_level_code = C002[0];
+                team_level_code = getResources().getStringArray(R.array.C002_code)[4];
             }
         }
 
         mService.insertUserInfo(insertUserInfo_Listener, mApplicationTM.getUserEmail(), user_name, user_telnum, team_name, hope_grounds, team_level_code, team_age_code);
     }
 
+    /**
+     * insertUserInfo Service Listener
+     * Created by maloman72 on 2018-11-02
+     * */
     ResponseListener insertUserInfo_Listener = new ResponseListener() {
         @Override
         public void receive(ResponseEvent responseEvent) {
@@ -324,6 +323,10 @@ public class UserInfoActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * searchUserInfo Service Listenr
+     * Created by maloman72 on 2018-11-02
+     * */
     ResponseListener searchUserInfo_Listener = new ResponseListener() {
         @Override
         public void receive(ResponseEvent responseEvent) {
@@ -341,28 +344,28 @@ public class UserInfoActivity extends AppCompatActivity {
                     et_user_info_team_name.setText(mResult.get("team_name").toString());
 
                     mApplicationTM.setTeamAge(mResult.get("team_age_code").toString());
-                    if(mResult.get("team_age_code").equals(C001[0])) {
+                    if(mResult.get("team_age_code").equals(getResources().getStringArray(R.array.C001_code)[0])) {
                         bt_user_info_age_10.setSelected(true);
-                    } else if(mResult.get("team_age_code").equals(C001[1])) {
+                    } else if(mResult.get("team_age_code").equals(getResources().getStringArray(R.array.C001_code)[1])) {
                         bt_user_info_age_20.setSelected(true);
-                    } else if(mResult.get("team_age_code").equals(C001[2])) {
+                    } else if(mResult.get("team_age_code").equals(getResources().getStringArray(R.array.C001_code)[2])) {
                         bt_user_info_age_30.setSelected(true);
-                    } else if(mResult.get("team_age_code").equals(C001[3])) {
+                    } else if(mResult.get("team_age_code").equals(getResources().getStringArray(R.array.C001_code)[3])) {
                         bt_user_info_age_40.setSelected(true);
-                    } else if(mResult.get("team_age_code").equals(C001[4])) {
+                    } else if(mResult.get("team_age_code").equals(getResources().getStringArray(R.array.C001_code)[4])) {
                         bt_user_info_age_50.setSelected(true);
                     }
 
                     mApplicationTM.setTeamAge(mResult.get("team_level_code").toString());
-                    if(mResult.get("team_level_code").equals(C002[0])) {
+                    if(mResult.get("team_level_code").equals(getResources().getStringArray(R.array.C002_code)[0])) {
                         bt_user_info_level_challenger.setSelected(true);
-                    } else if(mResult.get("team_level_code").equals(C002[1])) {
+                    } else if(mResult.get("team_level_code").equals(getResources().getStringArray(R.array.C002_code)[1])) {
                         bt_user_info_level_diamond.setSelected(true);
-                    } else if(mResult.get("team_level_code").equals(C002[2])) {
+                    } else if(mResult.get("team_level_code").equals(getResources().getStringArray(R.array.C002_code)[2])) {
                         bt_user_info_level_platinum.setSelected(true);
-                    } else if(mResult.get("team_level_code").equals(C002[3])) {
+                    } else if(mResult.get("team_level_code").equals(getResources().getStringArray(R.array.C002_code)[3])) {
                         bt_user_info_level_gold.setSelected(true);
-                    } else if(mResult.get("team_level_code").equals(C002[4])) {
+                    } else if(mResult.get("team_level_code").equals(getResources().getStringArray(R.array.C002_code)[4])) {
                         bt_user_info_level_silver.setSelected(true);
                     }
 

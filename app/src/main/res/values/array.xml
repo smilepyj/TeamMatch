@@ -7,16 +7,31 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+
+    <string-array name="default_team_data">
+        <item>시지풋살장</item>
+        <item>수성풋살장</item>
+        <item>복현풋살클럽</item>
+        <item>반야월풋살장</item>
+    </string-array>
     
-    <string-array name="C001">
+    <string-array name="C001_code">
         <item>C001001</item>
         <item>C001002</item>
         <item>C001003</item>
         <item>C001004</item>
         <item>C001005</item>
     </string-array>
+
+    <string-array name="C001_data">
+        <item>10대</item>
+        <item>20대</item>
+        <item>30대</item>
+        <item>40대</item>
+        <item>50대</item>
+    </string-array>
     
-    <string-array name="C002">
+    <string-array name="C002_code">
         <item>C002001</item>
         <item>C002002</item>
         <item>C002003</item>
@@ -24,9 +39,38 @@
         <item>C002005</item>
     </string-array>
 
-    <string-array name="C003">
+    <string-array name="C002_data">
+        <item>상</item>
+        <item>중상</item>
+        <item>중</item>
+        <item>중하</item>
+        <item>하</item>
+    </string-array>
+
+    <string-array name="C003_code">
         <item>C003001</item>
         <item>C003002</item>
+    </string-array>
+
+    <string-array name="C003_data">
+        <item>5vs5</item>
+        <item>6vs6</item>
+    </string-array>
+
+    <string-array name="C004_code">
+        <item>C004001</item>
+        <item>C004002</item>
+        <item>C004003</item>
+        <item>C004004</item>
+        <item>C004005</item>
+    </string-array>
+
+    <string-array name="C004_data">
+        <item>매칭 등록</item>
+        <item>매칭 신청</item>
+        <item>매칭 성사</item>
+        <item>매칭 완료</item>
+        <item>매칭 중단</item>
     </string-array>
     
 </resources>

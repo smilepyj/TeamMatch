@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Naver Login Data -->
+    <string name="login_naver_client_id">NLUdTPJLKxmZ0qCaYnaS</string>
+    <string name="login_naver_client_secret">Hyy3LgZI30</string>
+
+    <!-- Service URL -->
+    <string name="service_url">http://fm0800.cafe24.com:15101/tmServer/</string>
+
+    <!-- Service Parameter-->
+    <string name="result_code">result_code</string>
+    <string name="result_message">result_msg</string>
+    <string name="result_data">data</string>
+
+    <!-- Service Error Code -->
+    <string name="service_sucess">000</string>
+</resources>

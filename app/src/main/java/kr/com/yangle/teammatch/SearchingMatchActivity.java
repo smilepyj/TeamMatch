@@ -29,8 +29,6 @@ public class SearchingMatchActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
-    String[] C001, C002;
-
     ArrayList<String> search_ground, search_area, search_team_lvl;
     String search_date = "-", search_time = "-", search_team_member = "-";
 
@@ -48,9 +46,6 @@ public class SearchingMatchActivity extends AppCompatActivity {
 
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
-
-        C001 = getResources().getStringArray(R.array.C001);
-        C002 = getResources().getStringArray(R.array.C002);
 
         search_team_lvl = new ArrayList<>();
 
@@ -136,61 +131,61 @@ public class SearchingMatchActivity extends AppCompatActivity {
                 case R.id.bt_searching_match_number_5 :
                     setDefaultButtonMatchNumber();
                     bt_searching_match_number_5.setSelected(true);
-                    search_team_member = getResources().getStringArray(R.array.C003)[0];
+                    search_team_member = getResources().getStringArray(R.array.C003_code)[0];
                     break;
                 case R.id.bt_searching_match_number_6 :
                     setDefaultButtonMatchNumber();
                     bt_searching_match_number_6.setSelected(true);
-                    search_team_member = getResources().getStringArray(R.array.C003)[1];
+                    search_team_member = getResources().getStringArray(R.array.C003_code)[1];
                     break;
                 case R.id.bt_searching_match_level_challenger :
                     bt_searching_match_level_nothing.setSelected(false);
                     if(bt_searching_match_level_challenger.isSelected()) {
                         bt_searching_match_level_challenger.setSelected(false);
-                        search_team_lvl.remove(getResources().getTextArray(R.array.C002)[0].toString());
+                        search_team_lvl.remove(getResources().getTextArray(R.array.C002_code)[0].toString());
                     } else {
                         bt_searching_match_level_challenger.setSelected(true);
-                        search_team_lvl.add(getResources().getTextArray(R.array.C002)[0].toString());
+                        search_team_lvl.add(getResources().getTextArray(R.array.C002_code)[0].toString());
                     }
                     break;
                 case R.id.bt_searching_match_level_diamond :
                     bt_searching_match_level_nothing.setSelected(false);
                     if(bt_searching_match_level_diamond.isSelected()) {
                         bt_searching_match_level_diamond.setSelected(false);
-                        search_team_lvl.remove(getResources().getTextArray(R.array.C002)[1].toString());
+                        search_team_lvl.remove(getResources().getTextArray(R.array.C002_code)[1].toString());
                     } else {
                         bt_searching_match_level_diamond.setSelected(true);
-                        search_team_lvl.add(getResources().getTextArray(R.array.C002)[1].toString());
+                        search_team_lvl.add(getResources().getTextArray(R.array.C002_code)[1].toString());
                     }
                     break;
                 case R.id.bt_searching_match_level_platinum :
                     bt_searching_match_level_nothing.setSelected(false);
                     if(bt_searching_match_level_platinum.isSelected()) {
                         bt_searching_match_level_platinum.setSelected(false);
-                        search_team_lvl.remove(getResources().getTextArray(R.array.C002)[1].toString());
+                        search_team_lvl.remove(getResources().getTextArray(R.array.C002_code)[2].toString());
                     } else {
                         bt_searching_match_level_platinum.setSelected(true);
-                        search_team_lvl.add(getResources().getTextArray(R.array.C002)[1].toString());
+                        search_team_lvl.add(getResources().getTextArray(R.array.C002_code)[2].toString());
                     }
                     break;
                 case R.id.bt_searching_match_level_gold :
                     bt_searching_match_level_nothing.setSelected(false);
                     if(bt_searching_match_level_gold.isSelected()) {
                         bt_searching_match_level_gold.setSelected(false);
-                        search_team_lvl.remove(getResources().getTextArray(R.array.C002)[1].toString());
+                        search_team_lvl.remove(getResources().getTextArray(R.array.C002_code)[3].toString());
                     } else {
                         bt_searching_match_level_gold.setSelected(true);
-                        search_team_lvl.add(getResources().getTextArray(R.array.C002)[1].toString());
+                        search_team_lvl.add(getResources().getTextArray(R.array.C002_code)[3].toString());
                     }
                     break;
                 case R.id.bt_searching_match_level_silver :
                     bt_searching_match_level_nothing.setSelected(false);
                     if(bt_searching_match_level_silver.isSelected()) {
                         bt_searching_match_level_silver.setSelected(false);
-                        search_team_lvl.remove(getResources().getTextArray(R.array.C002)[1].toString());
+                        search_team_lvl.remove(getResources().getTextArray(R.array.C002_code)[4].toString());
                     } else {
                         bt_searching_match_level_silver.setSelected(true);
-                        search_team_lvl.add(getResources().getTextArray(R.array.C002)[1].toString());
+                        search_team_lvl.add(getResources().getTextArray(R.array.C002_code)[4].toString());
                     }
                     break;
                 case R.id.bt_searching_match_level_nothing :
@@ -217,15 +212,15 @@ public class SearchingMatchActivity extends AppCompatActivity {
      * Created by maloman72
      * */
     private void setLoadTeamLevel() {
-        if(mApplicationTM.getTeamLevel().equals(C002[0])) {
+        if(mApplicationTM.getTeamLevel().equals(getResources().getStringArray(R.array.C002_code)[0])) {
             bt_searching_match_level_challenger.setSelected(true);
-        } else if(mApplicationTM.getTeamLevel().equals(C002[1])) {
+        } else if(mApplicationTM.getTeamLevel().equals(getResources().getStringArray(R.array.C002_code)[1])) {
             bt_searching_match_level_diamond.setSelected(true);
-        } else if(mApplicationTM.getTeamLevel().equals(C002[2])) {
+        } else if(mApplicationTM.getTeamLevel().equals(getResources().getStringArray(R.array.C002_code)[2])) {
             bt_searching_match_level_platinum.setSelected(true);
-        } else if(mApplicationTM.getTeamLevel().equals(C002[3])) {
+        } else if(mApplicationTM.getTeamLevel().equals(getResources().getStringArray(R.array.C002_code)[3])) {
             bt_searching_match_level_gold.setSelected(true);
-        } else if(mApplicationTM.getTeamLevel().equals(C002[4])) {
+        } else if(mApplicationTM.getTeamLevel().equals(getResources().getStringArray(R.array.C002_code)[4])) {
             bt_searching_match_level_silver.setSelected(true);
         }
     }
