@@ -14,4 +14,43 @@
 
     <!-- Service Error Code -->
     <string name="service_sucess">000</string>
+
+    <!-- userLogin Service -->
+    <string name="userlogin_service">login/userLogin</string>
+    <string name="userlogin_param_email_id">email_id</string>
+
+    <string name="userlogin_result_user_name">user_name</string>
+    
+    <!-- insertUserInfo Service -->
+    <string name="insertuserinfo_service">user/insertUserInfo</string>
+    <string name="insertuserinfo_param_email_id">email_id</string>
+    <string name="insertuserinfo_param_user_name">user_name</string>
+    <string name="insertuserinfo_param_user_telnum">user_telnum</string>
+    <string name="insertuserinfo_param_team_name">team_name</string>
+    <string name="insertuserinfo_param_hope_grounds">hope_grounds</string>
+    <string name="insertuserinfo_param_team_level_code">team_level_code</string>
+    <string name="insertuserinfo_param_team_age_code">team_age_code</string>
+
+    <!-- serarchUserInfo Service -->
+    <string name="searchuserinfo_service">user/searchUserInfo</string>
+    <string name="searchuserinfo_email_id">email_id</string>
+
+    <string name="searchuserinfo_result_user_name">user_name</string>
+    <string name="searchuserinfo_result_user_telnum">user_telnum</string>
+    <string name="searchuserinfo_result_team_name">team_name</string>
+    <string name="searchuserinfo_result_team_age_code">team_age_code</string>
+    <string name="searchuserinfo_result_team_level_code">team_level_code</string>
+    <string name="searchuserinfo_result_hope_grounds">hope_grounds</string>
+
+    <!-- searchMatchList Service -->
+    <string name="searchmatchlist_service">match/searchMatchList</string>
+    <string name="searchmatchlist_param_email_id">email_id</string>
+    <string name="searchmatchlist_param_search_date">search_date</string>
+    <string name="searchmatchlist_param_search_time">search_time</string>
+    <string name="searchmatchlist_param_search_area">search_area</string>
+    <string name="searchmatchlist_param_search_ground">search_ground</string>
+    <string name="searchmatchlist_param_search_team_member">search_team_member</string>
+    <string name="searchmatchlist_param_search_team_lvl">search_team_lvl</string>
+    <string name="searchmatchlist_param_search_count">search_count</string>
+    <string name="searchmatchlist_param_search_page">search_page</string>
 </resources>

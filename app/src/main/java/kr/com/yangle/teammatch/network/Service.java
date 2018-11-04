@@ -56,10 +56,10 @@ public class Service {
      * */
     public void userLogin(ResponseListener responseListener, String email_id) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + "login/userLogin";
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.userlogin_service);
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put("email_id", email_id);
+            mJSONObject.put(mContext.getString(R.string.userlogin_param_email_id), email_id);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
@@ -73,16 +73,16 @@ public class Service {
      * */
     public void insertUserInfo(ResponseListener responseListener, String email_id, String user_name, String user_telnum, String team_name, ArrayList<String> hope_grounds, String team_level_code, String team_age_code) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + "user/insertUserInfo";
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.insertuserinfo_service);
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put("email_id", email_id);
-            mJSONObject.put("user_name", user_name);
-            mJSONObject.put("user_telnum", user_telnum);
-            mJSONObject.put("team_name", team_name);
-            mJSONObject.put("hope_grounds", mApplicationTM.ArrayListToStringParser(hope_grounds));
-            mJSONObject.put("team_level_code", team_level_code);
-            mJSONObject.put("team_age_code", team_age_code);
+            mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_user_name), user_name);
+            mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_user_telnum), user_telnum);
+            mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_team_name), team_name);
+            mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_hope_grounds), mApplicationTM.ArrayListToStringParser(hope_grounds));
+            mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_team_level_code), team_level_code);
+            mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_team_age_code), team_age_code);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
@@ -97,10 +97,10 @@ public class Service {
      * */
     public void searchUserInfo(ResponseListener responseListener, String email_id) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + "user/searchUserInfo";
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchuserinfo_email_id);
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put("email_id", email_id);
+            mJSONObject.put(mContext.getString(R.string.searchuserinfo_email_id), email_id);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {

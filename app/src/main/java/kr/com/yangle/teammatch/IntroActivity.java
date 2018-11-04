@@ -91,7 +91,7 @@ public class IntroActivity extends AppCompatActivity {
 
                         Intent mIntent;
 
-                        if("".equals(mResult.get("user_name"))) {
+                        if("".equals(mResult.get(getString(R.string.userlogin_result_user_name)))) {
                             mIntent = new Intent(mContext, UserInfoActivity.class);
                             mIntent.putExtra(getString(R.string.user_info_intent_extra), getString(R.string.user_info_type_input));
                         } else {
