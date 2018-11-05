@@ -29,6 +29,10 @@
     <string name="user_info_service_input_sucess">회원 정보 저장에 성공하였습니다.</string>
     <string name="user_info_input_exit">회원정보를 저장하지 않고 나갈 경우 회원 가입을 새로이 진행하셔야 합니다.\n그래도 정말 종료하시겠습니까?</string>
 
+    <string name="user_info_team_age_dialog_title">팀연령 선택</string>
+    <string name="user_info_team_level_dialog_title">팀 레벨 선택</string>
+    <string name="user_info_dialog_cancel">취소</string>
+
     <!-- SerchingMatch Activity -->
     <string name="searching_match_check_date">매치 날짜를 선택해 주세요.</string>
     <string name="searching_match_check_time">매치 시간을 선택해 주세요.</string>

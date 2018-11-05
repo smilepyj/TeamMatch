@@ -319,4 +319,18 @@ public class ApplicationTM extends Application {
 
         return returnData;
     }
+
+    /**
+     * HashMap get key by value
+     * Created by maloman72 on 2018-11-06
+     * */
+    public String getKeybyMap(Map<String, String> map, String value) {
+        for(String object: map.keySet()) {
+            if(map.get(object).equals(value)) {
+                return object;
+            }
+        }
+
+        return null;
+    }
 }

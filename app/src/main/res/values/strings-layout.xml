@@ -8,16 +8,16 @@
     <string name="login_kakao">카카오톡 로그인</string>
     <string name="login_naver">네이버 로그인</string>
     <string name="login_agreement_1">로그인 / 회원가입 시</string>
-    <string name="login_agreement_2"><u>이용약관,&#160;</u></string>
+    <string name="login_agreement_2"><u>이용약관,</u></string>
     <string name="login_agreement_3"><u>개인정보 취급방침</u></string>
-    <string name="login_agreement_4">&#160;에 동의하게 됩니다.</string>
+    <string name="login_agreement_4">에 동의하게 됩니다.</string>
     <string name="login_space">&#160;</string>
     <string name="login_warning">로그인이 원활하지 않으실 경우 futsal0800@naver.com으로 문의주시기 바랍니다.</string>
 
     <!-- Main Activity -->
-    <string name="main_search_match">매칭 검색</string>
-    <string name="main_registration_match">매칭 등록</string>
-    <string name="main_in_progress_matching">진행중 매칭</string>
+    <string name="main_search_match">매치 검색</string>
+    <string name="main_registration_match">매치 등록</string>
+    <string name="main_in_progress_matching">진행중 매치</string>
     <string name="main_ranking">팀별 랭킹</string>
 
     <!-- ToolBar -->
@@ -30,35 +30,29 @@
 
     <!-- UserInfo Activity -->
     <string name="user_info_title">회원 정보</string>
-    <string name="user_info_user_name">이 름</string>
-    <string name="user_info_phone_number">전화번호</string>
-    <string name="user_info_team_name">팀 이름</string>
-    <string name="user_info_team_age">팀 연령</string>
+    <string name="user_info_user_name">이름</string>
+    <string name="user_info_user_name_hint">이름을 입력해주세요.</string>
+    <string name="user_info_phone_number">연락처</string>
+    <string name="user_info_phone_number_hint">연락처를 입력해주세요.</string>
+    <string name="user_info_team_name">팀이름</string>
+    <string name="user_info_team_name_hint">팀이름을 입력해주세요.</string>
+    <string name="user_info_team_age">팀연령</string>
     <string name="user_info_hope_field">희망구장</string>
+    <string name="user_info_add_grounds">&#160;추가하기 +</string>
     <string name="user_info_team_level">팀 레벨</string>
-    <string name="user_info_self_check">자가진단</string>
+    <string name="user_info_self_check">우리팀레벨\n확인하기</string>
     <string name="user_info_save">저장하기</string>
     <string name="user_info_update">수정하기</string>
 
-    <string name="user_info_age_10">10대</string>
-    <string name="user_info_age_20">20대</string>
-    <string name="user_info_age_30">30대</string>
-    <string name="user_info_age_40">40대</string>
-    <string name="user_info_age_50">50대</string>
+    <string name="user_info_select">선택</string>
 
     <string name="user_info_hope_grounds_1">시지풋살장</string>
     <string name="user_info_hope_grounds_2">수성풋살장</string>
     <string name="user_info_hope_grounds_3">복현풋살클럽</string>
     <string name="user_info_hope_grounds_4">반야월풋살장</string>
 
-    <string name="user_info_level_challenger">상</string>
-    <string name="user_info_level_diamond">중상</string>
-    <string name="user_info_level_platinum">중</string>
-    <string name="user_info_level_gold">중하</string>
-    <string name="user_info_level_silver">하</string>
-
     <!-- SerchingMatch Activity -->
-    <string name="searching_match_title">매칭 검색</string>
+    <string name="searching_match_title">매치 검색</string>
     <string name="searching_match_select_field">01 매치 구장을 선택해 주세요</string>
     <string name="searching_match_field_bssic">구장 선택</string>
     <string name="searching_match_select_day">02 매치 날짜를 선택해 주세요</string>

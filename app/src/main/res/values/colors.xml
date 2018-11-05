@@ -22,6 +22,21 @@
     <color name="color_login_agreement_text">#313131</color>
     <color name="color_login_warning_text">#BCBCBC</color>
 
+    <!-- UserInfo Activity -->
+    <color name="color_userinfo_title">#313131</color>
+    <color name="color_userinfo_input">#959595</color>
+    <color name="color_userinfo_border">#959595</color>
+
+    <color name="color_userinfo_button_enable">#00AE55</color>
+    <color name="color_userinfo_button_enable_stroke">#00AE55</color>
+    <color name="color_userinfo_button_enable_text">#FFFFFF</color>
+    <color name="color_userinfo_button_press">#00AE55</color>
+    <color name="color_userinfo_button_press_stroke">#00AE55</color>
+    <color name="color_userinfo_button_press_text">#FFFFFF</color>
+    <color name="color_userinfo_button_level_test">#3A5795</color>
+    <color name="color_userinfo_button_level_test_stroke">#3A5795</color>
+    <color name="color_userinfo_button_level_test_text">#FFFFFF</color>
+
     <!-- SearchingMatch Activity -->
     <color name="color_searchingmatch_title">#959595</color>
     <color name="color_searchingmatch_select">#00AE55</color>

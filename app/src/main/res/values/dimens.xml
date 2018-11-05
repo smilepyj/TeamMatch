@@ -11,7 +11,8 @@
     <dimen name="font_size_15">15sp</dimen>
     <dimen name="font_size_14">14sp</dimen>
     <dimen name="font_size_12">12sp</dimen>
-    
+    <dimen name="font_size_10">10sp</dimen>
+
     <!-- Layout Size -->
     <dimen name="ll_under_line">1dp</dimen>
 
@@ -21,4 +22,5 @@
     <dimen name="tv_search_result_condition_padding">8dp</dimen>
     <dimen name="listview_search_result_padding_vertical">8dp</dimen>
     <dimen name="listview_item_sidebar_margin_horizontal">5dp</dimen>
+    <dimen name="bt_user_info_hope_grounds">5dp</dimen>
 </resources>

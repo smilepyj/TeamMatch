@@ -1,7 +1,9 @@
 package kr.com.yangle.teammatch;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,19 +11,21 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
-import kr.com.yangle.teammatch.util.BackPressCloseHandler;
 
 public class UserInfoActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -37,10 +41,9 @@ public class UserInfoActivity extends AppCompatActivity {
 
     EditText et_user_info_user_name, et_user_info_phone_number, et_user_info_team_name;
 
-    Button bt_user_info_hope_grounds_1, bt_user_info_hope_grounds_2, bt_user_info_hope_grounds_3, bt_user_info_hope_grounds_4;
+    Button bt_user_info_hope_grounds_1, bt_user_info_hope_grounds_2, bt_user_info_hope_grounds_3, bt_user_info_hope_grounds_4, bt_user_info_age, bt_user_info_level, bt_user_info_level_test, bt_user_info_save;
 
-    Button bt_user_info_age_10, bt_user_info_age_20, bt_user_info_age_30, bt_user_info_age_40, bt_user_info_age_50, bt_user_info_level_challenger, bt_user_info_level_diamond, bt_user_info_level_platinum,
-            bt_user_info_level_gold, bt_user_info_level_silver, bt_user_info_save;
+    TextView tv_user_info_add_grounds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,32 +68,20 @@ public class UserInfoActivity extends AppCompatActivity {
         bt_user_info_hope_grounds_2 = findViewById(R.id.bt_user_info_hope_grounds_2);
         bt_user_info_hope_grounds_3 = findViewById(R.id.bt_user_info_hope_grounds_3);
         bt_user_info_hope_grounds_4 = findViewById(R.id.bt_user_info_hope_grounds_4);
-        bt_user_info_age_10 = findViewById(R.id.bt_user_info_age_10);
-        bt_user_info_age_20 = findViewById(R.id.bt_user_info_age_20);
-        bt_user_info_age_30 = findViewById(R.id.bt_user_info_age_30);
-        bt_user_info_age_40 = findViewById(R.id.bt_user_info_age_40);
-        bt_user_info_age_50 = findViewById(R.id.bt_user_info_age_50);
-        bt_user_info_level_challenger = findViewById(R.id.bt_user_info_level_challenger);
-        bt_user_info_level_diamond = findViewById(R.id.bt_user_info_level_diamond);
-        bt_user_info_level_platinum = findViewById(R.id.bt_user_info_level_platinum);
-        bt_user_info_level_gold = findViewById(R.id.bt_user_info_level_gold);
-        bt_user_info_level_silver = findViewById(R.id.bt_user_info_level_silver);
+        bt_user_info_age = findViewById(R.id.bt_user_info_age);
+        bt_user_info_level = findViewById(R.id.bt_user_info_level);
+        bt_user_info_level_test = findViewById(R.id.bt_user_info_level_test);
+        tv_user_info_add_grounds = findViewById(R.id.tv_user_info_add_grounds);
         bt_user_info_save = findViewById(R.id.bt_user_info_save);
 
-        bt_user_info_age_10.setOnClickListener(mOnClickListener);
-        bt_user_info_age_20.setOnClickListener(mOnClickListener);
-        bt_user_info_age_30.setOnClickListener(mOnClickListener);
-        bt_user_info_age_40.setOnClickListener(mOnClickListener);
-        bt_user_info_age_50.setOnClickListener(mOnClickListener);
+        bt_user_info_age.setOnClickListener(mOnClickListener);
+        bt_user_info_level.setOnClickListener(mOnClickListener);
+        bt_user_info_level_test.setOnClickListener(mOnClickListener);
+        tv_user_info_add_grounds.setOnClickListener(mOnClickListener);
         bt_user_info_hope_grounds_1.setOnClickListener(mOnClickListener);
         bt_user_info_hope_grounds_2.setOnClickListener(mOnClickListener);
         bt_user_info_hope_grounds_3.setOnClickListener(mOnClickListener);
         bt_user_info_hope_grounds_4.setOnClickListener(mOnClickListener);
-        bt_user_info_level_challenger.setOnClickListener(mOnClickListener);
-        bt_user_info_level_diamond.setOnClickListener(mOnClickListener);
-        bt_user_info_level_platinum.setOnClickListener(mOnClickListener);
-        bt_user_info_level_gold.setOnClickListener(mOnClickListener);
-        bt_user_info_level_silver.setOnClickListener(mOnClickListener);
         bt_user_info_save.setOnClickListener(mOnClickListener);
 
         mActivityType = getIntent().getStringExtra(getString(R.string.user_info_intent_extra));
@@ -145,51 +136,18 @@ public class UserInfoActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.bt_user_info_age_10 :
-                    setDefaultButtonAge();
-                    bt_user_info_age_10.setSelected(true);
-                    break;
-                case R.id.bt_user_info_age_20 :
-                    setDefaultButtonAge();
-                    bt_user_info_age_20.setSelected(true);
-                    break;
-                case R.id.bt_user_info_age_30 :
-                    setDefaultButtonAge();
-                    bt_user_info_age_30.setSelected(true);
-                    break;
-                case R.id.bt_user_info_age_40 :
-                    setDefaultButtonAge();
-                    bt_user_info_age_40.setSelected(true);
-                    break;
-                case R.id.bt_user_info_age_50 :
-                    setDefaultButtonAge();
-                    bt_user_info_age_50.setSelected(true);
+                case R.id.bt_user_info_age :
+                    TeamAge_AlertDialog();
                     break;
                 case R.id.bt_user_info_hope_grounds_1 :
                 case R.id.bt_user_info_hope_grounds_2 :
                 case R.id.bt_user_info_hope_grounds_3 :
                 case R.id.bt_user_info_hope_grounds_4 :
+                case R.id.tv_user_info_add_grounds :
                     mApplicationTM.makeToast(mContext, getString(R.string.cording_message_search_grounds));
                     break;
-                case R.id.bt_user_info_level_challenger :
-                    setDefaultButtonLevel();
-                    bt_user_info_level_challenger.setSelected(true);
-                    break;
-                case R.id.bt_user_info_level_diamond :
-                    setDefaultButtonLevel();
-                    bt_user_info_level_diamond.setSelected(true);
-                    break;
-                case R.id.bt_user_info_level_platinum :
-                    setDefaultButtonLevel();
-                    bt_user_info_level_platinum.setSelected(true);
-                    break;
-                case R.id.bt_user_info_level_gold :
-                    setDefaultButtonLevel();
-                    bt_user_info_level_gold.setSelected(true);
-                    break;
-                case R.id.bt_user_info_level_silver :
-                    setDefaultButtonLevel();
-                    bt_user_info_level_silver.setSelected(true);
+                case R.id.bt_user_info_level :
+                    TeamLevle_AlertDialog();
                     break;
                 case R.id.bt_user_info_save :
                     if(getString(R.string.user_info_type_input).equals(mActivityType)) {
@@ -205,27 +163,67 @@ public class UserInfoActivity extends AppCompatActivity {
     };
 
     /**
-     * 팀 연령 버튼 선택 초기화
-     * Created by maloman72 on 2018-11-01
+     * 팀연령 Spinner AlertDialog
+     * Created by maloman72 on 2018-11-05
      * */
-    private void setDefaultButtonAge() {
-        bt_user_info_age_10.setSelected(false);
-        bt_user_info_age_20.setSelected(false);
-        bt_user_info_age_30.setSelected(false);
-        bt_user_info_age_40.setSelected(false);
-        bt_user_info_age_50.setSelected(false);
+    private void TeamAge_AlertDialog() {
+        AlertDialog.Builder mAlertDialogBuilder = new AlertDialog.Builder(mContext);
+        mAlertDialogBuilder.setTitle(getString(R.string.user_info_team_age_dialog_title));
+
+        final ArrayAdapter<String> mArrayAdapter = new ArrayAdapter<>(mContext, android.R.layout.select_dialog_item);
+
+        for(int i = 0; i < getResources().getStringArray(R.array.C001_data).length; i++) {
+            mArrayAdapter.add(getResources().getStringArray(R.array.C001_data)[i]);
+        }
+
+        mAlertDialogBuilder.setNegativeButton(getString(R.string.user_info_dialog_cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        mAlertDialogBuilder.setAdapter(mArrayAdapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                bt_user_info_age.setText(mArrayAdapter.getItem(i));
+                dialogInterface.dismiss();
+            }
+        });
+
+        mAlertDialogBuilder.show();
     }
 
     /**
-     * 팀 레벨 버튼 선택 초기화
-     * Created by maloman72 on 2018-11-01
+     * 팀레벨 Spinner AlertDialog
+     * Created by maloman72 on 2018-11-05
      * */
-    private void setDefaultButtonLevel() {
-        bt_user_info_level_challenger.setSelected(false);
-        bt_user_info_level_diamond.setSelected(false);
-        bt_user_info_level_platinum.setSelected(false);
-        bt_user_info_level_gold.setSelected(false);
-        bt_user_info_level_silver.setSelected(false);
+    private void TeamLevle_AlertDialog() {
+        AlertDialog.Builder mAlertDialogBuilder = new AlertDialog.Builder(mContext);
+        mAlertDialogBuilder.setTitle(getString(R.string.user_info_team_level_dialog_title));
+
+        final ArrayAdapter<String> mArrayAdapter = new ArrayAdapter<>(mContext, android.R.layout.select_dialog_item);
+
+        for(int i = 0; i < getResources().getStringArray(R.array.C002_data).length; i++) {
+            mArrayAdapter.add(getResources().getStringArray(R.array.C002_data)[i]);
+        }
+
+        mAlertDialogBuilder.setNegativeButton(getString(R.string.user_info_dialog_cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        mAlertDialogBuilder.setAdapter(mArrayAdapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                bt_user_info_level.setText(mArrayAdapter.getItem(i));
+                dialogInterface.dismiss();
+            }
+        });
+
+        mAlertDialogBuilder.show();
     }
 
     /**
@@ -254,39 +252,51 @@ public class UserInfoActivity extends AppCompatActivity {
             return;
         }
 
-        if(!bt_user_info_age_10.isSelected() && !bt_user_info_age_20.isSelected() && !bt_user_info_age_30.isSelected() && !bt_user_info_age_40.isSelected() && !bt_user_info_age_50.isSelected()) {
+        if(getString(R.string.user_info_select).equals(bt_user_info_age.getText().toString())) {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_age) + getString(R.string.user_info_check_select_not));
-            return;
         } else {
-            if(bt_user_info_age_10.isSelected()) {
-                team_age_code = getResources().getStringArray(R.array.C001_code)[0];
-            } else if(bt_user_info_age_20.isSelected()) {
-                team_age_code = getResources().getStringArray(R.array.C001_code)[1];
-            } else if(bt_user_info_age_30.isSelected()) {
-                team_age_code = getResources().getStringArray(R.array.C001_code)[2];
-            } else if(bt_user_info_age_40.isSelected()) {
-                team_age_code = getResources().getStringArray(R.array.C001_code)[3];
-            } else if(bt_user_info_age_50.isSelected()) {
-                team_age_code = getResources().getStringArray(R.array.C001_code)[4];
-            }
+            team_age_code = mApplicationTM.getKeybyMap(mApplicationTM.getC001(), bt_user_info_age.getText().toString());
         }
 
-        if(!bt_user_info_level_challenger.isSelected() && !bt_user_info_level_diamond.isSelected() && !bt_user_info_level_platinum.isSelected() && !bt_user_info_level_gold.isSelected() && !bt_user_info_level_silver.isSelected()) {
+//        if(!bt_user_info_age_10.isSelected() && !bt_user_info_age_20.isSelected() && !bt_user_info_age_30.isSelected() && !bt_user_info_age_40.isSelected() && !bt_user_info_age_50.isSelected()) {
+//            mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_age) + getString(R.string.user_info_check_select_not));
+//            return;
+//        } else {
+//            if(bt_user_info_age_10.isSelected()) {
+//                team_age_code = getResources().getStringArray(R.array.C001_code)[0];
+//            } else if(bt_user_info_age_20.isSelected()) {
+//                team_age_code = getResources().getStringArray(R.array.C001_code)[1];
+//            } else if(bt_user_info_age_30.isSelected()) {
+//                team_age_code = getResources().getStringArray(R.array.C001_code)[2];
+//            } else if(bt_user_info_age_40.isSelected()) {
+//                team_age_code = getResources().getStringArray(R.array.C001_code)[3];
+//            } else if(bt_user_info_age_50.isSelected()) {
+//                team_age_code = getResources().getStringArray(R.array.C001_code)[4];
+//            }
+//        }
+
+        if(getString(R.string.user_info_select).equals(bt_user_info_level.getText().toString())) {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_level) + getString(R.string.user_info_check_select_not));
-            return;
         } else {
-            if(bt_user_info_level_challenger.isSelected()) {
-                team_level_code = getResources().getStringArray(R.array.C002_code)[0];
-            } else if(bt_user_info_level_diamond.isSelected()) {
-                team_level_code = getResources().getStringArray(R.array.C002_code)[1];
-            } else if(bt_user_info_level_platinum.isSelected()) {
-                team_level_code = getResources().getStringArray(R.array.C002_code)[2];
-            } else if(bt_user_info_level_gold.isSelected()) {
-                team_level_code = getResources().getStringArray(R.array.C002_code)[3];
-            } else if(bt_user_info_level_silver.isSelected()) {
-                team_level_code = getResources().getStringArray(R.array.C002_code)[4];
-            }
+            team_level_code = mApplicationTM.getKeybyMap(mApplicationTM.getC002(), bt_user_info_level.getText().toString());
         }
+
+//        if(!bt_user_info_level_challenger.isSelected() && !bt_user_info_level_diamond.isSelected() && !bt_user_info_level_platinum.isSelected() && !bt_user_info_level_gold.isSelected() && !bt_user_info_level_silver.isSelected()) {
+//            mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_level) + getString(R.string.user_info_check_select_not));
+//            return;
+//        } else {
+//            if(bt_user_info_level_challenger.isSelected()) {
+//                team_level_code = getResources().getStringArray(R.array.C002_code)[0];
+//            } else if(bt_user_info_level_diamond.isSelected()) {
+//                team_level_code = getResources().getStringArray(R.array.C002_code)[1];
+//            } else if(bt_user_info_level_platinum.isSelected()) {
+//                team_level_code = getResources().getStringArray(R.array.C002_code)[2];
+//            } else if(bt_user_info_level_gold.isSelected()) {
+//                team_level_code = getResources().getStringArray(R.array.C002_code)[3];
+//            } else if(bt_user_info_level_silver.isSelected()) {
+//                team_level_code = getResources().getStringArray(R.array.C002_code)[4];
+//            }
+//        }
 
         mService.insertUserInfo(insertUserInfo_Listener, mApplicationTM.getUserEmail(), user_name, user_telnum, team_name, hope_grounds, team_level_code, team_age_code);
     }
@@ -347,28 +357,28 @@ public class UserInfoActivity extends AppCompatActivity {
 
                     mApplicationTM.setTeamAge(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_age_code)).toString());
                     if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_age_code)).equals(getResources().getStringArray(R.array.C001_code)[0])) {
-                        bt_user_info_age_10.setSelected(true);
+                        bt_user_info_age.setText(getResources().getStringArray(R.array.C001_data)[0]);
                     } else if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_age_code)).equals(getResources().getStringArray(R.array.C001_code)[1])) {
-                        bt_user_info_age_20.setSelected(true);
+                        bt_user_info_age.setText(getResources().getStringArray(R.array.C001_data)[1]);
                     } else if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_age_code)).equals(getResources().getStringArray(R.array.C001_code)[2])) {
-                        bt_user_info_age_30.setSelected(true);
+                        bt_user_info_age.setText(getResources().getStringArray(R.array.C001_data)[2]);
                     } else if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_age_code)).equals(getResources().getStringArray(R.array.C001_code)[3])) {
-                        bt_user_info_age_40.setSelected(true);
+                        bt_user_info_age.setText(getResources().getStringArray(R.array.C001_data)[3]);
                     } else if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_age_code)).equals(getResources().getStringArray(R.array.C001_code)[4])) {
-                        bt_user_info_age_50.setSelected(true);
+                        bt_user_info_age.setText(getResources().getStringArray(R.array.C001_data)[4]);
                     }
 
                     mApplicationTM.setTeamAge(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_level_code)).toString());
                     if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_level_code)).equals(getResources().getStringArray(R.array.C002_code)[0])) {
-                        bt_user_info_level_challenger.setSelected(true);
+                        bt_user_info_level.setText(getResources().getStringArray(R.array.C002_data)[0]);
                     } else if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_level_code)).equals(getResources().getStringArray(R.array.C002_code)[1])) {
-                        bt_user_info_level_diamond.setSelected(true);
+                        bt_user_info_level.setText(getResources().getStringArray(R.array.C002_data)[1]);
                     } else if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_level_code)).equals(getResources().getStringArray(R.array.C002_code)[2])) {
-                        bt_user_info_level_platinum.setSelected(true);
+                        bt_user_info_level.setText(getResources().getStringArray(R.array.C002_data)[2]);
                     } else if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_level_code)).equals(getResources().getStringArray(R.array.C002_code)[3])) {
-                        bt_user_info_level_gold.setSelected(true);
+                        bt_user_info_level.setText(getResources().getStringArray(R.array.C002_data)[3]);
                     } else if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_level_code)).equals(getResources().getStringArray(R.array.C002_code)[4])) {
-                        bt_user_info_level_silver.setSelected(true);
+                        bt_user_info_level.setText(getResources().getStringArray(R.array.C002_data)[4]);
                     }
 
                     mApplicationTM.setHopeGrounds(mResult.getJSONArray(mContext.getString(R.string.searchuserinfo_result_hope_grounds)));
