@@ -17,9 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import kr.com.yangle.teammatch.adapter.SearchGroundType1ListViewAdapter;
 import kr.com.yangle.teammatch.adapter.SearchGroundType2ListViewAdapter;
@@ -184,11 +182,12 @@ public class SearchGroundActivity extends AppCompatActivity {
                             search_ground_names.add(search_ground.get("ground_name").toString());
                         }
 
-                        Intent mIntent = new Intent(mContext, SearchingMatchActivity.class);
+                        Intent mIntent = new Intent(mContext, SearchMatchActivity.class);
                         mIntent.putExtra(getString(R.string.searchmatchlist_param_search_area), "");
                         mIntent.putExtra(getString(R.string.searchmatchlist_param_search_ground), search_ground_ids);
                         mIntent.putExtra("search_ground_name", search_ground_names);
                         startActivity(mIntent);
+                        finish();
                     }catch(Exception e) {
                         mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                         Log.e(TAG, "mOnClickListener - " + e);

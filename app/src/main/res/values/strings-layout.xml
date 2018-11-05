@@ -29,7 +29,7 @@
     <string name="navigation_item_setting">설 정</string>
 
     <!-- UserInfo Activity -->
-    <string name="user_info_title">회원 정보</string>
+    <string name="user_info_title">회원정보</string>
     <string name="user_info_user_name">이름</string>
     <string name="user_info_user_name_hint">이름을 입력해주세요.</string>
     <string name="user_info_phone_number">연락처</string>
@@ -51,29 +51,29 @@
     <string name="user_info_hope_grounds_3">복현풋살클럽</string>
     <string name="user_info_hope_grounds_4">반야월풋살장</string>
 
-    <!-- SerchingMatch Activity -->
-    <string name="searching_match_title">매치 검색</string>
-    <string name="searching_match_select_field">01 매치 구장을 선택해 주세요</string>
-    <string name="searching_match_field_bssic">구장 선택</string>
-    <string name="searching_match_select_day">02 매치 날짜를 선택해 주세요</string>
-    <string name="searching_match_day_basic">날짜 선택</string>
-    <string name="searching_match_start_time">03 매치 시작 시간을 선택해 주세요</string>
-    <string name="searching_match_time_basic">시간 선택</string>
-    <string name="searching_match_select_number">04 매치 인원을 선택해 주세요</string>
-    <string name="searching_match_select_level">05 희망 팀 레벨을 선택해 주세요(중복 가능)</string>
+    <!-- SearchMatch Activity -->
+    <string name="search_match_title">매치검색</string>
+    <string name="search_match_select_field">01. 매치 구장을 선택해 주세요.</string>
+    <string name="search_match_field_bssic">구장 선택</string>
+    <string name="search_match_select_day">02. 매치 날짜를 선택해 주세요.</string>
+    <string name="search_match_day_basic">날짜 선택</string>
+    <string name="search_match_start_time">03. 매치 시작 시간을 선택해 주세요.</string>
+    <string name="search_match_time_basic">시간 선택</string>
+    <string name="search_match_select_number">04. 매치 인원을 선택해 주세요.</string>
+    <string name="search_match_select_level">05. 희망 팀 레벨을 선택해 주세요.(중복 가능)</string>
 
-    <string name="searching_match_time_nothing">무관</string>
-    <string name="searching_match_base_select">선 택</string>
-    <string name="searching_match_number_5">5 vs 5</string>
-    <string name="searching_match_number_6">6 vs 6</string>
-    <string name="searching_match_number_nothing">무 관</string>
-    <string name="searching_match_level_challenger">상</string>
-    <string name="searching_match_level_diamond">중상</string>
-    <string name="searching_match_level_platinum">중</string>
-    <string name="searching_match_level_gold">중하</string>
-    <string name="searching_match_level_silver">하</string>
-    <string name="searching_match_level_nothing">무관</string>
-    <string name="searching_match_search">검색하기</string>
+    <string name="search_match_time_nothing">무관</string>
+    <string name="search_match_base_select">선 택</string>
+    <string name="search_match_number_5">5 vs 5</string>
+    <string name="search_match_number_6">6 vs 6</string>
+    <string name="search_match_number_nothing">무 관</string>
+    <string name="search_match_level_challenger">상</string>
+    <string name="search_match_level_diamond">중상</string>
+    <string name="search_match_level_platinum">중</string>
+    <string name="search_match_level_gold">중하</string>
+    <string name="search_match_level_silver">하</string>
+    <string name="search_match_level_nothing">무관</string>
+    <string name="search_match_search">검색하기</string>
 
     <!-- SearchGround Activity -->
     <string name="search_ground_title">구장검색</string>
@@ -94,4 +94,28 @@
 
     <!-- ListView SearchResult -->
     <string name="listview_search_result_request">매치신청</string>
+
+    <!-- InsertMatch Activity -->
+    <string name="regist_match_title">매치등록</string>
+    <string name="regist_match_select_field">01. 매치 구장을 선택해 주세요.</string>
+    <string name="regist_match_field_bssic">구장 선택</string>
+    <string name="regist_match_select_day">02. 매치 날짜를 선택해 주세요.</string>
+    <string name="regist_match_day_basic">날짜 선택</string>
+    <string name="regist_match_start_time">03. 매치 시작 시간을 선택해 주세요.</string>
+    <string name="regist_match_time_basic">시간 선택</string>
+    <string name="regist_match_select_number">04. 매치 인원을 선택해 주세요.</string>
+    <string name="regist_match_select_level">05. 희망 팀 레벨을 선택해 주세요.(중복 가능)</string>
+
+    <string name="regist_match_time_nothing">무관</string>
+    <string name="regist_match_base_select">선 택</string>
+    <string name="regist_match_number_5">5 vs 5</string>
+    <string name="regist_match_number_6">6 vs 6</string>
+    <string name="regist_match_number_nothing">무 관</string>
+    <string name="regist_match_level_challenger">상</string>
+    <string name="regist_match_level_diamond">중상</string>
+    <string name="regist_match_level_platinum">중</string>
+    <string name="regist_match_level_gold">중하</string>
+    <string name="regist_match_level_silver">하</string>
+    <string name="regist_match_level_nothing">무관</string>
+    <string name="regist_match_insert">등록하기</string>
 </resources>

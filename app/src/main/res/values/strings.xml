@@ -33,35 +33,40 @@
     <string name="user_info_team_level_dialog_title">팀 레벨 선택</string>
     <string name="user_info_dialog_cancel">취소</string>
 
-    <!-- SerchingMatch Activity -->
-    <string name="searching_match_check_date">매치 날짜를 선택해 주세요.</string>
-    <string name="searching_match_check_time">매치 시간을 선택해 주세요.</string>
-    <string name="searching_match_check_member">매치 인원을 선택해 주세요.</string>
-    <string name="searching_match_check_level">희망 팀 레벨을 선택해 주세요.</string>
+    <!-- SearchMatch Activity -->
+    <string name="search_match_check_date">매치 날짜를 선택해 주세요.</string>
+    <string name="search_match_check_time">매치 시간을 선택해 주세요.</string>
+    <string name="search_match_check_member">매치 인원을 선택해 주세요.</string>
+    <string name="search_match_check_level">희망 팀 레벨을 선택해 주세요.</string>
 
-    <string name="searching_match_hope_grounds_1">시지풋살장</string>
-    <string name="searching_match_hope_grounds_2">수성풋살장</string>
-    <string name="searching_match_hope_grounds_3">복현풋살클럽</string>
-    <string name="searching_match_hope_grounds_4">반야월풋살장</string>
+    <string name="search_match_date_format_param">%d%d%s</string>
+    <string name="search_match_date_format_view">%d년 %d월 %d일 %s</string>
+    <string name="search_match_time_format_param">%d%d%d</string>
+    <string name="search_match_time_format_view">%d시 %d분</string>
 
-    <string name="searching_match_date_format_param">%d%d%s</string>
-    <string name="searching_match_date_format_view">%d년 %d월 %d일 %s</string>
-    <string name="searching_match_time_format_param">%d%d%d</string>
-    <string name="searching_match_time_format_view">%d시 %d분</string>
-
-    <string name="searching_match_extra_search_ground_cnt">search_ground_cnt</string>
-    <string name="searching_match_extra_search_team_lvl_cnt">search_team_lvl_cnt</string>
+    <string name="search_match_extra_search_ground_cnt">search_ground_cnt</string>
+    <string name="search_match_extra_search_team_lvl_cnt">search_team_lvl_cnt</string>
 
     <!-- SearchResult Activity -->
     <string name="search_result_date_format_base">yyyymmdd</string>
     <string name="search_result_date_format_view">yyyy년 mm월 dd일</string>
-    <string name="search_result_time_format_base">hhmmss</string>
+    <string name="search_result_time_format_base">hhmm</string>
     <string name="search_result_time_format_view">hh시 mm분</string>
-    
+
     <string name="search_result_nothing_time">시간 무관</string>
     <string name="search_result_nothing_member">인원 무관</string>
     <string name="search_result_nothing_level">레벨 무관</string>
-    
+
     <string name="search_result_list_hyphen"> - </string>
 
+    <!--InsertMatch Activity -->
+    <string name="regist_match_check_date">매치 날짜를 선택해 주세요.</string>
+    <string name="regist_match_check_time">매치 시간을 선택해 주세요.</string>
+    <string name="regist_match_check_member">매치 인원을 선택해 주세요.</string>
+    <string name="regist_match_check_level">희망 팀 레벨을 선택해 주세요.</string>
+
+    <string name="regist_match_date_format_param">%d%d%s</string>
+    <string name="regist_match_date_format_view">%d년 %d월 %d일 %s</string>
+    <string name="regist_match_time_format_param">%d%d%d</string>
+    <string name="regist_match_time_format_view">%d시 %d분</string>
 </resources>

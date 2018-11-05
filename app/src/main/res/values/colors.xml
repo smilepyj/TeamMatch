@@ -2,13 +2,13 @@
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#E5E5E5</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#00AE55</color>
 
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGray">#888888</color>
     <color name="colorGrayLight">#D8D8D8</color>
-    <color name="colorGreenSearchingMatch">#1ABC9C</color>
+    <color name="colorGreensearchmatch">#1ABC9C</color>
     <color name="colorInvisible">#FFFFFFFF</color>
 
     <!-- Tool Bar -->
@@ -37,23 +37,23 @@
     <color name="color_userinfo_button_level_test_stroke">#3A5795</color>
     <color name="color_userinfo_button_level_test_text">#FFFFFF</color>
 
-    <!-- SearchingMatch Activity -->
-    <color name="color_searchingmatch_title">#959595</color>
-    <color name="color_searchingmatch_select">#00AE55</color>
-    <color name="color_searchingmatch_line">#959595</color>
+    <!-- searchmatch Activity -->
+    <color name="color_searchmatch_title">#959595</color>
+    <color name="color_searchmatch_select">#00AE55</color>
+    <color name="color_searchmatch_line">#959595</color>
 
-    <color name="color_searchingmatch_button_select_enable">#FFFFFF</color>
-    <color name="color_searchingmatch_button_select_enable_stroke">#DCDCDC</color>
-    <color name="color_searchingmatch_button_select_enable_text">#D4D4D4</color>
-    <color name="color_searchingmatch_button_select_press">#00AE55</color>
-    <color name="color_searchingmatch_button_select_press_stroke">#00AE55</color>
-    <color name="color_searchingmatch_button_select_press_text">#FFFFFF</color>
-    <color name="color_searchingmatch_button_search_enable">#007338</color>
-    <color name="color_searchingmatch_button_search_enable_stroke">#007338</color>
-    <color name="color_searchingmatch_button_search_enable_text">#FFFFFF</color>
-    <color name="color_searchingmatch_button_search_press">#007338</color>
-    <color name="color_searchingmatch_button_search_press_stroke">#007338</color>
-    <color name="color_searchingmatch_button_search_press_text">#FFFFFF</color>
+    <color name="color_searchmatch_button_select_enable">#FFFFFF</color>
+    <color name="color_searchmatch_button_select_enable_stroke">#DCDCDC</color>
+    <color name="color_searchmatch_button_select_enable_text">#D4D4D4</color>
+    <color name="color_searchmatch_button_select_press">#00AE55</color>
+    <color name="color_searchmatch_button_select_press_stroke">#00AE55</color>
+    <color name="color_searchmatch_button_select_press_text">#FFFFFF</color>
+    <color name="color_searchmatch_button_search_enable">#007338</color>
+    <color name="color_searchmatch_button_search_enable_stroke">#007338</color>
+    <color name="color_searchmatch_button_search_enable_text">#FFFFFF</color>
+    <color name="color_searchmatch_button_search_press">#007338</color>
+    <color name="color_searchmatch_button_search_press_stroke">#007338</color>
+    <color name="color_searchmatch_button_search_press_text">#FFFFFF</color>
     
     <!-- SearchResult Activity -->
     <color name="color_search_result_condition_background">#00AE55</color>
@@ -89,4 +89,22 @@
     <!-- Listview SearchGround -->
     <color name="color_listview_search_ground_contents">#313131</color>
     <color name="color_listview_search_ground_contents_active">#00AE55</color>
+
+    <!-- InsertMatch Activity -->
+    <color name="color_regist_match_title">#959595</color>
+    <color name="color_regist_match_select">#00AE55</color>
+    <color name="color_regist_match_line">#959595</color>
+
+    <color name="color_regist_match_button_select_enable">#FFFFFF</color>
+    <color name="color_regist_match_button_select_enable_stroke">#DCDCDC</color>
+    <color name="color_regist_match_button_select_enable_text">#D4D4D4</color>
+    <color name="color_regist_match_button_select_press">#00AE55</color>
+    <color name="color_regist_match_button_select_press_stroke">#00AE55</color>
+    <color name="color_regist_match_button_select_press_text">#FFFFFF</color>
+    <color name="color_regist_match_button_regist_enable">#007338</color>
+    <color name="color_regist_match_button_regist_enable_stroke">#007338</color>
+    <color name="color_regist_match_button_regist_enable_text">#FFFFFF</color>
+    <color name="color_regist_match_button_regist_press">#007338</color>
+    <color name="color_regist_match_button_regist_press_stroke">#007338</color>
+    <color name="color_regist_match_button_regist_press_text">#FFFFFF</color>
 </resources>

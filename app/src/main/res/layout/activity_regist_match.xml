@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RegistMatchActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:titleTextColor="@color/color_toolbar_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="9.5"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.6"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/regist_match_select_field"
+                            android:textColor="@color/color_regist_match_title"
+                            android:textSize="@dimen/font_size_20" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_regist_match_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="6"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_regist_match_field"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:text="@string/regist_match_field_bssic"
+                            android:textColor="@color/color_regist_match_select"
+                            android:textSize="@dimen/font_size_25" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ll_under_line"
+                            android:layout_marginTop="@dimen/ll_under_line_margin_top"
+                            android:background="@color/color_regist_match_line" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.6"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/regist_match_select_day"
+                            android:textColor="@color/color_regist_match_title"
+                            android:textSize="@dimen/font_size_20" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_regist_match_day"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="6"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_regist_match_day"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/regist_match_day_basic"
+                            android:textColor="@color/color_regist_match_select"
+                            android:textSize="@dimen/font_size_25" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ll_under_line"
+                            android:layout_marginTop="@dimen/ll_under_line_margin_top"
+                            android:background="@color/color_regist_match_line" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.6"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/regist_match_start_time"
+                            android:textColor="@color/color_regist_match_title"
+                            android:textSize="@dimen/font_size_20" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_regist_match_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="6"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:id="@+id/tv_regist_match_time"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="8"
+                                android:text="@string/regist_match_time_basic"
+                                android:textColor="@color/color_regist_match_select"
+                                android:textSize="@dimen/font_size_25" />
+
+                            <Button
+                                android:id="@+id/bt_regist_match_time_nothing"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:background="@drawable/selector_button_search"
+                                android:minHeight="0dp"
+                                android:text="@string/regist_match_time_nothing"
+                                android:textColor="@drawable/selector_button_search_text"
+                                android:textSize="@dimen/font_size_18" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ll_under_line"
+                            android:layout_marginTop="@dimen/ll_under_line_margin_top"
+                            android:background="@color/color_regist_match_line" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.6"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/regist_match_select_number"
+                            android:textColor="@color/color_regist_match_title"
+                            android:textSize="@dimen/font_size_20" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="6"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <Button
+                                android:id="@+id/bt_regist_match_number_nothing"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@drawable/selector_button_select"
+                                android:minHeight="0dp"
+                                android:text="@string/regist_match_number_nothing"
+                                android:textColor="@drawable/selector_button_select_text"
+                                android:textSize="@dimen/font_size_18" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5" />
+
+                            <Button
+                                android:id="@+id/bt_regist_match_number_5"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@drawable/selector_button_select"
+                                android:minHeight="0dp"
+                                android:text="@string/regist_match_number_5"
+                                android:textColor="@drawable/selector_button_select_text"
+                                android:textSize="@dimen/font_size_18" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5" />
+
+                            <Button
+                                android:id="@+id/bt_regist_match_number_6"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:background="@drawable/selector_button_select"
+                                android:minHeight="0dp"
+                                android:text="@string/regist_match_number_6"
+                                android:textColor="@drawable/selector_button_select_text"
+                                android:textSize="@dimen/font_size_18" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ll_under_line"
+                            android:layout_marginTop="@dimen/ll_under_line_margin_top"
+                            android:background="@color/color_regist_match_line" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.6"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:text="@string/regist_match_select_level"
+                            android:textColor="@color/color_regist_match_title"
+                            android:textSize="@dimen/font_size_20" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="6"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <Button
+                                android:id="@+id/bt_regist_match_level_challenger"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.3"
+                                android:background="@drawable/selector_button_select"
+                                android:minHeight="0dp"
+                                android:text="@string/regist_match_level_challenger"
+                                android:textColor="@drawable/selector_button_select_text"
+                                android:textSize="@dimen/font_size_18" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25" />
+
+                            <Button
+                                android:id="@+id/bt_regist_match_level_diamond"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.6"
+                                android:background="@drawable/selector_button_select"
+                                android:minHeight="0dp"
+                                android:text="@string/regist_match_level_diamond"
+                                android:textColor="@drawable/selector_button_select_text"
+                                android:textSize="@dimen/font_size_18" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25" />
+
+                            <Button
+                                android:id="@+id/bt_regist_match_level_platinum"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.3"
+                                android:background="@drawable/selector_button_select"
+                                android:minHeight="0dp"
+                                android:text="@string/regist_match_level_platinum"
+                                android:textColor="@drawable/selector_button_select_text"
+                                android:textSize="@dimen/font_size_18" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25" />
+
+                            <Button
+                                android:id="@+id/bt_regist_match_level_gold"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.6"
+                                android:background="@drawable/selector_button_select"
+                                android:minHeight="0dp"
+                                android:text="@string/regist_match_level_gold"
+                                android:textColor="@drawable/selector_button_select_text"
+                                android:textSize="@dimen/font_size_18" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25" />
+
+                            <Button
+                                android:id="@+id/bt_regist_match_level_silver"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.3"
+                                android:background="@drawable/selector_button_select"
+                                android:minHeight="0dp"
+                                android:text="@string/regist_match_level_silver"
+                                android:textColor="@drawable/selector_button_select_text"
+                                android:textSize="@dimen/font_size_18" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25" />
+
+                            <Button
+                                android:id="@+id/bt_regist_match_level_nothing"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.6"
+                                android:background="@drawable/selector_button_select"
+                                android:minHeight="0dp"
+                                android:text="@string/regist_match_level_nothing"
+                                android:textColor="@drawable/selector_button_select_text"
+                                android:textSize="@dimen/font_size_18" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ll_under_line"
+                            android:layout_marginTop="@dimen/ll_under_line_margin_top"
+                            android:background="@color/color_regist_match_line" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <Button
+                        android:id="@+id/bt_regist_match_insert"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/selector_button_search"
+                        android:text="@string/regist_match_insert"
+                        android:textColor="@drawable/selector_button_search_text"
+                        android:textSize="@dimen/font_size_22" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

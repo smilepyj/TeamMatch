@@ -74,4 +74,13 @@
     <string name="searchmatchlist_result_match_hope_team_lvl">match_hope_team_lvl</string>
     <string name="searchmatchlist_result_match_hope_team_member">match_hope_team_member</string>
 
+    <!-- registMatch Service -->
+    <string name="registMatch_service">match/registMatch</string>
+    <string name="registMatch_param_email_id">email_id</string>
+    <string name="registMatch_param_match_hope_ground_id">match_hope_ground_id</string>
+    <string name="registMatch_param_match_hope_date">match_hope_date</string>
+    <string name="registMatch_param_match_hope_time">match_hope_time</string>
+    <string name="registMatch_param_match_hope_team_member">match_hope_team_member</string>
+    <string name="registMatch_param_match_hope_team_lvl">match_hope_team_lvl</string>
+
 </resources>

@@ -146,11 +146,12 @@ public class MainActivity extends AppCompatActivity {
 
             switch (v.getId()) {
                 case R.id.bt_main_search_match:
-                    mIntent = new Intent(mContext, SearchingMatchActivity.class);
+                    mIntent = new Intent(mContext, SearchMatchActivity.class);
                     startActivity(mIntent);
                     break;
                 case R.id.bt_main_registration_match:
-                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
+                    mIntent = new Intent(mContext, RegistMatchActivity.class);
+                    startActivity(mIntent);
                     break;
                 case R.id.ll_main_in_progress_matching:
                     mApplicationTM.makeToast(mContext, getString(R.string.cording_message));

@@ -15,12 +15,15 @@
 
     <!-- Layout Size -->
     <dimen name="ll_under_line">1dp</dimen>
+    <dimen name="ll_margin">7dp</dimen>
 
     <!-- Padding Size -->
     <dimen name="bt_main_padding">15dp</dimen>
     <dimen name="ll_under_line_margin_top">3dp</dimen>
     <dimen name="tv_search_result_condition_padding">8dp</dimen>
+    <dimen name="listview_search_result_margin_vertical">5dp</dimen>
     <dimen name="listview_search_result_padding_vertical">8dp</dimen>
-    <dimen name="listview_item_sidebar_margin_horizontal">5dp</dimen>
+    <dimen name="listview_item_sidebar_margin_horizontal">7dp</dimen>
     <dimen name="bt_user_info_hope_grounds">5dp</dimen>
+
 </resources>

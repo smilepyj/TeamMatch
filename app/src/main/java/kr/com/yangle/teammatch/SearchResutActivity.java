@@ -73,10 +73,10 @@ public class SearchResutActivity extends AppCompatActivity {
         search_date = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_date));
         search_time = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_time));
         search_ground = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_ground));
-        search_ground_cnt = getIntent().getIntExtra(getString(R.string.searching_match_extra_search_ground_cnt), 0);
+        search_ground_cnt = getIntent().getIntExtra(getString(R.string.search_match_extra_search_ground_cnt), 0);
         search_team_member = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_team_member));
         search_team_lvl = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_team_lvl));
-        search_team_lvl_cnt = getIntent().getIntExtra(getString(R.string.searching_match_extra_search_team_lvl_cnt), 0);
+        search_team_lvl_cnt = getIntent().getIntExtra(getString(R.string.search_match_extra_search_team_lvl_cnt), 0);
 
         setSearchCondition();
 
@@ -134,12 +134,14 @@ public class SearchResutActivity extends AppCompatActivity {
             }
 
             if(!"".equals(search_team_member)) {
-                tv_search_result_member.setText(search_team_member);
+                tv_search_result_member.setText(mApplicationTM.getC003().get(search_team_member));
             } else {
-                tv_search_result_member.setText(getString(R.string.search_result_nothing_level));
+                tv_search_result_member.setText(getString(R.string.search_result_nothing_member));
             }
 
-            if(search_team_lvl_cnt != 0) {
+            if(search_team_lvl_cnt == 1) {
+                tv_search_result_level.setText(getString(R.string.search_result_condition_level) + "(" + mApplicationTM.getC002().get(search_team_lvl) + ")");
+            } else if(search_team_lvl_cnt > 1) {
                 tv_search_result_level.setText(getString(R.string.search_result_condition_level) + "(" + search_team_lvl_cnt + ")");
             } else {
                 tv_search_result_level.setText(getString(R.string.search_result_nothing_level));

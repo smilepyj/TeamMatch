@@ -53,8 +53,8 @@
     </string-array>
 
     <string-array name="C003_data">
-        <item>5vs5</item>
-        <item>6vs6</item>
+        <item>5 : 5</item>
+        <item>6 : 6</item>
     </string-array>
 
     <string-array name="C004_code">

@@ -32,11 +32,15 @@
             android:name=".UserInfoActivity"
             android:screenOrientation="sensorPortrait" />
         <activity
-            android:name=".SearchingMatchActivity"
+            android:name=".SearchMatchActivity"
             android:screenOrientation="sensorPortrait" />
-        <activity android:name=".SearchResutActivity"
+        <activity
+            android:name=".SearchResutActivity"
             android:screenOrientation="sensorPortrait" />
-        <activity android:name=".SearchGroundActivity"
+        <activity
+            android:name=".SearchGroundActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity android:name=".RegistMatchActivity"
             android:screenOrientation="sensorPortrait"/>
     </application>
 

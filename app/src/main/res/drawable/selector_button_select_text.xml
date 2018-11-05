@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true"
-        android:color="@color/color_searchingmatch_button_select_press_text" />
+        android:color="@color/color_searchmatch_button_select_press_text" />
 
     <item android:state_selected="true"
-        android:color="@color/color_searchingmatch_button_select_press_text" />
+        android:color="@color/color_searchmatch_button_select_press_text" />
 
 
-    <item android:color="@color/color_searchingmatch_button_select_enable_text" />
+    <item android:color="@color/color_searchmatch_button_select_enable_text" />
 </selector>
