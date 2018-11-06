@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -57,6 +58,10 @@ public class SearchGroundType2ListViewAdapter extends BaseAdapter {
         return 0;
     }
 
+    public Object getItems() {
+        return mDataJSONArray;
+    }
+
     public void setAllChecked(boolean ischeked) {
         int tempSize = isCheckedConfrim.length;
         for(int a=0 ; a<tempSize ; a++){
@@ -68,8 +73,16 @@ public class SearchGroundType2ListViewAdapter extends BaseAdapter {
         isCheckedConfrim[position] = !isCheckedConfrim[position];
     }
 
+    public void setChecked(int position, boolean ischeked) {
+        isCheckedConfrim[position] = ischeked;
+    }
+
     public boolean getChecked(int position) {
         return isCheckedConfrim[position];
+    }
+
+    public boolean[] getCheckedAll() {
+        return isCheckedConfrim;
     }
 
     public ArrayList<Integer> getChecked(){
@@ -81,6 +94,19 @@ public class SearchGroundType2ListViewAdapter extends BaseAdapter {
             }
         }
         return mArrayList;
+    }
+
+    public boolean isTotalChecked() {
+        boolean bTemp = true;
+
+        int tempSize = isCheckedConfrim.length;
+        for(int i = 1 ; i < tempSize ; i++){
+            if(!isCheckedConfrim[i]){
+                bTemp = false;
+                break;
+            }
+        }
+        return bTemp;
     }
 
     @Override
@@ -95,12 +121,16 @@ public class SearchGroundType2ListViewAdapter extends BaseAdapter {
             convertView = mLayoutInflater.inflate(R.layout.listview_search_ground_type_2, parent, false);
         }
 
+        CheckBox cb_listview_search_ground = convertView.findViewById(R.id.cb_listview_search_ground);
         TextView tv_listview_search_ground_type_2_1 = convertView.findViewById(R.id.tv_listview_search_ground_type_2_1);
         TextView tv_listview_search_ground_type_2_2 = convertView.findViewById(R.id.tv_listview_search_ground_type_2_2);
 
         try {
             JSONObject mJSONObject = mDataJSONArray.getJSONObject(position);
 
+            cb_listview_search_ground.setClickable(false);
+            cb_listview_search_ground.setFocusable(false);
+            cb_listview_search_ground.setChecked(isCheckedConfrim[position]);
             tv_listview_search_ground_type_2_1.setText(mJSONObject.get("ground_name").toString());
 
             double distance = Math.round((double)mJSONObject.get("distance")*10)/10.0;

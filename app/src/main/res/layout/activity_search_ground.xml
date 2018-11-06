@@ -156,7 +156,89 @@
             android:orientation="horizontal"
             android:weightSum="10">
 
+            <HorizontalScrollView
+                android:id="@+id/hs_search_ground_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/ll_search_ground_result_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+
+                    <!--<Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:drawableRight="@drawable/ic_close"
+                        android:text="테스트1111111111"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:drawableRight="@drawable/ic_close"
+                        android:text="테스트1"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:drawableRight="@drawable/ic_close"
+                        android:text="테스트1"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:drawableRight="@drawable/ic_close"
+                        android:text="테스트1"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:drawableRight="@drawable/ic_close"
+                        android:text="테스트1"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:drawableRight="@drawable/ic_close"
+                        android:text="테스트1"/>-->
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
             <LinearLayout
+                android:id="@+id/ll_search_ground_result_2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="9"
@@ -171,6 +253,7 @@
                     android:textColor="@color/color_search_ground_contents"
                     android:textSize="@dimen/font_size_16" />
             </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
