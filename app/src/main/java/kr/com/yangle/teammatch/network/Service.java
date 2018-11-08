@@ -239,6 +239,25 @@ public class Service {
         } catch (Exception e) {
             Log.e(TAG, "searchAreaList - " + e);
         }
+    }
 
+    /**
+     * 매치 진행 상황 조회
+     * Created by maloman72 on 218-11-08
+     * */
+    public void searchMatchProcList(ResponseListener responseListener) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + "matchHist/searchMatchProcList";
+            String email_id = mApplicationTM.getUserEmail(), search_count = "50", search_page = "1";
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put("email_id", email_id);
+            mJSONObject.put("search_count", search_count);
+            mJSONObject.put("search_page", search_page);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchMatchProcList - " + e);
+        }
     }
 }

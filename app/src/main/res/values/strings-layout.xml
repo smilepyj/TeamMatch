@@ -118,4 +118,7 @@
     <string name="regist_match_level_silver">하</string>
     <string name="regist_match_level_nothing">무관</string>
     <string name="regist_match_insert">등록하기</string>
+
+    <!-- MatchProc Activity -->
+    <string name="match_proc_title">진행중 매치</string>
 </resources>

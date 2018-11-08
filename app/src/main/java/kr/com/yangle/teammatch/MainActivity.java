@@ -154,7 +154,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(mIntent);
                     break;
                 case R.id.ll_main_in_progress_matching:
-                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
+                    mIntent = new Intent(mContext, MatchProcActivity.class);
+                    startActivity(mIntent);
                     break;
                 case R.id.ll_main_ranking:
                     mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
