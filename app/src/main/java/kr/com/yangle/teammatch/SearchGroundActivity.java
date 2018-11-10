@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -878,14 +879,18 @@ public class SearchGroundActivity extends AppCompatActivity {
             }
 
             for(int i = 0 ; i < search_area_groups.size() ; i++) {
+                DisplayMetrics mDisplayMetrics = getResources().getDisplayMetrics();
+                int mMarginsSize = Math.round(5 * mDisplayMetrics.density);
+                int mPaddingSize = Math.round(10 * mDisplayMetrics.density);
+
                 Button btn = new Button(mContext);
                 btn.setText(search_area_groups.get(i).get("ground_name").toString());
-                btn.setLayoutParams(
-                        new LinearLayout.LayoutParams(
-                                android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
-                                android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-                        )
+                LinearLayout.LayoutParams mLayoutParams = new LinearLayout.LayoutParams(
+                        android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+                        android.view.ViewGroup.LayoutParams.WRAP_CONTENT
                 );
+                mLayoutParams.setMargins(mMarginsSize, 0, mMarginsSize, 0);
+                btn.setLayoutParams(mLayoutParams);
                 btn.setBackground(getResources().getDrawable(R.drawable.ic_button_select_ground));
                 btn.setTextColor(getResources().getColor(R.color.color_userinfo_button_enable_text));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -894,7 +899,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                     btn.setIncludeFontPadding(false);
                 }
                 btn.setMinHeight(0);
-                btn.setPadding(0, 0, 10, 0);
+                btn.setPadding(mPaddingSize, 0, mPaddingSize, 0);
                 btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
                 Drawable icon = getResources().getDrawable(R.drawable.ic_close);
                 icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
@@ -905,15 +910,18 @@ public class SearchGroundActivity extends AppCompatActivity {
             }
 
             for(int i = 0 ; i < search_areas.size() ; i++) {
+                DisplayMetrics mDisplayMetrics = getResources().getDisplayMetrics();
+                int mMarginsSize = Math.round(5 * mDisplayMetrics.density);
+                int mPaddingSize = Math.round(10 * mDisplayMetrics.density);
 
                 Button btn = new Button(mContext);
                 btn.setText(search_areas.get(i).get("ground_name").toString());
-                btn.setLayoutParams(
-                        new LinearLayout.LayoutParams(
-                                android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
-                                android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-                        )
+                LinearLayout.LayoutParams mLayoutParams = new LinearLayout.LayoutParams(
+                        android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+                        android.view.ViewGroup.LayoutParams.WRAP_CONTENT
                 );
+                mLayoutParams.setMargins(mMarginsSize, 0, mMarginsSize, 0);
+                btn.setLayoutParams(mLayoutParams);
                 btn.setBackground(getResources().getDrawable(R.drawable.ic_button_select_ground));
                 btn.setTextColor(getResources().getColor(R.color.color_userinfo_button_enable_text));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -922,7 +930,8 @@ public class SearchGroundActivity extends AppCompatActivity {
                     btn.setIncludeFontPadding(false);
                 }
                 btn.setMinHeight(0);
-                btn.setPadding(0, 0, 10, 0);
+                btn.setPadding(mPaddingSize, 0, mPaddingSize, 0);
+
                 btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
                 Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close);
                 icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
@@ -933,15 +942,18 @@ public class SearchGroundActivity extends AppCompatActivity {
             }
 
             for(int i = 0 ; i < search_grounds.size() ; i++) {
+                DisplayMetrics mDisplayMetrics = getResources().getDisplayMetrics();
+                int mMarginsSize = Math.round(5 * mDisplayMetrics.density);
+                int mPaddingSize = Math.round(10 * mDisplayMetrics.density);
 
                 Button btn = new Button(mContext);
                 btn.setText(search_grounds.get(i).get("ground_name").toString());
-                btn.setLayoutParams(
-                        new LinearLayout.LayoutParams(
-                                android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
-                                android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-                        )
+                LinearLayout.LayoutParams mLayoutParams = new LinearLayout.LayoutParams(
+                        android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+                        android.view.ViewGroup.LayoutParams.WRAP_CONTENT
                 );
+                mLayoutParams.setMargins(mMarginsSize, 0, mMarginsSize, 0);
+                btn.setLayoutParams(mLayoutParams);
                 btn.setBackground(getResources().getDrawable(R.drawable.ic_button_select_ground));
                 btn.setTextColor(getResources().getColor(R.color.color_userinfo_button_enable_text));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -950,7 +962,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                     btn.setIncludeFontPadding(false);
                 }
                 btn.setMinHeight(0);
-                btn.setPadding(0, 0, 10, 0);
+                btn.setPadding(mPaddingSize, 0, mPaddingSize, 0);
                 btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
                 Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close);
                 icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
