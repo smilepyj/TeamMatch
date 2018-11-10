@@ -1,8 +1,12 @@
 package kr.com.yangle.teammatch;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,14 +52,7 @@ public class IntroActivity extends AppCompatActivity {
     Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
-            if("".equals(mApplicationTM.getUserEmail())) {
-                Intent mIntent = new Intent(mContext, LoginActivity.class);
-                startActivity(mIntent);
-                finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            } else {
-                mService.userLogin(userLogin_Listener, mApplicationTM.getUserEmail());
-            }
+            CheckPermission();
         }
     };
 
@@ -72,6 +69,52 @@ public class IntroActivity extends AppCompatActivity {
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    /**
+     * Android M 이상 Permission 체크
+     * Created by maloman72 on 2018-11-10
+     * */
+    private void CheckPermission() {
+        if((Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) && (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)) {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CALL_PHONE}, 1);
+        } else {
+            CheckLogin();
+        }
+    }
+
+    /**
+     * Permission 동의 확인
+     * Created by maloman72 on 2018-11-10
+     * */
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == 1) {
+            for(int mRssult : grantResults) {
+                if(mRssult != PackageManager.PERMISSION_GRANTED) {
+                    mApplicationTM.makeToast(mContext, getString(R.string.permission_message));
+                    return;
+                }
+            }
+
+            CheckLogin();
+        }
+    }
+
+    /**
+     * Check Login
+     * Created by maloman72 on 2018-11-10
+     * */
+    private void CheckLogin() {
+        if("".equals(mApplicationTM.getUserEmail())) {
+            Intent mIntent = new Intent(mContext, LoginActivity.class);
+            startActivity(mIntent);
+            finish();
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        } else {
+            mService.userLogin(userLogin_Listener, mApplicationTM.getUserEmail());
+        }
     }
 
     /**
