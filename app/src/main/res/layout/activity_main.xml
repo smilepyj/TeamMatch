@@ -66,7 +66,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="6"
-                                android:background="@drawable/im_logo"/>
+                                android:background="@drawable/im_logo" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -81,18 +81,20 @@
 
                         <Button
                             android:id="@+id/bt_main_search_match"
+                            style="?android:attr/borderlessButtonStyle"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="4"
                             android:background="@color/colorWhite"
                             android:drawableLeft="@drawable/ic_magnifier"
+                            android:drawablePadding="@dimen/bt_main_padding"
                             android:drawableRight="@drawable/ic_arrow_right"
+                            android:fontFamily="@font/notosanskr_regular"
                             android:gravity="center_vertical|left"
                             android:paddingHorizontal="@dimen/bt_main_padding"
                             android:text="@string/main_search_match"
                             android:textColor="@color/colorGray"
-                            android:drawablePadding="@dimen/bt_main_padding"
-                            android:textSize="@dimen/font_size_25" />
+                            android:textSize="@dimen/font_size_22" />
 
                         <Space
                             android:layout_width="match_parent"
@@ -101,18 +103,20 @@
 
                         <Button
                             android:id="@+id/bt_main_registration_match"
+                            style="?android:attr/borderlessButtonStyle"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="4"
                             android:background="@color/colorWhite"
                             android:drawableLeft="@drawable/ic_add_circle"
+                            android:drawablePadding="@dimen/bt_main_padding"
                             android:drawableRight="@drawable/ic_arrow_right"
+                            android:fontFamily="@font/notosanskr_regular"
                             android:gravity="center_vertical|left"
                             android:paddingHorizontal="@dimen/bt_main_padding"
                             android:text="@string/main_registration_match"
-                            android:drawablePadding="@dimen/bt_main_padding"
                             android:textColor="@color/colorGray"
-                            android:textSize="@dimen/font_size_25" />
+                            android:textSize="@dimen/font_size_22" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -139,8 +143,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="4.75"
                         android:gravity="center"
-                        android:weightSum="10"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:weightSum="10">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -155,6 +159,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
                             android:text="@string/main_in_progress_matching"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/font_size_20" />
@@ -190,8 +195,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="4.75"
                         android:gravity="center"
-                        android:weightSum="10"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:weightSum="10">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -206,6 +211,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
                             android:text="@string/main_ranking"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/font_size_20" />

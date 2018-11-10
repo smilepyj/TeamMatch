@@ -12,9 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:gravity="center"
+        android:elevation="1dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:titleTextColor="@color/color_toolbar_title" />
+        app:titleTextColor="@color/color_toolbar_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/notosanskr_regular"
+            android:text="@string/search_ground_title"
+            android:textColor="@color/color_toolbar_title"
+            android:textSize="@dimen/font_size_16" />
+    </android.support.v7.widget.Toolbar>
 
 
     <LinearLayout
@@ -40,10 +50,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3.3"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
                 android:background="@drawable/selector_button_ground_type"
                 android:text="@string/search_ground_type_1"
                 android:textColor="@drawable/selector_button_ground_type_text"
-                android:textSize="@dimen/font_size_18" />
+                android:textSize="@dimen/font_size_16" />
 
             <Button
                 android:id="@+id/bt_search_ground_type_2"
@@ -51,21 +63,25 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3.3"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
                 android:background="@drawable/selector_button_ground_type"
                 android:text="@string/search_ground_type_2"
                 android:textColor="@drawable/selector_button_ground_type_text"
-                android:textSize="@dimen/font_size_18" />
+                android:textSize="@dimen/font_size_16" />
 
             <Button
                 android:id="@+id/bt_search_ground_type_3"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="0dp"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
                 android:layout_height="match_parent"
                 android:layout_weight="3.3"
                 android:background="@drawable/selector_button_ground_type"
                 android:text="@string/search_ground_type_3"
                 android:textColor="@drawable/selector_button_ground_type_text"
-                android:textSize="@dimen/font_size_18" />
+                android:textSize="@dimen/font_size_16" />
         </LinearLayout>
 
         <LinearLayout
@@ -173,66 +189,6 @@
                         android:layout_height="wrap_content"
                         android:visibility="gone"/>
 
-                    <!--<Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:drawableRight="@drawable/ic_close"
-                        android:text="테스트1111111111"/>
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:drawableRight="@drawable/ic_close"
-                        android:text="테스트1"/>
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:drawableRight="@drawable/ic_close"
-                        android:text="테스트1"/>
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:drawableRight="@drawable/ic_close"
-                        android:text="테스트1"/>
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:drawableRight="@drawable/ic_close"
-                        android:text="테스트1"/>
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:drawableRight="@drawable/ic_close"
-                        android:text="테스트1"/>-->
-
                 </LinearLayout>
 
             </HorizontalScrollView>
@@ -249,6 +205,8 @@
                     android:id="@+id/tv_search_ground_select"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
                     android:text="@string/search_ground_select"
                     android:textColor="@color/color_search_ground_contents"
                     android:textSize="@dimen/font_size_16" />
@@ -275,7 +233,10 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
                 android:layout_weight="9"
+                android:minHeight="0dp"
                 android:background="@drawable/selector_button_select_end"
                 android:text="@string/search_ground_select_end"
                 android:textColor="@drawable/selector_button_select_end_text"

@@ -32,6 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
             android:textColor="@color/color_listview_search_ground_contents"
             android:textSize="@dimen/font_size_16" />
     </LinearLayout>

@@ -12,9 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:gravity="center"
+        android:elevation="1dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:titleTextColor="@color/color_toolbar_title" />
+        app:titleTextColor="@color/color_toolbar_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/notosanskr_regular"
+            android:text="@string/search_match_title"
+            android:textColor="@color/color_toolbar_title"
+            android:textSize="@dimen/font_size_16" />
+    </android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,23 +59,24 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="4"
+                        android:layout_weight="3.8"
                         android:gravity="bottom"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
                             android:text="@string/search_match_select_field"
                             android:textColor="@color/color_searchmatch_title"
-                            android:textSize="@dimen/font_size_20" />
+                            android:textSize="@dimen/font_size_18" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_search_match_field"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="6"
+                        android:layout_weight="6.2"
                         android:gravity="center_vertical"
                         android:orientation="vertical">
 
@@ -73,15 +84,15 @@
                             android:id="@+id/tv_search_match_field"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
                             android:singleLine="true"
                             android:text="@string/search_match_field_bssic"
                             android:textColor="@color/color_searchmatch_select"
-                            android:textSize="@dimen/font_size_25" />
+                            android:textSize="@dimen/font_size_20" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/ll_under_line"
-                            android:layout_marginTop="@dimen/ll_under_line_margin_top"
                             android:background="@color/color_searchmatch_line" />
                     </LinearLayout>
                 </LinearLayout>
@@ -96,23 +107,24 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="4"
+                        android:layout_weight="3.8"
                         android:gravity="bottom"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
                             android:text="@string/search_match_select_day"
                             android:textColor="@color/color_searchmatch_title"
-                            android:textSize="@dimen/font_size_20" />
+                            android:textSize="@dimen/font_size_18" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_search_match_day"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="6"
+                        android:layout_weight="6.2"
                         android:gravity="center_vertical"
                         android:orientation="vertical">
 
@@ -120,14 +132,14 @@
                             android:id="@+id/tv_search_match_day"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
                             android:text="@string/search_match_day_basic"
                             android:textColor="@color/color_searchmatch_select"
-                            android:textSize="@dimen/font_size_25" />
+                            android:textSize="@dimen/font_size_20" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/ll_under_line"
-                            android:layout_marginTop="@dimen/ll_under_line_margin_top"
                             android:background="@color/color_searchmatch_line" />
                     </LinearLayout>
                 </LinearLayout>
@@ -142,31 +154,32 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="4"
+                        android:layout_weight="3.8"
                         android:gravity="bottom"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
                             android:text="@string/search_match_start_time"
                             android:textColor="@color/color_searchmatch_title"
-                            android:textSize="@dimen/font_size_20" />
+                            android:textSize="@dimen/font_size_18" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_search_match_time"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="6"
+                        android:layout_weight="6.2"
                         android:gravity="center_vertical"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
                             android:gravity="center_vertical"
+                            android:orientation="horizontal"
                             android:weightSum="10">
 
                             <TextView
@@ -174,18 +187,21 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="8"
+                                android:fontFamily="@font/notosanskr_regular"
                                 android:text="@string/search_match_time_basic"
                                 android:textColor="@color/color_searchmatch_select"
-                                android:textSize="@dimen/font_size_25" />
+                                android:textSize="@dimen/font_size_20" />
 
                             <Button
                                 android:id="@+id/bt_search_match_time_nothing"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
                                 android:layout_weight="2"
-                                android:minHeight="0dp"
                                 android:background="@drawable/selector_button_search"
+                                android:fontFamily="@font/notosanskr_medium"
+                                android:minHeight="0dp"
                                 android:text="@string/search_match_time_nothing"
                                 android:textColor="@drawable/selector_button_search_text"
                                 android:textSize="@dimen/font_size_18" />
@@ -194,7 +210,6 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/ll_under_line"
-                            android:layout_marginTop="@dimen/ll_under_line_margin_top"
                             android:background="@color/color_searchmatch_line" />
                     </LinearLayout>
 
@@ -210,22 +225,23 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="4"
+                        android:layout_weight="3.8"
                         android:gravity="bottom"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
                             android:text="@string/search_match_select_number"
                             android:textColor="@color/color_searchmatch_title"
-                            android:textSize="@dimen/font_size_20" />
+                            android:textSize="@dimen/font_size_18" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="6"
+                        android:layout_weight="6.2"
                         android:gravity="center_vertical"
                         android:orientation="vertical">
 
@@ -242,11 +258,13 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
+                                android:includeFontPadding="false"
                                 android:background="@drawable/selector_button_select"
+                                android:fontFamily="@font/notosanskr_medium"
                                 android:minHeight="0dp"
                                 android:text="@string/search_match_number_nothing"
                                 android:textColor="@drawable/selector_button_select_text"
-                                android:textSize="@dimen/font_size_18" />
+                                android:textSize="@dimen/font_size_16" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -259,11 +277,13 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
+                                android:includeFontPadding="false"
                                 android:background="@drawable/selector_button_select"
+                                android:fontFamily="@font/notosanskr_medium"
                                 android:minHeight="0dp"
                                 android:text="@string/search_match_number_5"
                                 android:textColor="@drawable/selector_button_select_text"
-                                android:textSize="@dimen/font_size_18" />
+                                android:textSize="@dimen/font_size_16" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -276,11 +296,13 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
+                                android:includeFontPadding="false"
                                 android:background="@drawable/selector_button_select"
+                                android:fontFamily="@font/notosanskr_medium"
                                 android:minHeight="0dp"
                                 android:text="@string/search_match_number_6"
                                 android:textColor="@drawable/selector_button_select_text"
-                                android:textSize="@dimen/font_size_18" />
+                                android:textSize="@dimen/font_size_16" />
                         </LinearLayout>
 
 
@@ -303,23 +325,24 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="4"
+                        android:layout_weight="3.8"
                         android:gravity="bottom"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
                             android:singleLine="true"
                             android:text="@string/search_match_select_level"
                             android:textColor="@color/color_searchmatch_title"
-                            android:textSize="@dimen/font_size_20" />
+                            android:textSize="@dimen/font_size_18" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="6"
+                        android:layout_weight="6.2"
                         android:gravity="center_vertical"
                         android:orientation="vertical">
 
@@ -335,12 +358,14 @@
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
                                 android:layout_weight="1.3"
                                 android:background="@drawable/selector_button_select"
+                                android:fontFamily="@font/notosanskr_medium"
                                 android:minHeight="0dp"
                                 android:text="@string/search_match_level_challenger"
                                 android:textColor="@drawable/selector_button_select_text"
-                                android:textSize="@dimen/font_size_18" />
+                                android:textSize="@dimen/font_size_16" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -352,12 +377,14 @@
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
                                 android:layout_weight="1.6"
                                 android:background="@drawable/selector_button_select"
+                                android:fontFamily="@font/notosanskr_medium"
                                 android:minHeight="0dp"
                                 android:text="@string/search_match_level_diamond"
                                 android:textColor="@drawable/selector_button_select_text"
-                                android:textSize="@dimen/font_size_18" />
+                                android:textSize="@dimen/font_size_16" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -369,12 +396,14 @@
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
                                 android:layout_weight="1.3"
                                 android:background="@drawable/selector_button_select"
+                                android:fontFamily="@font/notosanskr_medium"
                                 android:minHeight="0dp"
                                 android:text="@string/search_match_level_platinum"
                                 android:textColor="@drawable/selector_button_select_text"
-                                android:textSize="@dimen/font_size_18" />
+                                android:textSize="@dimen/font_size_16" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -387,11 +416,13 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.6"
+                                android:includeFontPadding="false"
                                 android:background="@drawable/selector_button_select"
+                                android:fontFamily="@font/notosanskr_medium"
                                 android:minHeight="0dp"
                                 android:text="@string/search_match_level_gold"
                                 android:textColor="@drawable/selector_button_select_text"
-                                android:textSize="@dimen/font_size_18" />
+                                android:textSize="@dimen/font_size_16" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -404,11 +435,13 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.3"
+                                android:includeFontPadding="false"
                                 android:background="@drawable/selector_button_select"
+                                android:fontFamily="@font/notosanskr_medium"
                                 android:minHeight="0dp"
                                 android:text="@string/search_match_level_silver"
                                 android:textColor="@drawable/selector_button_select_text"
-                                android:textSize="@dimen/font_size_18" />
+                                android:textSize="@dimen/font_size_16" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -420,12 +453,14 @@
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
                                 android:layout_weight="1.6"
                                 android:background="@drawable/selector_button_select"
+                                android:fontFamily="@font/notosanskr_medium"
                                 android:minHeight="0dp"
                                 android:text="@string/search_match_level_nothing"
                                 android:textColor="@drawable/selector_button_select_text"
-                                android:textSize="@dimen/font_size_18" />
+                                android:textSize="@dimen/font_size_16" />
                         </LinearLayout>
 
 
@@ -457,11 +492,13 @@
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="8"
                         android:background="@drawable/selector_button_search"
+                        android:fontFamily="@font/notosanskr_medium"
                         android:text="@string/search_match_search"
                         android:textColor="@drawable/selector_button_search_text"
-                        android:textSize="@dimen/font_size_22" />
+                        android:textSize="@dimen/font_size_20" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

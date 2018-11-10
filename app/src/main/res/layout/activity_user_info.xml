@@ -12,9 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:gravity="center"
+        android:elevation="1dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:titleTextColor="@color/color_toolbar_title" />
+        app:titleTextColor="@color/color_toolbar_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:layout_gravity="center"
+            android:text="@string/user_info_title"
+            android:textColor="@color/color_toolbar_title"
+            android:textSize="@dimen/font_size_16" />
+    </android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,6 +61,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:fontFamily="@font/notosanskr_regular"
                         android:gravity="center_vertical"
                         android:text="@string/user_info_user_name"
                         android:textColor="@color/color_userinfo_title"
@@ -63,6 +74,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="7.5"
                         android:background="@drawable/ic_edittext"
+                        android:fontFamily="@font/notosanskr_regular"
                         android:hint="@string/user_info_user_name_hint"
                         android:textColor="@color/color_userinfo_input"
                         android:textSize="@dimen/font_size_20" />
@@ -93,6 +105,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:fontFamily="@font/notosanskr_regular"
                         android:gravity="center_vertical"
                         android:text="@string/user_info_phone_number"
                         android:textColor="@color/color_userinfo_title"
@@ -105,6 +118,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="7.5"
                         android:background="@drawable/ic_edittext"
+                        android:fontFamily="@font/notosanskr_regular"
                         android:hint="@string/user_info_phone_number_hint"
                         android:inputType="phone"
                         android:textColor="@color/color_userinfo_input"
@@ -136,6 +150,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:fontFamily="@font/notosanskr_regular"
                         android:gravity="center_vertical"
                         android:text="@string/user_info_team_name"
                         android:textColor="@color/color_userinfo_title"
@@ -148,6 +163,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="7.5"
                         android:background="@drawable/ic_edittext"
+                        android:fontFamily="@font/notosanskr_regular"
                         android:hint="@string/user_info_team_name_hint"
                         android:textColor="@color/color_userinfo_input"
                         android:textSize="@dimen/font_size_20" />
@@ -178,6 +194,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:fontFamily="@font/notosanskr_regular"
                         android:gravity="center_vertical"
                         android:text="@string/user_info_team_age"
                         android:textColor="@color/color_userinfo_title"
@@ -198,11 +215,13 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
+                            android:includeFontPadding="false"
                             android:background="@drawable/selector_button_user_info"
+                            android:fontFamily="@font/notosanskr_medium"
                             android:minHeight="0dp"
                             android:text="@string/user_info_select"
                             android:textColor="@drawable/selector_button_user_info_text"
-                            android:textSize="@dimen/font_size_22" />
+                            android:textSize="@dimen/font_size_18" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -227,15 +246,23 @@
                     android:orientation="horizontal"
                     android:weightSum="10">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
-                        android:gravity="center_vertical"
-                        android:text="@string/user_info_hope_field"
-                        android:textColor="@color/color_userinfo_title"
-                        android:textSize="@dimen/font_size_20"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
+                            android:text="@string/user_info_hope_field"
+                            android:textColor="@color/color_userinfo_title"
+                            android:textSize="@dimen/font_size_20"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -260,11 +287,14 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="4.9"
                                 android:background="@drawable/selector_button_user_info"
+                                android:includeFontPadding="false"
                                 android:drawableRight="@drawable/ic_close"
+                                android:fontFamily="@font/notosanskr_medium"
+                                android:minHeight="0dp"
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_1"
                                 android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_16" />
+                                android:textSize="@dimen/font_size_14" />
 
                             <Space
                                 android:layout_width="0dp"
@@ -276,13 +306,16 @@
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
                                 android:layout_weight="4.9"
                                 android:background="@drawable/selector_button_user_info"
                                 android:drawableRight="@drawable/ic_close"
+                                android:fontFamily="@font/notosanskr_medium"
+                                android:minHeight="0dp"
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_2"
                                 android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_16" />
+                                android:textSize="@dimen/font_size_14" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -303,13 +336,16 @@
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
                                 android:layout_weight="4.9"
                                 android:background="@drawable/selector_button_user_info"
                                 android:drawableRight="@drawable/ic_close"
+                                android:fontFamily="@font/notosanskr_medium"
+                                android:minHeight="0dp"
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_3"
                                 android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_15" />
+                                android:textSize="@dimen/font_size_14" />
 
                             <Space
                                 android:layout_width="0dp"
@@ -321,13 +357,16 @@
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
                                 android:layout_weight="4.9"
                                 android:background="@drawable/selector_button_user_info"
                                 android:drawableRight="@drawable/ic_close"
+                                android:fontFamily="@font/notosanskr_medium"
+                                android:minHeight="0dp"
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_4"
                                 android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_15" />
+                                android:textSize="@dimen/font_size_14" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -339,16 +378,18 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="3.1"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/tv_user_info_add_grounds"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanskr_regular"
                                 android:text="@string/user_info_add_grounds"
                                 android:textColor="@color/color_userinfo_title"
-                                android:textSize="@dimen/font_size_18"/>
+                                android:textSize="@dimen/font_size_16" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -378,10 +419,11 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:fontFamily="@font/notosanskr_regular"
                         android:gravity="center_vertical"
                         android:text="@string/user_info_team_level"
-                        android:textSize="@dimen/font_size_20"
                         android:textColor="@color/color_userinfo_title"
+                        android:textSize="@dimen/font_size_20"
                         android:textStyle="bold" />
 
                     <LinearLayout
@@ -397,12 +439,14 @@
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
                             android:layout_weight="3.5"
                             android:background="@drawable/selector_button_user_info"
+                            android:fontFamily="@font/notosanskr_medium"
                             android:minHeight="0dp"
                             android:text="@string/user_info_select"
                             android:textColor="@drawable/selector_button_user_info_text"
-                            android:textSize="@dimen/font_size_22" />
+                            android:textSize="@dimen/font_size_18" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -416,12 +460,14 @@
                                 android:id="@+id/bt_user_info_level_test"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                style="?android:attr/borderlessButtonStyle"
                                 android:layout_weight="3"
                                 android:background="@drawable/ic_button_user_info_level_test"
+                                android:fontFamily="@font/notosanskr_medium"
                                 android:text="@string/user_info_self_check"
                                 android:textColor="@color/color_userinfo_button_level_test_text"
                                 android:textSize="@dimen/font_size_12"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -442,7 +488,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.5"
+                    android:layout_weight="1.8"
                     android:gravity="bottom"
                     android:orientation="vertical"
                     android:weightSum="10">
@@ -451,11 +497,15 @@
                         android:id="@+id/bt_user_info_save"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="6"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_weight="5"
+                        android:includeFontPadding="false"
                         android:background="@drawable/selector_button_search"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:minHeight="0dp"
                         android:text="@string/user_info_save"
                         android:textColor="@drawable/selector_button_search_text"
-                        android:textSize="@dimen/font_size_22" />
+                        android:textSize="@dimen/font_size_18" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

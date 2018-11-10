@@ -17,6 +17,8 @@
             android:id="@+id/tv_listview_search_ground_type_3_1_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
             android:singleLine="true"
             android:textColor="@drawable/selector_listview_text"
             android:textSize="@dimen/font_size_16" />

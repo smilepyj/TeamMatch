@@ -2,7 +2,9 @@ package kr.com.yangle.teammatch;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -52,15 +54,9 @@ public class SearchGroundActivity extends AppCompatActivity {
     SearchGroundType3_2ListViewAdapter mSearchGroundType3_2ListViewAdapter;
     SearchGroundType3_3ListViewAdapter mSearchGroundType3_3ListViewAdapter;
 
-    List<JSONObject> search_area_groups = new ArrayList<JSONObject>();
-    List<JSONObject> search_areas = new ArrayList<JSONObject>();
-    List<JSONObject> search_grounds = new ArrayList<JSONObject>();
-
-//    String search_date, search_time, search_ground, search_team_member, search_team_lvl;
-//    int search_ground_cnt, search_team_lvl_cnt;
-//    TextView tv_search_result_ground, tv_search_result_date, tv_search_result_time, tv_search_result_member, tv_search_result_level;
-//    Button bt_search_result_change_condition;
-//    ListView lv_search_result_match;
+    List<JSONObject> search_area_groups = new ArrayList<>();
+    List<JSONObject> search_areas = new ArrayList<>();
+    List<JSONObject> search_grounds = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +70,7 @@ public class SearchGroundActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(getString(R.string.search_ground_title));
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
 
@@ -192,8 +188,8 @@ public class SearchGroundActivity extends AppCompatActivity {
                     break;
                 case R.id.bt_search_ground_select_end :
                     try {
-                        ArrayList<String> search_ground_ids = new ArrayList<String>();
-                        ArrayList<String> search_ground_names = new ArrayList<String>();
+                        ArrayList<String> search_ground_ids = new ArrayList<>();
+                        ArrayList<String> search_ground_names = new ArrayList<>();
                         for (JSONObject search_ground : search_grounds) {
                             search_ground_ids.add(search_ground.get("ground_id").toString());
                             search_ground_names.add(search_ground.get("ground_name").toString());
@@ -477,7 +473,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                             for(int i = 0 ; i < search_grounds.size() ; i++) {
                                 for(int j = 1 ; j < mJSONArray.length() ; i++) {
                                     JSONObject jsonObject = ((JSONObject)mJSONArray.get(j));
-                                    if(search_grounds.get(i).equals(jsonObject.get("ground_id").toString())) {
+                                    if(search_grounds.get(i).equals(jsonObject.get("ground_id"))) {
                                         mSearchGroundType3_3ListViewAdapter.setChecked(j, true);
                                     }
                                 }
@@ -495,7 +491,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                             for(int i = 0 ; i < search_grounds.size() ; i++) {
                                 for(int j = 1 ; j < mJSONArray.length() ; i++) {
                                     JSONObject jsonObject = ((JSONObject)mJSONArray.get(j));
-                                    if(search_grounds.get(i).equals(jsonObject.get("ground_id").toString())) {
+                                    if(search_grounds.get(i).equals(jsonObject.get("ground_id"))) {
                                         mSearchGroundType3_3ListViewAdapter.setChecked(j, true);
                                     }
                                 }
@@ -520,7 +516,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                             for(int i = 0 ; i < search_grounds.size() ; i++) {
                                 for(int j = 1 ; j < mJSONArray.length() ; j++) {
                                     JSONObject jsonObject = ((JSONObject)mJSONArray.get(j));
-                                    if(search_grounds.get(i).equals(jsonObject.get("ground_id").toString())) {
+                                    if(search_grounds.get(i).equals(jsonObject.get("ground_id"))) {
                                         mSearchGroundType3_3ListViewAdapter.setChecked(j, true);
                                     }
                                 }
@@ -658,7 +654,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                     areaGroupCodeObject.put("area_group_code", jsonObject.get("area_group_code"));
                     areaGroupCodeObject.put("ground_name", jsonObject.get("ground_name"));
 
-                    /** 로직
+                    /* 로직
                      * 1. 전체 선택인지 아닌지 체크
                      * 2. 전체 선택일 경우 search_area_groups에 추가, search_areas, search_grounds에 선택되었던 데이터 삭제
                      * 3. 아닐 경우 search_area_groups에 삭제, search_grounds에 선택한 데이터 추가
@@ -717,7 +713,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                     areaGroupCodeObject.put("area_group_code", jsonObject.get("area_group_code"));
                     areaGroupCodeObject.put("ground_name", jsonObject.get("ground_name"));
 
-                    /** 로직
+                    /* 로직
                      * 1. 전체 선택인지 아닌지 체크
                      * 2. 전체 선택일 경우 search_area_groups에 추가, search_grounds에 선택되었던 데이터 삭제
                      * 3. 아닐 경우 search_area_groups에 삭제, search_grounds에 선택한 데이터 추가
@@ -776,7 +772,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                     areaGroupCodeObject.put("area_group_code", ((JSONObject)mSearchGroundType3_2ListViewAdapter.getItem(0)).get("area_group_code").toString());
                     areaGroupCodeObject.put("ground_name", ((JSONObject)mSearchGroundType3_2ListViewAdapter.getItem(0)).get("gugun_name").toString());
 
-                    /** 로직
+                    /* 로직
                      * 1. 전체 선택인지 아닌지 체크
                      * 2. 전체 선택일 경우
                      * 2-1. search_areas에 추가, search_grounds에 선택되었던 데이터 삭제
@@ -881,10 +877,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 hs_search_ground_result.setVisibility(View.GONE);
             }
 
-
-
             for(int i = 0 ; i < search_area_groups.size() ; i++) {
-
                 Button btn = new Button(mContext);
                 btn.setText(search_area_groups.get(i).get("ground_name").toString());
                 btn.setLayoutParams(
@@ -893,7 +886,17 @@ public class SearchGroundActivity extends AppCompatActivity {
                                 android.view.ViewGroup.LayoutParams.WRAP_CONTENT
                         )
                 );
-                Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close);
+                btn.setBackground(getResources().getDrawable(R.drawable.ic_button_select_ground));
+                btn.setTextColor(getResources().getColor(R.color.color_userinfo_button_enable_text));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    Typeface mTypeface = getResources().getFont(R.font.notosanskr_medium);
+                    btn.setTypeface(mTypeface);
+                    btn.setIncludeFontPadding(false);
+                }
+                btn.setMinHeight(0);
+                btn.setPadding(0, 0, 10, 0);
+                btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
+                Drawable icon = getResources().getDrawable(R.drawable.ic_close);
                 icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
                 btn.setCompoundDrawables(null, null, icon, null);
                 btn.setCompoundDrawablePadding(10);
@@ -911,6 +914,16 @@ public class SearchGroundActivity extends AppCompatActivity {
                                 android.view.ViewGroup.LayoutParams.WRAP_CONTENT
                         )
                 );
+                btn.setBackground(getResources().getDrawable(R.drawable.ic_button_select_ground));
+                btn.setTextColor(getResources().getColor(R.color.color_userinfo_button_enable_text));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    Typeface mTypeface = getResources().getFont(R.font.notosanskr_medium);
+                    btn.setTypeface(mTypeface);
+                    btn.setIncludeFontPadding(false);
+                }
+                btn.setMinHeight(0);
+                btn.setPadding(0, 0, 10, 0);
+                btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
                 Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close);
                 icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
                 btn.setCompoundDrawables(null, null, icon, null);
@@ -929,6 +942,16 @@ public class SearchGroundActivity extends AppCompatActivity {
                                 android.view.ViewGroup.LayoutParams.WRAP_CONTENT
                         )
                 );
+                btn.setBackground(getResources().getDrawable(R.drawable.ic_button_select_ground));
+                btn.setTextColor(getResources().getColor(R.color.color_userinfo_button_enable_text));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    Typeface mTypeface = getResources().getFont(R.font.notosanskr_medium);
+                    btn.setTypeface(mTypeface);
+                    btn.setIncludeFontPadding(false);
+                }
+                btn.setMinHeight(0);
+                btn.setPadding(0, 0, 10, 0);
+                btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
                 Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close);
                 icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
                 btn.setCompoundDrawables(null, null, icon, null);

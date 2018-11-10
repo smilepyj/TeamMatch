@@ -10,8 +10,12 @@
     <dimen name="font_size_16">16sp</dimen>
     <dimen name="font_size_15">15sp</dimen>
     <dimen name="font_size_14">14sp</dimen>
+    <dimen name="font_size_13">13sp</dimen>
     <dimen name="font_size_12">12sp</dimen>
+    <dimen name="font_size_11">11sp</dimen>
     <dimen name="font_size_10">10sp</dimen>
+    <dimen name="font_size_5">5sp</dimen>
+    <dimen name="font_size_4">4sp</dimen>
 
     <!-- Layout Size -->
     <dimen name="ll_under_line">1dp</dimen>
@@ -20,7 +24,7 @@
     <!-- Padding Size -->
     <dimen name="bt_main_padding">15dp</dimen>
     <dimen name="ll_under_line_margin_top">3dp</dimen>
-    <dimen name="tv_search_result_condition_padding">8dp</dimen>
+    <dimen name="tv_search_result_condition_padding">10dp</dimen>
     <dimen name="listview_search_result_margin_vertical">5dp</dimen>
     <dimen name="listview_search_result_padding_vertical">8dp</dimen>
     <dimen name="listview_item_sidebar_margin_horizontal">7dp</dimen>
