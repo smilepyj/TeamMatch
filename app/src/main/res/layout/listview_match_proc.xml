@@ -2,36 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="110dp"
-    android:orientation="horizontal"
+    android:baselineAligned="false"
     android:gravity="center"
+    android:orientation="horizontal"
     android:weightSum="10">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="9.75"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:weightSum="10">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="9.25"
+            android:layout_weight="9.5"
             android:background="@drawable/ic_listview_item_background"
-            android:orientation="horizontal"
-
+            android:baselineAligned="false"
             android:gravity="center"
+            android:orientation="horizontal"
             android:weightSum="10">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="7.5"
+                android:layout_weight="7.4"
+                android:baselineAligned="false"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="10">
-
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -44,7 +45,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="3"
+                        android:layout_weight="2.8"
+                        android:baselineAligned="false"
                         android:orientation="horizontal"
                         android:weightSum="10">
 
@@ -66,18 +68,21 @@
                             android:layout_height="match_parent"
                             android:layout_weight="9"
                             android:gravity="center_vertical"
-                            android:weightSum="10"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:weightSum="10">
 
                             <TextView
                                 android:id="@+id/tv_listview_search_result_area"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_regular"
+                                android:includeFontPadding="false"
+                                android:minHeight="0dp"
                                 android:singleLine="true"
                                 android:textColor="@color/color_listview_match_proc_contents"
                                 android:textSize="@dimen/font_size_14" />
 
-                            <LinearLayout
+                            <Space
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1" />
@@ -86,16 +91,20 @@
                                 android:id="@+id/tv_listview_search_result_ground"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_regular"
+                                android:includeFontPadding="false"
+                                android:minHeight="0dp"
                                 android:singleLine="true"
                                 android:textColor="@color/color_listview_match_proc_contents_accent"
-                                android:textSize="@dimen/font_size_16" />
+                                android:textSize="@dimen/font_size_14" />
                         </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="3"
+                        android:layout_weight="2.4"
+                        android:baselineAligned="false"
                         android:orientation="horizontal"
                         android:weightSum="10">
 
@@ -123,20 +132,28 @@
                                 android:id="@+id/tv_listview_search_result_day"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_regular"
+                                android:includeFontPadding="false"
+                                android:minHeight="0dp"
                                 android:textColor="@color/color_listview_match_proc_contents"
                                 android:textSize="@dimen/font_size_14" />
 
                             <TextView
                                 android:layout_width="1dp"
                                 android:layout_height="wrap_content"
-                                android:textSize="@dimen/font_size_14"
                                 android:layout_marginHorizontal="@dimen/listview_item_sidebar_margin_horizontal"
-                                android:background="@color/color_listview_match_proc_sidebar" />
+                                android:background="@color/color_listview_match_proc_sidebar"
+                                android:fontFamily="@font/notosanskr_regular"
+                                android:minHeight="0dp"
+                                android:textSize="@dimen/font_size_5" />
 
                             <TextView
                                 android:id="@+id/tv_listview_search_result_time"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_regular"
+                                android:includeFontPadding="false"
+                                android:minHeight="0dp"
                                 android:textColor="@color/color_listview_match_proc_contents"
                                 android:textSize="@dimen/font_size_14" />
                         </LinearLayout>
@@ -145,7 +162,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="3"
+                        android:layout_weight="2.8"
+                        android:baselineAligned="false"
                         android:orientation="horizontal"
                         android:weightSum="10">
 
@@ -173,46 +191,65 @@
                                 android:id="@+id/tv_listview_search_result_team_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_regular"
+                                android:includeFontPadding="false"
                                 android:textColor="@color/color_listview_match_proc_contents"
-                                android:textSize="@dimen/font_size_14"/>
+                                android:textSize="@dimen/font_size_14" />
 
                             <TextView
                                 android:layout_width="1dp"
                                 android:layout_height="wrap_content"
-                                android:textSize="@dimen/font_size_14"
                                 android:layout_marginHorizontal="@dimen/listview_item_sidebar_margin_horizontal"
-                                android:background="@color/color_listview_match_proc_sidebar" />
+                                android:background="@color/color_listview_match_proc_sidebar"
+                                android:fontFamily="@font/notosanskr_regular"
+                                android:minHeight="0dp"
+                                android:textSize="@dimen/font_size_5" />
 
                             <TextView
                                 android:id="@+id/tv_listview_search_result_team_level"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_regular"
+                                android:includeFontPadding="false"
                                 android:textColor="@color/color_listview_match_proc_contents"
-                                android:textSize="@dimen/font_size_14"/>
+                                android:textSize="@dimen/font_size_14" />
 
                             <TextView
                                 android:layout_width="1dp"
                                 android:layout_height="wrap_content"
-                                android:textSize="@dimen/font_size_14"
                                 android:layout_marginHorizontal="@dimen/listview_item_sidebar_margin_horizontal"
-                                android:background="@color/color_listview_match_proc_sidebar" />
+                                android:background="@color/color_listview_match_proc_sidebar"
+                                android:fontFamily="@font/notosanskr_regular"
+                                android:minHeight="0dp"
+                                android:textSize="@dimen/font_size_5" />
 
                             <TextView
                                 android:id="@+id/tv_listview_search_result_team_member"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_regular"
+                                android:includeFontPadding="false"
                                 android:textColor="@color/color_listview_match_proc_contents"
-                                android:textSize="@dimen/font_size_14"/>
+                                android:textSize="@dimen/font_size_14" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_marginVertical="@dimen/listview_search_result_padding_vertical"
-                    android:background="@color/color_listview_match_proc_border"/>
+                    android:background="@color/color_listview_search_result_border" />
             </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/ll_listview_match_proc"
@@ -226,8 +263,9 @@
                     android:id="@+id/tv_match_proc_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
                     android:textColor="@color/color_listview_match_proc_name_1"
-                    android:textSize="@dimen/font_size_15" />
+                    android:textSize="@dimen/font_size_14" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

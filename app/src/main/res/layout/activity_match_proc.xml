@@ -12,9 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:gravity="center"
+        android:elevation="1dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:titleTextColor="@color/color_toolbar_title" />
+        app:titleTextColor="@color/color_toolbar_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/notosanskr_regular"
+            android:text="@string/match_proc_title"
+            android:textColor="@color/color_toolbar_title"
+            android:textSize="@dimen/font_size_16" />
+    </android.support.v7.widget.Toolbar>
 
 
     <LinearLayout
