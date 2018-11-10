@@ -11,6 +11,8 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import kr.com.yangle.teammatch.ApplicationTM;
 import kr.com.yangle.teammatch.R;
 
@@ -23,6 +25,8 @@ public class SearchGroundType3_2ListViewAdapter extends BaseAdapter {
 
     private Context mContext;
     private ApplicationTM mApplicationTM;
+
+    private boolean[] isCheckedConfrim;
 
     public SearchGroundType3_2ListViewAdapter(Context context, JSONArray jsonArray) {
         mDataJSONArray = jsonArray;
@@ -49,6 +53,57 @@ public class SearchGroundType3_2ListViewAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         return 0;
+    }
+
+    public Object getItems() {
+        return mDataJSONArray;
+    }
+
+    public void setAllChecked(boolean ischeked) {
+        int tempSize = isCheckedConfrim.length;
+        for(int a=0 ; a<tempSize ; a++){
+            isCheckedConfrim[a] = ischeked;
+        }
+    }
+
+    public void setChecked(int position) {
+        isCheckedConfrim[position] = !isCheckedConfrim[position];
+    }
+
+    public void setChecked(int position, boolean ischeked) {
+        isCheckedConfrim[position] = ischeked;
+    }
+
+    public boolean getChecked(int position) {
+        return isCheckedConfrim[position];
+    }
+
+    public boolean[] getCheckedAll() {
+        return isCheckedConfrim;
+    }
+
+    public ArrayList<Integer> getChecked(){
+        int tempSize = isCheckedConfrim.length;
+        ArrayList<Integer> mArrayList = new ArrayList<Integer>();
+        for(int b=0 ; b<tempSize ; b++){
+            if(isCheckedConfrim[b]){
+                mArrayList.add(b);
+            }
+        }
+        return mArrayList;
+    }
+
+    public boolean isTotalChecked() {
+        boolean bTemp = true;
+
+        int tempSize = isCheckedConfrim.length;
+        for(int i = 1 ; i < tempSize ; i++){
+            if(!isCheckedConfrim[i]){
+                bTemp = false;
+                break;
+            }
+        }
+        return bTemp;
     }
 
     @Override

@@ -23,6 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import kr.com.yangle.teammatch.adapter.SearchGroundType1ListViewAdapter;
@@ -57,13 +58,12 @@ public class SearchGroundActivity extends AppCompatActivity {
     SearchGroundType3_2ListViewAdapter mSearchGroundType3_2ListViewAdapter;
     SearchGroundType3_3ListViewAdapter mSearchGroundType3_3ListViewAdapter;
 
-    // {"area_group_id":"", "area_group_name":""}
+    // {"area_group_code:"", "ground_name":""}
     List<JSONObject> search_area_groups = new ArrayList<>();
 
-    // {"area_group_id":"", "area_id":"", "area_name":""}
+    // {"area_group_code":"", "area_code":"", "ground_name":""}
     List<JSONObject> search_areas = new ArrayList<>();
 
-    // {"area_group_id":"", "area_id":"", "ground_id":"", "ground_name":""}
     List<JSONObject> search_grounds = new ArrayList<>();
 
     @Override
@@ -144,7 +144,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                     setButtonGroundType();
                     bt_search_ground_type_1.setSelected(true);
 
-                    setSelectedGroundResult(0);
+                    setSelectedGroundResult(0, 0);
 
                     ll_search_ground_type_1.setVisibility(View.VISIBLE);
                     ll_search_ground_type_2.setVisibility(View.GONE);
@@ -162,7 +162,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                     setButtonGroundType();
                     bt_search_ground_type_2.setSelected(true);
 
-                    setSelectedGroundResult(0);
+                    setSelectedGroundResult(0, 0);
 
                     ll_search_ground_type_1.setVisibility(View.GONE);
                     ll_search_ground_type_2.setVisibility(View.VISIBLE);
@@ -170,12 +170,9 @@ public class SearchGroundActivity extends AppCompatActivity {
 
                     LocationUtil location = new LocationUtil(mContext);
 
-                    Log.e(TAG, location.getLastLatitude() + "");
-                    Log.e(TAG, location.getLastLongitude() + "");
-
                     search_type_code = "N";
-                    search_loc_lat = "35.8686045";
-                    search_loc_lon = "128.5992773";
+                    search_loc_lat = location.getLastLatitude() + "";
+                    search_loc_lon = location.getLastLongitude() + "";
                     search_area_code = "";
                     search_area_group_code = "";
 
@@ -185,7 +182,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                     setButtonGroundType();
                     bt_search_ground_type_3.setSelected(true);
 
-                    setSelectedGroundResult(0);
+                    setSelectedGroundResult(0, 0);
 
                     JSONArray mJSONArray = new JSONArray();
                     mSearchGroundType3_2ListViewAdapter = new SearchGroundType3_2ListViewAdapter(mContext, mJSONArray);
@@ -252,7 +249,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 }
                 mSearchGroundType1ListViewAdapter.notifyDataSetChanged();
 
-                setSelectedGroundResult(1);
+                setSelectedGroundResult(1, 0);
 
             }catch(Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
@@ -284,7 +281,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 }
                 mSearchGroundType2ListViewAdapter.notifyDataSetChanged();
 
-                setSelectedGroundResult(2);
+                setSelectedGroundResult(2, 0);
 
             }catch(Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
@@ -384,7 +381,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 }
                 mSearchGroundType3_3ListViewAdapter.notifyDataSetChanged();
 
-                setSelectedGroundResult(3);
+                setSelectedGroundResult(3, position);
 
             }catch(Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
@@ -483,6 +480,17 @@ public class SearchGroundActivity extends AppCompatActivity {
                         }
 
                         if(!mSearchGroundType3_3ListViewAdapter.isTotalChecked()) {
+                            for(int i = 0 ; i < search_areas.size() ; i++) {
+                                for(int j = 1 ; j < mJSONArray.length() ; i++) {
+                                    JSONObject jsonObject = ((JSONObject)mJSONArray.get(j));
+                                    if(search_areas.get(i).equals(jsonObject.get("area_code"))) {
+                                        mSearchGroundType3_3ListViewAdapter.setChecked(j, true);
+                                    }
+                                }
+                            }
+                        }
+
+                        if(!mSearchGroundType3_3ListViewAdapter.isTotalChecked()) {
                             for(int i = 0 ; i < search_grounds.size() ; i++) {
                                 for(int j = 1 ; j < mJSONArray.length() ; i++) {
                                     JSONObject jsonObject = ((JSONObject)mJSONArray.get(j));
@@ -497,6 +505,17 @@ public class SearchGroundActivity extends AppCompatActivity {
                             if(area_group_code.equals(search_area_groups.get(i).get("area_group_code"))) {
                                 mSearchGroundType3_3ListViewAdapter.setAllChecked(true);
                                 break;
+                            }
+                        }
+
+                        if(!mSearchGroundType3_3ListViewAdapter.isTotalChecked()) {
+                            for(int i = 0 ; i < search_areas.size() ; i++) {
+                                for(int j = 1 ; j < mJSONArray.length() ; i++) {
+                                    JSONObject jsonObject = ((JSONObject)mJSONArray.get(j));
+                                    if(search_areas.get(i).equals(jsonObject.get("area_code"))) {
+                                        mSearchGroundType3_3ListViewAdapter.setChecked(j, true);
+                                    }
+                                }
                             }
                         }
 
@@ -613,7 +632,7 @@ public class SearchGroundActivity extends AppCompatActivity {
     };
 
 
-    private void setSelectedGroundResult(int type) {
+    private void setSelectedGroundResult(int type, int position) {
         try {
             if(type == 1) {
                 search_area_groups.clear();
@@ -663,15 +682,99 @@ public class SearchGroundActivity extends AppCompatActivity {
                 Log.e(TAG, ground_id);
 
                 if("T".equals(ground_id)) {
-                    JSONObject areaGroupCodeObject = new JSONObject();
+
+                    for(int i = 0 ; i < search_area_groups.size() ; i++) {
+                        if(search_area_groups.get(i).getString("area_group_code").equals(area_group_code))
+                            search_area_groups.remove(i);
+                    }
+
+                    Iterator<JSONObject> iter = search_areas.iterator();
+                    while (iter.hasNext()) {
+                        JSONObject json = iter.next();
+
+                        if(json.getString("area_group_code").equals(area_group_code))
+                            iter.remove();
+                    }
+
+                    Iterator<JSONObject> iter2 = search_grounds.iterator();
+                    while (iter2.hasNext()) {
+                        JSONObject json = iter2.next();
+
+                        if(json.getString("area_group_code").equals(area_group_code))
+                            iter2.remove();
+                    }
+
+
+                    if(mSearchGroundType3_3ListViewAdapter.getChecked(0)) {
+                        JSONObject areaGroupCodeObject = new JSONObject();
+                        areaGroupCodeObject.put("area_group_code", jsonObject.get("area_group_code"));
+                        areaGroupCodeObject.put("ground_name", jsonObject.get("ground_name"));
+
+                        search_area_groups.add(areaGroupCodeObject);
+                    }else {
+                        for(int i = 2 ; i < mSearchGroundType3_2ListViewAdapter.getCount() ; i++) {
+                            JSONObject search_area = (JSONObject) mSearchGroundType3_2ListViewAdapter.getItem(i);
+
+                            int totalArea = 0;
+                            int totalChk = 0;
+
+                            for(int j = 1 ; j < mSearchGroundType3_3ListViewAdapter.getCount() ; j++) {
+                                JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(j);
+
+                                if(search_area.getString("area_code").equals(search_ground.getString("area_code"))) {
+                                    if(mSearchGroundType3_3ListViewAdapter.getChecked(j)) {
+                                        totalChk++;
+                                    }
+                                    totalArea++;
+                                }
+                            }
+
+                            if(totalArea > 0 && totalArea == totalChk) {
+                                JSONObject areaCodeObject = new JSONObject();
+                                areaCodeObject.put("area_group_code", search_area.get("area_group_code"));
+                                areaCodeObject.put("area_code", search_area.get("area_code"));
+                                areaCodeObject.put("ground_name", search_area.get("gugun_name") + " 전체");
+
+                                search_areas.add(areaCodeObject);
+                            }
+                        }
+
+
+                        for (int i = 1; i < mSearchGroundType3_3ListViewAdapter.getCount(); i++) {
+                            JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
+
+                            if(mSearchGroundType3_3ListViewAdapter.getChecked(i)) {
+                                boolean isAddGround = true;
+
+                                for(int j = 0 ; j < search_areas.size() ; j++) {
+                                    if(search_areas.get(j).getString("area_code").equals(search_ground.getString("area_code"))) {
+                                        isAddGround = false;
+                                        break;
+                                    }
+                                }
+
+                                if(isAddGround) {
+                                    search_grounds.add(search_ground);
+                                }
+                            }
+                        }
+                    }
+
+
+                    /*JSONObject areaGroupCodeObject = new JSONObject();
                     areaGroupCodeObject.put("area_group_code", jsonObject.get("area_group_code"));
                     areaGroupCodeObject.put("ground_name", jsonObject.get("ground_name"));
 
-                    /* 로직
+                    for(int i = 0; i < search_area_groups.size() ; i++) {
+                        if(search_area_groups.get(i).getString("area_group_code").equals(areaGroupCodeObject.getString("area_group_code")))
+                            search_area_groups.remove(i);
+                    }
+
+                    *//* 로직
                      * 1. 전체 선택인지 아닌지 체크
                      * 2. 전체 선택일 경우 search_area_groups에 추가, search_areas, search_grounds에 선택되었던 데이터 삭제
-                     * 3. 아닐 경우 search_area_groups에 삭제, search_grounds에 선택한 데이터 추가
-                      */
+                     * 3. 아닐 경우 search_area_groups에 삭제, search_areas, search_grounds에 선택한 데이터 추가
+                      *//*
                     if (isTotalChecked) {
                         search_area_groups.add(areaGroupCodeObject);
 
@@ -690,46 +793,83 @@ public class SearchGroundActivity extends AppCompatActivity {
                                 search_grounds.remove(search_grounds.get(i));
                             }
                         }
-
-                        /*for (int i = 1; i < isCheckedAll.length; i++) {
-                            if (isCheckedAll[i]) {
-                                JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
-
-                                if (search_ground != null) {
-                                    search_grounds.remove(search_ground);
-                                }
-                            }
-                        }*/
                     }else {
-                        search_area_groups.remove(areaGroupCodeObject);
+                        if(position == 0) {
 
-                        for (int i = 1; i < mSearchGroundType3_3ListViewAdapter.getCount(); i++) {
-                            JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
+                        }else {
+                            JSONObject areaCodeObject = new JSONObject();
+                            areaCodeObject.put("area_group_code", ((JSONObject)mSearchGroundType3_3ListViewAdapter.getItem(position)).get("area_group_code"));
+                            areaCodeObject.put("area_code", ((JSONObject)mSearchGroundType3_3ListViewAdapter.getItem(position)).get("area_code"));
+                            areaCodeObject.put("ground_name", ((JSONObject)mSearchGroundType3_3ListViewAdapter.getItem(position)).get("area_name") + " 전체");
 
-                            if (search_ground != null) {
-                                search_grounds.remove(search_ground);
+                            for(int i = 0; i < search_areas.size() ; i++) {
+                                if(search_areas.get(i).getString("area_code").equals(areaCodeObject.getString("area_code")))
+                                    search_areas.remove(i);
                             }
-                        }
 
-                        for (int i = 1; i < isCheckedAll.length; i++) {
-                            if (isCheckedAll[i]) {
-                                JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
+                            if(mSearchGroundType3_3ListViewAdapter.getChecked(position)) {   // 추가
+                                int totalAreas = 0;
+                                int chkAreas = 0;
 
-                                if (search_ground != null) {
-                                    search_grounds.add(search_ground);
+                                for(int i = 1; i < mSearchGroundType3_3ListViewAdapter.getCount() ; i++) {
+                                    if(areaCodeObject.get("area_code").equals(((JSONObject)mSearchGroundType3_3ListViewAdapter.getItem(i)).get("area_code"))) {
+                                        if(mSearchGroundType3_3ListViewAdapter.getChecked(i)) {
+                                            chkAreas++;
+                                        }
+                                        totalAreas++;
+                                    }
                                 }
+
+                                if(totalAreas == chkAreas) {
+                                    search_areas.add(areaCodeObject);
+                                }else {
+                                    search_grounds.add((JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(position));
+                                }
+                            }else {   // 삭제
+                                search_grounds.remove((JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(position));
+
+                                for(int i = 1; i < mSearchGroundType3_3ListViewAdapter.getCount() ; i++) {
+                                    if(areaCodeObject.get("area_code").equals(((JSONObject)mSearchGroundType3_3ListViewAdapter.getItem(i)).get("area_code"))) {
+                                        if(mSearchGroundType3_3ListViewAdapter.getChecked(i)) {
+                                            search_grounds.add((JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i));
+                                        }
+                                    }
+                                }
+
+                                *//*for (int i = 1; i < mSearchGroundType3_3ListViewAdapter.getCount(); i++) {
+                                    JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
+
+                                    if (search_ground != null) {
+                                        search_grounds.remove(search_ground);
+                                    }
+                                }
+
+                                for (int i = 1; i < isCheckedAll.length; i++) {
+                                    if (isCheckedAll[i]) {
+                                        JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
+
+                                        if (search_ground != null) {
+                                            search_grounds.add(search_ground);
+                                        }
+                                    }
+                                }*//*
                             }
                         }
-                    }
+                    }*/
                 }else if("P".equals(ground_id)) {
                     JSONObject areaGroupCodeObject = new JSONObject();
                     areaGroupCodeObject.put("area_group_code", jsonObject.get("area_group_code"));
                     areaGroupCodeObject.put("ground_name", jsonObject.get("ground_name"));
 
+                    for(int i = 0; i < search_area_groups.size() ; i++) {
+                        if(search_area_groups.get(i).getString("area_group_code").equals(areaGroupCodeObject.getString("area_group_code")))
+                            search_area_groups.remove(i);
+                    }
+
                     /* 로직
                      * 1. 전체 선택인지 아닌지 체크
-                     * 2. 전체 선택일 경우 search_area_groups에 추가, search_grounds에 선택되었던 데이터 삭제
-                     * 3. 아닐 경우 search_area_groups에 삭제, search_grounds에 선택한 데이터 추가
+                     * 2. 전체 선택일 경우 search_area_groups에 추가, search_areas, search_grounds에 선택되었던 데이터 삭제
+                     * 3. 아닐 경우 search_area_groups에 삭제, search_areas, search_grounds에 선택한 데이터 추가
                      */
                     if (isTotalChecked) {
                         search_area_groups.add(areaGroupCodeObject);
@@ -749,115 +889,164 @@ public class SearchGroundActivity extends AppCompatActivity {
                                 search_grounds.remove(search_grounds.get(i));
                             }
                         }
+                    }else {
+                        if(position == 0) {
+                            String area_code = jsonObject.get("area_code").toString();
 
-                        /*for (int i = 1; i < isCheckedAll.length; i++) {
-                            if (isCheckedAll[i]) {
-                                JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
+                            for (int i = 2; i < mSearchGroundType3_2ListViewAdapter.getCount() ; i++) {
+                                JSONObject search_area = (JSONObject) mSearchGroundType3_2ListViewAdapter.getItem(i);
 
-                                if (search_ground != null) {
-                                    search_grounds.remove(search_ground);
+                                if(!search_area.getString("area_code").equals(area_code)) {
+                                    JSONObject json = new JSONObject();
+                                    json.put("area_group_code", search_area.get("area_group_code"));
+                                    json.put("area_code", search_area.get("area_code"));
+                                    json.put("ground_name", search_area.get("gugun_name") + " 전체");
+
+                                    search_areas.add(json);
                                 }
                             }
-                        }*/
-                    }else {
-                        search_area_groups.remove(areaGroupCodeObject);
 
-                        for (int i = 1; i < mSearchGroundType3_3ListViewAdapter.getCount(); i++) {
-                            JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
+                        }else {
+                            JSONObject areaCodeObject = new JSONObject();
+                            areaCodeObject.put("area_group_code", ((JSONObject)mSearchGroundType3_3ListViewAdapter.getItem(position)).get("area_group_code"));
+                            areaCodeObject.put("area_code", ((JSONObject)mSearchGroundType3_3ListViewAdapter.getItem(position)).get("area_code"));
+                            areaCodeObject.put("ground_name", ((JSONObject)mSearchGroundType3_3ListViewAdapter.getItem(position)).get("area_name") + " 전체");
 
-                            if (search_ground != null) {
-                                search_grounds.remove(search_ground);
+                            for(int i = 0; i < search_areas.size() ; i++) {
+                                if(search_areas.get(i).getString("area_code").equals(areaCodeObject.getString("area_code")))
+                                    search_areas.remove(i);
                             }
-                        }
 
-                        for (int i = 1; i < isCheckedAll.length; i++) {
-                            if (isCheckedAll[i]) {
-                                JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
+                            if(mSearchGroundType3_3ListViewAdapter.getChecked(position)) {   // 추가
+                                int totalAreas = 0;
+                                int chkAreas = 0;
 
-                                if (search_ground != null) {
-                                    search_grounds.add(search_ground);
+                                for(int i = 1; i < mSearchGroundType3_3ListViewAdapter.getCount() ; i++) {
+                                    if(areaCodeObject.get("area_code").equals(((JSONObject)mSearchGroundType3_3ListViewAdapter.getItem(position)).get("area_code"))) {
+                                        if(mSearchGroundType3_3ListViewAdapter.getChecked(i)) {
+                                            chkAreas++;
+                                        }
+                                        totalAreas++;
+                                    }
+                                }
+
+                                if(totalAreas == chkAreas) {
+                                    search_areas.add(areaCodeObject);
+                                }
+                            }else {   // 삭제
+                                for (int i = 1; i < mSearchGroundType3_3ListViewAdapter.getCount(); i++) {
+                                    JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
+
+                                    if (search_ground != null) {
+                                        search_grounds.remove(search_ground);
+                                    }
+                                }
+
+                                for (int i = 1; i < isCheckedAll.length; i++) {
+                                    if (isCheckedAll[i]) {
+                                        JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
+
+                                        if (search_ground != null) {
+                                            search_grounds.add(search_ground);
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }else if("L".equals(ground_id)) {
+                    Log.e(TAG, "jsonObject : " + jsonObject);
+
+                    String area_code = jsonObject.get("area_code").toString();
+
                     JSONObject areaGroupCodeObject = new JSONObject();
-                    areaGroupCodeObject.put("area_group_code", ((JSONObject)mSearchGroundType3_2ListViewAdapter.getItem(0)).get("area_group_code").toString());
-                    areaGroupCodeObject.put("ground_name", ((JSONObject)mSearchGroundType3_2ListViewAdapter.getItem(0)).get("gugun_name").toString());
+                    areaGroupCodeObject.put("area_group_code", jsonObject.get("area_group_code"));
+                    areaGroupCodeObject.put("ground_name", jsonObject.get("area_group_name") + " 전체");
+
+                    JSONObject areaCodeObject = new JSONObject();
+                    areaCodeObject.put("area_group_code", jsonObject.get("area_group_code"));
+                    areaCodeObject.put("area_code", jsonObject.get("area_code"));
+                    areaCodeObject.put("ground_name", jsonObject.get("area_name") + " 전체");
+
+                    for(int i = 0; i < search_areas.size() ; i++) {
+                        if(search_areas.get(i).getString("area_code").equals(area_code))
+                            search_areas.remove(i);
+                    }
 
                     /* 로직
                      * 1. 전체 선택인지 아닌지 체크
                      * 2. 전체 선택일 경우
                      * 2-1. search_areas에 추가, search_grounds에 선택되었던 데이터 삭제
-                     * 2-2. 해당 그룹의 모든 값이 다 선택인지 체크하여 모두 선택일 경우 search_area_groups에 추가, 아닐 경우 삭제
+                     * 2-2. 해당 그룹의 모든 값이 다 선택인지 체크하여 모두 선택일 경우 search_area_groups에 추가, 아닐 경우 삭제 후 search_areas 삭제
                      * 3. 아닐 경우 search_area_groups에 해당 그룹 삭제, search_areas에 삭제, search_grounds에 선택한 데이터 추가
                      */
                     if (isTotalChecked) {
-                        search_areas.add(jsonObject);
-
-                        Log.e(TAG, search_grounds + "");
+                        search_areas.add(areaCodeObject);
 
                         for (int i = 0; i < search_grounds.size(); i++) {
-                            if(jsonObject.get("area_code").equals(search_grounds.get(i).get("area_code"))) {
+                            if(area_code.equals(search_grounds.get(i).get("area_code"))) {
                                 search_grounds.remove(search_grounds.get(i));
                             }
                         }
 
-                        /*for (int i = 1; i < isCheckedAll.length; i++) {
-                            if (isCheckedAll[i]) {
-                                JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
+                        int totalAreaCount = 0;
+                        int chkAreaCount = 0;
 
-                                if (search_ground != null) {
-                                    search_grounds.remove(search_ground);
+                        for (int i = 2; i < mSearchGroundType3_2ListViewAdapter.getCount() ; i++) {
+                            JSONObject search_area = (JSONObject) mSearchGroundType3_2ListViewAdapter.getItem(i);
+
+                            for(int j = 0; j < search_areas.size() ; j++) {
+                                if(search_areas.get(j).getString("area_group_code").equals(search_area.getString("area_group_code"))) {
+                                    if(search_areas.get(j).getString("area_code").equals(search_area.getString("area_code"))) {
+                                        chkAreaCount++;
+                                    }
                                 }
                             }
-                        }*/
 
-                        boolean isSelectedAreaGroup = false;
-
-                        for(int i = 2; i < mSearchGroundType3_2ListViewAdapter.getCount() ; i++) {
-                            String area_code = ((JSONObject)mSearchGroundType3_2ListViewAdapter.getItem(i)).get("area_code").toString();
-
-                            for(int j = 0 ; j < search_areas.size() ; j++) {
-                                if(area_code.equals(search_areas.get(j).get("area_code"))) {
-                                    break;
-                                }
-                                isSelectedAreaGroup = true;
+                            if(area_group_code.equals(search_area.getString("area_group_code"))) {
+                                totalAreaCount++;
                             }
                         }
 
-                        if(isSelectedAreaGroup) {
+                        if (totalAreaCount == chkAreaCount) {
+                            for(int i = 0; i < search_area_groups.size() ; i++) {
+                                if(search_area_groups.get(i).getString("area_group_code").equals(areaGroupCodeObject.getString("area_group_code")))
+                                    search_area_groups.remove(i);
+                            }
                             search_area_groups.add(areaGroupCodeObject);
-                        }else {
-                            search_area_groups.remove(areaGroupCodeObject);
-                        }
 
+                            Iterator<JSONObject> iter = search_areas.iterator();
+                            while (iter.hasNext()) {
+                                JSONObject json = iter.next();
+
+                                if(json.getString("area_group_code").equals(areaGroupCodeObject.getString("area_group_code")))
+                                    iter.remove();
+                            }
+                        }
                     }else {
+                        boolean isCheckedLastAreaGroup = false;
+
                         for(int i = 0; i < search_area_groups.size() ; i++) {
-                            JSONObject area_group = search_area_groups.get(i);
-                            if(area_group_code.equals(area_group.get("area_group_code"))) {
-                                search_area_groups.remove(area_group);
-                                break;
+                            if(search_area_groups.get(i).getString("area_group_code").equals(areaGroupCodeObject.getString("area_group_code"))) {
+                                search_area_groups.remove(i);
+                                isCheckedLastAreaGroup = true;
                             }
                         }
 
-                        search_areas.remove(jsonObject);
+                        if(isCheckedLastAreaGroup) {
+                            for (int i = 2; i < mSearchGroundType3_2ListViewAdapter.getCount() ; i++) {
+                                JSONObject search_area = (JSONObject) mSearchGroundType3_2ListViewAdapter.getItem(i);
 
-                        Log.e(TAG, search_grounds + "");
+                                if(!search_area.getString("area_code").equals(area_code)) {
+                                    JSONObject json = new JSONObject();
+                                    json.put("area_group_code", search_area.get("area_group_code"));
+                                    json.put("area_code", search_area.get("area_code"));
+                                    json.put("ground_name", search_area.get("gugun_name") + " 전체");
 
-                        for (int i = 0; i < search_grounds.size(); i++) {
-                            if(jsonObject.get("area_code").equals(search_grounds.get(i).get("area_code"))) {
-                                search_grounds.remove(search_grounds.get(i));
+                                    search_areas.add(json);
+                                }
                             }
                         }
-
-                        /*for (int i = 1; i < mSearchGroundType3_3ListViewAdapter.getCount(); i++) {
-                            JSONObject search_ground = (JSONObject) mSearchGroundType3_3ListViewAdapter.getItem(i);
-
-                            if (search_ground != null) {
-                                search_grounds.remove(search_ground);
-                            }
-                        }*/
 
                         for (int i = 1; i < isCheckedAll.length; i++) {
                             if (isCheckedAll[i]) {
@@ -880,8 +1069,6 @@ public class SearchGroundActivity extends AppCompatActivity {
                 return;
             }
 
-
-
             if (search_area_groups.size() > 0 || search_areas.size() > 0 || search_grounds.size() > 0) {
                 ll_search_ground_result_2.setVisibility(View.GONE);
                 hs_search_ground_result.setVisibility(View.VISIBLE);
@@ -889,6 +1076,10 @@ public class SearchGroundActivity extends AppCompatActivity {
                 ll_search_ground_result_2.setVisibility(View.VISIBLE);
                 hs_search_ground_result.setVisibility(View.GONE);
             }
+
+            Log.e(TAG, "search_area_groups : " + search_area_groups);
+            Log.e(TAG, "search_areas : " + search_areas);
+            Log.e(TAG, "search_grounds : " + search_grounds);
 
             for(int i = 0 ; i < search_area_groups.size() ; i++) {
                 DisplayMetrics mDisplayMetrics = getResources().getDisplayMetrics();
@@ -987,6 +1178,7 @@ public class SearchGroundActivity extends AppCompatActivity {
         }catch(Exception e) {
             mApplicationTM.makeToast(mContext, getString(R.string.error_network));
             Log.e(TAG, "setSelectedGroundResult - " + e);
+            e.printStackTrace();
         }
     }
 
