@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,7 @@ import kr.com.yangle.teammatch.adapter.SearchGroundType3_3ListViewAdapter;
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
+import kr.com.yangle.teammatch.util.LocationUtil;
 
 public class SearchGroundActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -55,8 +57,13 @@ public class SearchGroundActivity extends AppCompatActivity {
     SearchGroundType3_2ListViewAdapter mSearchGroundType3_2ListViewAdapter;
     SearchGroundType3_3ListViewAdapter mSearchGroundType3_3ListViewAdapter;
 
+    // {"area_group_id":"", "area_group_name":""}
     List<JSONObject> search_area_groups = new ArrayList<>();
+
+    // {"area_group_id":"", "area_id":"", "area_name":""}
     List<JSONObject> search_areas = new ArrayList<>();
+
+    // {"area_group_id":"", "area_id":"", "ground_id":"", "ground_name":""}
     List<JSONObject> search_grounds = new ArrayList<>();
 
     @Override
@@ -160,6 +167,11 @@ public class SearchGroundActivity extends AppCompatActivity {
                     ll_search_ground_type_1.setVisibility(View.GONE);
                     ll_search_ground_type_2.setVisibility(View.VISIBLE);
                     ll_search_ground_type_3.setVisibility(View.GONE);
+
+                    LocationUtil location = new LocationUtil(mContext);
+
+                    Log.e(TAG, location.getLastLatitude() + "");
+                    Log.e(TAG, location.getLastLongitude() + "");
 
                     search_type_code = "N";
                     search_loc_lat = "35.8686045";

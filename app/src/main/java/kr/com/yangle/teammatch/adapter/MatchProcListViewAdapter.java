@@ -74,6 +74,8 @@ public class MatchProcListViewAdapter extends BaseAdapter {
         TextView tv_listview_search_result_team_member = convertView.findViewById(R.id.tv_listview_search_result_team_member);
         TextView tv_match_proc_name = convertView.findViewById(R.id.tv_match_proc_name);
 
+        String match_proc_cd = "";
+
         try {
             JSONObject mJSONObject = mDataJSONArray.getJSONObject(position);
 
@@ -93,7 +95,7 @@ public class MatchProcListViewAdapter extends BaseAdapter {
 
             tv_match_proc_name.setText(mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_proc_cd_name)).toString());
 
-            String match_proc_cd = mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_proc_cd)).toString();
+            match_proc_cd = mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_proc_cd)).toString();
             if("C004001".equals(match_proc_cd) || "C004002".equals(match_proc_cd) || "C004003".equals(match_proc_cd)) {
                 tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_1));
             }else {
@@ -106,9 +108,9 @@ public class MatchProcListViewAdapter extends BaseAdapter {
             mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
         }
 
-        LinearLayout ll_listview_search_result_request = convertView.findViewById(R.id.ll_listview_search_result_request);
+        LinearLayout ll_listview_match_proc = convertView.findViewById(R.id.ll_listview_match_proc);
 
-        ll_listview_search_result_request.setOnClickListener(new View.OnClickListener() {
+        ll_listview_match_proc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mApplicationTM.makeToast(mContext, mContext.getString(R.string.cording_message));
