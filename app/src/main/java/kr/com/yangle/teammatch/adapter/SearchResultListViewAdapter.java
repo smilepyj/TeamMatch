@@ -1,6 +1,7 @@
 package kr.com.yangle.teammatch.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,10 @@ import java.util.Locale;
 
 import kr.com.yangle.teammatch.ApplicationTM;
 import kr.com.yangle.teammatch.R;
+import kr.com.yangle.teammatch.network.ResponseEvent;
+import kr.com.yangle.teammatch.network.ResponseListener;
+import kr.com.yangle.teammatch.network.Service;
+import kr.com.yangle.teammatch.util.DialogAlertActivity;
 
 public class SearchResultListViewAdapter extends BaseAdapter {
     private final String TAG = this.getClass().getSimpleName();
@@ -29,12 +34,16 @@ public class SearchResultListViewAdapter extends BaseAdapter {
     private Context mContext;
     private ApplicationTM mApplicationTM;
 
+    private Service mService;
+
     public SearchResultListViewAdapter(Context context, JSONArray jsonArray) {
         mDataJSONArray = jsonArray;
         mDataJSONArrayCnt = mDataJSONArray.length();
 
         mContext = context;
         mApplicationTM = (ApplicationTM) mContext.getApplicationContext();
+
+        mService = new Service(mContext);
     }
 
     @Override
@@ -86,20 +95,53 @@ public class SearchResultListViewAdapter extends BaseAdapter {
             tv_listview_search_result_team_name.setText(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_host_name)).toString());
             tv_listview_search_result_team_level.setText(mApplicationTM.getC002().get(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_team_lvl)).toString()));
             tv_listview_search_result_team_member.setText(mApplicationTM.getC003().get(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_team_member)).toString()));
+
+            final String match_id = mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_id)).toString();
+
+            LinearLayout ll_listview_search_result_request = convertView.findViewById(R.id.ll_listview_search_result_request);
+            ll_listview_search_result_request.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mService.applyMatch(applyMatch_Listener, match_id);
+                }
+            });
+
         } catch (Exception e) {
             Log.e(TAG, "getView - " + e);
             mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
         }
 
-        LinearLayout ll_listview_search_result_request = convertView.findViewById(R.id.ll_listview_search_result_request);
-
-        ll_listview_search_result_request.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mApplicationTM.makeToast(mContext, mContext.getString(R.string.cording_message));
-            }
-        });
-
         return convertView;
     }
+
+    ResponseListener applyMatch_Listener = new ResponseListener() {
+        @Override
+        public void receive(ResponseEvent responseEvent) {
+            try {
+                JSONObject mJSONObject = new JSONObject(responseEvent.getResultData());
+
+                if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(mContext.getString(R.string.result_code)))) {
+
+                    // 닫기, 등록정보 확인
+                    Intent mIntent = new Intent(mContext, DialogAlertActivity.class);
+                    mIntent.putExtra(mContext.getString(R.string.alert_dialog_title), "매치 신청 완료");
+                    mIntent.putExtra(mContext.getString(R.string.alert_dialog_contents_header), "");
+                    mIntent.putExtra(mContext.getString(R.string.alert_dialog_contents), "매치 신청이 완료되었습니다.\n상대편의 승낙여부가 나올때까지 기다려주세요.");
+                    mIntent.putExtra(mContext.getString(R.string.alert_dialog_cancel_text), "닫기");
+                    mIntent.putExtra(mContext.getString(R.string.alert_dialog_ok_text), "신청정보 확인");
+                    mIntent.putExtra(mContext.getString(R.string.alert_dialog_type), 2);
+
+                    mContext.startActivity(mIntent);
+
+                } else {
+                    mApplicationTM.makeToast(mContext, mJSONObject.get(mContext.getString(R.string.result_message)).toString());
+                }
+            } catch (Exception e) {
+                mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
+                Log.e(TAG, "searchMatchList_Listener - " + e);
+            } finally {
+                mApplicationTM.stopProgress();
+            }
+        }
+    };
 }

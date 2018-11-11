@@ -1,6 +1,7 @@
 package kr.com.yangle.teammatch.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import kr.com.yangle.teammatch.ApplicationTM;
+import kr.com.yangle.teammatch.MatchProcActivity;
 import kr.com.yangle.teammatch.R;
 
 public class DialogAlertActivity extends AppCompatActivity {
@@ -54,6 +56,8 @@ public class DialogAlertActivity extends AppCompatActivity {
     View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Intent mIntent;
+
             switch (v.getId()) {
                 case R.id.bt_alert_dialog_cancel :
                     finish();
@@ -61,6 +65,16 @@ public class DialogAlertActivity extends AppCompatActivity {
                 case R.id.bt_alert_dialog_ok :
                     switch (mType) {
                         case 0 :
+                            finish();
+                            break;
+                        case 1 :
+                            mIntent = new Intent(mContext, MatchProcActivity.class);
+                            startActivity(mIntent);
+                            finish();
+                            break;
+                        case 2 :
+                            mIntent = new Intent(mContext, MatchProcActivity.class);
+                            startActivity(mIntent);
                             finish();
                             break;
                         default :

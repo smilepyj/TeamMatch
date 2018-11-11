@@ -81,6 +81,7 @@
     <string name="searchmatchlist_param_search_page">search_page</string>
     <string name="searchmatchlist_param_search_page_data">1</string>
 
+    <string name="searchmatchlist_result_match_id">match_id</string>
     <string name="searchmatchlist_result_match_hope_ground_sido_name">match_hope_ground_sido_name</string>
     <string name="searchmatchlist_result_match_hope_ground_gugun_name">match_hope_ground_gugun_name</string>
     <string name="searchmatchlist_result_match_hope_ground_name">match_hope_ground_name</string>
@@ -89,6 +90,11 @@
     <string name="searchmatchlist_result_match_host_name">match_host_name</string>
     <string name="searchmatchlist_result_match_hope_team_lvl">match_hope_team_lvl</string>
     <string name="searchmatchlist_result_match_hope_team_member">match_hope_team_member</string>
+
+    <!-- applyMatch Service -->
+    <string name="applyMatch_service">match/applyMatch</string>
+    <string name="applyMatch_param_email_id">email_id</string>
+    <string name="applyMatch_param_match_id">match_id</string>
 
     <!-- registMatch Service -->
     <string name="registMatch_service">match/registMatch</string>
@@ -100,6 +106,8 @@
     <string name="registMatch_param_match_hope_team_lvl">match_hope_team_lvl</string>
 
     <!-- MatchProc Service -->
+    <string name="matchProclist_result_match_id">match_id</string>
+    <string name="matchProclist_result_match_apply_id">match_apply_id</string>
     <string name="matchProclist_result_guest_host_type">guest_host_type</string>
     <string name="matchProclist_result_match_proc_cd">match_proc_cd</string>
     <string name="matchProclist_result_match_proc_cd_name">match_proc_cd_name</string>

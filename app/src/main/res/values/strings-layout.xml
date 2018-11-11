@@ -17,7 +17,7 @@
     <!-- Main Activity -->
     <string name="main_search_match">매치 검색</string>
     <string name="main_registration_match">매치 등록</string>
-    <string name="main_in_progress_matching">진행중 매치</string>
+    <string name="main_in_progress_matching">진행 중 매치</string>
     <string name="main_ranking">팀별 랭킹</string>
 
     <!-- ToolBar -->
@@ -88,8 +88,8 @@
     <string name="search_result_condition_ground">구장</string>
     <string name="search_result_condition_date">날짜</string>
     <string name="search_result_condition_time">시간</string>
-    <string name="search_result_condition_member">팀 인원</string>
-    <string name="search_result_condition_level">팀 레벨</string>
+    <string name="search_result_condition_member">인원</string>
+    <string name="search_result_condition_level">레벨</string>
     <string name="search_result_change_condition">조건\n변경</string>
 
     <!-- ListView SearchResult -->
@@ -120,7 +120,7 @@
     <string name="regist_match_insert">등록하기</string>
 
     <!-- MatchProc Activity -->
-    <string name="match_proc_title">진행중 매치</string>
+    <string name="match_proc_title">진행 중 매치</string>
 
     <!-- Ranking Activity -->
     <string name="ranking_title">랭킹정보</string>

@@ -30,6 +30,7 @@ import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
 import kr.com.yangle.teammatch.util.DialogTimePickerActivity;
+import kr.com.yangle.teammatch.util.DialogAlertActivity;
 
 public class RegistMatchActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -397,9 +398,16 @@ public class RegistMatchActivity extends AppCompatActivity {
 
                 if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
 
-                    // TODO 등록완료 알림창!!
                     // 닫기, 등록정보 확인
-                    mApplicationTM.makeToast(mContext, "등록 완료 되었습니다.");
+                    Intent mIntent = new Intent(mContext, DialogAlertActivity.class);
+                    mIntent.putExtra(getString(R.string.alert_dialog_title), "매치 등록 완료");
+                    mIntent.putExtra(getString(R.string.alert_dialog_contents_header), "");
+                    mIntent.putExtra(getString(R.string.alert_dialog_contents), "설정한 조건으로 매치가 등록되었습니다.\n진행 중 매치화면에서 이후로도 등록한 매치 정보를 확인할 수 있습니다.");
+                    mIntent.putExtra(getString(R.string.alert_dialog_cancel_text), "닫기");
+                    mIntent.putExtra(getString(R.string.alert_dialog_ok_text), "등록정보 확인");
+                    mIntent.putExtra(getString(R.string.alert_dialog_type), 1);
+
+                    startActivity(mIntent);
                     finish();
 
                 } else {

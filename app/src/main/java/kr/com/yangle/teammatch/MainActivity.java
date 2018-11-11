@@ -19,6 +19,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import kr.com.yangle.teammatch.util.BackPressCloseHandler;
 import kr.com.yangle.teammatch.util.DialogAlertActivity;
 
@@ -53,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
+
+        FirebaseInstanceId.getInstance().getToken();
+        if (FirebaseInstanceId.getInstance().getToken() != null) {
+            Log.e(TAG, "token = " + FirebaseInstanceId.getInstance().getToken());
+        }
 
         dl_activity_main = findViewById(R.id.dl_activity_main);
         nv_main_menu = findViewById(R.id.nv_main_menu);

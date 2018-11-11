@@ -75,6 +75,8 @@ public class MatchProcListViewAdapter extends BaseAdapter {
         TextView tv_match_proc_name = convertView.findViewById(R.id.tv_match_proc_name);
 
         String match_proc_cd = "";
+        String match_apply_id = "";
+        String guest_host_type = "";
 
         try {
             JSONObject mJSONObject = mDataJSONArray.getJSONObject(position);
@@ -93,14 +95,26 @@ public class MatchProcListViewAdapter extends BaseAdapter {
 
             Log.e(TAG, mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_proc_cd_name)).toString());
 
-            tv_match_proc_name.setText(mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_proc_cd_name)).toString());
+            String match_proc_cd_name = mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_proc_cd_name)).toString();
 
+            match_apply_id = mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_apply_id)).toString();
             match_proc_cd = mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_proc_cd)).toString();
-            if("C004001".equals(match_proc_cd) || "C004002".equals(match_proc_cd) || "C004003".equals(match_proc_cd)) {
+            guest_host_type = mJSONObject.get(mContext.getString(R.string.matchProclist_result_guest_host_type)).toString();
+
+            if("C004001".equals(match_proc_cd)) {
+                if(!"".equals(match_apply_id) && "G".equals(guest_host_type)) {
+                    match_proc_cd_name = "매치 신청";
+                    tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_2));
+                }else {
+                    tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_1));
+                }
+            }else if("C004003".equals(match_proc_cd)) {
                 tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_1));
             }else {
-                tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_2));
+                tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_3));
             }
+
+            tv_match_proc_name.setText(match_proc_cd_name + " 중");
 
         } catch (Exception e) {
             Log.e(TAG, "getView - " + e);

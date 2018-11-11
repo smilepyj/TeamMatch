@@ -312,22 +312,14 @@ public class Service {
      * 매치 신청 서비스
      * Created by maloman72 on 218-11-01
      * */
-    public void applyMatch(ResponseListener responseListener, String search_date, String search_time, String search_area_group, String search_area, String search_ground, String search_team_member, String search_team_lvl) {
+    public void applyMatch(ResponseListener responseListener, String match_id) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchmatchlist_service);
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.applyMatch_service);
             String email_id = mApplicationTM.getUserEmail();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_email_id), email_id);
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_date), search_date);
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_time), search_time);
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area_group), search_area_group);
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area), search_area);
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_ground), search_ground);
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_team_member), search_team_member);
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_team_lvl), search_team_lvl);
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_count), mContext.getString(R.string.searchmatchlist_param_search_count_data));
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_page), mContext.getString(R.string.searchmatchlist_param_search_page_data));
+            mJSONObject.put(mContext.getString(R.string.applyMatch_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.applyMatch_param_match_id), match_id);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
