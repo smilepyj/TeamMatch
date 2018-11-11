@@ -264,6 +264,17 @@ public class SearchMatchActivity extends AppCompatActivity {
 
                     Log.e(TAG, data + "");
                     break;
+                case 2 :
+                    search_time = data.getStringExtra(getString(R.string.time_picker_dialog_set_time));
+
+                    if("0".equals(data.getStringExtra(getString(R.string.time_picker_dialog_ampm)))) {
+                        tv_search_match_time.setText(getString(R.string.time_picker_dialog_morning) + " " + data.getStringExtra(getString(R.string.time_picker_dialog_hour)) + getString(R.string.search_match_time_format_hour));
+                    } else {
+                        tv_search_match_time.setText(getString(R.string.time_picker_dialog_afternoon) + " " + data.getStringExtra(getString(R.string.time_picker_dialog_hour)) + getString(R.string.search_match_time_format_hour));
+                    }
+                    break;
+                default :
+                    break;
             }
         }
     }
@@ -339,7 +350,7 @@ public class SearchMatchActivity extends AppCompatActivity {
      * */
     private void setMatchTimePickerDialog() {
         Intent mIntent = new Intent(this, DialogTimePickerActivity.class);
-        startActivity(mIntent);
+        startActivityForResult(mIntent, 2);
     }
 
     private void setMatchTimeTimePickerDialog() {

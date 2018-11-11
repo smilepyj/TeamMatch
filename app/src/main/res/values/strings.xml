@@ -45,6 +45,7 @@
     <string name="search_match_date_format_view">%d년 %d월 %d일 %s</string>
     <string name="search_match_time_format_param">%d%d%d</string>
     <string name="search_match_time_format_view">%d시 %d분</string>
+    <string name="search_match_time_format_hour">시</string>
 
     <string name="search_match_extra_search_area_group_cnt">search_area_group_cnt</string>
     <string name="search_match_extra_search_area_cnt">search_area_cnt</string>
@@ -84,6 +85,12 @@
     <string name="ranking_fluctuation_nothing">M</string>
     <string name="ranking_fluctuation_down">D</string>
     <string name="ranking_fluctuation_new">N</string>
+
+    <!-- Time Picker Dialog -->
+    <string name="time_picker_dialog_base_time">0000</string>
+    <string name="time_picker_dialog_ampm">AMPM</string>
+    <string name="time_picker_dialog_hour">HOUR</string>
+    <string name="time_picker_dialog_set_time">TIME</string>
 
     <!-- Alert Dialog -->
     <string name="alert_dialog_title">TITLE</string>

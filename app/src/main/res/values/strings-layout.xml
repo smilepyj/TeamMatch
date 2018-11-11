@@ -140,7 +140,7 @@
     
     <!-- Time Picker Dialog -->
     <string name="time_picker_dialog_title">시작시간</string>
-    <string name="time_picker_dialog_sub_title">매지 시작시간을 선택해 주세요</string>
+    <string name="time_picker_dialog_sub_title">매치 시작시간을 선택해 주세요</string>
     <string name="time_picker_dialog_ok">확인</string>
     
     <string name="time_picker_dialog_morning">오전</string>
