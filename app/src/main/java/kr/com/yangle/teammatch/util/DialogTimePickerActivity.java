@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -23,6 +24,7 @@ public class DialogTimePickerActivity extends AppCompatActivity {
     Context mContext;
     ApplicationTM mApplicationTM;
 
+    LinearLayout ll_dialog_time_picker_ampm_up, ll_dialog_time_picker_ampm_down, ll_dialog_time_picker_time_up, ll_dialog_time_picker_time_down;
     ImageButton ib_dialog_time_picker_close, ib_dialog_time_picker_ampm_up, ib_dialog_time_picker_ampm_down, ib_dialog_time_picker_time_up, ib_dialog_time_picker_time_down;
     TextView tv_dialog_time_picker_apam, tv_dialog_time_picker_time;
     Button bt_dialog_time_picker_ok;
@@ -39,6 +41,10 @@ public class DialogTimePickerActivity extends AppCompatActivity {
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
+        ll_dialog_time_picker_ampm_up = findViewById(R.id.ll_dialog_time_picker_ampm_up);
+        ll_dialog_time_picker_ampm_down = findViewById(R.id.ll_dialog_time_picker_ampm_down);
+        ll_dialog_time_picker_time_up = findViewById(R.id.ll_dialog_time_picker_time_up);
+        ll_dialog_time_picker_time_down = findViewById(R.id.ll_dialog_time_picker_time_down);
         ib_dialog_time_picker_close = findViewById(R.id.ib_dialog_time_picker_close);
         ib_dialog_time_picker_ampm_up = findViewById(R.id.ib_dialog_time_picker_ampm_up);
         ib_dialog_time_picker_ampm_down = findViewById(R.id.ib_dialog_time_picker_ampm_down);
@@ -48,6 +54,10 @@ public class DialogTimePickerActivity extends AppCompatActivity {
         tv_dialog_time_picker_time = findViewById(R.id.tv_dialog_time_picker_time);
         bt_dialog_time_picker_ok = findViewById(R.id.bt_dialog_time_picker_ok);
 
+        ll_dialog_time_picker_ampm_up.setOnClickListener(mOnClickListener);
+        ll_dialog_time_picker_ampm_down.setOnClickListener(mOnClickListener);
+        ll_dialog_time_picker_time_up.setOnClickListener(mOnClickListener);
+        ll_dialog_time_picker_time_down.setOnClickListener(mOnClickListener);
         ib_dialog_time_picker_close.setOnClickListener(mOnClickListener);
         ib_dialog_time_picker_ampm_up.setOnClickListener(mOnClickListener);
         ib_dialog_time_picker_ampm_down.setOnClickListener(mOnClickListener);
@@ -62,6 +72,18 @@ public class DialogTimePickerActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.ll_dialog_time_picker_ampm_up :
+                    changeAmPm();
+                    break;
+                case R.id.ll_dialog_time_picker_ampm_down :
+                    changeAmPm();
+                    break;
+                case R.id.ll_dialog_time_picker_time_up :
+                    changeTime(true);
+                    break;
+                case R.id.ll_dialog_time_picker_time_down :
+                    changeTime(false);
+                    break;
                 case R.id.ib_dialog_time_picker_close :
                     finish();
                     break;

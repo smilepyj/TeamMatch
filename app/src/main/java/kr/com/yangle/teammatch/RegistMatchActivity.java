@@ -29,6 +29,7 @@ import kr.com.yangle.teammatch.adapter.SearchGroundType1ListViewAdapter;
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
+import kr.com.yangle.teammatch.util.DialogTimePickerActivity;
 
 public class RegistMatchActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -151,7 +152,8 @@ public class RegistMatchActivity extends AppCompatActivity {
                     setMatchDayDatePickerDialog();
                     break;
                 case R.id.ll_regist_match_time:
-                    setMatchTimeTimePickerDialog();
+                    setMatchTimePickerDialog();
+//                    setMatchTimeTimePickerDialog();
                     break;
                 case R.id.bt_regist_match_time_nothing:
                     tv_regist_match_time.setText(getString(R.string.regist_match_time_nothing));
@@ -244,6 +246,17 @@ public class RegistMatchActivity extends AppCompatActivity {
 
                     Log.e(TAG, data + "");
                     break;
+                case 2 :
+                    regist_time = data.getStringExtra(getString(R.string.time_picker_dialog_set_time));
+
+                    if("0".equals(data.getStringExtra(getString(R.string.time_picker_dialog_ampm)))) {
+                        tv_regist_match_time.setText(getString(R.string.time_picker_dialog_morning) + " " + data.getStringExtra(getString(R.string.time_picker_dialog_hour)) + getString(R.string.search_match_time_format_hour));
+                    } else {
+                        tv_regist_match_time.setText(getString(R.string.time_picker_dialog_afternoon) + " " + data.getStringExtra(getString(R.string.time_picker_dialog_hour)) + getString(R.string.search_match_time_format_hour));
+                    }
+                    break;
+                default :
+                    break;
             }
         }
     }
@@ -316,22 +329,27 @@ public class RegistMatchActivity extends AppCompatActivity {
     /**
      * 시간 선택 Dialog
      * Created by maloman72 on 2018-11-01
-     */
-    private void setMatchTimeTimePickerDialog() {
-        final Calendar mCalendar = Calendar.getInstance();
-
-        TimePickerDialog mTimePickerDialog = new TimePickerDialog(mContext, new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                String mTimeData = String.format(getString(R.string.regist_match_time_format_param), String.format("%02d", hourOfDay), String.format("%02d", minute), String.format("%02d", 00));
-                regist_time = mTimeData;
-
-                tv_regist_match_time.setText(String.format(getString(R.string.regist_match_time_format_view), hourOfDay, minute));
-            }
-        }, mCalendar.get(Calendar.HOUR_OF_DAY), mCalendar.get(Calendar.MINUTE), true);
-
-        mTimePickerDialog.show();
+     * */
+    private void setMatchTimePickerDialog() {
+        Intent mIntent = new Intent(this, DialogTimePickerActivity.class);
+        startActivityForResult(mIntent, 2);
     }
+
+//    private void setMatchTimeTimePickerDialog() {
+//        final Calendar mCalendar = Calendar.getInstance();
+//
+//        TimePickerDialog mTimePickerDialog = new TimePickerDialog(mContext, new TimePickerDialog.OnTimeSetListener() {
+//            @Override
+//            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+//                String mTimeData = String.format(getString(R.string.regist_match_time_format_param), String.format("%02d", hourOfDay), String.format("%02d", minute), String.format("%02d", 00));
+//                regist_time = mTimeData;
+//
+//                tv_regist_match_time.setText(String.format(getString(R.string.regist_match_time_format_view), hourOfDay, minute));
+//            }
+//        }, mCalendar.get(Calendar.HOUR_OF_DAY), mCalendar.get(Calendar.MINUTE), true);
+//
+//        mTimePickerDialog.show();
+//    }
 
     /**
      * 매칭 검색 데이터 체크

@@ -353,21 +353,21 @@ public class SearchMatchActivity extends AppCompatActivity {
         startActivityForResult(mIntent, 2);
     }
 
-    private void setMatchTimeTimePickerDialog() {
-        final Calendar mCalendar = Calendar.getInstance();
-
-        TimePickerDialog mTimePickerDialog = new TimePickerDialog(mContext, android.R.style.Theme_Holo_Dialog, new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                String mTimeData = String.format(getString(R.string.search_match_time_format_param), hourOfDay, minute, 00);
-                search_time = mTimeData;
-
-                tv_search_match_time.setText(String.format(getString(R.string.search_match_time_format_view), hourOfDay, minute));
-            }
-        }, mCalendar.get(Calendar.HOUR_OF_DAY), mCalendar.get(Calendar.MINUTE), true);
-
-        mTimePickerDialog.show();
-    }
+//    private void setMatchTimeTimePickerDialog() {
+//        final Calendar mCalendar = Calendar.getInstance();
+//
+//        TimePickerDialog mTimePickerDialog = new TimePickerDialog(mContext, android.R.style.Theme_Holo_Dialog, new TimePickerDialog.OnTimeSetListener() {
+//            @Override
+//            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+//                String mTimeData = String.format(getString(R.string.search_match_time_format_param), hourOfDay, minute, 00);
+//                search_time = mTimeData;
+//
+//                tv_search_match_time.setText(String.format(getString(R.string.search_match_time_format_view), hourOfDay, minute));
+//            }
+//        }, mCalendar.get(Calendar.HOUR_OF_DAY), mCalendar.get(Calendar.MINUTE), true);
+//
+//        mTimePickerDialog.show();
+//    }
 
     /**
      * 매칭 검색 데이터 체크
