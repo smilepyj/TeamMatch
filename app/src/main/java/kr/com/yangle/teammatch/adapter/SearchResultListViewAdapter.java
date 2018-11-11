@@ -13,10 +13,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Map;
 
 import kr.com.yangle.teammatch.ApplicationTM;
 import kr.com.yangle.teammatch.R;
@@ -24,9 +22,9 @@ import kr.com.yangle.teammatch.R;
 public class SearchResultListViewAdapter extends BaseAdapter {
     private final String TAG = this.getClass().getSimpleName();
 
-    LayoutInflater mLayoutInflater = null;
-    private JSONArray mDataJSONArray = null;
-    private int mDataJSONArrayCnt = 0;
+    private LayoutInflater mLayoutInflater = null;
+    private JSONArray mDataJSONArray;
+    private int mDataJSONArrayCnt;
 
     private Context mContext;
     private ApplicationTM mApplicationTM;

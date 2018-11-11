@@ -18,7 +18,10 @@
     <!-- Service Parameter-->
     <string name="result_code">result_code</string>
     <string name="result_message">result_msg</string>
+    <string name="result_total_count">total_count</string>
     <string name="result_data">data</string>
+    <string name="result_search_start_date">search_start_date</string>
+    <string name="result_search_end_date">search_end_date</string>
 
     <!-- Service Error Code -->
     <string name="service_sucess">000</string>
@@ -96,4 +99,15 @@
     <string name="matchProclist_result_match_hope_team_lvl">match_hope_team_lvl</string>
     <string name="matchProclist_result_match_hope_team_member">match_hope_team_member</string>
 
+    <!-- Ranking Service-->
+    <string name="ranking_service">rank/searchRankList</string>
+    <string name="ranking_param_email_id">email_id</string>
+    <string name="ranking_param_search_type_code">search_type_code</string>
+    <string name="ranking_param_search_count">search_count</string>
+    <string name="ranking_param_search_page">search_page</string>
+    
+    <string name="ranking_result_rank_no">rank</string>
+    <string name="ranking_result_team_name">team_name</string>
+    <string name="ranking_result_team_point">team_point</string>
+    <string name="ranking_result_team_rank_fluctuation">team_rank_fluctuation</string>
 </resources>

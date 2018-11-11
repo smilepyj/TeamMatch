@@ -158,7 +158,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(mIntent);
                     break;
                 case R.id.ll_main_ranking:
-                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
+                    mIntent = new Intent(mContext, RankingActivity.class);
+                    startActivity(mIntent);
                     break;
                 default:
                     break;

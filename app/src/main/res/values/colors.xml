@@ -115,4 +115,21 @@
     <color name="color_listview_match_proc_name_2">#000000</color>
     <color name="color_listview_match_proc_sidebar">#A8A8A8</color>
     <color name="color_listview_match_proc_border">#D2D2D2</color>
+
+    <!-- Ranking Activity -->
+    <color name="color_ranking_button_tab_enable">#F8F8FA</color>
+    <color name="color_ranking_button_tab_enable_text">#A0A0A0</color>
+    <color name="color_ranking_button_tab_press">#00AE55</color>
+    <color name="color_ranking_button_tab_press_text">#FFFFFF</color>
+    <color name="color_ranking_button_stroke">#E5E5E5</color>
+    <color name="color_ranking_tab_bottom">#00AE55</color>
+
+    <color name="color_ranking_list_title_text">#898989</color>
+    <color name="color_ranking_list_title">#F6F6F6</color>
+    <color name="color_ranking_list_title_stroke">#E5E5E5</color>
+    
+    <!-- Listview Ranking -->
+    <color name="color_listview_ranking_contents">#313131</color>
+    <color name="color_listview_ranking_up">#D6352A</color>
+    <color name="color_listview_ranking_down">#0068B7</color>
 </resources>

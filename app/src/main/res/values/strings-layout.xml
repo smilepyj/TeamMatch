@@ -121,4 +121,17 @@
 
     <!-- MatchProc Activity -->
     <string name="match_proc_title">진행중 매치</string>
+
+    <!-- Ranking Activity -->
+    <string name="ranking_title">랭킹정보</string>
+
+    <string name="ranking_tab_total">전체 랭킹</string>
+    <string name="ranking_tab_week">주간 랭킹</string>
+    <string name="ranking_tab_area">지역 랭킹</string>
+    <string name="ranking_list_title_rank">순위</string>
+    <string name="ranking_list_title_team_name">팀명</string>
+    <string name="ranking_list_title_point">포인트</string>
+    <string name="ranking_list_title_change">순위변동</string>
+
+    <string name="ranking_fluctuation_nothing_text">-</string>
 </resources>
