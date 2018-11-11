@@ -72,14 +72,22 @@ public class RankingListViewAdapter extends BaseAdapter {
             tv_listview_ranking_team_name.setText(mJSONObject.get(mContext.getString(R.string.ranking_result_team_name)).toString());
             tv_listview_ranking_point.setText(mJSONObject.get(mContext.getString(R.string.ranking_result_team_point)).toString());
 
-            if(mContext.getString(R.string.ranking_fluctuation_up).equals(mJSONObject.get(mContext.getString(R.string.ranking_result_team_rank_fluctuation)))) {
+            if(mContext.getString(R.string.ranking_fluctuation_up).equals(mJSONObject.get(mContext.getString(R.string.ranking_result_team_rank_fluctuation_code)))) {
                 tv_listview_ranking_change.setCompoundDrawablesRelativeWithIntrinsicBounds(mContext.getResources().getDrawable(R.drawable.ic_ranking_up), null, null, null);
-                tv_listview_ranking_change.setText(" ");
-            } else if(mContext.getString(R.string.ranking_fluctuation_nothing).equals(mJSONObject.get(mContext.getString(R.string.ranking_result_team_rank_fluctuation)))) {
+                tv_listview_ranking_change.setCompoundDrawablePadding(mContext.getResources().getDimensionPixelSize(R.dimen.listview_ranking_drawable_left_padding));
+                tv_listview_ranking_change.setTextColor(mContext.getResources().getColor(R.color.color_listview_ranking_up));
+                tv_listview_ranking_change.setText(mJSONObject.get(mContext.getString(R.string.ranking_result_team_rank_fluctuation)).toString());
+            } else if(mContext.getString(R.string.ranking_fluctuation_nothing).equals(mJSONObject.get(mContext.getString(R.string.ranking_result_team_rank_fluctuation_code)))) {
                 tv_listview_ranking_change.setText(mContext.getString(R.string.ranking_fluctuation_nothing_text));
-            } else if(mContext.getString(R.string.ranking_fluctuation_down).equals(mJSONObject.get(mContext.getString(R.string.ranking_result_team_rank_fluctuation)))) {
+            } else if(mContext.getString(R.string.ranking_fluctuation_down).equals(mJSONObject.get(mContext.getString(R.string.ranking_result_team_rank_fluctuation_code)))) {
                 tv_listview_ranking_change.setCompoundDrawablesRelativeWithIntrinsicBounds(mContext.getResources().getDrawable(R.drawable.ic_ranking_dowm), null, null, null);
-                tv_listview_ranking_change.setText(" ");
+                tv_listview_ranking_change.setCompoundDrawablePadding(mContext.getResources().getDimensionPixelSize(R.dimen.listview_ranking_drawable_left_padding));
+                tv_listview_ranking_change.setTextColor(mContext.getResources().getColor(R.color.color_listview_ranking_down));
+                tv_listview_ranking_change.setText(mJSONObject.get(mContext.getString(R.string.ranking_result_team_rank_fluctuation)).toString());
+            } else if(mContext.getString(R.string.ranking_fluctuation_new).equals(mJSONObject.get(mContext.getString(R.string.ranking_result_team_rank_fluctuation_code)))) {
+                tv_listview_ranking_change.setText(mContext.getString(R.string.ranking_fluctuation_new_text));
+                tv_listview_ranking_change.setTextColor(mContext.getResources().getColor(R.color.color_listview_ranking_up));
+                tv_listview_ranking_change.setTextSize(mContext.getResources().getDimensionPixelSize(R.dimen.font_size_12));
             }
 
         } catch (Exception e) {

@@ -29,5 +29,7 @@
     <dimen name="listview_search_result_padding_vertical">8dp</dimen>
     <dimen name="listview_item_sidebar_margin_horizontal">7dp</dimen>
     <dimen name="bt_user_info_hope_grounds">5dp</dimen>
+    <dimen name="listview_ranking_team_name_padding_left">10dp</dimen>
+    <dimen name="listview_ranking_drawable_left_padding">5dp</dimen>
 
 </resources>

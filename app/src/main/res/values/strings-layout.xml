@@ -128,10 +128,13 @@
     <string name="ranking_tab_total">전체 랭킹</string>
     <string name="ranking_tab_week">주간 랭킹</string>
     <string name="ranking_tab_area">지역 랭킹</string>
+    <string name="ranking_week_term">집계 기간 :&#160;</string>
+    <string name="ranking_week_dash">&#160;~&#160;</string>
     <string name="ranking_list_title_rank">순위</string>
     <string name="ranking_list_title_team_name">팀명</string>
     <string name="ranking_list_title_point">포인트</string>
     <string name="ranking_list_title_change">순위변동</string>
 
     <string name="ranking_fluctuation_nothing_text">-</string>
+    <string name="ranking_fluctuation_new_text">new</string>
 </resources>

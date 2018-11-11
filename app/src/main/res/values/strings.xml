@@ -80,4 +80,5 @@
     <string name="ranking_fluctuation_up">U</string>
     <string name="ranking_fluctuation_nothing">M</string>
     <string name="ranking_fluctuation_down">D</string>
+    <string name="ranking_fluctuation_new">N</string>
 </resources>

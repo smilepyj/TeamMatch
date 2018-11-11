@@ -109,5 +109,6 @@
     <string name="ranking_result_rank_no">rank</string>
     <string name="ranking_result_team_name">team_name</string>
     <string name="ranking_result_team_point">team_point</string>
+    <string name="ranking_result_team_rank_fluctuation_code">team_rank_fluctuation_code</string>
     <string name="ranking_result_team_rank_fluctuation">team_rank_fluctuation</string>
 </resources>

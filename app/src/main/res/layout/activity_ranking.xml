@@ -30,7 +30,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
-        android:gravity="center"
         android:orientation="vertical"
         android:weightSum="10">
 
@@ -40,7 +39,7 @@
             android:layout_weight="0.9"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="10">
+            android:weightSum="9.9">
 
             <Button
                 android:id="@+id/bt_ranking_total"
@@ -87,6 +86,26 @@
             android:layout_height="0dp"
             android:layout_weight="0.05"
             android:background="@color/color_ranking_tab_bottom" />
+
+        <LinearLayout
+            android:id="@+id/ll_ranking_term"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.75"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_ranking_term"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:paddingStart="@dimen/listview_ranking_team_name_padding_left"
+                android:includeFontPadding="false"
+                android:textColor="@color/color_ranking_list_title_text"
+                android:textSize="@dimen/font_size_15"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

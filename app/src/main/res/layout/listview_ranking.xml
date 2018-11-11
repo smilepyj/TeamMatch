@@ -23,6 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="4.25"
+        android:paddingStart="@dimen/listview_ranking_team_name_padding_left"
         android:background="@drawable/ic_textview_border_2"
         android:fontFamily="@font/notosanskr_regular"
         android:gravity="center_vertical"
