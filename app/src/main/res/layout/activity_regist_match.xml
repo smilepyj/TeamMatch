@@ -204,7 +204,8 @@
                                 android:minHeight="0dp"
                                 android:text="@string/regist_match_time_nothing"
                                 android:textColor="@drawable/selector_button_search_text"
-                                android:textSize="@dimen/font_size_18" />
+                                android:textSize="@dimen/font_size_18"
+                                android:visibility="gone" />
                         </LinearLayout>
 
                         <LinearLayout

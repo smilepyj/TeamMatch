@@ -104,7 +104,7 @@
     <string name="regist_match_start_time">03. 매치 시작 시간을 선택해 주세요.</string>
     <string name="regist_match_time_basic">시간 선택</string>
     <string name="regist_match_select_number">04. 매치 인원을 선택해 주세요.</string>
-    <string name="regist_match_select_level">05. 희망 팀 레벨을 선택해 주세요.(중복 가능)</string>
+    <string name="regist_match_select_level">05. 희망 팀 레벨을 선택해 주세요.</string>
 
     <string name="regist_match_time_nothing">무관</string>
     <string name="regist_match_base_select">선 택</string>

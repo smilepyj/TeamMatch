@@ -240,15 +240,14 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:weightSum="10">
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="2.5"
                         android:orientation="vertical">
 
@@ -262,11 +261,9 @@
                             android:textStyle="bold" />
                     </LinearLayout>
 
-
-
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="7.5"
                         android:gravity="center"
                         android:orientation="vertical"
@@ -274,9 +271,8 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="3.1"
-                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
                             android:orientation="horizontal"
                             android:weightSum="10">
 
@@ -289,7 +285,10 @@
                                 android:background="@drawable/selector_button_user_info"
                                 android:includeFontPadding="false"
                                 android:drawableRight="@drawable/ic_close"
+                                android:drawablePadding="3dp"
                                 android:fontFamily="@font/notosanskr_medium"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
                                 android:minHeight="0dp"
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_1"
@@ -310,7 +309,10 @@
                                 android:layout_weight="4.9"
                                 android:background="@drawable/selector_button_user_info"
                                 android:drawableRight="@drawable/ic_close"
+                                android:drawablePadding="3dp"
                                 android:fontFamily="@font/notosanskr_medium"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
                                 android:minHeight="0dp"
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_2"
@@ -323,11 +325,18 @@
                             android:layout_height="0dp"
                             android:layout_weight="0.2" />
 
-                        <LinearLayout
+                        <!--<LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="3.1"
                             android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="10">-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
                             android:orientation="horizontal"
                             android:weightSum="10">
 
@@ -340,7 +349,10 @@
                                 android:layout_weight="4.9"
                                 android:background="@drawable/selector_button_user_info"
                                 android:drawableRight="@drawable/ic_close"
+                                android:drawablePadding="3dp"
                                 android:fontFamily="@font/notosanskr_medium"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
                                 android:minHeight="0dp"
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_3"
@@ -361,13 +373,17 @@
                                 android:layout_weight="4.9"
                                 android:background="@drawable/selector_button_user_info"
                                 android:drawableRight="@drawable/ic_close"
+                                android:drawablePadding="3dp"
                                 android:fontFamily="@font/notosanskr_medium"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
                                 android:minHeight="0dp"
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_4"
                                 android:textColor="@drawable/selector_button_user_info_text"
                                 android:textSize="@dimen/font_size_14" />
                         </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -376,8 +392,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="3.1"
+                            android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
 
@@ -385,6 +400,8 @@
                                 android:id="@+id/tv_user_info_add_grounds"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginBottom="7dp"
                                 android:includeFontPadding="false"
                                 android:fontFamily="@font/notosanskr_regular"
                                 android:text="@string/user_info_add_grounds"

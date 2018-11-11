@@ -37,6 +37,7 @@
         <item>C002003</item>
         <item>C002004</item>
         <item>C002005</item>
+        <item>C002999</item>
     </string-array>
 
     <string-array name="C002_data">
@@ -45,16 +46,19 @@
         <item>중</item>
         <item>중하</item>
         <item>하</item>
+        <item>무관</item>
     </string-array>
 
     <string-array name="C003_code">
         <item>C003001</item>
         <item>C003002</item>
+        <item>C003999</item>
     </string-array>
 
     <string-array name="C003_data">
         <item>5 : 5</item>
         <item>6 : 6</item>
+        <item>무관</item>
     </string-array>
 
     <string-array name="C004_code">

@@ -16,10 +16,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
+
+import kr.com.yangle.teammatch.adapter.SearchGroundType1ListViewAdapter;
+import kr.com.yangle.teammatch.network.ResponseEvent;
+import kr.com.yangle.teammatch.network.ResponseListener;
+import kr.com.yangle.teammatch.network.Service;
 
 public class RegistMatchActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -27,11 +36,13 @@ public class RegistMatchActivity extends AppCompatActivity {
     Context mContext;
     ApplicationTM mApplicationTM;
 
+    private Service mService;
+
     Toolbar toolbar;
 
-    ArrayList<String> regist_ground, regist_area, regist_team_lvl;
+    ArrayList<String> regist_ground;
     ArrayList<String> regist_ground_name;
-    String regist_date = "-", regist_time = "-", regist_team_member = "-";
+    String regist_date = "-", regist_time = "-", regist_team_member = "-", regist_team_lvl = "-";
 
     LinearLayout ll_regist_match_field, ll_regist_match_day, ll_regist_match_time;
 
@@ -51,7 +62,7 @@ public class RegistMatchActivity extends AppCompatActivity {
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        regist_team_lvl = new ArrayList<>();
+        mService = new Service(mContext);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -94,7 +105,6 @@ public class RegistMatchActivity extends AppCompatActivity {
         bt_regist_match_insert.setOnClickListener(mOnClickListener);
 
 
-        //regist_area = getIntent().getStringArrayListExtra(getString(R.string.insertmatchlist_param_regist_area));
         regist_ground = getIntent().getStringArrayListExtra(getString(R.string.searchmatchlist_param_search_ground));
         regist_ground_name = getIntent().getStringArrayListExtra("search_ground_name");
 
@@ -134,7 +144,8 @@ public class RegistMatchActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.ll_regist_match_field:
                     Intent mIntent = new Intent(mContext, SearchGroundActivity.class);
-                    startActivity(mIntent);
+                    mIntent.putExtra("callActivityFlag", 2);
+                    startActivityForResult(mIntent, 1);
                     break;
                 case R.id.ll_regist_match_day:
                     setMatchDayDatePickerDialog();
@@ -149,7 +160,7 @@ public class RegistMatchActivity extends AppCompatActivity {
                 case R.id.bt_regist_match_number_nothing:
                     setDefaultButtonMatchNumber();
                     bt_regist_match_number_nothing.setSelected(true);
-                    regist_team_member = "";
+                    regist_team_member = getResources().getStringArray(R.array.C003_code)[2];
                     break;
                 case R.id.bt_regist_match_number_5:
                     setDefaultButtonMatchNumber();
@@ -162,64 +173,34 @@ public class RegistMatchActivity extends AppCompatActivity {
                     regist_team_member = getResources().getStringArray(R.array.C003_code)[1];
                     break;
                 case R.id.bt_regist_match_level_challenger:
-                    bt_regist_match_level_nothing.setSelected(false);
-                    if (bt_regist_match_level_challenger.isSelected()) {
-                        bt_regist_match_level_challenger.setSelected(false);
-                        regist_team_lvl.remove(getResources().getTextArray(R.array.C002_code)[0].toString());
-                    } else {
-                        bt_regist_match_level_challenger.setSelected(true);
-                        regist_team_lvl.add(getResources().getTextArray(R.array.C002_code)[0].toString());
-                    }
+                    setDefaultButtonMatchLevel();
+                    bt_regist_match_level_challenger.setSelected(true);
+                    regist_team_lvl = getResources().getStringArray(R.array.C002_code)[0];
                     break;
                 case R.id.bt_regist_match_level_diamond:
-                    bt_regist_match_level_nothing.setSelected(false);
-                    if (bt_regist_match_level_diamond.isSelected()) {
-                        bt_regist_match_level_diamond.setSelected(false);
-                        regist_team_lvl.remove(getResources().getTextArray(R.array.C002_code)[1].toString());
-                    } else {
-                        bt_regist_match_level_diamond.setSelected(true);
-                        regist_team_lvl.add(getResources().getTextArray(R.array.C002_code)[1].toString());
-                    }
+                    setDefaultButtonMatchLevel();
+                    bt_regist_match_level_diamond.setSelected(true);
+                    regist_team_lvl = getResources().getStringArray(R.array.C002_code)[1];
                     break;
                 case R.id.bt_regist_match_level_platinum:
-                    bt_regist_match_level_nothing.setSelected(false);
-                    if (bt_regist_match_level_platinum.isSelected()) {
-                        bt_regist_match_level_platinum.setSelected(false);
-                        regist_team_lvl.remove(getResources().getTextArray(R.array.C002_code)[2].toString());
-                    } else {
-                        bt_regist_match_level_platinum.setSelected(true);
-                        regist_team_lvl.add(getResources().getTextArray(R.array.C002_code)[2].toString());
-                    }
+                    setDefaultButtonMatchLevel();
+                    bt_regist_match_level_platinum.setSelected(true);
+                    regist_team_lvl = getResources().getStringArray(R.array.C002_code)[2];
                     break;
                 case R.id.bt_regist_match_level_gold:
-                    bt_regist_match_level_nothing.setSelected(false);
-                    if (bt_regist_match_level_gold.isSelected()) {
-                        bt_regist_match_level_gold.setSelected(false);
-                        regist_team_lvl.remove(getResources().getTextArray(R.array.C002_code)[3].toString());
-                    } else {
-                        bt_regist_match_level_gold.setSelected(true);
-                        regist_team_lvl.add(getResources().getTextArray(R.array.C002_code)[3].toString());
-                    }
+                    setDefaultButtonMatchLevel();
+                    bt_regist_match_level_gold.setSelected(true);
+                    regist_team_lvl = getResources().getStringArray(R.array.C002_code)[3];
                     break;
                 case R.id.bt_regist_match_level_silver:
-                    bt_regist_match_level_nothing.setSelected(false);
-                    if (bt_regist_match_level_silver.isSelected()) {
-                        bt_regist_match_level_silver.setSelected(false);
-                        regist_team_lvl.remove(getResources().getTextArray(R.array.C002_code)[4].toString());
-                    } else {
-                        bt_regist_match_level_silver.setSelected(true);
-                        regist_team_lvl.add(getResources().getTextArray(R.array.C002_code)[4].toString());
-                    }
+                    setDefaultButtonMatchLevel();
+                    bt_regist_match_level_silver.setSelected(true);
+                    regist_team_lvl = getResources().getStringArray(R.array.C002_code)[4];
                     break;
                 case R.id.bt_regist_match_level_nothing:
-
-                    regist_team_lvl.clear();
                     setDefaultButtonMatchLevel();
-                    if (bt_regist_match_level_nothing.isSelected()) {
-                        bt_regist_match_level_nothing.setSelected(false);
-                    } else {
-                        bt_regist_match_level_nothing.setSelected(true);
-                    }
+                    bt_regist_match_level_nothing.setSelected(true);
+                    regist_team_lvl = getResources().getStringArray(R.array.C002_code)[5];
                     break;
                 case R.id.bt_regist_match_insert:
                     Check_insertMatchList();
@@ -229,6 +210,43 @@ public class RegistMatchActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
+                case 1:
+                    regist_ground = data.getStringArrayListExtra("search_ground");
+                    regist_ground_name = data.getStringArrayListExtra("search_ground_name");
+
+                    List<String> regist_ground_texts = new ArrayList<String>();
+
+                    if(regist_ground_name != null) {
+                        for(int i = 0; i < regist_ground_name.size(); i++) {
+                            regist_ground_texts.add(regist_ground_name.get(i));
+                        }
+                    }
+
+                    if(regist_ground_texts.size() > 0) {
+
+                        String regist_text = "";
+
+                        for (int i = 0; i < regist_ground_texts.size(); i++) {
+                            if (i != 0)
+                                regist_text += ", ";
+                            regist_text += regist_ground_texts.get(i);
+                        }
+
+                        Log.e(TAG, regist_text);
+
+                        tv_regist_match_field.setText(regist_text);
+                    }
+
+                    Log.e(TAG, data + "");
+                    break;
+            }
+        }
+    }
 
     /**
      * 화면 진입 시 팀 레벨 회원 정보 로딩
@@ -268,7 +286,7 @@ public class RegistMatchActivity extends AppCompatActivity {
         bt_regist_match_level_platinum.setSelected(false);
         bt_regist_match_level_gold.setSelected(false);
         bt_regist_match_level_silver.setSelected(false);
-//        bt_regist_match_level_nothing.setSelected(false);
+        bt_regist_match_level_nothing.setSelected(false);
     }
 
     /**
@@ -281,7 +299,7 @@ public class RegistMatchActivity extends AppCompatActivity {
         DatePickerDialog mDatePickerDialog = new DatePickerDialog(mContext, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                String mDateData = String.format(getString(R.string.regist_match_date_format_param), year, month + 1, String.format("%02d", dayOfMonth));
+                String mDateData = String.format(getString(R.string.regist_match_date_format_param), year, String.format("%02d", month + 1), String.format("%02d", dayOfMonth));
                 regist_date = mDateData;
 
                 mCalendar.set(year, month, dayOfMonth);
@@ -305,7 +323,7 @@ public class RegistMatchActivity extends AppCompatActivity {
         TimePickerDialog mTimePickerDialog = new TimePickerDialog(mContext, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                String mTimeData = String.format(getString(R.string.regist_match_time_format_param), hourOfDay, minute, 00);
+                String mTimeData = String.format(getString(R.string.regist_match_time_format_param), String.format("%02d", hourOfDay), String.format("%02d", minute), String.format("%02d", 00));
                 regist_time = mTimeData;
 
                 tv_regist_match_time.setText(String.format(getString(R.string.regist_match_time_format_view), hourOfDay, minute));
@@ -320,6 +338,11 @@ public class RegistMatchActivity extends AppCompatActivity {
      * Created by maloman72 on 2018-11-01
      */
     private void Check_insertMatchList() {
+        if (regist_ground.size() <= 0) {
+            mApplicationTM.makeToast(mContext, getString(R.string.regist_match_check_ground));
+            return;
+        }
+
         if ("-".equals(regist_date)) {
             mApplicationTM.makeToast(mContext, getString(R.string.regist_match_check_date));
             return;
@@ -335,9 +358,41 @@ public class RegistMatchActivity extends AppCompatActivity {
             return;
         }
 
-        if (regist_team_lvl == null && regist_team_lvl.size() == 0 && !bt_regist_match_level_nothing.isSelected()) {
+        if ("-".equals(regist_team_lvl)) {
             mApplicationTM.makeToast(mContext, getString(R.string.regist_match_check_level));
             return;
         }
+
+        try {
+            mService.registMatch(registMatch_Listener, regist_ground.get(0), regist_date, regist_time, regist_team_member, regist_team_lvl);
+        }catch(Exception e) {
+            mApplicationTM.makeToast(mContext, getString(R.string.error_network));
+            Log.e(TAG, "mOnItemClickListener - " + e);
+        }
     }
+
+    ResponseListener registMatch_Listener = new ResponseListener() {
+        @Override
+        public void receive(ResponseEvent responseEvent) {
+            try {
+                JSONObject mJSONObject = new JSONObject(responseEvent.getResultData());
+
+                if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
+
+                    // TODO 등록완료 알림창!!
+                    // 닫기, 등록정보 확인
+                    mApplicationTM.makeToast(mContext, "등록 완료 되었습니다.");
+                    finish();
+
+                } else {
+                    mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
+                }
+            } catch (Exception e) {
+                mApplicationTM.makeToast(mContext, getString(R.string.error_network));
+                Log.e(TAG, "searchMatchList_Listener - " + e);
+            } finally {
+                mApplicationTM.stopProgress();
+            }
+        }
+    };
 }

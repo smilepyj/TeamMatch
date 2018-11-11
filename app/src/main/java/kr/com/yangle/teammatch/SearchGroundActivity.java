@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -68,9 +69,7 @@ public class SearchGroundActivity extends AppCompatActivity {
 
     List<JSONObject> search_grounds = new ArrayList<>();
 
-    Map<String, String> btn_search_area_groups = new HashMap<String, String>();
-    Map<String, String> btn_search_areas = new HashMap<String, String>();
-    Map<String, String> btn_search_grounds = new HashMap<String, String>();
+    int callActivityFlag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +86,11 @@ public class SearchGroundActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+
+        callActivityFlag = getIntent().getIntExtra("callActivityFlag",0);
+        if(callActivityFlag != 1 && callActivityFlag != 2 && callActivityFlag != 3) {
+            finish();
+        }
 
         search_type_code = "F";
         search_loc_lat = "";
@@ -124,7 +128,6 @@ public class SearchGroundActivity extends AppCompatActivity {
         lv_search_ground_type_3_1.setOnItemClickListener(mOnItemClickListener_3_1);
         lv_search_ground_type_3_2.setOnItemClickListener(mOnItemClickListener_3_2);
         lv_search_ground_type_3_3.setOnItemClickListener(mOnItemClickListener_3_3);
-
 
         bt_search_ground_type_1.setSelected(true);
 
@@ -204,6 +207,20 @@ public class SearchGroundActivity extends AppCompatActivity {
                     break;
                 case R.id.bt_search_ground_select_end :
                     try {
+                        ArrayList<String> search_area_group_codes = new ArrayList<>();
+                        ArrayList<String> search_area_group_names = new ArrayList<>();
+                        for (JSONObject search_area_group : search_area_groups) {
+                            search_area_group_codes.add(search_area_group.get("area_group_code").toString());
+                            search_area_group_names.add(search_area_group.get("ground_name").toString());
+                        }
+
+                        ArrayList<String> search_area_codes = new ArrayList<>();
+                        ArrayList<String> search_area_names = new ArrayList<>();
+                        for (JSONObject search_area : search_areas) {
+                            search_area_codes.add(search_area.get("area_code").toString());
+                            search_area_names.add(search_area.get("ground_name").toString());
+                        }
+
                         ArrayList<String> search_ground_ids = new ArrayList<>();
                         ArrayList<String> search_ground_names = new ArrayList<>();
                         for (JSONObject search_ground : search_grounds) {
@@ -211,11 +228,24 @@ public class SearchGroundActivity extends AppCompatActivity {
                             search_ground_names.add(search_ground.get("ground_name").toString());
                         }
 
-                        Intent mIntent = new Intent(mContext, SearchMatchActivity.class);
-                        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_area), "");
-                        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_ground), search_ground_ids);
+                        Log.e(TAG, "callActivityFlag : " + callActivityFlag);
+
+                        if(callActivityFlag == 2 && (search_area_groups.size() > 0 || search_areas.size() > 0 || search_grounds.size() > 1)) {
+                            mApplicationTM.makeToast(mContext, "매치 등록시 구장은 1개만 선택할 수 있습니다.");
+                            return;
+                        }else if(callActivityFlag == 3 && (search_area_groups.size() > 0 || search_areas.size() > 0 || search_grounds.size() > 4)) {
+                            mApplicationTM.makeToast(mContext, "회원정보 입력시 구장은 최대 4개까지 선택할 수 있습니다.");
+                            return;
+                        }
+
+                        Intent mIntent = new Intent();
+                        mIntent.putExtra("search_area_group", search_area_group_codes);
+                        mIntent.putExtra("search_area_group_name", search_area_group_names);
+                        mIntent.putExtra("search_area", search_area_codes);
+                        mIntent.putExtra("search_area_name", search_area_names);
+                        mIntent.putExtra("search_ground", search_ground_ids);
                         mIntent.putExtra("search_ground_name", search_ground_names);
-                        startActivity(mIntent);
+                        setResult(RESULT_OK, mIntent);
                         finish();
                     }catch(Exception e) {
                         mApplicationTM.makeToast(mContext, getString(R.string.error_network));
@@ -1139,6 +1169,47 @@ public class SearchGroundActivity extends AppCompatActivity {
                 btn.setCompoundDrawablePadding(10);
 
                 final String btn_id = search_area_groups.get(i).getString("area_group_code");
+
+                /*btn.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+
+                        try {
+                            final int DRAWABLE_LEFT = 0;
+                            final int DRAWABLE_TOP = 1;
+                            final int DRAWABLE_RIGHT = 2;
+                            final int DRAWABLE_BOTTOM = 3;
+
+                            if(event.getAction() == MotionEvent.ACTION_UP) {
+                                if(event.getRawX() >= (((Button)v).getRight() - ((Button)v).getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width()) - 10) {
+                                    // your action here
+                                    for (int a = 0; a < search_area_groups.size(); a++) {
+                                        if (btn_id.equals(search_area_groups.get(a).getString("area_group_code"))) {
+                                            search_area_groups.remove(search_area_groups.get(a));
+                                            break;
+                                        }
+                                    }
+
+                                    if(bt_search_ground_type_1.isSelected()) {
+                                        setCheckBox(1);
+                                        setSelectedGroundResult(1);
+                                    }else if(bt_search_ground_type_2.isSelected()) {
+                                        setCheckBox(2);
+                                        setSelectedGroundResult(2);
+                                    }else if(bt_search_ground_type_3.isSelected()) {
+                                        setCheckBox(3);
+                                        setSelectedGroundResult(3);
+                                    }
+
+                                    return true;
+                                }
+                            }
+                        }catch(Exception e) {
+                            Log.e(TAG, "btn.setOnClickListener - " + e);
+                        }
+                        return false;
+                    }
+                });*/
 
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override

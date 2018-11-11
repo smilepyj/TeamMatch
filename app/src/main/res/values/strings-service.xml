@@ -43,12 +43,24 @@
     <string name="insertuserinfo_param_team_level_code">team_level_code</string>
     <string name="insertuserinfo_param_team_age_code">team_age_code</string>
 
+    <!-- updateUserInfo Service -->
+    <string name="updateuserinfo_service">user/updateUserInfo</string>
+    <string name="updateuserinfo_param_email_id">email_id</string>
+    <string name="updateuserinfo_param_user_name">user_name</string>
+    <string name="updateuserinfo_param_user_telnum">user_telnum</string>
+    <string name="updateuserinfo_param_team_id">team_id</string>
+    <string name="updateuserinfo_param_team_name">team_name</string>
+    <string name="updateuserinfo_param_hope_grounds">hope_grounds</string>
+    <string name="updateuserinfo_param_team_level_code">team_level_code</string>
+    <string name="updateuserinfo_param_team_age_code">team_age_code</string>
+
     <!-- serarchUserInfo Service -->
     <string name="searchuserinfo_service">user/searchUserInfo</string>
     <string name="searchuserinfo_email_id">email_id</string>
 
     <string name="searchuserinfo_result_user_name">user_name</string>
     <string name="searchuserinfo_result_user_telnum">user_telnum</string>
+    <string name="searchuserinfo_result_team_id">team_id</string>
     <string name="searchuserinfo_result_team_name">team_name</string>
     <string name="searchuserinfo_result_team_age_code">team_age_code</string>
     <string name="searchuserinfo_result_team_level_code">team_level_code</string>
@@ -59,6 +71,7 @@
     <string name="searchmatchlist_param_email_id">email_id</string>
     <string name="searchmatchlist_param_search_date">search_date</string>
     <string name="searchmatchlist_param_search_time">search_time</string>
+    <string name="searchmatchlist_param_search_area_group">search_area_group</string>
     <string name="searchmatchlist_param_search_area">search_area</string>
     <string name="searchmatchlist_param_search_ground">search_ground</string>
     <string name="searchmatchlist_param_search_team_member">search_team_member</string>

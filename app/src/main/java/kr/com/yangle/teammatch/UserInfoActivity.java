@@ -21,6 +21,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
@@ -36,7 +37,12 @@ public class UserInfoActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
+    ArrayList<String> hope_ground;
+    ArrayList<String> hope_ground_name;
+
     String mActivityType;
+
+    String search_user_team_id;
 
     EditText et_user_info_user_name, et_user_info_phone_number, et_user_info_team_name;
 
@@ -131,32 +137,97 @@ public class UserInfoActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
+                case 1:
+                    hope_ground = data.getStringArrayListExtra("search_ground");
+                    hope_ground_name = data.getStringArrayListExtra("search_ground_name");
+
+                    if (hope_ground_name != null && hope_ground_name.size() > 0) {
+                        if(hope_ground_name.size() >= 1) {
+                            bt_user_info_hope_grounds_1.setText(hope_ground_name.get(0));
+                            bt_user_info_hope_grounds_1.setVisibility(View.VISIBLE);
+                        }else {
+                            bt_user_info_hope_grounds_1.setVisibility(View.GONE);
+                        }
+
+                        if(hope_ground_name.size() >= 2) {
+                            bt_user_info_hope_grounds_2.setText(hope_ground_name.get(1));
+                            bt_user_info_hope_grounds_2.setVisibility(View.VISIBLE);
+                        }else {
+                            bt_user_info_hope_grounds_2.setVisibility(View.GONE);
+                        }
+
+                        if(hope_ground_name.size() >= 3) {
+                            bt_user_info_hope_grounds_3.setText(hope_ground_name.get(2));
+                            bt_user_info_hope_grounds_3.setVisibility(View.VISIBLE);
+                        }else {
+                            bt_user_info_hope_grounds_3.setVisibility(View.GONE);
+                        }
+
+                        if(hope_ground_name.size() >= 4) {
+                            bt_user_info_hope_grounds_4.setText(hope_ground_name.get(3));
+                            bt_user_info_hope_grounds_4.setVisibility(View.VISIBLE);
+                        }else {
+                            bt_user_info_hope_grounds_4.setVisibility(View.GONE);
+                        }
+
+                    }else {
+                        bt_user_info_hope_grounds_1.setVisibility(View.GONE);
+                        bt_user_info_hope_grounds_2.setVisibility(View.GONE);
+                        bt_user_info_hope_grounds_3.setVisibility(View.GONE);
+                        bt_user_info_hope_grounds_4.setVisibility(View.GONE);
+                    }
+
+                    break;
+            }
+        }
+    }
+
     View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.bt_user_info_age :
-                    TeamAge_AlertDialog();
-                    break;
-                case R.id.bt_user_info_hope_grounds_1 :
-                case R.id.bt_user_info_hope_grounds_2 :
-                case R.id.bt_user_info_hope_grounds_3 :
-                case R.id.bt_user_info_hope_grounds_4 :
-                case R.id.tv_user_info_add_grounds :
-                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message_search_grounds));
-                    break;
-                case R.id.bt_user_info_level :
-                    TeamLevle_AlertDialog();
-                    break;
-                case R.id.bt_user_info_save :
-                    if(getString(R.string.user_info_type_input).equals(mActivityType)) {
-                        Check_insertUserInfo();
-                    } else if (getString(R.string.user_info_type_update).equals(mActivityType)) {
-                        mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
-                    }
-                    break;
-                default :
-                    break;
+            try {
+                switch (v.getId()) {
+                    case R.id.bt_user_info_age:
+                        TeamAge_AlertDialog();
+                        break;
+                    case R.id.bt_user_info_hope_grounds_1:
+                        removeSelectedHopeGround(0);
+                        break;
+                    case R.id.bt_user_info_hope_grounds_2:
+                        removeSelectedHopeGround(1);
+                        break;
+                    case R.id.bt_user_info_hope_grounds_3:
+                        removeSelectedHopeGround(2);
+                        break;
+                    case R.id.bt_user_info_hope_grounds_4:
+                        removeSelectedHopeGround(3);
+                        break;
+                    case R.id.tv_user_info_add_grounds:
+                        Intent mIntent = new Intent(mContext, SearchGroundActivity.class);
+                        mIntent.putExtra("callActivityFlag", 3);
+                        startActivityForResult(mIntent, 1);
+                        break;
+                    case R.id.bt_user_info_level:
+                        TeamLevle_AlertDialog();
+                        break;
+                    case R.id.bt_user_info_save:
+                        if (getString(R.string.user_info_type_input).equals(mActivityType)) {
+                            Check_insertUserInfo();
+                        } else if (getString(R.string.user_info_type_update).equals(mActivityType)) {
+                            Check_updateUserInfo();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }catch(Exception e) {
+                mApplicationTM.makeToast(mContext, getString(R.string.error_network));
+                Log.e(TAG, "mOnClickListener - " + e);
+                e.printStackTrace();
             }
         }
     };
@@ -233,7 +304,7 @@ public class UserInfoActivity extends AppCompatActivity {
         String user_name = et_user_info_user_name.getText().toString();
         String user_telnum = et_user_info_phone_number.getText().toString();
         String team_name = et_user_info_team_name.getText().toString();
-        ArrayList<String> hope_grounds = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.default_team_code)));
+//        ArrayList<String> hope_grounds = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.default_team_code)));
         String team_level_code = "", team_age_code = "";
 
         if("".equals(user_name)) {
@@ -297,7 +368,48 @@ public class UserInfoActivity extends AppCompatActivity {
 //            }
 //        }
 
-        mService.insertUserInfo(insertUserInfo_Listener, mApplicationTM.getUserEmail(), user_name, user_telnum, team_name, hope_grounds, team_level_code, team_age_code);
+        mService.insertUserInfo(insertUserInfo_Listener, mApplicationTM.getUserEmail(), user_name, user_telnum, team_name, hope_ground, team_level_code, team_age_code);
+    }
+
+    /**
+     * 회원 정보 등록 데이터 체크
+     * Created by maloman72 on 2018-11-01
+     * */
+    private void Check_updateUserInfo() {
+        String user_name = et_user_info_user_name.getText().toString();
+        String user_telnum = et_user_info_phone_number.getText().toString();
+        String team_name = et_user_info_team_name.getText().toString();
+//        ArrayList<String> hope_grounds = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.default_team_code)));
+        String team_level_code = "", team_age_code = "";
+
+        if("".equals(user_name)) {
+            mApplicationTM.makeToast(mContext, getString(R.string.user_info_user_name) + getString(R.string.user_info_check_input_space));
+            return;
+        }
+
+        if("".equals(user_telnum)) {
+            mApplicationTM.makeToast(mContext, getString(R.string.user_info_phone_number) + getString(R.string.user_info_check_input_space));
+            return;
+        }
+
+        if("".equals(team_name)) {
+            mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_name) + getString(R.string.user_info_check_input_space));
+            return;
+        }
+
+        if(getString(R.string.user_info_select).equals(bt_user_info_age.getText().toString())) {
+            mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_age) + getString(R.string.user_info_check_select_not));
+        } else {
+            team_age_code = mApplicationTM.getKeybyMap(mApplicationTM.getC001(), bt_user_info_age.getText().toString());
+        }
+
+        if(getString(R.string.user_info_select).equals(bt_user_info_level.getText().toString())) {
+            mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_level) + getString(R.string.user_info_check_select_not));
+        } else {
+            team_level_code = mApplicationTM.getKeybyMap(mApplicationTM.getC002(), bt_user_info_level.getText().toString());
+        }
+
+        mService.updateUserInfo(insertUserInfo_Listener, mApplicationTM.getUserEmail(), user_name, user_telnum, search_user_team_id, team_name, hope_ground, team_level_code, team_age_code);
     }
 
     /**
@@ -350,6 +462,8 @@ public class UserInfoActivity extends AppCompatActivity {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
                     JSONObject mResult = mJSONArray.getJSONObject(0);
 
+                    search_user_team_id = mResult.get(mContext.getString(R.string.searchuserinfo_result_team_id)).toString();
+
                     et_user_info_user_name.setText(mResult.get(mContext.getString(R.string.searchuserinfo_result_user_name)).toString());
                     et_user_info_phone_number.setText(mResult.get(mContext.getString(R.string.searchuserinfo_result_user_telnum)).toString());
                     et_user_info_team_name.setText(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_name)).toString());
@@ -381,6 +495,53 @@ public class UserInfoActivity extends AppCompatActivity {
                     }
 
                     mApplicationTM.setHopeGrounds(mResult.getJSONArray(mContext.getString(R.string.searchuserinfo_result_hope_grounds)));
+
+                    JSONArray hope_grounds = mResult.getJSONArray(mContext.getString(R.string.searchuserinfo_result_hope_grounds));
+
+                    hope_ground = new ArrayList<String>();
+                    hope_ground_name = new ArrayList<String>();
+
+                    for(int i = 0; i < hope_grounds.length() ; i++) {
+                        hope_ground.add(((JSONObject)hope_grounds.get(i)).getString("ground_id"));
+                        hope_ground_name.add(((JSONObject)hope_grounds.get(i)).getString("ground_name"));
+                    }
+
+                    if (hope_ground_name.size() > 0) {
+
+                        if(hope_ground_name.size() >= 1) {
+                            bt_user_info_hope_grounds_1.setText(hope_ground_name.get(0));
+                            bt_user_info_hope_grounds_1.setVisibility(View.VISIBLE);
+                        }else {
+                            bt_user_info_hope_grounds_1.setVisibility(View.GONE);
+                        }
+
+                        if(hope_ground_name.size() >= 2) {
+                            bt_user_info_hope_grounds_2.setText(hope_ground_name.get(1));
+                            bt_user_info_hope_grounds_2.setVisibility(View.VISIBLE);
+                        }else {
+                            bt_user_info_hope_grounds_2.setVisibility(View.GONE);
+                        }
+
+                        if(hope_ground_name.size() >= 3) {
+                            bt_user_info_hope_grounds_3.setText(hope_ground_name.get(2));
+                            bt_user_info_hope_grounds_3.setVisibility(View.VISIBLE);
+                        }else {
+                            bt_user_info_hope_grounds_3.setVisibility(View.GONE);
+                        }
+
+                        if(hope_ground_name.size() >= 4) {
+                            bt_user_info_hope_grounds_4.setText(hope_ground_name.get(3));
+                            bt_user_info_hope_grounds_4.setVisibility(View.VISIBLE);
+                        }else {
+                            bt_user_info_hope_grounds_4.setVisibility(View.GONE);
+                        }
+
+                    }else {
+                        bt_user_info_hope_grounds_1.setVisibility(View.GONE);
+                        bt_user_info_hope_grounds_2.setVisibility(View.GONE);
+                        bt_user_info_hope_grounds_3.setVisibility(View.GONE);
+                        bt_user_info_hope_grounds_4.setVisibility(View.GONE);
+                    }
                 } else {
                     mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
                 }
@@ -392,5 +553,39 @@ public class UserInfoActivity extends AppCompatActivity {
             }
         }
     };
+
+    public void removeSelectedHopeGround(int index) throws Exception {
+        hope_ground.remove(index);
+        hope_ground_name.remove(index);
+
+        if (hope_ground_name.size() >= 1) {
+            bt_user_info_hope_grounds_1.setText(hope_ground_name.get(0));
+            bt_user_info_hope_grounds_1.setVisibility(View.VISIBLE);
+        } else {
+            bt_user_info_hope_grounds_1.setVisibility(View.GONE);
+        }
+
+        if (hope_ground_name.size() >= 2) {
+            bt_user_info_hope_grounds_2.setText(hope_ground_name.get(1));
+            bt_user_info_hope_grounds_2.setVisibility(View.VISIBLE);
+        } else {
+            bt_user_info_hope_grounds_2.setVisibility(View.GONE);
+        }
+
+        if (hope_ground_name.size() >= 3) {
+            bt_user_info_hope_grounds_3.setText(hope_ground_name.get(2));
+            bt_user_info_hope_grounds_3.setVisibility(View.VISIBLE);
+        } else {
+            bt_user_info_hope_grounds_3.setVisibility(View.GONE);
+        }
+
+        if (hope_ground_name.size() >= 4) {
+            bt_user_info_hope_grounds_4.setText(hope_ground_name.get(3));
+            bt_user_info_hope_grounds_4.setVisibility(View.VISIBLE);
+        } else {
+            Log.e(TAG, "111");
+            bt_user_info_hope_grounds_4.setVisibility(View.GONE);
+        }
+    }
 
 }

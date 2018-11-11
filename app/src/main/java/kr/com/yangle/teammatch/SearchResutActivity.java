@@ -33,9 +33,9 @@ public class SearchResutActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
-    String search_date, search_time, search_ground, search_team_member, search_team_lvl;
+    String search_date, search_time, search_area_group, search_area, search_ground, search_team_member, search_team_lvl;
 
-    int search_ground_cnt, search_team_lvl_cnt;
+    int search_area_group_cnt, search_area_cnt, search_ground_cnt, search_team_lvl_cnt;
 
     TextView tv_search_result_ground, tv_search_result_date, tv_search_result_time, tv_search_result_member, tv_search_result_level;
 
@@ -72,6 +72,10 @@ public class SearchResutActivity extends AppCompatActivity {
 
         search_date = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_date));
         search_time = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_time));
+        search_area_group = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_area_group));
+        search_area_group_cnt = getIntent().getIntExtra(getString(R.string.search_match_extra_search_area_group_cnt), 0);
+        search_area = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_area));
+        search_area_cnt = getIntent().getIntExtra(getString(R.string.search_match_extra_search_area_cnt), 0);
         search_ground = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_ground));
         search_ground_cnt = getIntent().getIntExtra(getString(R.string.search_match_extra_search_ground_cnt), 0);
         search_team_member = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_team_member));
@@ -80,7 +84,7 @@ public class SearchResutActivity extends AppCompatActivity {
 
         setSearchCondition();
 
-        mService.searchMatchList(searchMatchList_Listener, search_date, search_time, "", search_ground, search_team_member, search_team_lvl);
+        mService.searchMatchList(searchMatchList_Listener, search_date, search_time, search_area_group, search_area, search_ground, search_team_member, search_team_lvl);
     }
 
     @Override
@@ -114,7 +118,7 @@ public class SearchResutActivity extends AppCompatActivity {
      * */
     private void setSearchCondition() {
         try {
-            tv_search_result_ground.setText(getString(R.string.search_result_condition_ground) + "(" + search_ground_cnt + ")");
+            tv_search_result_ground.setText(getString(R.string.search_result_condition_ground) + "(" + search_area_group_cnt + search_area_cnt + search_ground_cnt + ")");
 
             Date mDate = new SimpleDateFormat(getString(R.string.search_result_date_format_base), Locale.getDefault()).parse(search_date);
             String mHopeDate = new SimpleDateFormat(getString(R.string.search_result_date_format_view), Locale.getDefault()).format(mDate);

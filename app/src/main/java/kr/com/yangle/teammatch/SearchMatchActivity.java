@@ -19,6 +19,7 @@ import android.widget.TimePicker;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class SearchMatchActivity extends AppCompatActivity {
@@ -29,8 +30,8 @@ public class SearchMatchActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
-    ArrayList<String> search_ground, search_area, search_team_lvl;
-    ArrayList<String> search_ground_name;
+    ArrayList<String> search_area_group, search_area, search_ground, search_team_lvl;
+    ArrayList<String> search_area_group_name, search_area_name, search_ground_name;
     String search_date = "-", search_time = "-", search_team_member = "-";
 
     LinearLayout ll_search_match_field, ll_search_match_day, ll_search_match_time;
@@ -93,26 +94,6 @@ public class SearchMatchActivity extends AppCompatActivity {
         bt_search_match_level_nothing.setOnClickListener(mOnClickListener);
         bt_search_match_search.setOnClickListener(mOnClickListener);
 
-
-        //search_area = getIntent().getStringArrayListExtra(getString(R.string.searchmatchlist_param_search_area));
-        search_ground = getIntent().getStringArrayListExtra(getString(R.string.searchmatchlist_param_search_ground));
-        search_ground_name = getIntent().getStringArrayListExtra("search_ground_name");
-
-        if(search_ground_name != null) {
-
-            String ground_text = "";
-
-            for (int i = 0; i < search_ground_name.size(); i++) {
-                if (i != 0)
-                    ground_text += ", ";
-                ground_text += search_ground_name.get(i);
-            }
-
-            Log.e(TAG, ground_text);
-
-            tv_search_match_field.setText(ground_text);
-        }
-
         setLoadTeamLevel();
     }
 
@@ -134,7 +115,8 @@ public class SearchMatchActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.ll_search_match_field :
                     Intent mIntent = new Intent(mContext, SearchGroundActivity.class);
-                    startActivity(mIntent);
+                    mIntent.putExtra("callActivityFlag", 1);
+                    startActivityForResult(mIntent, 1);
                     break;
                 case R.id.ll_search_match_day :
                     setMatchDayDatePickerDialog();
@@ -229,6 +211,59 @@ public class SearchMatchActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
+                case 1:
+                    search_area_group = data.getStringArrayListExtra("search_area_group");
+                    search_area_group_name = data.getStringArrayListExtra("search_area_group_name");
+                    search_area = data.getStringArrayListExtra("search_area");
+                    search_area_name = data.getStringArrayListExtra("search_area_name");
+                    search_ground = data.getStringArrayListExtra("search_ground");
+                    search_ground_name = data.getStringArrayListExtra("search_ground_name");
+
+                    List<String> search_ground_texts = new ArrayList<String>();
+
+                    if(search_area_group_name != null) {
+                        for(int i = 0; i < search_area_group_name.size(); i++) {
+                            search_ground_texts.add(search_area_group_name.get(i));
+                        }
+                    }
+
+                    if(search_area_name != null) {
+                        for(int i = 0; i < search_area_name.size(); i++) {
+                            search_ground_texts.add(search_area_name.get(i));
+                        }
+                    }
+
+                    if(search_ground_name != null) {
+                        for(int i = 0; i < search_ground_name.size(); i++) {
+                            search_ground_texts.add(search_ground_name.get(i));
+                        }
+                    }
+
+                    if(search_ground_texts.size() > 0) {
+
+                        String ground_text = "";
+
+                        for (int i = 0; i < search_ground_texts.size(); i++) {
+                            if (i != 0)
+                                ground_text += ", ";
+                            ground_text += search_ground_texts.get(i);
+                        }
+
+                        Log.e(TAG, ground_text);
+
+                        tv_search_match_field.setText(ground_text);
+                    }
+
+                    Log.e(TAG, data + "");
+                    break;
+            }
+        }
+    }
 
     /**
      * 화면 진입 시 팀 레벨 회원 정보 로딩
@@ -343,7 +378,10 @@ public class SearchMatchActivity extends AppCompatActivity {
         Intent mIntent = new Intent(mContext, SearchResutActivity.class);
         mIntent.putExtra(getString(R.string.searchmatchlist_param_search_date), search_date);
         mIntent.putExtra(getString(R.string.searchmatchlist_param_search_time), search_time);
-//        mIntent.putExtra("search_area", search_area);
+        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_area_group), mApplicationTM.ArrayListToStringParser(search_area_group));
+        mIntent.putExtra(getString(R.string.search_match_extra_search_area_group_cnt), search_area_group.size());
+        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_area), mApplicationTM.ArrayListToStringParser(search_area));
+        mIntent.putExtra(getString(R.string.search_match_extra_search_area_cnt), search_area.size());
         mIntent.putExtra(getString(R.string.searchmatchlist_param_search_ground), mApplicationTM.ArrayListToStringParser(search_ground));
         mIntent.putExtra(getString(R.string.search_match_extra_search_ground_cnt), search_ground.size());
         mIntent.putExtra(getString(R.string.searchmatchlist_param_search_team_member), search_team_member);

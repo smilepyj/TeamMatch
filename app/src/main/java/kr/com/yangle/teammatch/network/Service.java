@@ -114,6 +114,31 @@ public class Service {
 
 
     /**
+     * 회원정보 수정 서비스
+     * Created by maloman72 on 2018-10-31
+     * */
+    public void updateUserInfo(ResponseListener responseListener, String email_id, String user_name, String user_telnum, String team_id, String team_name, ArrayList<String> hope_grounds, String team_level_code, String team_age_code) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.updateuserinfo_service);
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_user_name), user_name);
+            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_user_telnum), user_telnum);
+            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_team_id), team_id);
+            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_team_name), team_name);
+            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_hope_grounds), mApplicationTM.ArrayListToStringParser(hope_grounds));
+            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_team_level_code), team_level_code);
+            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_team_age_code), team_age_code);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "insertUserInfo - " + e);
+        }
+    }
+
+
+    /**
      * 회원정보 조회 서비스
      * Created by maloman72 on 2018-10-31
      * */
@@ -134,7 +159,7 @@ public class Service {
      * 매칭 검색 서비스
      * Created by maloman72 on 218-11-01
      * */
-    public void searchMatchList(ResponseListener responseListener, String search_date, String search_time, String search_area, String search_ground, String search_team_member, String search_team_lvl) {
+    public void searchMatchList(ResponseListener responseListener, String search_date, String search_time, String search_area_group, String search_area, String search_ground, String search_team_member, String search_team_lvl) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchmatchlist_service);
             String email_id = mApplicationTM.getUserEmail();
@@ -143,6 +168,7 @@ public class Service {
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_email_id), email_id);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_date), search_date);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_time), search_time);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area_group), search_area_group);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area), search_area);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_ground), search_ground);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_team_member), search_team_member);
@@ -280,5 +306,57 @@ public class Service {
         } catch (Exception e) {
             Log.e(TAG, "searchRankList - " + e);
         }
+    }
+
+    /**
+     * 매치 신청 서비스
+     * Created by maloman72 on 218-11-01
+     * */
+    public void applyMatch(ResponseListener responseListener, String search_date, String search_time, String search_area_group, String search_area, String search_ground, String search_team_member, String search_team_lvl) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchmatchlist_service);
+            String email_id = mApplicationTM.getUserEmail();
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_date), search_date);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_time), search_time);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area_group), search_area_group);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area), search_area);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_ground), search_ground);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_team_member), search_team_member);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_team_lvl), search_team_lvl);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_count), mContext.getString(R.string.searchmatchlist_param_search_count_data));
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_page), mContext.getString(R.string.searchmatchlist_param_search_page_data));
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchMatchList - " + e);
+        }
+
+    }
+
+    /**
+     * 매치 등록 서비스
+     * Created by maloman72 on 218-11-01
+     * */
+    public void registMatch(ResponseListener responseListener, String match_hope_ground_id, String match_hope_date, String match_hope_time, String match_hope_team_member, String match_hope_team_lvl) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.registMatch_service);
+            String email_id = mApplicationTM.getUserEmail();
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_ground_id), match_hope_ground_id);
+            mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_date), match_hope_date);
+            mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_time), match_hope_time);
+            mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_team_member), match_hope_team_member);
+            mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_team_lvl), match_hope_team_lvl);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchMatchList - " + e);
+        }
+
     }
 }
