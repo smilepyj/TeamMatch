@@ -51,7 +51,17 @@
         <activity
             android:name=".MatchProcActivity"
             android:screenOrientation="sensorPortrait" />
-        <activity android:name=".RankingActivity"></activity>
+        <activity
+            android:name=".RankingActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".util.DialogTimePickerActivity"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/DialogTheme" />
+        <activity
+            android:name=".util.DialogAlertActivity"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/DialogTheme" />
     </application>
 
 </manifest>

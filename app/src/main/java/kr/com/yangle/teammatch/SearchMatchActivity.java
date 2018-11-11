@@ -22,6 +22,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import kr.com.yangle.teammatch.util.DialogTimePickerActivity;
+
 public class SearchMatchActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
 
@@ -122,7 +124,8 @@ public class SearchMatchActivity extends AppCompatActivity {
                     setMatchDayDatePickerDialog();
                     break;
                 case R.id.ll_search_match_time :
-                    setMatchTimeTimePickerDialog();
+                    setMatchTimePickerDialog();
+//                    setMatchTimeTimePickerDialog();
                     break;
                 case R.id.bt_search_match_time_nothing :
                     tv_search_match_time.setText(getString(R.string.search_match_time_nothing));
@@ -334,10 +337,15 @@ public class SearchMatchActivity extends AppCompatActivity {
      * 시간 선택 Dialog
      * Created by maloman72 on 2018-11-01
      * */
+    private void setMatchTimePickerDialog() {
+        Intent mIntent = new Intent(this, DialogTimePickerActivity.class);
+        startActivity(mIntent);
+    }
+
     private void setMatchTimeTimePickerDialog() {
         final Calendar mCalendar = Calendar.getInstance();
 
-        TimePickerDialog mTimePickerDialog = new TimePickerDialog(mContext, new TimePickerDialog.OnTimeSetListener() {
+        TimePickerDialog mTimePickerDialog = new TimePickerDialog(mContext, android.R.style.Theme_Holo_Dialog, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 String mTimeData = String.format(getString(R.string.search_match_time_format_param), hourOfDay, minute, 00);

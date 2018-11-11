@@ -132,4 +132,22 @@
     <color name="color_listview_ranking_contents">#313131</color>
     <color name="color_listview_ranking_up">#D6352A</color>
     <color name="color_listview_ranking_down">#0068B7</color>
+
+    <!-- Dialog Time Picker -->
+    <color name="color_dialog_time_picker_title_text">#313131</color>
+    <color name="color_dialog_time_picker_sub_title_text">#A0A0A0</color>
+    <color name="color_dialog_time_picker_line">#D2D2D2</color>
+    <color name="color_dialog_time_picker_button">#017338</color>
+    
+    <!-- Alert Dialog -->
+    <color name="color_alert_dialog_title_text">#007338</color>
+    <color name="color_alert_dialog_line">#007338</color>
+    <color name="color_alert_dialog_contents_header">#007338</color>
+    <color name="color_alert_dialog_contents">#313131</color>
+    <color name="color_alert_dialog_button_cancel_solid">#F4F4F4</color>
+    <color name="color_alert_dialog_button_cancel_stroke">#D2D2D2</color>
+    <color name="color_alert_dialog_button_cancel_text">#959595</color>
+    <color name="color_alert_dialog_button_ok_solid">#007338</color>
+    <color name="color_alert_dialog_button_ok_stroke">#007338</color>
+    <color name="color_alert_dialog_button_ok_text">#FFFFFF</color>
 </resources>
