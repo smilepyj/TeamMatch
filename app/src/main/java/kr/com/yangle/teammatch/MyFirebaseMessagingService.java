@@ -15,6 +15,8 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Map;
 
+import kr.com.yangle.teammatch.util.DialogAlertActivity;
+
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = MyFirebaseMessagingService.class.getSimpleName();
 
@@ -24,15 +26,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.i(TAG, "onMessageReceived");
 
         Map<String, String> data = remoteMessage.getData();
-        String match_alert_type = data.get("match_alert_type");
-        String host_team_id = data.get("host_team_id");
 
         Log.e(TAG, data + "");
 
-        sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
+        sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), data);
     }
 
-    private void sendNotification(String title, String message) {
+    private void sendNotification(String title, String message, Map<String, String> data) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -48,7 +48,31 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
 
+        openPushAlert(data);
+
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0 , notificationBuilder.build());
+    }
+
+    private void openPushAlert(Map<String, String> data) {
+        try {
+            String match_alert_type = data.get("match_alert_type");
+
+            if("1".equals(match_alert_type)) {
+                String host_team_id = data.get("host_team_id");
+
+                // 닫기, 등록정보 확인
+                Intent mIntent = new Intent(getApplicationContext(), DialogAlertActivity.class);
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_title), "매치 신청");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents_header), "");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents), "상대편이 매치를 신청하였습니다.\n수락하시겠습니까?");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_cancel_text), "거 절");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_ok_text), "수 락");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 2);
+                startActivity(mIntent);
+            }
+        }catch(Exception e) {
+            Log.e(TAG, "openPushAlert - " + e);
+        }
     }
 }
