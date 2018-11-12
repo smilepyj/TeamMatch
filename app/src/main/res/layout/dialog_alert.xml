@@ -55,6 +55,7 @@
             android:layout_marginTop="@dimen/alert_dialog_margin"
             android:gravity="center"
             android:textColor="@color/color_alert_dialog_contents"
+            android:lineSpacingMultiplier="1.5"
             android:textSize="@dimen/font_size_15" />
     </LinearLayout>
 

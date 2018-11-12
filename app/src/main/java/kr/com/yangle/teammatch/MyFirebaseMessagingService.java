@@ -24,12 +24,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.i(TAG, "onMessageReceived");
 
         Map<String, String> data = remoteMessage.getData();
-        String title = data.get("title");
-        String message = data.get("content");
+        String match_alert_type = data.get("match_alert_type");
+        String host_team_id = data.get("host_team_id");
 
         Log.e(TAG, data + "");
 
-        sendNotification(title, message);
+        sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
     }
 
     private void sendNotification(String title, String message) {

@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import kr.com.yangle.teammatch.util.BackPressCloseHandler;
 import kr.com.yangle.teammatch.util.DialogAlertActivity;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
+        FirebaseMessaging.getInstance().subscribeToTopic("/topics/match");
         FirebaseInstanceId.getInstance().getToken();
         if (FirebaseInstanceId.getInstance().getToken() != null) {
             Log.e(TAG, "token = " + FirebaseInstanceId.getInstance().getToken());

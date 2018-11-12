@@ -27,7 +27,7 @@
     <string name="user_info_type_update">UPDTAE</string>
 
     <string name="user_info_check_input_space">란을 입력해 주세요.</string>
-    <string name="user_info_check_select_not">을 하나 선택해 주세요.</string>
+    <string name="user_info_check_select_not">을 선택해 주세요.</string>
     <string name="user_info_service_input_sucess">회원 정보 저장에 성공하였습니다.</string>
     <string name="user_info_input_exit">회원정보를 저장하지 않고 나갈 경우 회원 가입을 새로이 진행하셔야 합니다.\n그래도 정말 종료하시겠습니까?</string>
 

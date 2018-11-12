@@ -147,6 +147,19 @@ public class ApplicationTM extends Application {
     }
 
     /**
+     * Data 선언 - Team Id
+     * Created by maloman72 on 2018-10-31
+     * */
+    public void setTeamId(String email) {
+        mEditor.putString("TEAM_ID", email);
+        mEditor.apply();
+    }
+
+    public String getTeamId() {
+        return mSharedPreferences.getString("TEAM_ID", "");
+    }
+
+    /**
      * Data 선언 - User Hope Grounds
      * Created by maloman72 on 2018-11-01
      * */

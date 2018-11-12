@@ -293,7 +293,8 @@
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_1"
                                 android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_14" />
+                                android:textSize="@dimen/font_size_14"
+                                android:visibility="gone"/>
 
                             <Space
                                 android:layout_width="0dp"
@@ -317,7 +318,8 @@
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_2"
                                 android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_14" />
+                                android:textSize="@dimen/font_size_14"
+                                android:visibility="gone"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -357,7 +359,8 @@
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_3"
                                 android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_14" />
+                                android:textSize="@dimen/font_size_14"
+                                android:visibility="gone"/>
 
                             <Space
                                 android:layout_width="0dp"
@@ -381,7 +384,8 @@
                                 android:paddingEnd="@dimen/bt_user_info_hope_grounds"
                                 android:text="@string/user_info_hope_grounds_4"
                                 android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_14" />
+                                android:textSize="@dimen/font_size_14"
+                                android:visibility="gone"/>
                         </LinearLayout>
 
 

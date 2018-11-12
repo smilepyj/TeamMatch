@@ -167,6 +167,8 @@ public class LoginActivity extends AppCompatActivity {
                     if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                         JSONObject mResult = mJSONObject.getJSONObject(mContext.getString(R.string.result_data));
 
+                        mApplicationTM.setTeamId(mResult.get(mContext.getString(R.string.login_naver_result_email)).toString());
+
                         Intent mIntent;
 
                         if("".equals(mResult.get(getString(R.string.userlogin_result_user_name)))) {

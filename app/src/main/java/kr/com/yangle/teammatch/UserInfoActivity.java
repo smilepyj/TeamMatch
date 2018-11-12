@@ -324,8 +324,14 @@ public class UserInfoActivity extends AppCompatActivity {
 
         if(getString(R.string.user_info_select).equals(bt_user_info_age.getText().toString())) {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_age) + getString(R.string.user_info_check_select_not));
+            return;
         } else {
             team_age_code = mApplicationTM.getKeybyMap(mApplicationTM.getC001(), bt_user_info_age.getText().toString());
+        }
+
+        if(hope_ground.size() <= 0) {
+            mApplicationTM.makeToast(mContext, getString(R.string.user_info_hope_field) + getString(R.string.user_info_check_select_not));
+            return;
         }
 
 //        if(!bt_user_info_age_10.isSelected() && !bt_user_info_age_20.isSelected() && !bt_user_info_age_30.isSelected() && !bt_user_info_age_40.isSelected() && !bt_user_info_age_50.isSelected()) {
@@ -347,6 +353,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
         if(getString(R.string.user_info_select).equals(bt_user_info_level.getText().toString())) {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_level) + getString(R.string.user_info_check_select_not));
+            return;
         } else {
             team_level_code = mApplicationTM.getKeybyMap(mApplicationTM.getC002(), bt_user_info_level.getText().toString());
         }
