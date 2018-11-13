@@ -76,6 +76,8 @@
     <string name="regist_match_date_format_view">%d년 %d월 %d일 %s</string>
     <string name="regist_match_time_format_param">%s%s%s</string>
     <string name="regist_match_time_format_view">%d시 %d분</string>
+    <string name="regist_match_time_format_hour">시</string>
+    <string name="regist_match_time_hyphen">&#160;~&#160;</string>
 
     <!-- Ranking Activity -->
     <string name="ranking_type_total">T</string>
@@ -118,4 +120,8 @@
     <string name="match_time_picker_dialog_start_time">START_TIME</string>
     <string name="match_time_picker_dialog_end_time">END_TIME</string>
     <string name="match_time_picker_dialog_check_pay">CHEDK_PAY</string>
+    <string name="match_time_picker_dialog_check_pay_yes">Y</string>
+    <string name="match_time_picker_dialog_check_pay_no">N</string>
+    
+    <string name="match_time_picker_dialog_check_time">매치 시간은 최소 1시간 ~ 최대 3시간 사이로 설정해 주세요. </string>
 </resources>

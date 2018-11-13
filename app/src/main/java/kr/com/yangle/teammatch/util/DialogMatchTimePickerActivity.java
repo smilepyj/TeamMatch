@@ -110,6 +110,7 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
                 case R.id.cb_dialog_match_time_picker_check_pay :
                     break;
                 case R.id.bt_dialog_match_time_picker_ok :
+                    Close();
                     break;
                 default :
                     break;
@@ -179,22 +180,38 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
      * Created by maloman72 on 2018-11-14
      * */
     private void Close() {
-        Intent mIntent = new Intent();
-        String resultStartTime, resultEndTime;
+        if(mEndTime - mStartTime < 4 && mEndTime - mStartTime > 0) {
+            Intent mIntent = new Intent();
+            String resultStartTime, resultEndTime;
 
-        mIntent.putExtra(getString(R.string.match_time_picker_dialog_start_hour), String.valueOf(mStartTime));
-        mIntent.putExtra(getString(R.string.match_time_picker_dialog_end_hour), String.valueOf(mEndTime));
+            mIntent.putExtra(getString(R.string.match_time_picker_dialog_start_hour), String.valueOf(mStartTime));
+            mIntent.putExtra(getString(R.string.match_time_picker_dialog_end_hour), String.valueOf(mEndTime));
 
-        if(String.valueOf(mStartTime).length() == 1) {
-            resultStartTime = "0" + String.valueOf(mStartTime) + getString(R.string.match_time_picker_dialog_base_time);
+            if(String.valueOf(mStartTime).length() == 1) {
+                resultStartTime = "0" + String.valueOf(mStartTime) + getString(R.string.match_time_picker_dialog_base_time);
+            } else {
+                resultStartTime = String.valueOf(mStartTime) + getString(R.string.match_time_picker_dialog_base_time);
+            }
+
+            if(String.valueOf(mEndTime).length() == 1) {
+                resultEndTime = "0" + String.valueOf(mEndTime) + getString(R.string.match_time_picker_dialog_base_time);
+            } else {
+                resultEndTime = String.valueOf(mEndTime) + getString(R.string.match_time_picker_dialog_base_time);
+            }
+
+            mIntent.putExtra(getString(R.string.match_time_picker_dialog_start_time), resultStartTime);
+            mIntent.putExtra(getString(R.string.match_time_picker_dialog_end_time), resultEndTime);
+
+            if(cb_dialog_match_time_picker_check_pay.isChecked()) {
+                mIntent.putExtra(getString(R.string.match_time_picker_dialog_check_pay), getString(R.string.match_time_picker_dialog_check_pay_yes));
+            } else {
+                mIntent.putExtra(getString(R.string.match_time_picker_dialog_check_pay), getString(R.string.match_time_picker_dialog_check_pay_no));
+            }
+
+            setResult(RESULT_OK, mIntent);
+            finish();
         } else {
-            resultStartTime = String.valueOf(mStartTime) + getString(R.string.match_time_picker_dialog_base_time);
-        }
-
-        if(String.valueOf(mEndTime).length() == 1) {
-            resultEndTime = "0" + String.valueOf(mEndTime) + getString(R.string.match_time_picker_dialog_base_time);
-        } else {
-            resultEndTime = String.valueOf(mEndTime) + getString(R.string.match_time_picker_dialog_base_time);
+            mApplicationTM.makeToast(mContext, mContext.getString(R.string.match_time_picker_dialog_check_time));
         }
     }
 }

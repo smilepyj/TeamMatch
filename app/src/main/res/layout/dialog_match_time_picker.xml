@@ -227,7 +227,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/notosanskr_regular"
             android:includeFontPadding="false"
-            android:text="@string/match_time_picker_dialog_check_pay"
+            android:text="@string/match_time_picker_dialog_check_pay_text"
             android:textColor="@color/color_313131"
             android:textSize="@dimen/font_size_14" />
     </LinearLayout>

@@ -108,6 +108,7 @@
     <string name="registMatch_param_match_hope_end_time">match_hope_end_time</string>
     <string name="registMatch_param_match_hope_team_member">match_hope_team_member</string>
     <string name="registMatch_param_match_hope_team_lvl">match_hope_team_lvl</string>
+    <string name="registMatch_param_pre_payment_at">pre_payment_at</string>
 
     <!-- MatchProc Service -->
     <string name="matchProclist_result_match_id">match_id</string>

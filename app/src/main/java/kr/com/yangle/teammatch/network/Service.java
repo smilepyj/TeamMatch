@@ -335,7 +335,7 @@ public class Service {
      * 매치 등록 서비스
      * Created by maloman72 on 2018-11-01
      * */
-    public void registMatch(ResponseListener responseListener, String match_hope_ground_id, String match_hope_date, String match_hope_start_time, String match_hope_end_time, String match_hope_team_member, String match_hope_team_lvl) {
+    public void registMatch(ResponseListener responseListener, String match_hope_ground_id, String match_hope_date, String match_hope_start_time, String match_hope_end_time, String match_hope_team_member, String match_hope_team_lvl, String pre_payment_at) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.registMatch_service);
             String email_id = mApplicationTM.getUserEmail();
@@ -348,6 +348,7 @@ public class Service {
             mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_end_time), match_hope_end_time);
             mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_team_member), match_hope_team_member);
             mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_team_lvl), match_hope_team_lvl);
+            mJSONObject.put(mContext.getString(R.string.registMatch_param_pre_payment_at), pre_payment_at);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {

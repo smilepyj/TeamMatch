@@ -25,6 +25,7 @@ import java.util.Locale;
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
+import kr.com.yangle.teammatch.util.DialogMatchTimePickerActivity;
 import kr.com.yangle.teammatch.util.DialogStartTimePickerActivity;
 import kr.com.yangle.teammatch.util.DialogAlertActivity;
 
@@ -40,7 +41,7 @@ public class RegistMatchActivity extends AppCompatActivity {
 
     ArrayList<String> regist_ground;
     ArrayList<String> regist_ground_name;
-    String regist_date = "-", regist_start_time = "-", regist_end_time = "-", regist_team_member = "-", regist_team_lvl = "-";
+    String regist_date = "-", regist_start_time = "-", regist_end_time = "-", regist_team_member = "-", regist_team_lvl = "-", regist_pre_payment_at = "N";
 
     LinearLayout ll_regist_match_field, ll_regist_match_day, ll_regist_match_time;
 
@@ -245,9 +246,12 @@ public class RegistMatchActivity extends AppCompatActivity {
                     Log.e(TAG, data + "");
                     break;
                 case 2 :
-                    regist_start_time = data.getStringExtra(getString(R.string.start_time_picker_dialog_set_time));
+                    regist_start_time = data.getStringExtra(getString(R.string.match_time_picker_dialog_start_time));
+                    regist_end_time = data.getStringExtra(getString(R.string.match_time_picker_dialog_end_time));
+                    regist_pre_payment_at = data.getStringExtra(getString(R.string.match_time_picker_dialog_check_pay));
 
-                    tv_regist_match_time.setText(data.getStringExtra(getString(R.string.start_time_picker_dialog_hour)) + getString(R.string.search_match_time_format_hour));
+                    tv_regist_match_time.setText(data.getStringExtra(getString(R.string.match_time_picker_dialog_start_hour)) + getString(R.string.regist_match_time_format_hour) +
+                            getString(R.string.regist_match_time_hyphen) + data.getStringExtra(getString(R.string.match_time_picker_dialog_end_hour)) + getString(R.string.regist_match_time_format_hour));
                     break;
                 default :
                     break;
@@ -325,7 +329,7 @@ public class RegistMatchActivity extends AppCompatActivity {
      * Created by maloman72 on 2018-11-01
      * */
     private void setMatchTimePickerDialog() {
-        Intent mIntent = new Intent(this, DialogStartTimePickerActivity.class);
+        Intent mIntent = new Intent(this, DialogMatchTimePickerActivity.class);
         startActivityForResult(mIntent, 2);
     }
 
@@ -381,7 +385,7 @@ public class RegistMatchActivity extends AppCompatActivity {
         }
 
         try {
-            mService.registMatch(registMatch_Listener, regist_ground.get(0), regist_date, regist_start_time, regist_end_time, regist_team_member, regist_team_lvl);
+            mService.registMatch(registMatch_Listener, regist_ground.get(0), regist_date, regist_start_time, regist_end_time, regist_team_member, regist_team_lvl, regist_pre_payment_at);
         }catch(Exception e) {
             mApplicationTM.makeToast(mContext, getString(R.string.error_network));
             Log.e(TAG, "mOnItemClickListener - " + e);
