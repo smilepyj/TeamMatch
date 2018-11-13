@@ -55,7 +55,7 @@
     <!-- SearchResult Activity -->
     <string name="search_result_date_format_base">yyyymmdd</string>
     <string name="search_result_date_format_view">yyyy년 mm월 dd일</string>
-    <string name="search_result_time_format_base">HHmm</string>
+    <string name="search_result_time_format_base">HH</string>
     <string name="search_result_time_format_view">HH시</string>
 
     <string name="search_result_nothing_time">시간무관</string>
@@ -67,7 +67,8 @@
     <!--InsertMatch Activity -->
     <string name="regist_match_check_ground">매치 구장을 선택해 주세요.</string>
     <string name="regist_match_check_date">매치 날짜를 선택해 주세요.</string>
-    <string name="regist_match_check_time">매치 시간을 선택해 주세요.</string>
+    <string name="regist_match_check_start_time">매치 시작 시간을 선택해 주세요.</string>
+    <string name="regist_match_check_end_time">매치 종료 시간을 선택해 주세요.</string>
     <string name="regist_match_check_member">매치 인원을 선택해 주세요.</string>
     <string name="regist_match_check_level">희망 팀 레벨을 선택해 주세요.</string>
 

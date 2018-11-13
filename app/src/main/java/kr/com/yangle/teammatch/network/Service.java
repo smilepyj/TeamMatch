@@ -161,7 +161,7 @@ public class Service {
      * 매칭 검색 서비스
      * Created by maloman72 on 218-11-01
      * */
-    public void searchMatchList(ResponseListener responseListener, String search_date, String search_time, String search_area_group, String search_area, String search_ground, String search_team_member, String search_team_lvl) {
+    public void searchMatchList(ResponseListener responseListener, String search_date, String search_start_time, String search_area_group, String search_area, String search_ground, String search_team_member, String search_team_lvl) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchmatchlist_service);
             String email_id = mApplicationTM.getUserEmail();
@@ -169,7 +169,7 @@ public class Service {
             JSONObject mJSONObject = new JSONObject();
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_email_id), email_id);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_date), search_date);
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_start_time), search_time);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_start_time), search_start_time);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area_group), search_area_group);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area), search_area);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_ground), search_ground);
@@ -276,10 +276,11 @@ public class Service {
     public void searchMatchProcList(ResponseListener responseListener) {
         try {
             String mURL = mContext.getString(R.string.service_url) + "matchHist/searchMatchProcList";
-            String email_id = mApplicationTM.getUserEmail(), search_count = "50", search_page = "1";
+            String email_id = mApplicationTM.getUserEmail(), team_id = mApplicationTM.getTeamId(), search_count = "50", search_page = "1";
 
             JSONObject mJSONObject = new JSONObject();
             mJSONObject.put("email_id", email_id);
+            mJSONObject.put("team_id", team_id);
             mJSONObject.put("search_count", search_count);
             mJSONObject.put("search_page", search_page);
 
@@ -334,7 +335,7 @@ public class Service {
      * 매치 등록 서비스
      * Created by maloman72 on 2018-11-01
      * */
-    public void registMatch(ResponseListener responseListener, String match_hope_ground_id, String match_hope_date, String match_hope_time, String match_hope_team_member, String match_hope_team_lvl) {
+    public void registMatch(ResponseListener responseListener, String match_hope_ground_id, String match_hope_date, String match_hope_start_time, String match_hope_end_time, String match_hope_team_member, String match_hope_team_lvl) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.registMatch_service);
             String email_id = mApplicationTM.getUserEmail();
@@ -343,7 +344,8 @@ public class Service {
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_email_id), email_id);
             mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_ground_id), match_hope_ground_id);
             mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_date), match_hope_date);
-            mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_time), match_hope_time);
+            mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_start_time), match_hope_start_time);
+            mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_end_time), match_hope_end_time);
             mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_team_member), match_hope_team_member);
             mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_team_lvl), match_hope_team_lvl);
 

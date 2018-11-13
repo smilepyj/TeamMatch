@@ -119,11 +119,14 @@
     <!-- Listview MatchProc -->
     <color name="color_listview_match_proc_contents">#313131</color>
     <color name="color_listview_match_proc_contents_accent">#017338</color>
-    <color name="color_listview_match_proc_name_1">#FF0000</color>
-    <color name="color_listview_match_proc_name_2">#0068B7</color>
-    <color name="color_listview_match_proc_name_3">#000000</color>
+    <color name="color_listview_match_proc_name_1">#E60012</color>
+    <color name="color_listview_match_proc_name_2">#0B4EA2</color>
+    <color name="color_listview_match_proc_name_3">#601986</color>
+    <color name="color_listview_match_proc_name_4">#007338</color>
+    <color name="color_listview_match_proc_name_5">#313131</color>
     <color name="color_listview_match_proc_sidebar">#A8A8A8</color>
     <color name="color_listview_match_proc_border">#D2D2D2</color>
+    <color name="color_listview_match_proc_opponent_info">#FF0000</color>
 
     <!-- Ranking Activity -->
     <color name="color_ranking_button_tab_enable">#F8F8FA</color>

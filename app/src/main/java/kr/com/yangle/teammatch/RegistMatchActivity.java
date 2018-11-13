@@ -44,7 +44,7 @@ public class RegistMatchActivity extends AppCompatActivity {
 
     ArrayList<String> regist_ground;
     ArrayList<String> regist_ground_name;
-    String regist_date = "-", regist_time = "-", regist_team_member = "-", regist_team_lvl = "-";
+    String regist_date = "-", regist_start_time = "-", regist_end_time = "-", regist_team_member = "-", regist_team_lvl = "-";
 
     LinearLayout ll_regist_match_field, ll_regist_match_day, ll_regist_match_time;
 
@@ -158,7 +158,8 @@ public class RegistMatchActivity extends AppCompatActivity {
                     break;
                 case R.id.bt_regist_match_time_nothing:
                     tv_regist_match_time.setText(getString(R.string.regist_match_time_nothing));
-                    regist_time = "";
+                    regist_start_time = "";
+                    regist_end_time = "";
                     break;
                 case R.id.bt_regist_match_number_nothing:
                     setDefaultButtonMatchNumber();
@@ -248,7 +249,7 @@ public class RegistMatchActivity extends AppCompatActivity {
                     Log.e(TAG, data + "");
                     break;
                 case 2 :
-                    regist_time = data.getStringExtra(getString(R.string.time_picker_dialog_set_time));
+                    regist_start_time = data.getStringExtra(getString(R.string.time_picker_dialog_set_time));
 
                     if("0".equals(data.getStringExtra(getString(R.string.time_picker_dialog_ampm)))) {
                         tv_regist_match_time.setText(getString(R.string.time_picker_dialog_morning) + " " + data.getStringExtra(getString(R.string.time_picker_dialog_hour)) + getString(R.string.search_match_time_format_hour));
@@ -367,8 +368,13 @@ public class RegistMatchActivity extends AppCompatActivity {
             return;
         }
 
-        if ("-".equals(regist_time)) {
-            mApplicationTM.makeToast(mContext, getString(R.string.regist_match_check_time));
+        if ("-".equals(regist_start_time)) {
+            mApplicationTM.makeToast(mContext, getString(R.string.regist_match_check_start_time));
+            return;
+        }
+
+        if ("-".equals(regist_end_time)) {
+            mApplicationTM.makeToast(mContext, getString(R.string.regist_match_check_end_time));
             return;
         }
 
@@ -383,7 +389,7 @@ public class RegistMatchActivity extends AppCompatActivity {
         }
 
         try {
-            mService.registMatch(registMatch_Listener, regist_ground.get(0), regist_date, regist_time, regist_team_member, regist_team_lvl);
+            mService.registMatch(registMatch_Listener, regist_ground.get(0), regist_date, regist_start_time, regist_end_time, regist_team_member, regist_team_lvl);
         }catch(Exception e) {
             mApplicationTM.makeToast(mContext, getString(R.string.error_network));
             Log.e(TAG, "mOnItemClickListener - " + e);

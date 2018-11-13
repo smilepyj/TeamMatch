@@ -32,7 +32,8 @@
     <string name="userlogin_param_email_id">email_id</string>
 
     <string name="userlogin_result_user_name">user_name</string>
-    
+    <string name="userlogin_result_team_id">team_id</string>
+
     <!-- insertUserInfo Service -->
     <string name="insertuserinfo_service">user/insertUserInfo</string>
     <string name="insertuserinfo_param_email_id">email_id</string>
@@ -103,7 +104,8 @@
     <string name="registMatch_param_email_id">email_id</string>
     <string name="registMatch_param_match_hope_ground_id">match_hope_ground_id</string>
     <string name="registMatch_param_match_hope_date">match_hope_date</string>
-    <string name="registMatch_param_match_hope_time">match_hope_time</string>
+    <string name="registMatch_param_match_hope_start_time">match_hope_start_time</string>
+    <string name="registMatch_param_match_hope_end_time">match_hope_end_time</string>
     <string name="registMatch_param_match_hope_team_member">match_hope_team_member</string>
     <string name="registMatch_param_match_hope_team_lvl">match_hope_team_lvl</string>
 
@@ -113,14 +115,19 @@
     <string name="matchProclist_result_guest_host_type">guest_host_type</string>
     <string name="matchProclist_result_match_proc_cd">match_proc_cd</string>
     <string name="matchProclist_result_match_proc_cd_name">match_proc_cd_name</string>
+    <string name="matchProclist_result_match_hope_ground_id">match_hope_ground_id</string>
     <string name="matchProclist_result_match_hope_ground_sido_name">match_hope_ground_sido_name</string>
     <string name="matchProclist_result_match_hope_ground_gugun_name">match_hope_ground_gugun_name</string>
     <string name="matchProclist_result_match_hope_ground_name">match_hope_ground_name</string>
     <string name="matchProclist_result_match_hope_date">match_hope_date</string>
-    <string name="matchProclist_result_match_hope_time">match_hope_time</string>
+    <string name="matchProclist_result_match_hope_start_time">match_hope_start_time</string>
+    <string name="matchProclist_result_match_hope_end_time">match_hope_end_time</string>
     <string name="matchProclist_result_match_host_name">match_host_name</string>
     <string name="matchProclist_result_match_hope_team_lvl">match_hope_team_lvl</string>
     <string name="matchProclist_result_match_hope_team_member">match_hope_team_member</string>
+    <string name="matchProclist_result_opponent_name">opponent_name</string>
+    <string name="matchProclist_result_opponent_lvl">opponent_lvl</string>
+    <string name="matchProclist_result_opponent_point">opponent_point</string>
 
     <!-- Ranking Service-->
     <string name="ranking_service">rank/searchRankList</string>
@@ -150,6 +157,8 @@
     <string name="ground_detail_result_ground_cost_gbn">ground_cost_gbn</string>
     <string name="ground_detail_result_ground_cost">ground_cost</string>
     <string name="ground_detail_result_ground_addr">ground_addr</string>
+    <string name="ground_detail_result_ground_loc_lat">ground_loc_lat</string>
+    <string name="ground_detail_result_ground_loc_lon">ground_loc_lon</string>
     <string name="ground_detail_result_ground_desc">ground_desc</string>
     <string name="ground_detail_result_in_out_gbn">in_out_gbn</string>
     <string name="ground_detail_result_parking_gbn">parking_gbn</string>

@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
-
+    <meta-data android:name="com.kakao.sdk.AppKey" android:value="79f45e8d30e69de7771e9f1030c5529b"/>
 
     <application
         android:name=".ApplicationTM"
@@ -84,7 +84,11 @@
         <activity
             android:name=".util.DialogAlertActivity"
             android:theme="@style/DialogTheme" />
-        <activity android:name=".GroundDetailActivity"
+        <activity
+            android:name=".GroundDetailActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".GroundLocationActivity"
             android:screenOrientation="sensorPortrait" />
     </application>
 
