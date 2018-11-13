@@ -358,4 +358,19 @@ public class ApplicationTM extends Application {
 
         return null;
     }
+
+    /**
+     * PhoneNumber hyphen delete
+     * Created by maloman72 on 2018-11-14
+     */
+    public String setCallingPhoneNumber(String number){
+        String mResult = mContext.getString(R.string.tel);
+
+        String mSplit[] = number.split("-");
+        for(int i = 0; i < mSplit.length; i++) {
+            mResult += mSplit[i];
+        }
+
+        return mResult;
+    }
 }

@@ -101,8 +101,12 @@
     <string name="alert_dialog_type">TYPE</string>
     
     <!-- GroundDetail Activity -->
+    <string name="tel">tel:</string>
+
     <string name="ground_detail_ground_id">GROUND_ID</string>
     <string name="ground_detail_time_format">hhmm</string>
     <string name="ground_detail_time_view">hh:mm</string>
     <string name="ground_detail_option_yes">Y</string>
+
+    <string name="ground_detail_no_phone_num">구장 전화번호 정보가 없습니다.</string>
 </resources>

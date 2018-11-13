@@ -1,8 +1,10 @@
 package kr.com.yangle.teammatch;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,6 +46,8 @@ public class GroundDetailActivity extends AppCompatActivity {
     TextView tv_ground_detail_name, tv_ground_detail_location, tv_ground_detail_operation, tv_ground_detail_hour_1, tv_ground_detail_cost_1, tv_ground_detail_hour_2, tv_ground_detail_cost_2, tv_ground_detail_inout,
             tv_ground_detail_park, tv_ground_detail_shower, tv_ground_detail_light, tv_ground_detail_shop, tv_ground_detail_shoes, tv_ground_detail_socks, tv_ground_detail_film;
     Button bt_ground_detail_map, bt_ground_detail_call;
+
+    String mGround_Phone_Num = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +124,13 @@ public class GroundDetailActivity extends AppCompatActivity {
                     mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
                     break;
                 case R.id.bt_ground_detail_call :
-                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
+                    if(mGround_Phone_Num != null) {
+                        Intent mInent = new Intent(Intent.ACTION_DIAL);
+                        mInent.setData(Uri.parse(mApplicationTM.setCallingPhoneNumber(mGround_Phone_Num)));
+                        startActivity(mInent);
+                    } else {
+                        mApplicationTM.makeToast(mContext, getString(R.string.ground_detail_no_phone_num));
+                    }
                     break;
                 default :
                     break;
@@ -140,6 +150,7 @@ public class GroundDetailActivity extends AppCompatActivity {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
                     JSONObject mResult = mJSONArray.getJSONObject(0);
 
+                    mGround_Phone_Num = mResult.get(getString(R.string.ground_detail_result_ground_tel)).toString();
                     tv_ground_detail_name.setText(mResult.get(getString(R.string.ground_detail_result_ground_name)).toString());
                     tv_ground_detail_location.setText(mResult.get(getString(R.string.ground_detail_result_ground_addr)).toString());
                     Date mTime = new SimpleDateFormat(getString(R.string.ground_detail_time_format), Locale.getDefault()).parse(mResult.get(getString(R.string.ground_detail_result_open_time)).toString());
