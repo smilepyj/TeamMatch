@@ -49,6 +49,8 @@ public class GroundDetailActivity extends AppCompatActivity {
     Button bt_ground_detail_map, bt_ground_detail_call;
 
     String mGround_Phone_Num = null;
+    String mGround_Name;
+    double mGround_Loc_Lat, mGround_Loc_Lon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,15 +122,21 @@ public class GroundDetailActivity extends AppCompatActivity {
     View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Intent mIntent;
+
             switch (v.getId()) {
                 case R.id.bt_ground_detail_map :
-                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
+                    mIntent = new Intent(mContext, GroundLocationActivity.class);
+                    mIntent.putExtra("ground_name", mGround_Name);
+                    mIntent.putExtra("ground_loc_lat", mGround_Loc_Lat);
+                    mIntent.putExtra("ground_loc_lon", mGround_Loc_Lon);
+                    mContext.startActivity(mIntent);
                     break;
                 case R.id.bt_ground_detail_call :
                     if(mGround_Phone_Num != null) {
-                        Intent mInent = new Intent(Intent.ACTION_DIAL);
-                        mInent.setData(Uri.parse(mApplicationTM.setCallingPhoneNumber(mGround_Phone_Num)));
-                        startActivity(mInent);
+                        mIntent = new Intent(Intent.ACTION_DIAL);
+                        mIntent.setData(Uri.parse(mApplicationTM.setCallingPhoneNumber(mGround_Phone_Num)));
+                        startActivity(mIntent);
                     } else {
                         mApplicationTM.makeToast(mContext, getString(R.string.ground_detail_no_phone_num));
                     }
@@ -151,8 +159,12 @@ public class GroundDetailActivity extends AppCompatActivity {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
                     JSONObject mResult = mJSONArray.getJSONObject(0);
 
+                    mGround_Loc_Lat = mResult.getDouble(getString(R.string.ground_detail_result_ground_loc_lat));
+                    mGround_Loc_Lon = mResult.getDouble(getString(R.string.ground_detail_result_ground_loc_lon));
+
                     mGround_Phone_Num = mResult.get(getString(R.string.ground_detail_result_ground_tel)).toString();
-                    tv_ground_detail_name.setText(mResult.get(getString(R.string.ground_detail_result_ground_name)).toString());
+                    mGround_Name = mResult.get(getString(R.string.ground_detail_result_ground_name)).toString();
+                    tv_ground_detail_name.setText(mGround_Name);
                     tv_ground_detail_location.setText(mResult.get(getString(R.string.ground_detail_result_ground_addr)).toString());
                     Date mTime = new SimpleDateFormat(getString(R.string.ground_detail_time_format), Locale.getDefault()).parse(mResult.get(getString(R.string.ground_detail_result_open_time)).toString());
                     String mStartTime = new SimpleDateFormat(getString(R.string.ground_detail_time_view), Locale.getDefault()).format(mTime);

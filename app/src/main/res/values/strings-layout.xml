@@ -121,6 +121,7 @@
 
     <!-- MatchProc Activity -->
     <string name="match_proc_title">진행 중 매치</string>
+    <string name="match_proc_opponent_info">상대팀정보</string>
 
     <!-- Ranking Activity -->
     <string name="ranking_title">랭킹정보</string>
@@ -164,6 +165,9 @@
 
     <string name="ground_detail_map">위치보기</string>
     <string name="ground_detail_call">전화걸기</string>
+
+    <!-- GroundLocation Activity -->
+    <string name="ground_location_title">구장 위치 정보</string>
 
     <!-- Match Time Picker Dialog -->
     <string name="match_time_picker_dialog_title">매치시간</string>

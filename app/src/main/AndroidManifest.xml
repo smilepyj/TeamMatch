@@ -9,6 +9,8 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
+    <meta-data android:name="com.kakao.sdk.AppKey" android:value="79f45e8d30e69de7771e9f1030c5529b"/>
+
     <application
         android:name=".ApplicationTM"
         android:allowBackup="true"
@@ -23,14 +25,17 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
 
-        <service android:name=".MyFirebaseMessagingService">
+        <service
+            android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
-        <service android:name=".MyFirebaseInstanceIDService">
+
+        <service
+            android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
 
@@ -83,6 +88,9 @@
             android:screenOrientation="sensorPortrait" />
         <activity android:name=".util.DialogMatchTimePickerActivity"
             android:theme="@style/DialogTheme"/>
+        <activity
+            android:name=".GroundLocationActivity"
+            android:screenOrientation="sensorPortrait" />
     </application>
 
 </manifest>
