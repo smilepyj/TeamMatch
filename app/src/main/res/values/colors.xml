@@ -8,9 +8,11 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorInvisible">#FFFFFFFF</color>
 
+    <color name="color_F4F4F4">#F4F4F4</color>
     <color name="color_ADADAD">#ADADAD</color>
     <color name="color_DCDCDC">#DCDCDC</color>
     <color name="color_D2D2D2">#D2D2D2</color>
+    <color name="color_959595">#959595</color>
     <color name="color_7D7D7D">#7D7D7D</color>
     <color name="color_626262">#626262</color>
     <color name="color_535353">#535353</color>
@@ -147,18 +149,6 @@
     <color name="color_listview_ranking_contents">#313131</color>
     <color name="color_listview_ranking_up">#D6352A</color>
     <color name="color_listview_ranking_down">#0068B7</color>
-
-    <!-- Alert Dialog -->
-    <color name="color_alert_dialog_title_text">#007338</color>
-    <color name="color_alert_dialog_line">#007338</color>
-    <color name="color_alert_dialog_contents_header">#007338</color>
-    <color name="color_alert_dialog_contents">#313131</color>
-    <color name="color_alert_dialog_button_cancel_solid">#F4F4F4</color>
-    <color name="color_alert_dialog_button_cancel_stroke">#D2D2D2</color>
-    <color name="color_alert_dialog_button_cancel_text">#959595</color>
-    <color name="color_alert_dialog_button_ok_solid">#007338</color>
-    <color name="color_alert_dialog_button_ok_stroke">#007338</color>
-    <color name="color_alert_dialog_button_ok_text">#FFFFFF</color>
 
     <!-- Term Service Dialog -->
     <color name="color_term_service_dialog_title_text">#313131</color>

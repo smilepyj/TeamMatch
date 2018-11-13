@@ -20,12 +20,19 @@
     <!-- Dimen Size -->
     <dimen name="dimen_size_1">1dp</dimen>
     <dimen name="dimen_size_2">2dp</dimen>
+    <dimen name="dimen_size_3">3dp</dimen>
     <dimen name="dimen_size_5">5dp</dimen>
     <dimen name="dimen_size_8">8dp</dimen>
     <dimen name="dimen_size_10">10dp</dimen>
+    <dimen name="dimen_size_50">50dp</dimen>
+    <dimen name="dimen_size_68">68dp</dimen>
+    <dimen name="dimen_size_110">110dp</dimen>
     <dimen name="dimen_size_160">160dp</dimen>
+    <dimen name="dimne_size_178">178dp</dimen>
+    <dimen name="dimen_size_280">280dp</dimen>
     <dimen name="dimen_size_320">320dp</dimen>
     <dimen name="dimen_size_330">330dp</dimen>
+    <dimen name="dimen_size_340">340dp</dimen>
 
     <!-- Layout Size -->
     <dimen name="ll_under_line">1dp</dimen>
@@ -43,16 +50,4 @@
     <dimen name="listview_ranking_drawable_left_padding">5dp</dimen>
     <dimen name="listview_match_proc_margin_vertical">5dp</dimen>
     <dimen name="listview_match_proc_padding_vertical">8dp</dimen>
-
-    <!-- Alert Dialog dimens -->
-    <dimen name="alert_dialog_width">340dp</dimen>
-    <dimen name="alert_dialog_height">280dp</dimen>
-    <dimen name="alert_dialog_title_height">50dp</dimen>
-    <dimen name="alert_dialog_contents_height">178dp</dimen>
-    <dimen name="alert_dialog_button_height">50dp</dimen>
-
-    <dimen name="alert_dialog_padding">10dp</dimen>
-    <dimen name="alert_dialog_margin">5dp</dimen>
-
-    <dimen name="alert_dialog_line">2dp</dimen>
 </resources>

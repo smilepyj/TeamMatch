@@ -177,4 +177,10 @@
     <string name="match_time_picker_dialog_hyphen">~</string>
     <string name="match_time_picker_dialog_check_pay_text">구장 비용을 미리 결제했습니다.</string>
     <string name="match_time_picker_dialog_ok">확인</string>
+    
+    <!-- Match Apply Dialog -->
+    <string name="match_apply_dialog_opponents">상대팀 정보</string>
+    <string name="match_apply_dialog_match">매치정보</string>
+    <string name="match_apply_dialog_no">거 절</string>
+    <string name="match_apply_dialog_yes">수 락</string>
 </resources>

@@ -123,6 +123,15 @@
     <string name="match_time_picker_dialog_check_pay">CHEDK_PAY</string>
     <string name="match_time_picker_dialog_check_pay_yes">Y</string>
     <string name="match_time_picker_dialog_check_pay_no">N</string>
-    
+
     <string name="match_time_picker_dialog_check_time">매치 시간은 최소 1시간 ~ 최대 3시간 사이로 설정해 주세요. </string>
+
+    <!-- Match Apply Dialog -->
+    <string name="match_apply_extra_title">TITLE</string>
+    <string name="match_apply_extra_contents">CONTENTS</string>
+    <string name="match_apply_extra_team_name">TEAM_NAME</string>
+    <string name="match_apply_extra_team_lvl">TEAM_LVL</string>
+    <string name="match_apply_extra_team_member">TEAM_MEMBER</string>
+    <string name="match_apply_extra_match_time">MATCH_TIME</string>
+    <string name="match_apply_extra_match_ground">MATCH_GROUND</string>
 </resources>

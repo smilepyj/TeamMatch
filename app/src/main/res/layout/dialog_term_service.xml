@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/alert_dialog_width"
+    android:layout_width="@dimen/dimen_size_340"
     android:layout_height="600dp"
     android:background="@drawable/ic_dialog_background"
     android:orientation="vertical"
@@ -23,7 +23,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/alert_dialog_title_height"
+        android:layout_height="@dimen/dimen_size_50"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -43,7 +43,7 @@
         android:layout_weight="9"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="@dimen/alert_dialog_padding">
+        android:padding="@dimen/dimen_size_10">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -55,8 +55,8 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
-                android:layout_marginHorizontal="@dimen/alert_dialog_margin"
-                android:layout_marginTop="@dimen/alert_dialog_margin"
+                android:layout_marginHorizontal="@dimen/dimen_size_5"
+                android:layout_marginTop="@dimen/dimen_size_5"
                 android:textColor="@color/color_term_service_dialog_contents"
                 android:lineSpacingMultiplier="1.5"
                 android:textSize="@dimen/font_size_15" />
