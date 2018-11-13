@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/alert_dialog_width"
+    android:layout_height="600dp"
+    android:background="@drawable/ic_dialog_background"
+    android:orientation="vertical"
+    tools:context=".util.DialogAlertActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_size_5">
+
+        <ImageButton
+            android:id="@+id/ib_term_service_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_date_close" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/alert_dialog_title_height"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_term_service_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_term_service_dialog_title_text"
+            android:textSize="@dimen/font_size_18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/alert_dialog_padding">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_term_service_contents"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:layout_marginHorizontal="@dimen/alert_dialog_margin"
+                android:layout_marginTop="@dimen/alert_dialog_margin"
+                android:textColor="@color/color_term_service_dialog_contents"
+                android:lineSpacingMultiplier="1.5"
+                android:textSize="@dimen/font_size_15" />
+
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

@@ -172,8 +172,9 @@ public class GroundDetailActivity extends AppCompatActivity {
                     String mEndTime = new SimpleDateFormat(getString(R.string.ground_detail_time_view), Locale.getDefault()).format(mTime);
                     tv_ground_detail_operation.setText(mStartTime + getString(R.string.ground_detail_operation_hyphen) + mEndTime);
 
-                    if(getString(R.string.ground_detail_option_yes).equals(mResult.get(getString(R.string.ground_detail_result_in_out_gbn)))) {
+                    if(getString(R.string.ground_detail_option_out).equals(mResult.get(getString(R.string.ground_detail_result_in_out_gbn)))) {
                         iv_ground_detail_inout.setBackgroundResource(R.drawable.ic_inout_on);
+                        tv_ground_detail_inout.setText(getString(R.string.ground_detail_inout_o));
                         tv_ground_detail_inout.setTextColor(getResources().getColor(R.color.color_00AE55));
                     }
                     if(getString(R.string.ground_detail_option_yes).equals(mResult.get(getString(R.string.ground_detail_result_parking_gbn)))) {
