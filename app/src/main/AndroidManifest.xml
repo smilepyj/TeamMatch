@@ -9,8 +9,6 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
-
-
     <application
         android:name=".ApplicationTM"
         android:allowBackup="true"
@@ -18,7 +16,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_soccer_ball" />
@@ -26,17 +23,14 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
 
-        <service
-            android:name=".MyFirebaseMessagingService">
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <service
-            android:name=".MyFirebaseInstanceIDService">
+        <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
@@ -79,13 +73,16 @@
             android:name=".RankingActivity"
             android:screenOrientation="sensorPortrait" />
         <activity
-            android:name=".util.DialogTimePickerActivity"
+            android:name=".util.DialogStartTimePickerActivity"
             android:theme="@style/DialogTheme" />
         <activity
             android:name=".util.DialogAlertActivity"
             android:theme="@style/DialogTheme" />
-        <activity android:name=".GroundDetailActivity"
+        <activity
+            android:name=".GroundDetailActivity"
             android:screenOrientation="sensorPortrait" />
+        <activity android:name=".util.DialogMatchTimePickerActivity"
+            android:theme="@style/DialogTheme"/>
     </application>
 
 </manifest>

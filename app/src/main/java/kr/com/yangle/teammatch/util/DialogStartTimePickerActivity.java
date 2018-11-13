@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -18,49 +16,40 @@ import java.util.Calendar;
 import kr.com.yangle.teammatch.ApplicationTM;
 import kr.com.yangle.teammatch.R;
 
-public class DialogTimePickerActivity extends AppCompatActivity {
+public class DialogStartTimePickerActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
 
     Context mContext;
     ApplicationTM mApplicationTM;
 
-    LinearLayout ll_dialog_time_picker_ampm_up, ll_dialog_time_picker_ampm_down, ll_dialog_time_picker_time_up, ll_dialog_time_picker_time_down;
-    ImageButton ib_dialog_time_picker_close, ib_dialog_time_picker_ampm_up, ib_dialog_time_picker_ampm_down, ib_dialog_time_picker_time_up, ib_dialog_time_picker_time_down;
-    TextView tv_dialog_time_picker_apam, tv_dialog_time_picker_time;
+    LinearLayout ll_dialog_time_picker_time_up, ll_dialog_time_picker_time_down;
+    ImageButton ib_dialog_time_picker_close, ib_dialog_time_picker_time_up, ib_dialog_time_picker_time_down;
+    TextView tv_dialog_time_picker_time;
     Button bt_dialog_time_picker_ok;
 
-    int mAmpm, mTime;
+    int mTime;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.dialog_time_picker);
+        setContentView(R.layout.dialog_start_time_picker);
 
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        ll_dialog_time_picker_ampm_up = findViewById(R.id.ll_dialog_time_picker_ampm_up);
-        ll_dialog_time_picker_ampm_down = findViewById(R.id.ll_dialog_time_picker_ampm_down);
         ll_dialog_time_picker_time_up = findViewById(R.id.ll_dialog_time_picker_time_up);
         ll_dialog_time_picker_time_down = findViewById(R.id.ll_dialog_time_picker_time_down);
         ib_dialog_time_picker_close = findViewById(R.id.ib_dialog_time_picker_close);
-        ib_dialog_time_picker_ampm_up = findViewById(R.id.ib_dialog_time_picker_ampm_up);
-        ib_dialog_time_picker_ampm_down = findViewById(R.id.ib_dialog_time_picker_ampm_down);
         ib_dialog_time_picker_time_up = findViewById(R.id.ib_dialog_time_picker_time_up);
         ib_dialog_time_picker_time_down = findViewById(R.id.ib_dialog_time_picker_time_down);
-        tv_dialog_time_picker_apam = findViewById(R.id.tv_dialog_time_picker_apam);
         tv_dialog_time_picker_time = findViewById(R.id.tv_dialog_time_picker_time);
         bt_dialog_time_picker_ok = findViewById(R.id.bt_dialog_time_picker_ok);
 
-        ll_dialog_time_picker_ampm_up.setOnClickListener(mOnClickListener);
-        ll_dialog_time_picker_ampm_down.setOnClickListener(mOnClickListener);
         ll_dialog_time_picker_time_up.setOnClickListener(mOnClickListener);
         ll_dialog_time_picker_time_down.setOnClickListener(mOnClickListener);
         ib_dialog_time_picker_close.setOnClickListener(mOnClickListener);
-        ib_dialog_time_picker_ampm_up.setOnClickListener(mOnClickListener);
-        ib_dialog_time_picker_ampm_down.setOnClickListener(mOnClickListener);
         ib_dialog_time_picker_time_up.setOnClickListener(mOnClickListener);
         ib_dialog_time_picker_time_down.setOnClickListener(mOnClickListener);
         bt_dialog_time_picker_ok.setOnClickListener(mOnClickListener);
@@ -72,12 +61,6 @@ public class DialogTimePickerActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.ll_dialog_time_picker_ampm_up :
-                    changeAmPm();
-                    break;
-                case R.id.ll_dialog_time_picker_ampm_down :
-                    changeAmPm();
-                    break;
                 case R.id.ll_dialog_time_picker_time_up :
                     changeTime(true);
                     break;
@@ -86,12 +69,6 @@ public class DialogTimePickerActivity extends AppCompatActivity {
                     break;
                 case R.id.ib_dialog_time_picker_close :
                     finish();
-                    break;
-                case R.id.ib_dialog_time_picker_ampm_up :
-                    changeAmPm();
-                    break;
-                case R.id.ib_dialog_time_picker_ampm_down :
-                    changeAmPm();
                     break;
                 case R.id.ib_dialog_time_picker_time_up :
                     changeTime(true);
@@ -115,29 +92,8 @@ public class DialogTimePickerActivity extends AppCompatActivity {
     private void setTime() {
         final Calendar mCalendar = Calendar.getInstance();
 
-        if(0 == mCalendar.get(Calendar.AM_PM)) {
-            tv_dialog_time_picker_apam.setText(getString(R.string.time_picker_dialog_morning));
-        } else {
-            tv_dialog_time_picker_apam.setText(getString(R.string.time_picker_dialog_afternoon));
-        }
-        mAmpm = mCalendar.get(Calendar.AM_PM);
-
-        tv_dialog_time_picker_time.setText(String.valueOf(mCalendar.get(Calendar.HOUR)));
-        mTime = mCalendar.get(Calendar.HOUR);
-    }
-
-    /**
-     * AmPm 변경
-     * Created by maloman72 on 2018-11-11
-     * */
-    private void changeAmPm() {
-        if(0 == mAmpm) {
-            mAmpm = 1;
-            tv_dialog_time_picker_apam.setText(getString(R.string.time_picker_dialog_afternoon));
-        } else {
-            mAmpm = 0;
-            tv_dialog_time_picker_apam.setText(getString(R.string.time_picker_dialog_morning));
-        }
+        tv_dialog_time_picker_time.setText(String.valueOf(mCalendar.get(Calendar.HOUR_OF_DAY)) + getString(R.string.start_time_picker_dialog_hour_text));
+        mTime = mCalendar.get(Calendar.HOUR_OF_DAY);
     }
 
     /**
@@ -146,24 +102,20 @@ public class DialogTimePickerActivity extends AppCompatActivity {
      * */
     private void changeTime(Boolean type) {
         if(type) {
-            if(mTime < 12) {
+            if(mTime < 24) {
                 mTime += 1;
-                tv_dialog_time_picker_time.setText(String.valueOf(mTime));
+                tv_dialog_time_picker_time.setText(String.valueOf(mTime) + getString(R.string.start_time_picker_dialog_hour_text));
             } else {
                 mTime = 1;
-                tv_dialog_time_picker_time.setText(String.valueOf(mTime));
-
-                changeAmPm();
+                tv_dialog_time_picker_time.setText(String.valueOf(mTime) + getString(R.string.start_time_picker_dialog_hour_text));
             }
         } else {
             if(mTime > 1) {
                 mTime -= 1;
-                tv_dialog_time_picker_time.setText(String.valueOf(mTime));
+                tv_dialog_time_picker_time.setText(String.valueOf(mTime) + getString(R.string.start_time_picker_dialog_hour_text));
             } else {
-                mTime = 12;
-                tv_dialog_time_picker_time.setText(String.valueOf(mTime));
-
-                changeAmPm();
+                mTime = 24;
+                tv_dialog_time_picker_time.setText(String.valueOf(mTime) + getString(R.string.start_time_picker_dialog_hour_text));
             }
         }
     }
@@ -176,21 +128,15 @@ public class DialogTimePickerActivity extends AppCompatActivity {
         Intent mIntent = new Intent();
         String resultTime;
 
-        mIntent.putExtra(getString(R.string.time_picker_dialog_ampm), String.valueOf(mAmpm));
-        mIntent.putExtra(getString(R.string.time_picker_dialog_hour), String.valueOf(mTime));
-
-        if(1 == mAmpm) {
-            mTime += 12;
-        }
+        mIntent.putExtra(getString(R.string.start_time_picker_dialog_hour), String.valueOf(mTime));
 
         if(String.valueOf(mTime).length() == 1) {
-            resultTime = "0" + String.valueOf(mTime) + getString(R.string.time_picker_dialog_base_time);
+            resultTime = "0" + String.valueOf(mTime) + getString(R.string.start_time_picker_dialog_base_time);
         } else {
-            resultTime = String.valueOf(mTime) + getString(R.string.time_picker_dialog_base_time);
+            resultTime = String.valueOf(mTime) + getString(R.string.start_time_picker_dialog_base_time);
         }
 
-
-        mIntent.putExtra(getString(R.string.time_picker_dialog_set_time), resultTime);
+        mIntent.putExtra(getString(R.string.start_time_picker_dialog_set_time), resultTime);
         setResult(RESULT_OK, mIntent);
         finish();
     }

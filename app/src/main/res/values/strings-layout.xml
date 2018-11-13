@@ -138,13 +138,11 @@
     <string name="ranking_fluctuation_nothing_text">-</string>
     <string name="ranking_fluctuation_new_text">new</string>
     
-    <!-- Time Picker Dialog -->
-    <string name="time_picker_dialog_title">시작시간</string>
-    <string name="time_picker_dialog_sub_title">매치 시작시간을 선택해 주세요</string>
-    <string name="time_picker_dialog_ok">확인</string>
-    
-    <string name="time_picker_dialog_morning">오전</string>
-    <string name="time_picker_dialog_afternoon">오후</string>
+    <!-- Start Time Picker Dialog -->
+    <string name="start_time_picker_dialog_title">시작시간</string>
+    <string name="start_time_picker_dialog_sub_title">매치 시작시간을 선택해 주세요</string>
+    <string name="start_time_picker_dialog_hour_text">&#160;시</string>
+    <string name="start_time_picker_dialog_ok">확인</string>
 
     <!-- GroundDeatil Activity -->
     <string name="ground_detail_title">구장정보</string>
@@ -166,4 +164,12 @@
 
     <string name="ground_detail_map">위치보기</string>
     <string name="ground_detail_call">전화걸기</string>
+
+    <!-- Match Time Picker Dialog -->
+    <string name="match_time_picker_dialog_title">매치시간</string>
+    <string name="match_time_picker_dialog_sub_title">매치 시간을 선택해주세요. (최대 3시간)</string>
+    <string name="match_time_picker_dialog_hour_text">&#160;시</string>
+    <string name="match_time_picker_dialog_hyphen">~</string>
+    <string name="match_time_picker_dialog_check_pay">구장 비용을 미리 결제했습니다.</string>
+    <string name="match_time_picker_dialog_ok">확인</string>
 </resources>

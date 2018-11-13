@@ -1,7 +1,6 @@
 package kr.com.yangle.teammatch;
 
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +13,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,7 +20,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-import kr.com.yangle.teammatch.util.DialogTimePickerActivity;
+import kr.com.yangle.teammatch.util.DialogStartTimePickerActivity;
 
 public class SearchMatchActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -265,13 +263,8 @@ public class SearchMatchActivity extends AppCompatActivity {
                     Log.e(TAG, data + "");
                     break;
                 case 2 :
-                    search_time = data.getStringExtra(getString(R.string.time_picker_dialog_set_time));
-
-                    if("0".equals(data.getStringExtra(getString(R.string.time_picker_dialog_ampm)))) {
-                        tv_search_match_time.setText(getString(R.string.time_picker_dialog_morning) + " " + data.getStringExtra(getString(R.string.time_picker_dialog_hour)) + getString(R.string.search_match_time_format_hour));
-                    } else {
-                        tv_search_match_time.setText(getString(R.string.time_picker_dialog_afternoon) + " " + data.getStringExtra(getString(R.string.time_picker_dialog_hour)) + getString(R.string.search_match_time_format_hour));
-                    }
+                    search_time = data.getStringExtra(getString(R.string.start_time_picker_dialog_set_time));
+                    tv_search_match_time.setText(data.getStringExtra(getString(R.string.start_time_picker_dialog_hour)) + getString(R.string.search_match_time_format_hour));
                     break;
                 default :
                     break;
@@ -349,7 +342,7 @@ public class SearchMatchActivity extends AppCompatActivity {
      * Created by maloman72 on 2018-11-01
      * */
     private void setMatchTimePickerDialog() {
-        Intent mIntent = new Intent(this, DialogTimePickerActivity.class);
+        Intent mIntent = new Intent(this, DialogStartTimePickerActivity.class);
         startActivityForResult(mIntent, 2);
     }
 

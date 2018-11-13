@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dimen_size_320"
+    android:layout_height="@dimen/dimen_size_330"
+    android:background="@drawable/ic_dialog_background"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_size_10"
+    tools:context=".util.DialogStartTimePickerActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_size_5">
+
+        <ImageButton
+            android:id="@+id/ib_dialog_time_picker_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_date_close" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_size_5"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="@string/start_time_picker_dialog_title"
+            android:textColor="@color/color_313131"
+            android:textSize="@dimen/font_size_18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_size_5"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="@string/start_time_picker_dialog_sub_title"
+            android:textColor="@color/color_ADADAD"
+            android:textSize="@dimen/font_size_14" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_160"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_dialog_time_picker_time_up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dimen_size_5"
+                android:paddingBottom="@dimen/dimen_size_5">
+
+                <ImageButton
+                    android:id="@+id/ib_dialog_time_picker_time_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_5"
+                    android:background="@drawable/ic_time_up" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_2"
+                android:layout_marginTop="@dimen/dimen_size_5"
+                android:layout_marginBottom="@dimen/dimen_size_10"
+                android:background="@color/color_D2D2D2" />
+
+            <TextView
+                android:id="@+id/tv_dialog_time_picker_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_size_5"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/font_size_14" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_2"
+                android:layout_marginBottom="@dimen/dimen_size_5"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:background="@color/color_D2D2D2" />
+
+            <LinearLayout
+                android:id="@+id/ll_dialog_time_picker_time_down"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dimen_size_5"
+                android:paddingBottom="@dimen/dimen_size_5">
+
+                <ImageButton
+                    android:id="@+id/ib_dialog_time_picker_time_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_5"
+                    android:background="@drawable/ic_time_down" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <Button
+            android:id="@+id/bt_dialog_time_picker_ok"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7.5"
+            android:background="@drawable/ic_button_dialog_time_picker"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:text="@string/start_time_picker_dialog_ok"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font_size_18" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -23,6 +23,9 @@
     <dimen name="dimen_size_5">5dp</dimen>
     <dimen name="dimen_size_8">8dp</dimen>
     <dimen name="dimen_size_10">10dp</dimen>
+    <dimen name="dimen_size_160">160dp</dimen>
+    <dimen name="dimen_size_320">320dp</dimen>
+    <dimen name="dimen_size_330">330dp</dimen>
 
     <!-- Layout Size -->
     <dimen name="ll_under_line">1dp</dimen>
@@ -38,15 +41,6 @@
     <dimen name="bt_user_info_hope_grounds">5dp</dimen>
     <dimen name="listview_ranking_team_name_padding_left">10dp</dimen>
     <dimen name="listview_ranking_drawable_left_padding">5dp</dimen>
-
-    <!-- Dialog dimens -->
-    <dimen name="dialog_width">320dp</dimen>
-    <dimen name="dialog_height">330dp</dimen>
-    <dimen name="dialog_margin">5dp</dimen>
-    <dimen name="dialog_padding">5dp</dimen>
-
-    <dimen name="dialog_time_picker_height">160dp</dimen>
-    <dimen name="dialog_time_picker_line">2dp</dimen>
 
     <!-- Alert Dialog dimens -->
     <dimen name="alert_dialog_width">340dp</dimen>

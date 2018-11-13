@@ -86,11 +86,10 @@
     <string name="ranking_fluctuation_down">D</string>
     <string name="ranking_fluctuation_new">N</string>
 
-    <!-- Time Picker Dialog -->
-    <string name="time_picker_dialog_base_time">0000</string>
-    <string name="time_picker_dialog_ampm">AMPM</string>
-    <string name="time_picker_dialog_hour">HOUR</string>
-    <string name="time_picker_dialog_set_time">TIME</string>
+    <!-- Start Time Picker Dialog -->
+    <string name="start_time_picker_dialog_base_time">0000</string>
+    <string name="start_time_picker_dialog_hour">HOUR</string>
+    <string name="start_time_picker_dialog_set_time">TIME</string>
 
     <!-- Alert Dialog -->
     <string name="alert_dialog_title">TITLE</string>
@@ -99,14 +98,23 @@
     <string name="alert_dialog_cancel_text">CANCEL</string>
     <string name="alert_dialog_ok_text">OK</string>
     <string name="alert_dialog_type">TYPE</string>
-    
+
     <!-- GroundDetail Activity -->
     <string name="tel">tel:</string>
 
     <string name="ground_detail_ground_id">GROUND_ID</string>
     <string name="ground_detail_time_format">hhmm</string>
     <string name="ground_detail_time_view">hh:mm</string>
+    <string name="ground_detail_cost_view">###,###</string>
     <string name="ground_detail_option_yes">Y</string>
 
     <string name="ground_detail_no_phone_num">구장 전화번호 정보가 없습니다.</string>
+
+    <!-- Match Time Picker Dialog -->
+    <string name="match_time_picker_dialog_base_time">0000</string>
+    <string name="match_time_picker_dialog_start_hour">START_HOUR</string>
+    <string name="match_time_picker_dialog_end_hour">END_HOUR</string>
+    <string name="match_time_picker_dialog_start_time">START_TIME</string>
+    <string name="match_time_picker_dialog_end_time">END_TIME</string>
+    <string name="match_time_picker_dialog_check_pay">CHEDK_PAY</string>
 </resources>

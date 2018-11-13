@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -197,13 +198,14 @@ public class GroundDetailActivity extends AppCompatActivity {
                     if(ground_cost_info.length() > 0) {
                         for(int i = 0; i < ground_cost_info.length(); i++) {
                             JSONObject mCost = ground_cost_info.getJSONObject(i);
+                            DecimalFormat mDecimalFormat = new DecimalFormat(getString(R.string.ground_detail_cost_view));
 
                             if(i == 0) {
                                 tv_ground_detail_hour_1.setText(mApplicationTM.getC005().get(mCost.get(getString(R.string.ground_detail_result_ground_cost_gbn))));
-                                tv_ground_detail_cost_1.setText(mCost.get(getString(R.string.ground_detail_result_ground_cost)).toString() + getString(R.string.ground_detail_won));
+                                tv_ground_detail_cost_1.setText(mDecimalFormat.format(Integer.valueOf(mCost.get(getString(R.string.ground_detail_result_ground_cost)).toString())) + getString(R.string.ground_detail_won));
                             } else if(i == 1) {
                                 tv_ground_detail_hour_2.setText(mApplicationTM.getC005().get(mCost.get(getString(R.string.ground_detail_result_ground_cost_gbn))));
-                                tv_ground_detail_cost_2.setText(mCost.get(getString(R.string.ground_detail_result_ground_cost)).toString() + getString(R.string.ground_detail_won));
+                                tv_ground_detail_cost_2.setText(mDecimalFormat.format(Integer.valueOf(mCost.get(getString(R.string.ground_detail_result_ground_cost)).toString())) + getString(R.string.ground_detail_won));
                             }
                         }
                     } else {
