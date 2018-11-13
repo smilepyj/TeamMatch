@@ -70,7 +70,7 @@
     <string name="searchmatchlist_service">match/searchMatchList</string>
     <string name="searchmatchlist_param_email_id">email_id</string>
     <string name="searchmatchlist_param_search_date">search_date</string>
-    <string name="searchmatchlist_param_search_time">search_time</string>
+    <string name="searchmatchlist_param_search_start_time">search_start_time</string>
     <string name="searchmatchlist_param_search_area_group">search_area_group</string>
     <string name="searchmatchlist_param_search_area">search_area</string>
     <string name="searchmatchlist_param_search_ground">search_ground</string>
@@ -82,11 +82,13 @@
     <string name="searchmatchlist_param_search_page_data">1</string>
 
     <string name="searchmatchlist_result_match_id">match_id</string>
+    <string name="searchmatchlist_result_match_hope_ground_id">match_hope_ground_id</string>
     <string name="searchmatchlist_result_match_hope_ground_sido_name">match_hope_ground_sido_name</string>
     <string name="searchmatchlist_result_match_hope_ground_gugun_name">match_hope_ground_gugun_name</string>
     <string name="searchmatchlist_result_match_hope_ground_name">match_hope_ground_name</string>
     <string name="searchmatchlist_result_match_hope_date">match_hope_date</string>
-    <string name="searchmatchlist_result_match_hope_time">match_hope_time</string>
+    <string name="searchmatchlist_result_match_hope_start_time">match_hope_start_time</string>
+    <string name="searchmatchlist_result_match_hope_end_time">match_hope_end_time</string>
     <string name="searchmatchlist_result_match_host_name">match_host_name</string>
     <string name="searchmatchlist_result_match_hope_team_lvl">match_hope_team_lvl</string>
     <string name="searchmatchlist_result_match_hope_team_member">match_hope_team_member</string>
@@ -132,4 +134,30 @@
     <string name="ranking_result_team_point">team_point</string>
     <string name="ranking_result_team_rank_fluctuation_code">team_rank_fluctuation_code</string>
     <string name="ranking_result_team_rank_fluctuation">team_rank_fluctuation</string>
+
+    <!-- groundDetail Service -->
+    <string name="ground_detail_service">ground/searchGroundDetail</string>
+    <string name="ground_detail_param_email_id">email_id</string>
+    <string name="ground_detail_param_ground_id">ground_id</string>
+
+    <string name="ground_detail_result_ground_id">ground_id</string>
+    <string name="ground_detail_result_ground_name">ground_name</string>
+    <string name="ground_detail_result_open_time">open_time</string>
+    <string name="ground_detail_result_close_time">close_time</string>
+    <string name="ground_detail_result_field_count">field_count</string>
+    <string name="ground_detail_result_ground_tel">ground_tel</string>
+    <string name="ground_detail_result_ground_cost_info">ground_cost_info</string>
+    <string name="ground_detail_result_ground_cost_gbn">ground_cost_gbn</string>
+    <string name="ground_detail_result_ground_cost">ground_cost</string>
+    <string name="ground_detail_result_ground_addr">ground_addr</string>
+    <string name="ground_detail_result_ground_desc">ground_desc</string>
+    <string name="ground_detail_result_in_out_gbn">in_out_gbn</string>
+    <string name="ground_detail_result_parking_gbn">parking_gbn</string>
+    <string name="ground_detail_result_shower_room_gbn">shower_room_gbn</string>
+    <string name="ground_detail_result_shoes_rental_gbn">shoes_rental_gbn</string>
+    <string name="ground_detail_result_socks_cell_gbn">socks_cell_gbn</string>
+    <string name="ground_detail_result_store_gbn">store_gbn</string>
+    <string name="ground_detail_result_video_record_gbn">video_record_gbn</string>
+    <string name="ground_detail_result_night_light_gbn">night_light_gbn</string>
+    <string name="ground_detail_result_ground_img">ground_img</string>
 </resources>

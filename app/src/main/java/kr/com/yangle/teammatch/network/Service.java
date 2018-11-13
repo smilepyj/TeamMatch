@@ -40,6 +40,8 @@ public class Service {
         try {
             String mData = mDefinitionNetwork.requsetParser(dataObject);
 
+            Log.e(TAG, "Offer - " + mData);
+
             if(mData != null) {
                 mApplicationTM.startProgress(mContext, "");
 
@@ -167,7 +169,7 @@ public class Service {
             JSONObject mJSONObject = new JSONObject();
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_email_id), email_id);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_date), search_date);
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_time), search_time);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_start_time), search_time);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area_group), search_area_group);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area), search_area);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_ground), search_ground);
@@ -211,16 +213,17 @@ public class Service {
 
     /**
      * 구장 정보 상세 조회 서비스
-     * Created by maloman72 on 218-11-04
+     * Created by maloman72 on 218-11-13
      * */
     public void searchGroundDetail(ResponseListener responseListener, String ground_id) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + "ground/searchGroundDetail";
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.ground_detail_service);
+            Log.e(TAG, mURL);
             String email_id = mApplicationTM.getUserEmail();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put("email_id", email_id);
-            mJSONObject.put("ground_id", ground_id);
+            mJSONObject.put(mContext.getString(R.string.ground_detail_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.ground_detail_param_ground_id), ground_id);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
@@ -330,7 +333,7 @@ public class Service {
 
     /**
      * 매치 등록 서비스
-     * Created by maloman72 on 218-11-01
+     * Created by maloman72 on 2018-11-01
      * */
     public void registMatch(ResponseListener responseListener, String match_hope_ground_id, String match_hope_date, String match_hope_time, String match_hope_team_member, String match_hope_team_lvl) {
         try {

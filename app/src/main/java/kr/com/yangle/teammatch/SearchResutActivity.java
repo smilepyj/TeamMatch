@@ -71,7 +71,7 @@ public class SearchResutActivity extends AppCompatActivity {
         bt_search_result_change_condition.setOnClickListener(mOnClickListener);
 
         search_date = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_date));
-        search_time = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_time));
+        search_time = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_start_time));
         search_area_group = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_area_group));
         search_area_group_cnt = getIntent().getIntExtra(getString(R.string.search_match_extra_search_area_group_cnt), 0);
         search_area = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_area));

@@ -505,8 +505,8 @@ public class UserInfoActivity extends AppCompatActivity {
 
                     JSONArray hope_grounds = mResult.getJSONArray(mContext.getString(R.string.searchuserinfo_result_hope_grounds));
 
-                    hope_ground = new ArrayList<String>();
-                    hope_ground_name = new ArrayList<String>();
+                    hope_ground = new ArrayList<>();
+                    hope_ground_name = new ArrayList<>();
 
                     for(int i = 0; i < hope_grounds.length() ; i++) {
                         hope_ground.add(((JSONObject)hope_grounds.get(i)).getString("ground_id"));

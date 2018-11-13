@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import kr.com.yangle.teammatch.ApplicationTM;
+import kr.com.yangle.teammatch.GroundDetailActivity;
 import kr.com.yangle.teammatch.R;
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
@@ -75,6 +77,7 @@ public class SearchResultListViewAdapter extends BaseAdapter {
 
         TextView tv_listview_search_result_area = convertView.findViewById(R.id.tv_listview_search_result_area);
         TextView tv_listview_search_result_ground = convertView.findViewById(R.id.tv_listview_search_result_ground);
+        ImageButton ib_listview_search_result_ground = convertView.findViewById(R.id.ib_listview_search_result_ground);
         TextView tv_listview_search_result_day = convertView.findViewById(R.id.tv_listview_search_result_day);
         TextView tv_listview_search_result_time = convertView.findViewById(R.id.tv_listview_search_result_time);
         TextView tv_listview_search_result_team_name = convertView.findViewById(R.id.tv_listview_search_result_team_name);
@@ -84,12 +87,14 @@ public class SearchResultListViewAdapter extends BaseAdapter {
         try {
             JSONObject mJSONObject = mDataJSONArray.getJSONObject(position);
 
+            final String match_hope_ground_id = mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_ground_id)).toString();
+
             tv_listview_search_result_area.setText(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_ground_sido_name)).toString() + mContext.getString(R.string.search_result_list_hyphen) + mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_ground_gugun_name)).toString());
             tv_listview_search_result_ground.setText(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_ground_name)).toString());
             Date mDate = new SimpleDateFormat(mContext.getString(R.string.search_result_date_format_base), Locale.getDefault()).parse(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_date)).toString());
             String mHopeDate = new SimpleDateFormat(mContext.getString(R.string.search_result_date_format_view), Locale.getDefault()).format(mDate);
             tv_listview_search_result_day.setText(mHopeDate);
-            Date mTime = new SimpleDateFormat(mContext.getString(R.string.search_result_time_format_base), Locale.getDefault()).parse(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_time)).toString());
+            Date mTime = new SimpleDateFormat(mContext.getString(R.string.search_result_time_format_base), Locale.getDefault()).parse(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_start_time)).toString());
             String mHopeTime = new SimpleDateFormat(mContext.getString(R.string.search_result_time_format_view), Locale.getDefault()).format(mTime);
             tv_listview_search_result_time.setText(mHopeTime);
             tv_listview_search_result_team_name.setText(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_host_name)).toString());
@@ -106,10 +111,36 @@ public class SearchResultListViewAdapter extends BaseAdapter {
                 }
             });
 
+            tv_listview_search_result_ground.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent mIntent = new Intent(mContext, GroundDetailActivity.class);
+                    mIntent.putExtra(mContext.getString(R.string.ground_detail_ground_id), match_hope_ground_id);
+                    mContext.startActivity(mIntent);
+                }
+            });
+
+            ib_listview_search_result_ground.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent mIntent = new Intent(mContext, GroundDetailActivity.class);
+                    mIntent.putExtra(mContext.getString(R.string.ground_detail_ground_id), match_hope_ground_id);
+                    mContext.startActivity(mIntent);
+                }
+            });
         } catch (Exception e) {
             Log.e(TAG, "getView - " + e);
             mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
         }
+
+        LinearLayout ll_listview_search_result_request = convertView.findViewById(R.id.ll_listview_search_result_request);
+
+        ll_listview_search_result_request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mApplicationTM.makeToast(mContext, mContext.getString(R.string.cording_message));
+            }
+        });
 
         return convertView;
     }

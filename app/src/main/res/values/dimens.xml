@@ -17,6 +17,12 @@
     <dimen name="font_size_5">5sp</dimen>
     <dimen name="font_size_4">4sp</dimen>
 
+    <!-- Dimen Size -->
+    <dimen name="dimen_size_1">1dp</dimen>
+    <dimen name="dimen_size_5">5dp</dimen>
+    <dimen name="dimen_size_8">8dp</dimen>
+    <dimen name="dimen_size_10">10dp</dimen>
+
     <!-- Layout Size -->
     <dimen name="ll_under_line">1dp</dimen>
     <dimen name="ll_margin">7dp</dimen>

@@ -396,7 +396,7 @@ public class SearchMatchActivity extends AppCompatActivity {
 
         Intent mIntent = new Intent(mContext, SearchResutActivity.class);
         mIntent.putExtra(getString(R.string.searchmatchlist_param_search_date), search_date);
-        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_time), search_time);
+        mIntent.putExtra(getString(R.string.searchmatchlist_param_search_start_time), search_time);
         mIntent.putExtra(getString(R.string.searchmatchlist_param_search_area_group), mApplicationTM.ArrayListToStringParser(search_area_group));
         mIntent.putExtra(getString(R.string.search_match_extra_search_area_group_cnt), search_area_group.size());
         mIntent.putExtra(getString(R.string.searchmatchlist_param_search_area), mApplicationTM.ArrayListToStringParser(search_area));

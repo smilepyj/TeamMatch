@@ -6,10 +6,18 @@
 
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorGray">#888888</color>
-    <color name="colorGrayLight">#D8D8D8</color>
-    <color name="colorGreensearchmatch">#1ABC9C</color>
     <color name="colorInvisible">#FFFFFFFF</color>
+
+    <color name="color_DCDCDC">#DCDCDC</color>
+    <color name="color_7D7D7D">#7D7D7D</color>
+    <color name="color_626262">#626262</color>
+    <color name="color_535353">#535353</color>
+    <color name="color_313131">#313131</color>
+
+    <color name="color_D6352A">#D6352A</color>
+
+    <color name="color_00AE55">#00AE55</color>
+    <color name="color_007338">#007338</color>
 
     <!-- Tool Bar -->
     <color name="color_toolbar_title">#313131</color>
