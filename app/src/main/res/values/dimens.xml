@@ -19,6 +19,7 @@
 
     <!-- Dimen Size -->
     <dimen name="dimen_size_1">1dp</dimen>
+    <dimen name="dimen_size_2">2dp</dimen>
     <dimen name="dimen_size_5">5dp</dimen>
     <dimen name="dimen_size_8">8dp</dimen>
     <dimen name="dimen_size_10">10dp</dimen>

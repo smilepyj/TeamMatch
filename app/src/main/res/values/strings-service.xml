@@ -160,4 +160,6 @@
     <string name="ground_detail_result_video_record_gbn">video_record_gbn</string>
     <string name="ground_detail_result_night_light_gbn">night_light_gbn</string>
     <string name="ground_detail_result_ground_img">ground_img</string>
+    <string name="ground_detail_result_img_url">img_url</string>
+    <string name="ground_detail_result_thumb_img_url">thumb_img_url</string>
 </resources>

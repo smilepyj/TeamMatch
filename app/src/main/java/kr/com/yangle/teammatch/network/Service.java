@@ -218,7 +218,6 @@ public class Service {
     public void searchGroundDetail(ResponseListener responseListener, String ground_id) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.ground_detail_service);
-            Log.e(TAG, mURL);
             String email_id = mApplicationTM.getUserEmail();
 
             JSONObject mJSONObject = new JSONObject();

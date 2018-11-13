@@ -148,17 +148,20 @@
 
     <!-- GroundDeatil Activity -->
     <string name="ground_detail_title">구장정보</string>
+    <string name="ground_detail_no_photo">해당 구장은 사진을 제공하지 않습니다</string>
     <string name="ground_detail_location">위치</string>
     <string name="ground_detail_operation">운영</string>
     <string name="ground_detail_operation_hyphen">&#160;~&#160;</string>
+    <string name="ground_detail_won">원</string>
+    <string name="ground_detail_no_cost">해당 구장은 요금정보를 제공하지 않습니다.</string>
     
     <string name="ground_detail_inout">실내구장</string>
     <string name="ground_detail_park">주차장</string>
     <string name="ground_detail_shower">샤워실</string>
     <string name="ground_detail_light">야간조명</string>
     <string name="ground_detail_shop">매점</string>
-    <string name="ground_detail_shoes">축구화렌탈</string>
-    <string name="ground_detail_socks">축구양발판매</string>
+    <string name="ground_detail_shoes">풋살화대여</string>
+    <string name="ground_detail_socks">축구양말판매</string>
     <string name="ground_detail_film">영상녹화</string>
 
     <string name="ground_detail_map">위치보기</string>

@@ -102,4 +102,7 @@
     
     <!-- GroundDetail Activity -->
     <string name="ground_detail_ground_id">GROUND_ID</string>
+    <string name="ground_detail_time_format">hhmm</string>
+    <string name="ground_detail_time_view">hh:mm</string>
+    <string name="ground_detail_option_yes">Y</string>
 </resources>

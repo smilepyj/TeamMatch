@@ -77,4 +77,13 @@
         <item>매칭 중단</item>
     </string-array>
     
+    <string-array name="C005_code">
+        <item>C005001</item>
+        <item>C005002</item>
+    </string-array>
+
+    <string-array name="C005_data">
+        <item>1시간</item>
+        <item>2시간</item>
+    </string-array>
 </resources>

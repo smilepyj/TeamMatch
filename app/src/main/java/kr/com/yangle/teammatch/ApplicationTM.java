@@ -31,7 +31,7 @@ public class ApplicationTM extends Application {
 
     Context mContext;
 
-    Map<String, String> C001, C002, C003, C004;
+    Map<String, String> C001, C002, C003, C004, C005;
 
     @Override
     public void onCreate() {
@@ -81,6 +81,14 @@ public class ApplicationTM extends Application {
         for(int i = 0; i < C004_code.length; i++) {
             C004.put(C004_code[i], C004_data[i]);
         }
+
+        C005 = new HashMap<>();
+        String[] C005_code = getResources().getStringArray(R.array.C005_code);
+        String[] C005_data = getResources().getStringArray(R.array.C005_data);
+
+        for(int i = 0; i < C005_code.length; i++) {
+            C005.put(C005_code[i], C005_data[i]);
+        }
     }
 
     /**
@@ -118,6 +126,10 @@ public class ApplicationTM extends Application {
 
     public Map<String, String> getC004() {
         return C004;
+    }
+
+    public Map<String, String> getC005() {
+        return  C005;
     }
 
     /**

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -41,7 +40,32 @@
             <ImageView
                 android:id="@+id/iv_ground_detail_photo"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:id="@+id/ll_ground_detail_no_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_warning" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_5"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/ground_detail_no_photo"
+                    android:textColor="@color/color_7D7D7D"
+                    android:textSize="@dimen/font_size_12" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -70,6 +94,8 @@
                     android:id="@+id/tv_ground_detail_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
                     android:textColor="@color/color_313131"
                     android:textSize="@dimen/font_size_18"
                     android:textStyle="bold" />
@@ -92,6 +118,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/dimen_size_10"
                     android:layout_marginStart="@dimen/dimen_size_5"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
                     android:text="@string/ground_detail_location"
                     android:textColor="@color/color_626262"
                     android:textSize="@dimen/font_size_16" />
@@ -100,6 +128,8 @@
                     android:id="@+id/tv_ground_detail_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
                     android:textColor="@color/color_313131"
                     android:textSize="@dimen/font_size_16" />
             </LinearLayout>
@@ -121,6 +151,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/dimen_size_10"
                     android:layout_marginStart="@dimen/dimen_size_5"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
                     android:text="@string/ground_detail_operation"
                     android:textColor="@color/color_626262"
                     android:textSize="@dimen/font_size_16" />
@@ -129,6 +161,8 @@
                     android:id="@+id/tv_ground_detail_operation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
                     android:textColor="@color/color_313131"
                     android:textSize="@dimen/font_size_16" />
             </LinearLayout>
@@ -136,15 +170,157 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_size_2"
+            android:background="@color/color_DCDCDC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.75"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:weightSum="2">
 
-            <ListView
-                android:id="@+id/lv_ground_detail"
+            <LinearLayout
+                android:id="@+id/ll_ground_detail_cost"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingEnd="@dimen/dimen_size_5"
+                    android:paddingStart="@dimen/dimen_size_10"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|left"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/dimen_size_10">
+
+                        <TextView
+                            android:id="@+id/tv_ground_detail_hour_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/color_313131"
+                            android:textSize="@dimen/font_size_16"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:orientation="horizontal"
+                        android:paddingEnd="@dimen/dimen_size_5">
+
+                        <TextView
+                            android:id="@+id/tv_ground_detail_cost_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:fontFamily="@font/notosanskr_regular"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/color_D6352A"
+                            android:textSize="@dimen/font_size_16"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_1"
+                    android:background="@color/color_DCDCDC" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingEnd="@dimen/dimen_size_5"
+                    android:paddingStart="@dimen/dimen_size_10"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|left"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/dimen_size_10">
+
+                        <TextView
+                            android:id="@+id/tv_ground_detail_hour_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/color_313131"
+                            android:textSize="@dimen/font_size_16"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:orientation="horizontal"
+                        android:paddingEnd="@dimen/dimen_size_5">
+
+                        <TextView
+                            android:id="@+id/tv_ground_detail_cost_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:fontFamily="@font/notosanskr_regular"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/color_D6352A"
+                            android:textSize="@dimen/font_size_16"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_ground_detail_no_cost"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_warning" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_5"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/ground_detail_no_cost"
+                    android:textColor="@color/color_7D7D7D"
+                    android:textSize="@dimen/font_size_12" />
+            </LinearLayout>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_size_2"
+            android:background="@color/color_DCDCDC" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -180,6 +356,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
                         android:text="@string/ground_detail_inout"
                         android:textColor="@color/color_7D7D7D"
                         android:textSize="@dimen/font_size_14" />
@@ -203,6 +381,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
                         android:text="@string/ground_detail_park"
                         android:textColor="@color/color_7D7D7D"
                         android:textSize="@dimen/font_size_14" />
@@ -226,6 +406,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
                         android:text="@string/ground_detail_shower"
                         android:textColor="@color/color_7D7D7D"
                         android:textSize="@dimen/font_size_14" />
@@ -249,6 +431,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
                         android:text="@string/ground_detail_light"
                         android:textColor="@color/color_7D7D7D"
                         android:textSize="@dimen/font_size_14" />
@@ -277,10 +461,12 @@
                         android:background="@drawable/ic_shop_off" />
 
                     <TextView
-                        android:id="@+id/tv_ground_detail_show"
+                        android:id="@+id/tv_ground_detail_shop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
                         android:text="@string/ground_detail_shop"
                         android:textColor="@color/color_7D7D7D"
                         android:textSize="@dimen/font_size_14" />
@@ -304,6 +490,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
                         android:text="@string/ground_detail_shoes"
                         android:textColor="@color/color_7D7D7D"
                         android:textSize="@dimen/font_size_14" />
@@ -328,6 +516,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
                         android:text="@string/ground_detail_socks"
                         android:textColor="@color/color_7D7D7D"
                         android:textSize="@dimen/font_size_14" />
@@ -352,6 +542,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
                         android:text="@string/ground_detail_film"
                         android:textColor="@color/color_7D7D7D"
                         android:textSize="@dimen/font_size_14" />
@@ -373,29 +565,29 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
+                android:background="@drawable/ic_button_footer"
                 android:fontFamily="@font/notosanskr_medium"
                 android:includeFontPadding="false"
-                android:background="@drawable/ic_button_footer"
                 android:text="@string/ground_detail_map"
-                android:textSize="@dimen/font_size_16"
-                android:textColor="@color/colorWhite"/>
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/font_size_16" />
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.5"/>
+                android:layout_weight="0.5" />
 
             <Button
                 android:id="@+id/bt_ground_detail_call"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
+                android:background="@drawable/ic_button_footer"
                 android:fontFamily="@font/notosanskr_medium"
                 android:includeFontPadding="false"
-                android:background="@drawable/ic_button_footer"
                 android:text="@string/ground_detail_call"
-                android:textSize="@dimen/font_size_16"
-                android:textColor="@color/colorWhite"/>
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/font_size_16" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
