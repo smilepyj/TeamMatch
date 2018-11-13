@@ -108,6 +108,7 @@
     <string name="ground_detail_time_view">hh:mm</string>
     <string name="ground_detail_cost_view">###,###</string>
     <string name="ground_detail_option_yes">Y</string>
+    <string name="ground_detail_option_out">O</string>
 
     <string name="ground_detail_no_phone_num">구장 전화번호 정보가 없습니다.</string>
 

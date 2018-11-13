@@ -358,7 +358,7 @@
                         android:layout_marginTop="@dimen/dimen_size_5"
                         android:fontFamily="@font/notosanskr_regular"
                         android:includeFontPadding="false"
-                        android:text="@string/ground_detail_inout"
+                        android:text="@string/ground_detail_inout_i"
                         android:textColor="@color/color_7D7D7D"
                         android:textSize="@dimen/font_size_14" />
                 </LinearLayout>

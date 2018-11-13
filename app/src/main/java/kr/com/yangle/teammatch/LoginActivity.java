@@ -2,13 +2,17 @@ package kr.com.yangle.teammatch;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
@@ -20,6 +24,9 @@ import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
 import kr.com.yangle.teammatch.util.BackPressCloseHandler;
+import kr.com.yangle.teammatch.util.DialogAlertActivity;
+import kr.com.yangle.teammatch.util.DialogPrivacyActivity;
+import kr.com.yangle.teammatch.util.DialogTermServiceActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -37,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private OAuthLogin mOAuthLogin;
 
+    TextView tv_login_term_service, tv_login_privacy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +59,17 @@ public class LoginActivity extends AppCompatActivity {
         mService = new Service(mContext);
 
         bt_login_naver = findViewById(R.id.bt_login_naver);
-
         ll_login_kakao = findViewById(R.id.ll_login_kakao);
+
+        tv_login_term_service = findViewById(R.id.tv_login_term_service);
+        tv_login_privacy = findViewById(R.id.tv_login_privacy);
 
         bt_login_naver.setOAuthLoginHandler(mOAuthLoginHandler);
 
         ll_login_kakao.setOnClickListener(mOnClickListener);
+
+        tv_login_term_service.setOnClickListener(mOnClickListener);
+        tv_login_privacy.setOnClickListener(mOnClickListener);
 
         initNaverLogin();
     }
@@ -79,9 +93,19 @@ public class LoginActivity extends AppCompatActivity {
     View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Intent mIntent;
+
             switch (v.getId()) {
                 case R.id.ll_login_kakao :
                     mApplicationTM.makeToast(mContext, getString(R.string.login_kakao_not_support));
+                    break;
+                case R.id.tv_login_term_service :
+                    mIntent = new Intent(mContext, DialogTermServiceActivity.class);
+                    mContext.startActivity(mIntent);
+                    break;
+                case R.id.tv_login_privacy :
+                    mIntent = new Intent(mContext, DialogPrivacyActivity.class);
+                    mContext.startActivity(mIntent);
                     break;
                 default :
                     break;

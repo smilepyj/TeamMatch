@@ -84,6 +84,12 @@
             android:name=".util.DialogAlertActivity"
             android:theme="@style/DialogTheme" />
         <activity
+            android:name=".util.DialogTermServiceActivity"
+            android:theme="@style/DialogTheme" />
+        <activity
+            android:name=".util.DialogPrivacyActivity"
+            android:theme="@style/DialogTheme" />
+        <activity
             android:name=".GroundDetailActivity"
             android:screenOrientation="sensorPortrait" />
         <activity android:name=".util.DialogMatchTimePickerActivity"

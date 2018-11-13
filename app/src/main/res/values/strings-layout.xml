@@ -154,7 +154,8 @@
     <string name="ground_detail_won">원</string>
     <string name="ground_detail_no_cost">해당 구장은 요금정보를 제공하지 않습니다.</string>
     
-    <string name="ground_detail_inout">실내구장</string>
+    <string name="ground_detail_inout_i">실내구장</string>
+    <string name="ground_detail_inout_o">실외구장</string>
     <string name="ground_detail_park">주차장</string>
     <string name="ground_detail_shower">샤워실</string>
     <string name="ground_detail_light">야간조명</string>

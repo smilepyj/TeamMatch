@@ -159,4 +159,12 @@
     <color name="color_alert_dialog_button_ok_solid">#007338</color>
     <color name="color_alert_dialog_button_ok_stroke">#007338</color>
     <color name="color_alert_dialog_button_ok_text">#FFFFFF</color>
+
+    <!-- Term Service Dialog -->
+    <color name="color_term_service_dialog_title_text">#313131</color>
+    <color name="color_term_service_dialog_contents">#626262</color>
+
+    <!-- Privacy Dialog -->
+    <color name="color_privacy_dialog_title_text">#313131</color>
+    <color name="color_privacy_dialog_contents">#626262</color>
 </resources>
