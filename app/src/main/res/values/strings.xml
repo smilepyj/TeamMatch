@@ -131,9 +131,11 @@
     <!-- Match Apply Dialog -->
     <string name="match_apply_extra_title">TITLE</string>
     <string name="match_apply_extra_contents">CONTENTS</string>
+    <string name="match_apply_extra_match_id">MATCH_ID</string>
+    <string name="match_apply_extra_team_id">TEAM_ID</string>
     <string name="match_apply_extra_team_name">TEAM_NAME</string>
     <string name="match_apply_extra_team_lvl">TEAM_LVL</string>
-    <string name="match_apply_extra_team_member">TEAM_MEMBER</string>
+    <string name="match_apply_extra_team_point">TEAM_POINT</string>
     <string name="match_apply_extra_match_time">MATCH_TIME</string>
     <string name="match_apply_extra_match_ground">MATCH_GROUND</string>
 

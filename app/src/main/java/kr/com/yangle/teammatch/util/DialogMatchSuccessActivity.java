@@ -1,6 +1,7 @@
 package kr.com.yangle.teammatch.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -95,6 +96,59 @@ public class DialogMatchSuccessActivity extends AppCompatActivity {
 
             ll_match_success_dialog_regist.setVisibility(View.GONE);
             ll_match_success_dialog_proc.setVisibility(View.VISIBLE);
+
+            tv_match_success_notice.setText(getString(R.string.match_success_dialog_contents_proc));
+        }else if("HOST".equals(mType)) {
+
+            String sub_title = getIntent().getStringExtra("SUB_TITLE");
+            String sub_title_etc = getIntent().getStringExtra("SUB_TITLE_ETC");
+            String ground_name = getIntent().getStringExtra("GROUND_NAME");
+            String ground_tel = getIntent().getStringExtra("GROUND_TEL");
+            String match_time = getIntent().getStringExtra("MATCH_TIME");
+            String ground_cost = getIntent().getStringExtra("GROUND_COST");
+            String notice = getIntent().getStringExtra("NOTICE");
+
+            tv_match_success_sub_title.setText(sub_title);
+            tv_match_success_sub_title_etc.setText(sub_title_etc);
+            tv_match_success_sub_title_etc.setVisibility(View.VISIBLE);
+            tv_match_success_ground_name.setText(ground_name);
+            tv_match_success_phone_ground.setText(ground_tel);
+            tv_match_success_time.setText(match_time);
+            tv_match_success_ground.setText(ground_name);
+            tv_match_success_cost.setText(ground_cost);
+            tv_match_success_notice.setText(notice);
+
+            ll_match_success_dialog_regist.setVisibility(View.GONE);
+            ll_match_success_dialog_proc.setVisibility(View.VISIBLE);
+
+            tv_match_success_notice.setText(getString(R.string.match_success_dialog_contents_proc));
+        }else if("GUEST".equals(mType)) {
+
+            String sub_title = getIntent().getStringExtra("SUB_TITLE");
+            String team_name = getIntent().getStringExtra("TEAM_NAME");
+            String team_lvl = getIntent().getStringExtra("TEAM_LVL");
+            String team_point = getIntent().getStringExtra("TEAM_POINT");
+            String team_user_name = getIntent().getStringExtra("TEAM_USER_NAME");
+            String team_user_tel = getIntent().getStringExtra("TEAM_USER_TEL");
+            String ground_name = getIntent().getStringExtra("GROUND_NAME");
+            String match_time = getIntent().getStringExtra("MATCH_TIME");
+            String ground_cost = getIntent().getStringExtra("GROUND_COST");
+            String notice = getIntent().getStringExtra("NOTICE");
+
+            tv_match_success_sub_title.setText(sub_title);
+            tv_match_success_sub_title_etc.setVisibility(View.GONE);
+            tv_match_success_team_name.setText(team_name);
+            tv_match_success_team_lvl.setText(team_lvl);
+            tv_match_success_team_member.setText(team_point);
+            tv_match_success_manager.setText(team_user_name);
+            tv_match_success_phone_manager.setText(team_user_tel);
+            tv_match_success_time.setText(match_time);
+            tv_match_success_ground.setText(ground_name);
+            tv_match_success_cost.setText(ground_cost);
+            tv_match_success_notice.setText(notice);
+
+            ll_match_success_dialog_regist.setVisibility(View.VISIBLE);
+            ll_match_success_dialog_proc.setVisibility(View.GONE);
 
             tv_match_success_notice.setText(getString(R.string.match_success_dialog_contents_proc));
         }

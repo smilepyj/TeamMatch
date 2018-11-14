@@ -77,6 +77,11 @@ public class DialogAlertActivity extends AppCompatActivity {
                             startActivity(mIntent);
                             finish();
                             break;
+                        case 3 :
+                            mIntent = new Intent(mContext, MatchProcActivity.class);
+                            startActivity(mIntent);
+                            finish();
+                            break;
                         default :
                             break;
                     }

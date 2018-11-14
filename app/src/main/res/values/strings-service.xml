@@ -110,6 +110,13 @@
     <string name="registMatch_param_match_hope_team_lvl">match_hope_team_lvl</string>
     <string name="registMatch_param_pre_payment_at">pre_payment_at</string>
 
+    <!-- acceptMatch Service -->
+    <string name="acceptMatch_service">match/acceptMatch</string>
+    <string name="acceptMatch_param_email_id">email_id</string>
+    <string name="acceptMatch_param_match_id">match_id</string>
+    <string name="acceptMatch_param_match_apply_id">match_apply_id</string>
+    <string name="acceptMatch_param_accept_reject_type">accept_reject_type</string>
+
     <!-- MatchProc Service -->
     <string name="matchProclist_result_match_id">match_id</string>
     <string name="matchProclist_result_match_apply_id">match_apply_id</string>

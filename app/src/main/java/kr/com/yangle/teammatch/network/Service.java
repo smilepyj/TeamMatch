@@ -327,7 +327,7 @@ public class Service {
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
-            Log.e(TAG, "searchMatchList - " + e);
+            Log.e(TAG, "applyMatch - " + e);
         }
 
     }
@@ -353,7 +353,29 @@ public class Service {
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
-            Log.e(TAG, "searchMatchList - " + e);
+            Log.e(TAG, "registMatch - " + e);
+        }
+
+    }
+
+    /**
+     * 매치 수락/거절 서비스
+     * Created by maloman72 on 218-11-01
+     * */
+    public void acceptMatch(ResponseListener responseListener, String match_id, String match_apply_id, String accept_reject_type) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.applyMatch_service);
+            String email_id = mApplicationTM.getUserEmail();
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.acceptMatch_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.acceptMatch_param_match_id), match_id);
+            mJSONObject.put(mContext.getString(R.string.acceptMatch_param_match_apply_id), match_apply_id);
+            mJSONObject.put(mContext.getString(R.string.acceptMatch_param_accept_reject_type), accept_reject_type);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "acceptMatch - " + e);
         }
 
     }
