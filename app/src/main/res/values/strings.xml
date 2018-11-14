@@ -132,6 +132,7 @@
     <string name="match_apply_extra_title">TITLE</string>
     <string name="match_apply_extra_contents">CONTENTS</string>
     <string name="match_apply_extra_match_id">MATCH_ID</string>
+    <string name="match_apply_extra_match_apply_id">MATCH_APPLY_ID</string>
     <string name="match_apply_extra_team_id">TEAM_ID</string>
     <string name="match_apply_extra_team_name">TEAM_NAME</string>
     <string name="match_apply_extra_team_lvl">TEAM_LVL</string>

@@ -29,7 +29,7 @@ public class DialogMatchApplyActivity extends AppCompatActivity {
     TextView tv_match_apply_title, tv_match_apply_contents, tv_match_apply_team_name, tv_match_apply_team_lvl, tv_match_apply_team_member, tv_match_apply_match_time, tv_match_apply_match_ground;
     Button bt_match_apply_no, bt_match_apply_yes;
 
-    String match_id, opponent_team_id, accept_reject_type;
+    String match_id, match_apply_id, opponent_team_id, accept_reject_type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +59,11 @@ public class DialogMatchApplyActivity extends AppCompatActivity {
         tv_match_apply_title.setText(getIntent().getStringExtra(getString(R.string.match_apply_extra_title)));
         tv_match_apply_contents.setText(getIntent().getStringExtra(getString(R.string.match_apply_extra_contents)));
         match_id = getIntent().getStringExtra(getString(R.string.match_apply_extra_match_id));
+        match_apply_id = getIntent().getStringExtra(getString(R.string.match_apply_extra_match_apply_id));
         opponent_team_id = getIntent().getStringExtra(getString(R.string.match_apply_extra_team_id));
         tv_match_apply_team_name.setText(getIntent().getStringExtra(getString(R.string.match_apply_extra_team_name)));
         tv_match_apply_team_lvl.setText(getIntent().getStringExtra(getString(R.string.match_apply_extra_team_lvl)));
-        tv_match_apply_team_member.setText(getIntent().getStringExtra(getString(R.string.match_apply_extra_team_point)));
+        tv_match_apply_team_member.setText(getIntent().getStringExtra(getString(R.string.match_apply_extra_team_point)) + "점");
         tv_match_apply_match_time.setText(getIntent().getStringExtra(getString(R.string.match_apply_extra_match_time)));
         tv_match_apply_match_ground.setText(getIntent().getStringExtra(getString(R.string.match_apply_extra_match_ground)));
     }
@@ -73,11 +74,13 @@ public class DialogMatchApplyActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.bt_match_apply_no :
                     accept_reject_type = "R";
-                    mService.acceptMatch(acceptMatch_Listener, match_id, opponent_team_id, accept_reject_type);
+                    mService.acceptMatch(acceptMatch_Listener, match_id, match_apply_id, accept_reject_type);
+                    finish();
                     break;
                 case R.id.bt_match_apply_yes :
                     accept_reject_type = "A";
-                    mService.acceptMatch(acceptMatch_Listener, match_id, opponent_team_id, accept_reject_type);
+                    mService.acceptMatch(acceptMatch_Listener, match_id, match_apply_id, accept_reject_type);
+                    finish();
                     break;
                 default :
                     break;

@@ -76,6 +76,12 @@ public class DialogMatchSuccessActivity extends AppCompatActivity {
                 case R.id.ib_match_success_call_ground :
                     break;
                 case R.id.bt_match_success_agree :
+                    if (!cb_match_success_check.isChecked()) {
+                        mApplicationTM.makeToast(mContext, "구장이용료 관련 알림에 동의해 주세요.");
+                        return;
+                    }
+
+                    finish();
                     break;
                 default :
                     break;

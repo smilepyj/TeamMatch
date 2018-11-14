@@ -23,6 +23,11 @@ import java.util.Locale;
 import kr.com.yangle.teammatch.ApplicationTM;
 import kr.com.yangle.teammatch.GroundDetailActivity;
 import kr.com.yangle.teammatch.R;
+import kr.com.yangle.teammatch.network.ResponseEvent;
+import kr.com.yangle.teammatch.network.ResponseListener;
+import kr.com.yangle.teammatch.network.Service;
+import kr.com.yangle.teammatch.util.DialogMatchApplyActivity;
+import kr.com.yangle.teammatch.util.DialogMatchSuccessActivity;
 
 public class MatchProcListViewAdapter extends BaseAdapter {
     private final String TAG = this.getClass().getSimpleName();
@@ -34,12 +39,16 @@ public class MatchProcListViewAdapter extends BaseAdapter {
     private Context mContext;
     private ApplicationTM mApplicationTM;
 
+    private Service mService;
+
     public MatchProcListViewAdapter(Context context, JSONArray jsonArray) {
         mDataJSONArray = jsonArray;
         mDataJSONArrayCnt = mDataJSONArray.length();
 
         mContext = context;
         mApplicationTM = (ApplicationTM) mContext.getApplicationContext();
+
+        mService = new Service(mContext);
     }
 
     @Override
@@ -87,12 +96,13 @@ public class MatchProcListViewAdapter extends BaseAdapter {
         LinearLayout ll_listview_match_proc = convertView.findViewById(R.id.ll_listview_match_proc);
 
         String match_proc_cd = "";
-        String match_apply_id = "";
         String guest_host_type = "";
 
         try {
             JSONObject mJSONObject = mDataJSONArray.getJSONObject(position);
 
+            final String match_id = mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_id)).toString();
+            final String match_apply_id = mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_apply_id)).toString();
             final String match_hope_ground_id = mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_hope_ground_id)).toString();
 
             tv_listview_match_proc_area.setText(mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_hope_ground_sido_name)).toString() + mContext.getString(R.string.search_result_list_hyphen) + mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_ground_gugun_name)).toString());
@@ -116,8 +126,8 @@ public class MatchProcListViewAdapter extends BaseAdapter {
             Log.e(TAG, mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_proc_cd_name)).toString());
 
             String match_proc_cd_name;
+            final String match_proc_type;
 
-            match_apply_id = mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_apply_id)).toString();
             match_proc_cd = mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_proc_cd)).toString();
             guest_host_type = mJSONObject.get(mContext.getString(R.string.matchProclist_result_guest_host_type)).toString();
 
@@ -127,11 +137,15 @@ public class MatchProcListViewAdapter extends BaseAdapter {
             if("C004001".equals(match_proc_cd)) {
                 if(!"".equals(match_apply_id) && "G".equals(guest_host_type)) {
                     match_proc_cd_name = "매치 신청 중";
+                    match_proc_type = "3";
                     tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_2));
                 }else {
                     if("".equals(match_apply_id)) {
                         ll_list_view_match_proc_opponent_line.setVisibility(View.GONE);
                         ll_list_view_match_proc_opponent_info.setVisibility(View.GONE);
+                        match_proc_type = "1";
+                    }else {
+                        match_proc_type = "2";
                     }
 
                     match_proc_cd_name = "매치 등록 중";
@@ -139,12 +153,15 @@ public class MatchProcListViewAdapter extends BaseAdapter {
                 }
             }else if("C004003".equals(match_proc_cd)) {
                 match_proc_cd_name = "매치 승인 중";
+                match_proc_type = "4";
                 tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_3));
             }else if("C004004".equals(match_proc_cd) || "C004005".equals(match_proc_cd)) {
                 match_proc_cd_name = "매치 진행 중";
+                match_proc_type = "5";
                 tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_4));
             }else {
                 match_proc_cd_name = "매치 완료";
+                match_proc_type = "6";
                 tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_5));
             }
 
@@ -171,7 +188,20 @@ public class MatchProcListViewAdapter extends BaseAdapter {
             ll_listview_match_proc.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mApplicationTM.makeToast(mContext, mContext.getString(R.string.cording_message));
+
+                    if("1".equals(match_proc_type)) {
+                        mApplicationTM.makeToast(mContext, "등록된 매치에 대해 신청된 정보가 없습니다.");
+                    }else if("2".equals(match_proc_type)) {
+                        mService.searchMatchAlertInfo(searchMatchAlertInfo_Listener, match_id, match_apply_id, match_proc_type);
+                    }else if("3".equals(match_proc_type)) {
+
+                    }else if("4".equals(match_proc_type)) {
+                        mService.searchMatchAlertInfo(searchMatchAlertInfo_Listener, match_id, match_apply_id, match_proc_type);
+                    }else if("5".equals(match_proc_type)) {
+
+                    }else if("6".equals(match_proc_type)) {
+
+                    }
                 }
             });
 
@@ -183,4 +213,89 @@ public class MatchProcListViewAdapter extends BaseAdapter {
 
         return convertView;
     }
+
+    ResponseListener searchMatchAlertInfo_Listener = new ResponseListener() {
+        @Override
+        public void receive(ResponseEvent responseEvent) {
+            try {
+                JSONObject mJSONObject = new JSONObject(responseEvent.getResultData());
+
+                Log.e(TAG, mJSONObject.toString());
+
+                if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(mContext.getString(R.string.result_code)))) {
+                    JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
+                    JSONObject data = (JSONObject)mJSONArray.get(0);
+
+                    String match_alert_type = data.getString("match_alert_type");
+
+                    if("1".equals(match_alert_type)) {
+                        Intent mIntent = new Intent(mContext, DialogMatchApplyActivity.class);
+                        mIntent.putExtra(mContext.getString(R.string.match_apply_extra_title), "매치 신청");
+                        mIntent.putExtra(mContext.getString(R.string.match_apply_extra_contents), "상대편이 매치를 신청하였습니다.\n수락하시겠습니까?");
+                        mIntent.putExtra(mContext.getString(R.string.match_apply_extra_match_id), data.getString("match_id"));
+                        mIntent.putExtra(mContext.getString(R.string.match_apply_extra_match_apply_id), data.getString("match_apply_id"));
+                        mIntent.putExtra(mContext.getString(R.string.match_apply_extra_team_id), data.getString("opponent_id"));
+                        mIntent.putExtra(mContext.getString(R.string.match_apply_extra_team_name), data.getString("opponent_name"));
+                        mIntent.putExtra(mContext.getString(R.string.match_apply_extra_team_lvl), data.getString("opponent_lvl"));
+                        mIntent.putExtra(mContext.getString(R.string.match_apply_extra_team_point), data.getString("opponent_point"));
+                        mIntent.putExtra(mContext.getString(R.string.match_apply_extra_match_time), data.getString("hope_match_time"));
+                        mIntent.putExtra(mContext.getString(R.string.match_apply_extra_match_ground), data.getString("hope_match_ground"));
+                        mContext.startActivity(mIntent);
+                    }else if("2".equals(match_alert_type)) {
+                        String match_id = data.getString("match_id");
+                        String host_team_id = data.getString("host_team_id");
+                        String host_team_name = data.getString("host_team_name");
+                        String host_team_lvl = data.getString("host_team_lvl");
+                        String host_team_point = data.getString("host_team_point");
+                        String host_team_user_name = data.getString("host_team_user_name");
+                        String host_team_user_tel = data.getString("host_team_user_tel");
+                        String guest_team_id = data.getString("guest_team_id");
+                        String guest_team_name = data.getString("guest_team_name");
+                        String guest_team_lvl = data.getString("guest_team_lvl");
+                        String guest_team_point = data.getString("guest_team_point");
+                        String hope_match_time = data.getString("hope_match_time");
+                        String hope_match_ground = data.getString("hope_match_ground");
+                        String hope_match_ground_tel = data.getString("hope_match_ground_tel");
+                        String hope_match_ground_cost = data.getString("hope_match_ground_cost");
+
+                        if(mApplicationTM.getTeamId().equals(host_team_id)) {
+                            Intent mIntent = new Intent(mContext, DialogMatchSuccessActivity.class);
+                            mIntent.putExtra(mContext.getString(R.string.match_success_extra_type), "HOST");
+                            mIntent.putExtra("SUB_TITLE", "매치 전에 구장에 연락해 구장이용료를\n결제하시길 바랍니다.");
+                            mIntent.putExtra("SUB_TITLE_ETC", "(선 결제의 경우에는 동의 및 확인만 눌러주시면 됩니다.)");
+                            mIntent.putExtra("GROUND_NAME", hope_match_ground);
+                            mIntent.putExtra("GROUND_TEL", hope_match_ground_tel);
+                            mIntent.putExtra("MATCH_TIME", hope_match_time);
+                            mIntent.putExtra("GROUND_COST", hope_match_ground_cost);
+                            mIntent.putExtra("NOTICE", "경기 시작 전/후 상대팀에게 구장이용료의\n절반을 받으시길 바랍니다.");
+                            mContext.startActivity(mIntent);
+                        }else {
+                            Intent mIntent = new Intent(mContext, DialogMatchSuccessActivity.class);
+                            mIntent.putExtra(mContext.getString(R.string.match_success_extra_type), "GUEST");
+                            mIntent.putExtra("SUB_TITLE", "매치가 성사 되었습니다.\n상대방이 결제중입니다.");
+                            mIntent.putExtra("TEAM_NAME", host_team_name);
+                            mIntent.putExtra("TEAM_LVL", host_team_lvl);
+                            mIntent.putExtra("TEAM_POINT", host_team_point);
+                            mIntent.putExtra("TEAM_USER_NAME", host_team_user_name);
+                            mIntent.putExtra("TEAM_USER_TEL", host_team_user_tel);
+                            mIntent.putExtra("GROUND_NAME", hope_match_ground);
+                            mIntent.putExtra("MATCH_TIME", hope_match_time);
+                            mIntent.putExtra("GROUND_COST", hope_match_ground_cost);
+                            mIntent.putExtra("NOTICE", "경기 시작 전/후 상대팀에게 구장이용료의\n절반을 정산해 주시길 바랍니다.");
+                            mContext.startActivity(mIntent);
+                        }
+
+                    }
+
+                } else {
+                    mApplicationTM.makeToast(mContext, mJSONObject.get(mContext.getString(R.string.result_message)).toString());
+                }
+            } catch (Exception e) {
+                mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
+                Log.e(TAG, "searchMatchAlertInfo_Listener - " + e);
+            } finally {
+                mApplicationTM.stopProgress();
+            }
+        }
+    };
 }

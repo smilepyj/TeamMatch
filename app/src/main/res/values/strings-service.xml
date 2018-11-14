@@ -137,6 +137,13 @@
     <string name="matchProclist_result_opponent_lvl">opponent_lvl</string>
     <string name="matchProclist_result_opponent_point">opponent_point</string>
 
+    <!-- searchMatchAlertInfo Service -->
+    <string name="searchMatchAlertInfo_service">match/searchMatchAlertInfo</string>
+    <string name="searchMatchAlertInfo_param_email_id">email_id</string>
+    <string name="searchMatchAlertInfo_param_match_id">match_id</string>
+    <string name="searchMatchAlertInfo_param_match_apply_id">match_apply_id</string>
+    <string name="searchMatchAlertInfo_param_match_alert_type">match_alert_type</string>
+
     <!-- Ranking Service-->
     <string name="ranking_service">rank/searchRankList</string>
     <string name="ranking_param_email_id">email_id</string>

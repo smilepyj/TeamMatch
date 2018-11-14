@@ -364,7 +364,7 @@ public class Service {
      * */
     public void acceptMatch(ResponseListener responseListener, String match_id, String match_apply_id, String accept_reject_type) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.applyMatch_service);
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.acceptMatch_service);
             String email_id = mApplicationTM.getUserEmail();
 
             JSONObject mJSONObject = new JSONObject();
@@ -373,9 +373,33 @@ public class Service {
             mJSONObject.put(mContext.getString(R.string.acceptMatch_param_match_apply_id), match_apply_id);
             mJSONObject.put(mContext.getString(R.string.acceptMatch_param_accept_reject_type), accept_reject_type);
 
+            Log.e(TAG, mJSONObject + "");
+
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
             Log.e(TAG, "acceptMatch - " + e);
+        }
+
+    }
+
+    /**
+     * 매치 알람 정보 조회 서비스
+     * Created by maloman72 on 218-11-01
+     * */
+    public void searchMatchAlertInfo(ResponseListener responseListener, String match_id, String match_apply_id, String match_alert_type) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchMatchAlertInfo_service);
+            String email_id = mApplicationTM.getUserEmail();
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_id), match_id);
+            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_apply_id), match_apply_id);
+            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_alert_type), match_alert_type);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchMatchAlertInfo - " + e);
         }
 
     }
