@@ -294,14 +294,15 @@ public class Service {
      * 랭킹 조회
      * Created by maloman72 on 2018-11-10
      * */
-    public void searchRankList(ResponseListener responseListener, String rankingType) {
+    public void searchRankList(ResponseListener responseListener, String search_area_group, String search_team_name) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.ranking_service);
             String email_id = mApplicationTM.getUserEmail(), search_count = "50", search_page = "1";
 
             JSONObject mJSONObject = new JSONObject();
             mJSONObject.put(mContext.getString(R.string.ranking_param_email_id), email_id);
-            mJSONObject.put(mContext.getString(R.string.ranking_param_search_type_code), rankingType);
+            mJSONObject.put(mContext.getString(R.string.ranking_param_search_area_group), search_area_group);
+            mJSONObject.put(mContext.getString(R.string.ranking_param_search_team_name), search_team_name);
             mJSONObject.put(mContext.getString(R.string.ranking_param_search_count), search_count);
             mJSONObject.put(mContext.getString(R.string.ranking_param_search_page), search_page);
 

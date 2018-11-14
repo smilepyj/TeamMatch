@@ -142,6 +142,9 @@
     <color name="color_ranking_button_tab_press_text">#FFFFFF</color>
     <color name="color_ranking_button_stroke">#E5E5E5</color>
     <color name="color_ranking_tab_bottom">#00AE55</color>
+    <color name="color_ranking_search_text">#313131</color>
+    <color name="color_ranking_search_stroke">#DCDCDC</color>
+    <color name="color_ranking_button_search_init">#B6B6B6</color>
 
     <color name="color_ranking_list_title_text">#898989</color>
     <color name="color_ranking_list_title">#F6F6F6</color>

@@ -127,6 +127,13 @@
 
     <!-- Ranking Activity -->
     <string name="ranking_title">랭킹정보</string>
+    <string name="ranking_label_area">지역</string>
+    <string name="ranking_label_team_name">팀명</string>
+    <string name="ranking_condition_time">시간</string>
+    <string name="ranking_condition_member">인원</string>
+    <string name="ranking_condition_level">레벨</string>
+    <string name="ranking_search">검색</string>
+    <string name="ranking_init">초기화</string>
 
     <string name="ranking_tab_total">전체 랭킹</string>
     <string name="ranking_tab_week">주간 랭킹</string>

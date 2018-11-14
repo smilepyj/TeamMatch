@@ -84,6 +84,8 @@
     <string name="ranking_type_week">W</string>
     <string name="ranking_type_area">L</string>
 
+    <string name="ranking_area_group_dialog_title">지역 선택</string>
+
     <string name="ranking_fluctuation_up">U</string>
     <string name="ranking_fluctuation_nothing">M</string>
     <string name="ranking_fluctuation_down">D</string>

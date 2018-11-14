@@ -85,9 +85,8 @@ public class RankingListViewAdapter extends BaseAdapter {
                 tv_listview_ranking_change.setTextColor(mContext.getResources().getColor(R.color.color_listview_ranking_down));
                 tv_listview_ranking_change.setText(mJSONObject.get(mContext.getString(R.string.ranking_result_team_rank_fluctuation)).toString());
             } else if(mContext.getString(R.string.ranking_fluctuation_new).equals(mJSONObject.get(mContext.getString(R.string.ranking_result_team_rank_fluctuation_code)))) {
-                tv_listview_ranking_change.setText(mContext.getString(R.string.ranking_fluctuation_new_text));
-                tv_listview_ranking_change.setTextColor(mContext.getResources().getColor(R.color.color_listview_ranking_up));
-                tv_listview_ranking_change.setTextSize(mContext.getResources().getDimensionPixelSize(R.dimen.font_size_12));
+                tv_listview_ranking_change.setCompoundDrawablesRelativeWithIntrinsicBounds(mContext.getResources().getDrawable(R.drawable.ic_new), null, null, null);
+                tv_listview_ranking_change.setGravity(View.TEXT_ALIGNMENT_CENTER);
             }
 
         } catch (Exception e) {

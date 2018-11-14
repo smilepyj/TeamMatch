@@ -133,7 +133,8 @@
     <!-- Ranking Service-->
     <string name="ranking_service">rank/searchRankList</string>
     <string name="ranking_param_email_id">email_id</string>
-    <string name="ranking_param_search_type_code">search_type_code</string>
+    <string name="ranking_param_search_area_group">search_area_group</string>
+    <string name="ranking_param_search_team_name">search_team_name</string>
     <string name="ranking_param_search_count">search_count</string>
     <string name="ranking_param_search_page">search_page</string>
     
