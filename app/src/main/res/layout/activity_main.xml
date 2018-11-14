@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dl_activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/im_background_main"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <android.support.v7.widget.Toolbar
@@ -54,20 +52,10 @@
                         android:orientation="horizontal"
                         android:weightSum="10">
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="5.5"
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:weightSum="10">
-
                             <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="6"
-                                android:background="@drawable/im_logo" />
-                        </LinearLayout>
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_main_logo" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -86,12 +74,12 @@
                             android:layout_height="0dp"
                             android:layout_weight="4"
                             android:background="@color/colorWhite"
-                            android:includeFontPadding="false"
                             android:drawableLeft="@drawable/ic_magnifier"
                             android:drawablePadding="@dimen/bt_main_padding"
                             android:drawableRight="@drawable/ic_arrow_right"
                             android:fontFamily="@font/notosanskr_regular"
                             android:gravity="center_vertical|left"
+                            android:includeFontPadding="false"
                             android:paddingHorizontal="@dimen/bt_main_padding"
                             android:text="@string/main_search_match"
                             android:textColor="@color/color_535353"
@@ -108,13 +96,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="4"
-                            android:includeFontPadding="false"
                             android:background="@color/colorWhite"
                             android:drawableLeft="@drawable/ic_add_circle"
                             android:drawablePadding="@dimen/bt_main_padding"
                             android:drawableRight="@drawable/ic_arrow_right"
                             android:fontFamily="@font/notosanskr_regular"
                             android:gravity="center_vertical|left"
+                            android:includeFontPadding="false"
                             android:paddingHorizontal="@dimen/bt_main_padding"
                             android:text="@string/main_registration_match"
                             android:textColor="@color/color_535353"
@@ -151,7 +139,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/ic_soccer_ball" />
+                            android:background="@drawable/ic_football" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -164,7 +152,7 @@
                             android:fontFamily="@font/notosanskr_regular"
                             android:text="@string/main_in_progress_matching"
                             android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/font_size_20" />
+                            android:textSize="@dimen/font_size_16" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -203,7 +191,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/ic_star" />
+                            android:background="@drawable/ic_trophy" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -216,18 +204,13 @@
                             android:fontFamily="@font/notosanskr_regular"
                             android:text="@string/main_ranking"
                             android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/font_size_20" />
+                            android:textSize="@dimen/font_size_16" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nv_main_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        app:headerLayout="@layout/navigation_header"
-        app:menu="@menu/drawer" />
+    <include
+        layout="@layout/navigation_drawer" />
 </android.support.v4.widget.DrawerLayout>

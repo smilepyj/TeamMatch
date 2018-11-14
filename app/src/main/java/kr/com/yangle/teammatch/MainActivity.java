@@ -2,8 +2,6 @@ package kr.com.yangle.teammatch;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -37,11 +37,14 @@ public class MainActivity extends AppCompatActivity {
 
     DrawerLayout dl_activity_main;
 
-    NavigationView nv_main_menu;
+    View ll_navigation_draw;
 
-    LinearLayout ll_main_button, ll_main_in_progress_matching, ll_main_ranking;
+    LinearLayout ll_main_button, ll_main_in_progress_matching, ll_main_ranking, ll_navigation_user, ll_navigation_match, ll_navigation_ranking, ll_navigation_logout;
 
     Button bt_main_search_match, bt_main_registration_match;
+
+    ImageButton ib_navigation_close;
+    TextView tv_navigation_user_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +67,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         dl_activity_main = findViewById(R.id.dl_activity_main);
-        nv_main_menu = findViewById(R.id.nv_main_menu);
+        ll_navigation_draw = findViewById(R.id.ll_navigation_draw);
+        ib_navigation_close = findViewById(R.id.ib_navigation_close);
+        ll_navigation_user = findViewById(R.id.ll_navigation_user);
+        ll_navigation_match = findViewById(R.id.ll_navigation_match);
+        ll_navigation_ranking = findViewById(R.id.ll_navigation_ranking);
+        ll_navigation_logout = findViewById(R.id.ll_navigation_logout);
+        tv_navigation_user_name = findViewById(R.id.tv_navigation_user_name);
 
         ll_main_button = findViewById(R.id.ll_main_button);
         ll_main_in_progress_matching = findViewById(R.id.ll_main_in_progress_matching);
@@ -73,7 +82,11 @@ public class MainActivity extends AppCompatActivity {
         bt_main_search_match = findViewById(R.id.bt_main_search_match);
         bt_main_registration_match = findViewById(R.id.bt_main_registration_match);
 
-        nv_main_menu.setNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        ib_navigation_close.setOnClickListener(mOnClickListener);
+        ll_navigation_user.setOnClickListener(mOnClickListener);
+        ll_navigation_match.setOnClickListener(mOnClickListener);
+        ll_navigation_ranking.setOnClickListener(mOnClickListener);
+        ll_navigation_logout.setOnClickListener(mOnClickListener);
 
         ll_main_in_progress_matching.setOnClickListener(mOnClickListener);
         ll_main_ranking.setOnClickListener(mOnClickListener);
@@ -82,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
         bt_main_registration_match.setOnClickListener(mOnClickListener);
 
         LayoutSet();
+
+        tv_navigation_user_name.setText(mApplicationTM.getUserName());
     }
 
     /**
@@ -115,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.id_toolbar_navigation:
-                dl_activity_main.openDrawer(GravityCompat.END);
+                dl_activity_main.openDrawer(ll_navigation_draw);
                 return true;
             default:
                 break;
@@ -124,46 +139,35 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    NavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new NavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Intent mIntent;
-
-            item.setChecked(true);
-            dl_activity_main.closeDrawers();
-
-            switch (item.getItemId()) {
-                case R.id.it_navigation_user:
-                    mIntent = new Intent(mContext, UserInfoActivity.class);
-                    mIntent.putExtra(getString(R.string.user_info_intent_extra), getString(R.string.user_info_type_update));
-                    startActivity(mIntent);
-                    break;
-//                case R.id.it_navigation_setting:
-//                    mIntent = new Intent(mContext, DialogAlertActivity.class);
-//                    mIntent.putExtra(getString(R.string.alert_dialog_title), "예약확인");
-//                    mIntent.putExtra(getString(R.string.alert_dialog_contents_header), "[필독] 당일예약 상품입니다.");
-//                    mIntent.putExtra(getString(R.string.alert_dialog_contents), "이용가능 여부를 업체측에 확인 후 예약을 진행해주세요.\n업체 사정에 따라 이용이 불가할 수 있습니다.");
-//                    mIntent.putExtra(getString(R.string.alert_dialog_cancel_text), "취소");
-//                    mIntent.putExtra(getString(R.string.alert_dialog_ok_text), "예약하기");
-//                    mIntent.putExtra(getString(R.string.alert_dialog_type), 0);
-//
-//                    startActivity(mIntent);
-////                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
-//                    break;
-                default:
-                    break;
-            }
-
-            return true;
-        }
-    };
-
     View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Intent mIntent;
 
             switch (v.getId()) {
+                case R.id.ib_navigation_close :
+                    dl_activity_main.closeDrawers();
+                    break;
+                case R.id.ll_navigation_user :
+                    dl_activity_main.closeDrawers();
+                    mIntent = new Intent(mContext, UserInfoActivity.class);
+                    mIntent.putExtra(getString(R.string.user_info_intent_extra), getString(R.string.user_info_type_update));
+                    startActivity(mIntent);
+                    break;
+                case R.id.ll_navigation_match :
+                    dl_activity_main.closeDrawers();
+                    mIntent = new Intent(mContext, MatchProcActivity.class);
+                    startActivity(mIntent);
+                    break;
+                case R.id.ll_navigation_ranking :
+                    dl_activity_main.closeDrawers();
+                    mIntent = new Intent(mContext, RankingActivity.class);
+                    startActivity(mIntent);
+                    break;
+                case R.id.ll_navigation_logout :
+                    dl_activity_main.closeDrawers();
+                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
+                    break;
                 case R.id.bt_main_search_match:
                     mIntent = new Intent(mContext, SearchMatchActivity.class);
                     startActivity(mIntent);

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_navigation_draw"
+    android:layout_width="@dimen/dimen_size_260"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_gravity="end"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dimen_size_10">
+
+        <ImageButton
+            android:id="@+id/ib_navigation_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_date_close"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.25"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_navigation_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:textColor="@color/color_007338"
+            android:textSize="@dimen/font_size_20"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:text="@string/navigation_header_main"
+            android:textColor="@color/color_313131"
+            android:textSize="@dimen/font_size_20"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6.25"
+        android:padding="@dimen/dimen_size_15"
+        android:orientation="vertical"
+        android:weightSum="8">
+
+        <LinearLayout
+            android:id="@+id/ll_navigation_user"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dimen_size_20"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_size_10"
+                android:background="@drawable/ic_menu_team"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/navigation_item_user"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/font_size_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_navigation_match"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dimen_size_20"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_size_10"
+                android:background="@drawable/ic_menu_football"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/navigation_item_match"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/font_size_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_navigation_ranking"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dimen_size_20"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_size_10"
+                android:background="@drawable/ic_menu_trophy"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/navigation_item_ranking"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/font_size_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_navigation_logout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dimen_size_20"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_size_10"
+                android:background="@drawable/ic_menu_login"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/navigation_item_logout"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/font_size_14"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="horizontal"
+        android:background="@color/color_00AE55"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_menu_call"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_size_10"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/navigation_call_center"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/font_size_12"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_5"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/navigation_call_number"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/font_size_25"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

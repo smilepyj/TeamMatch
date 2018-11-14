@@ -29,6 +29,8 @@
     <string name="navigation_item_match">나의 매치 정보</string>
     <string name="navigation_item_ranking">풋매랭킹</string>
     <string name="navigation_item_logout">로그아웃</string>
+    <string name="navigation_call_center">풋살매치 고객센터</string>
+    <string name="navigation_call_number">1544-7979</string>
 
     <!-- UserInfo Activity -->
     <string name="user_info_title">회원정보</string>

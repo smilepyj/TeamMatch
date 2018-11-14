@@ -22,7 +22,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_soccer_ball" />
+            android:resource="@drawable/ic_football" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
