@@ -4,13 +4,20 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/it_navigation_user"
-            android:icon="@drawable/ic_navigation_user"
+            android:icon="@drawable/ic_listview_team"
             android:title="@string/navigation_item_user" />
 
         <item
-            android:id="@+id/it_navigation_setting"
-            android:icon="@drawable/ic_navigation_settings"
-            android:title="@string/navigation_item_setting" />
+            android:id="@+id/it_navigation_match"
+            android:title="@string/navigation_item_match" />
+
+        <item
+            android:id="@+id/it_navigation_ranking"
+            android:title="@string/navigation_item_ranking" />
+
+        <item
+            android:id="@+id/it_navigation_logout"
+            android:title="@string/navigation_item_logout" />
     </group>
 
 </menu>

@@ -15,18 +15,20 @@
     <string name="login_warning">로그인이 원활하지 않으실 경우 futsal0800@naver.com으로 문의주시기 바랍니다.</string>
 
     <!-- Main Activity -->
-    <string name="main_search_match">매치 검색</string>
-    <string name="main_registration_match">매치 등록</string>
-    <string name="main_in_progress_matching">진행 중 매치</string>
-    <string name="main_ranking">팀별 랭킹</string>
+    <string name="main_search_match">매치검색</string>
+    <string name="main_registration_match">매치등록</string>
+    <string name="main_in_progress_matching">나의매치정보</string>
+    <string name="main_ranking">풋매 랭킹</string>
 
     <!-- ToolBar -->
     <string name="toolbar_item_navigation">메 뉴</string>
 
     <!-- Navigation -->
     <string name="navigation_header_main"> 님 반갑습니다.</string>
-    <string name="navigation_item_user">내 정보 수정</string>
-    <string name="navigation_item_setting">설 정</string>
+    <string name="navigation_item_user">나의 팀 정보</string>
+    <string name="navigation_item_match">나의 매치 정보</string>
+    <string name="navigation_item_ranking">풋매랭킹</string>
+    <string name="navigation_item_logout">로그아웃</string>
 
     <!-- UserInfo Activity -->
     <string name="user_info_title">회원정보</string>

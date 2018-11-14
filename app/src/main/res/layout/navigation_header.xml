@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:gravity="center"
     android:weightSum="10"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorWhite"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <LinearLayout
@@ -24,26 +24,20 @@
                 android:id="@+id/tv_navigation_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
                 android:textSize="@dimen/font_size_20"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/color_007338"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
                 android:text="@string/navigation_header_main"
                 android:textSize="@dimen/font_size_20"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/color_313131"
                 android:textStyle="bold"/>
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_navigation_team_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/font_size_15"
-            android:textColor="@color/colorWhite"/>
-
     </LinearLayout>
 
 </LinearLayout>

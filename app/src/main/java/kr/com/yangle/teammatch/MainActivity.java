@@ -138,18 +138,18 @@ public class MainActivity extends AppCompatActivity {
                     mIntent.putExtra(getString(R.string.user_info_intent_extra), getString(R.string.user_info_type_update));
                     startActivity(mIntent);
                     break;
-                case R.id.it_navigation_setting:
-                    mIntent = new Intent(mContext, DialogAlertActivity.class);
-                    mIntent.putExtra(getString(R.string.alert_dialog_title), "예약확인");
-                    mIntent.putExtra(getString(R.string.alert_dialog_contents_header), "[필독] 당일예약 상품입니다.");
-                    mIntent.putExtra(getString(R.string.alert_dialog_contents), "이용가능 여부를 업체측에 확인 후 예약을 진행해주세요.\n업체 사정에 따라 이용이 불가할 수 있습니다.");
-                    mIntent.putExtra(getString(R.string.alert_dialog_cancel_text), "취소");
-                    mIntent.putExtra(getString(R.string.alert_dialog_ok_text), "예약하기");
-                    mIntent.putExtra(getString(R.string.alert_dialog_type), 0);
-
-                    startActivity(mIntent);
-//                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
-                    break;
+//                case R.id.it_navigation_setting:
+//                    mIntent = new Intent(mContext, DialogAlertActivity.class);
+//                    mIntent.putExtra(getString(R.string.alert_dialog_title), "예약확인");
+//                    mIntent.putExtra(getString(R.string.alert_dialog_contents_header), "[필독] 당일예약 상품입니다.");
+//                    mIntent.putExtra(getString(R.string.alert_dialog_contents), "이용가능 여부를 업체측에 확인 후 예약을 진행해주세요.\n업체 사정에 따라 이용이 불가할 수 있습니다.");
+//                    mIntent.putExtra(getString(R.string.alert_dialog_cancel_text), "취소");
+//                    mIntent.putExtra(getString(R.string.alert_dialog_ok_text), "예약하기");
+//                    mIntent.putExtra(getString(R.string.alert_dialog_type), 0);
+//
+//                    startActivity(mIntent);
+////                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
+//                    break;
                 default:
                     break;
             }
