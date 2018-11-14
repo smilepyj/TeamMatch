@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dimen_size_340"
+    android:layout_height="@dimen/dimen_size_400"
+    android:background="@drawable/ic_dialog_background"
+    android:orientation="vertical"
+    tools:context=".util.DialogMatchSuccessActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_50"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_match_success_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="@string/match_success_dialog_title"
+            android:textColor="@color/color_007338"
+            android:textSize="@dimen/font_size_18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_2"
+        android:background="@color/color_007338" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_68"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_size_10">
+
+        <TextView
+            android:id="@+id/tv_match_success_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_size_5"
+            android:layout_marginStart="@dimen/dimen_size_5"
+            android:layout_marginTop="@dimen/dimen_size_5"
+            android:fontFamily="@font/notosanskr_regular"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:lineSpacingMultiplier="1.5"
+            android:textColor="@color/color_313131"
+            android:textSize="@dimen/font_size_15" />
+
+        <TextView
+            android:id="@+id/tv_match_success_sub_title_etc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textColor="@color/color_313131"
+            android:textSize="@dimen/font_size_10"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_160"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_size_10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_layout_box"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_size_5">
+
+            <LinearLayout
+                android:id="@+id/ll_match_success_dialog_regist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/match_success_dialog_team_name"
+                        android:textColor="@color/color_007338"
+                        android:textSize="@dimen/font_size_14"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_1"
+                    android:layout_marginTop="@dimen/dimen_size_2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dimen_size_5">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dimen_size_5"
+                        android:background="@drawable/ic_listview_team" />
+
+                    <TextView
+                        android:id="@+id/tv_match_success_team_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_size_1"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/dimen_size_1"
+                        android:layout_marginEnd="@dimen/dimen_size_5"
+                        android:layout_marginStart="@dimen/dimen_size_5"
+                        android:layout_marginTop="@dimen/dimen_size_1"
+                        android:background="@color/color_A8A8A8" />
+
+                    <TextView
+                        android:id="@+id/tv_match_success_team_lvl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_size_1"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/dimen_size_1"
+                        android:layout_marginEnd="@dimen/dimen_size_5"
+                        android:layout_marginStart="@dimen/dimen_size_5"
+                        android:layout_marginTop="@dimen/dimen_size_1"
+                        android:background="@color/color_A8A8A8" />
+
+                    <TextView
+                        android:id="@+id/tv_match_success_team_member"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_5"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dimen_size_20">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/match_success_dialog_manager"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <TextView
+                        android:id="@+id/tv_match_success_manager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_success_dialog_parenthesis_open"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <TextView
+                        android:id="@+id/tv_match_success_phone_manager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_success_dialog_parenthesis_close"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <ImageButton
+                        android:id="@+id/ib_match_success_call_manager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_size_5"
+                        android:background="@drawable/ic_phone_call" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_match_success_dialog_proc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/match_success_dialog_ground"
+                        android:textColor="@color/color_007338"
+                        android:textSize="@dimen/font_size_14"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_5"
+                    android:layout_marginTop="@dimen/dimen_size_2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dimen_size_5">
+
+                    <TextView
+                        android:id="@+id/tv_match_success_ground_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textSize="@dimen/font_size_14"
+                        android:textColor="@color/color_313131"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_success_dialog_parenthesis_open"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <TextView
+                        android:id="@+id/tv_match_success_phone_ground"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_success_dialog_parenthesis_close"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <ImageButton
+                        android:id="@+id/ib_match_success_call_ground"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_size_5"
+                        android:background="@drawable/ic_phone_call" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/match_success_dialog_info"
+                    android:textColor="@color/color_007338"
+                    android:textSize="@dimen/font_size_14"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_size_5"
+                android:layout_marginStart="@dimen/dimen_size_5"
+                android:layout_marginTop="@dimen/dimen_size_2"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_size_5"
+                    android:background="@drawable/ic_listview_time" />
+
+                <TextView
+                    android:id="@+id/tv_match_success_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/color_313131"
+                    android:textSize="@dimen/font_size_14" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_size_5"
+                    android:layout_marginStart="@dimen/dimen_size_10"
+                    android:background="@drawable/ic_listview_place" />
+
+                <TextView
+                    android:id="@+id/tv_match_success_ground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/color_313131"
+                    android:textSize="@dimen/font_size_14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/match_success_dialog_cost"
+                    android:textColor="@color/color_007338"
+                    android:textSize="@dimen/font_size_14"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_match_success_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_size_10"
+                    android:textColor="@color/color_313131"
+                    android:textSize="@dimen/font_size_16"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_size_5"
+                    android:text="@string/match_success_dialog_won"
+                    android:textColor="@color/color_313131"
+                    android:textSize="@dimen/font_size_14" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_45"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_match_success_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/match_success_dialog_contents_regist"
+            android:textColor="@color/color_313131"
+            android:textSize="@dimen/font_size_14" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_35"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_match_success_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/match_success_dialog_check"
+            android:textColor="@color/color_E60012"
+            android:textSize="@dimen/dimen_size_10" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_40"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_match_success_agree"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_button_alert_dialog_ok"
+            android:text="@string/match_success_dialog_agree"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font_size_15" />
+    </LinearLayout>
+
+</LinearLayout>

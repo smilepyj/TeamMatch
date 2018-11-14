@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TeamMatch</string>
+    <string name="app_name">풋살매치</string>
     <string name="application">TEAM_MATCH</string>
 
     <!-- System Message-->
@@ -134,4 +134,9 @@
     <string name="match_apply_extra_team_member">TEAM_MEMBER</string>
     <string name="match_apply_extra_match_time">MATCH_TIME</string>
     <string name="match_apply_extra_match_ground">MATCH_GROUND</string>
+
+    <!-- Match Success Dialog -->
+    <string name="match_success_extra_type">TYPE</string>
+    <string name="match_success_extra_regist">REGIST</string>
+    <string name="match_success_extra_proc">PROC</string>
 </resources>

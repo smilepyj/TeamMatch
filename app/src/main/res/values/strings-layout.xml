@@ -183,4 +183,23 @@
     <string name="match_apply_dialog_match">매치정보</string>
     <string name="match_apply_dialog_no">거 절</string>
     <string name="match_apply_dialog_yes">수 락</string>
+
+    <!-- Match Success Dialog -->
+    <string name="match_success_dialog_title">매치 성사</string>
+    <string name="match_success_dialog_sub_title_regist">매치가 성사 되었습니다.\n상대방이 결제중입니다.</string>
+    <string name="match_success_dialog_sub_title_proc">매치 전에 구장에 연락해 구장이용료를\n결제하시길 바랍니다.</string>
+    <string name="match_success_dialog_sub_title_etc_proc">(선 결제의 경우에는 동의 및 확인만 눌어주시면 됩니다.)</string>
+    <string name="match_success_dialog_team_name">상대팀 정보</string>
+    <string name="match_success_dialog_ground">구장정보</string>
+    <string name="match_success_dialog_manager">담당자&#160;</string>
+    <string name="match_success_dialog_parenthesis_open">&#160;(</string>
+    <string name="match_success_dialog_parenthesis_close">)</string>
+    <string name="match_success_dialog_info">매치정보</string>
+    <string name="match_success_dialog_cost">구장이용료 총</string>
+    <string name="match_success_dialog_won">원</string>
+    <string name="match_success_dialog_contents_regist">경기 시작 전/후 상대팀에게 구장이용료의\n절반을 정산해 주시길 바랍니다.</string>
+    <string name="match_success_dialog_contents_proc">경기 시작 전/후 상대팀에게 구장이용료의\n절반을 받으시길 바랍니다.</string>
+    <string name="match_success_dialog_check">풋살매치는 구장이용료 미정산으로 인한 매치 취소 등\n매치관련문제 발생 시 아무런 책임이 없음을 동의합니다.</string>
+    <string name="match_success_dialog_agree">동의 및 확인</string>
+
 </resources>

@@ -97,7 +97,10 @@
         <activity
             android:name=".GroundLocationActivity"
             android:screenOrientation="sensorPortrait" />
-        <activity android:name=".util.DialogMatchApplyActivity"></activity>
+        <activity android:name=".util.DialogMatchApplyActivity"
+            android:theme="@style/DialogTheme" />
+        <activity android:name=".util.DialogMatchSuccessActivity"
+            android:theme="@style/DialogTheme" />
     </application>
 
 </manifest>
