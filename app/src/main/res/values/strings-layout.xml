@@ -213,4 +213,9 @@
     <string name="match_success_dialog_check">풋살매치는 구장이용료 미정산으로 인한 매치 취소 등\n매치관련문제 발생 시 아무런 책임이 없음을 동의합니다.</string>
     <string name="match_success_dialog_agree">동의 및 확인</string>
 
+    <!-- Rating Dialog -->
+    <string name="rating_dialog_title">매치 평가</string>
+    <string name="rating_dialog_sub_title">상대팀 실력과 매너 등을 종합한 점수로\n평가해주세요.</string>
+    <string name="rating_dialog_max_score">/ 100점</string>
+    <string name="rating_dialog_complete">평가완료</string>
 </resources>
