@@ -133,15 +133,6 @@ public class SearchResultListViewAdapter extends BaseAdapter {
             mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
         }
 
-        LinearLayout ll_listview_search_result_request = convertView.findViewById(R.id.ll_listview_search_result_request);
-
-        ll_listview_search_result_request.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mApplicationTM.makeToast(mContext, mContext.getString(R.string.cording_message));
-            }
-        });
-
         return convertView;
     }
 
