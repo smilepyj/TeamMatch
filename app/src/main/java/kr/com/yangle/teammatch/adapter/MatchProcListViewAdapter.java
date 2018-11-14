@@ -258,6 +258,7 @@ public class MatchProcListViewAdapter extends BaseAdapter {
                         String hope_match_ground_tel = data.getString("hope_match_ground_tel");
                         String hope_match_ground_cost = data.getString("hope_match_ground_cost");
 
+                        
                         if(mApplicationTM.getTeamId().equals(host_team_id)) {
                             Intent mIntent = new Intent(mContext, DialogMatchSuccessActivity.class);
                             mIntent.putExtra(mContext.getString(R.string.match_success_extra_type), "HOST");
