@@ -383,6 +383,28 @@ public class Service {
     }
 
     /**
+     * 매치 평가 서비스
+     * Created by maloman72 on 218-11-01
+     * */
+    public void evalMatch(ResponseListener responseListener, String match_id, String team_id,  String match_point) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.evalMatch_service);
+            String email_id = mApplicationTM.getUserEmail();
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.evalMatch_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.evalMatch_param_match_id), match_id);
+            mJSONObject.put(mContext.getString(R.string.evalMatch_param_team_id), team_id);
+            mJSONObject.put(mContext.getString(R.string.evalMatch_param_match_point), match_point);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "applyMatch - " + e);
+        }
+
+    }
+
+    /**
      * 매치 알람 정보 조회 서비스
      * Created by maloman72 on 218-11-01
      * */

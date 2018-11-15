@@ -75,12 +75,10 @@ public class DialogMatchApplyActivity extends AppCompatActivity {
                 case R.id.bt_match_apply_no :
                     accept_reject_type = "R";
                     mService.acceptMatch(acceptMatch_Listener, match_id, match_apply_id, accept_reject_type);
-                    finish();
                     break;
                 case R.id.bt_match_apply_yes :
                     accept_reject_type = "A";
                     mService.acceptMatch(acceptMatch_Listener, match_id, match_apply_id, accept_reject_type);
-                    finish();
                     break;
                 default :
                     break;
@@ -110,6 +108,7 @@ public class DialogMatchApplyActivity extends AppCompatActivity {
                 Log.e(TAG, "searchMatchList_Listener - " + e);
             } finally {
                 mApplicationTM.stopProgress();
+                finish();
             }
         }
     };

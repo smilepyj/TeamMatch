@@ -131,6 +131,7 @@ public class IntroActivity extends AppCompatActivity {
                     if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                         JSONObject mResult = mJSONObject.getJSONObject(mContext.getString(R.string.result_data));
 
+                        mApplicationTM.setUserName(mResult.get(mContext.getString(R.string.userlogin_result_user_name)).toString());
                         mApplicationTM.setTeamId(mResult.get(mContext.getString(R.string.userlogin_result_team_id)).toString());
 
                         Intent mIntent;

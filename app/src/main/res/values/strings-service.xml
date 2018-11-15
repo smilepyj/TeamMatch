@@ -117,6 +117,13 @@
     <string name="acceptMatch_param_match_apply_id">match_apply_id</string>
     <string name="acceptMatch_param_accept_reject_type">accept_reject_type</string>
 
+    <!-- evalMatch Service -->
+    <string name="evalMatch_service">match/evalMatch</string>
+    <string name="evalMatch_param_email_id">email_id</string>
+    <string name="evalMatch_param_match_id">match_id</string>
+    <string name="evalMatch_param_team_id">team_id</string>
+    <string name="evalMatch_param_match_point">match_point</string>
+
     <!-- MatchProc Service -->
     <string name="matchProclist_result_match_id">match_id</string>
     <string name="matchProclist_result_match_apply_id">match_apply_id</string>
@@ -136,6 +143,7 @@
     <string name="matchProclist_result_opponent_name">opponent_name</string>
     <string name="matchProclist_result_opponent_lvl">opponent_lvl</string>
     <string name="matchProclist_result_opponent_point">opponent_point</string>
+    <string name="matchProclist_result_eval_at">eval_at</string>
 
     <!-- searchMatchAlertInfo Service -->
     <string name="searchMatchAlertInfo_service">match/searchMatchAlertInfo</string>

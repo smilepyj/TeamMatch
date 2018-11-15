@@ -95,8 +95,9 @@ public class SearchResultListViewAdapter extends BaseAdapter {
             String mHopeDate = new SimpleDateFormat(mContext.getString(R.string.search_result_date_format_view), Locale.getDefault()).format(mDate);
             tv_listview_search_result_day.setText(mHopeDate);
             Date mTime = new SimpleDateFormat(mContext.getString(R.string.search_result_time_format_base), Locale.getDefault()).parse(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_start_time)).toString());
-            String mHopeTime = new SimpleDateFormat(mContext.getString(R.string.search_result_time_format_view), Locale.getDefault()).format(mTime);
-            tv_listview_search_result_time.setText(mHopeTime);
+//            String mHopeTime = new SimpleDateFormat(mContext.getString(R.string.search_result_time_format_view), Locale.getDefault()).format(mTime);
+            String mHopeTime = mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_start_time)).toString().substring(0, 2);
+            tv_listview_search_result_time.setText(mHopeTime + "시");
             tv_listview_search_result_team_name.setText(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_host_name)).toString());
             tv_listview_search_result_team_level.setText(mApplicationTM.getC002().get(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_team_lvl)).toString()));
             tv_listview_search_result_team_member.setText(mApplicationTM.getC003().get(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_team_member)).toString()));
