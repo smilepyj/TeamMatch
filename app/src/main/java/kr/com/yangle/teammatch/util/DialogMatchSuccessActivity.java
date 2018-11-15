@@ -2,6 +2,7 @@ package kr.com.yangle.teammatch.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,8 @@ public class DialogMatchSuccessActivity extends AppCompatActivity {
     ImageButton ib_match_success_call_manager, ib_match_success_call_ground;
     CheckBox cb_match_success_check;
     Button bt_match_success_agree;
+
+    String phone_manager, phone_ground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +73,26 @@ public class DialogMatchSuccessActivity extends AppCompatActivity {
     View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Intent mIntent;
+
             switch (v.getId()) {
                 case R.id.ib_match_success_call_manager :
+                    if(phone_manager != null && !"".equals(phone_manager)) {
+                        mIntent = new Intent(Intent.ACTION_DIAL);
+                        mIntent.setData(Uri.parse(mApplicationTM.setCallingPhoneNumber(phone_manager)));
+                        startActivity(mIntent);
+                    } else {
+                        mApplicationTM.makeToast(mContext, getString(R.string.ground_detail_no_phone_num));
+                    }
                     break;
                 case R.id.ib_match_success_call_ground :
+                    if(phone_ground != null && !"".equals(phone_ground)) {
+                        mIntent = new Intent(Intent.ACTION_DIAL);
+                        mIntent.setData(Uri.parse(mApplicationTM.setCallingPhoneNumber(phone_ground)));
+                        startActivity(mIntent);
+                    } else {
+                        mApplicationTM.makeToast(mContext, getString(R.string.ground_detail_no_phone_num));
+                    }
                     break;
                 case R.id.bt_match_success_agree :
                     if (!cb_match_success_check.isChecked()) {
@@ -118,6 +137,7 @@ public class DialogMatchSuccessActivity extends AppCompatActivity {
             tv_match_success_sub_title_etc.setText(sub_title_etc);
             tv_match_success_sub_title_etc.setVisibility(View.VISIBLE);
             tv_match_success_ground_name.setText(ground_name);
+            phone_ground = ground_tel;
             tv_match_success_phone_ground.setText(ground_tel);
             tv_match_success_time.setText(match_time);
             tv_match_success_ground.setText(ground_name);
@@ -147,6 +167,7 @@ public class DialogMatchSuccessActivity extends AppCompatActivity {
             tv_match_success_team_lvl.setText(team_lvl);
             tv_match_success_team_member.setText(team_point);
             tv_match_success_manager.setText(team_user_name);
+            phone_manager = team_user_tel;
             tv_match_success_phone_manager.setText(team_user_tel);
             tv_match_success_time.setText(match_time);
             tv_match_success_ground.setText(ground_name);

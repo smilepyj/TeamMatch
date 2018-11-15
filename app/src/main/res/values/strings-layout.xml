@@ -95,6 +95,7 @@
     <string name="search_result_condition_member">인원</string>
     <string name="search_result_condition_level">레벨</string>
     <string name="search_result_change_condition">조건\n변경</string>
+    <string name="search_result_pre_payment_yes">결제완료</string>
 
     <!-- ListView SearchResult -->
     <string name="listview_search_result_request">매치신청</string>
@@ -126,6 +127,7 @@
     <!-- MatchProc Activity -->
     <string name="match_proc_title">진행 중 매치</string>
     <string name="match_proc_opponent_info">상대팀정보</string>
+    <string name="match_proc_pre_payment_yes">결제완료</string>
 
     <!-- Ranking Activity -->
     <string name="ranking_title">랭킹정보</string>

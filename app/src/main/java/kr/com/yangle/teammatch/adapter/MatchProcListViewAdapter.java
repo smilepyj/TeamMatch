@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -95,6 +96,8 @@ public class MatchProcListViewAdapter extends BaseAdapter {
         TextView tv_listview_match_proc_opponent_name = convertView.findViewById(R.id.tv_listview_match_proc_opponent_name);
         TextView tv_listview_match_proc_opponent_level = convertView.findViewById(R.id.tv_listview_match_proc_opponent_level);
         TextView tv_listview_match_proc_opponent_point = convertView.findViewById(R.id.tv_listview_match_proc_opponent_point);
+        ImageView iv_listview_match_proc_pre_payment = convertView.findViewById(R.id.iv_listview_match_proc_pre_payment);
+        TextView tv_listview_match_proc_pre_payment = convertView.findViewById(R.id.tv_listview_match_proc_pre_payment);
         TextView tv_match_proc_name = convertView.findViewById(R.id.tv_match_proc_name);
         LinearLayout ll_listview_match_proc = convertView.findViewById(R.id.ll_listview_match_proc);
 
@@ -126,6 +129,14 @@ public class MatchProcListViewAdapter extends BaseAdapter {
             tv_listview_match_proc_opponent_level.setText(mApplicationTM.getC002().get(mJSONObject.get(mContext.getString(R.string.matchProclist_result_opponent_lvl)).toString()));
             String opponent_point = mJSONObject.get(mContext.getString(R.string.matchProclist_result_opponent_point))==null?"":mJSONObject.get(mContext.getString(R.string.matchProclist_result_opponent_point)).toString();
             tv_listview_match_proc_opponent_point.setText(opponent_point==""?"":(opponent_point + "점"));
+            String pre_payment_at = mJSONObject.get(mContext.getString(R.string.matchProclist_result_pre_payment_at))==null?"":mJSONObject.get(mContext.getString(R.string.matchProclist_result_pre_payment_at)).toString();
+            if("Y".equals(pre_payment_at)) {
+                iv_listview_match_proc_pre_payment.setVisibility(View.VISIBLE);
+                tv_listview_match_proc_pre_payment.setVisibility(View.VISIBLE);
+            }else {
+                iv_listview_match_proc_pre_payment.setVisibility(View.GONE);
+                tv_listview_match_proc_pre_payment.setVisibility(View.GONE);
+            }
 
             Log.e(TAG, mJSONObject.get(mContext.getString(R.string.matchProclist_result_match_proc_cd_name)).toString());
 

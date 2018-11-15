@@ -242,6 +242,22 @@
                                 android:includeFontPadding="false"
                                 android:textColor="@color/color_listview_search_result_contents"
                                 android:textSize="@dimen/font_size_14" />
+
+                            <ImageView
+                                android:id="@+id/iv_listview_search_result_pre_payment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_pay" />
+
+                            <TextView
+                                android:id="@+id/tv_listview_search_result_pre_payment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosanskr_medium"
+                                android:includeFontPadding="false"
+                                android:text="@string/search_result_pre_payment_yes"
+                                android:textColor="@color/color_listview_search_result_contents"
+                                android:textSize="@dimen/font_size_14" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

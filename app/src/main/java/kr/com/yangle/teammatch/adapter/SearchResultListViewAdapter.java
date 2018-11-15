@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -85,6 +86,8 @@ public class SearchResultListViewAdapter extends BaseAdapter {
         TextView tv_listview_search_result_team_name = convertView.findViewById(R.id.tv_listview_search_result_team_name);
         TextView tv_listview_search_result_team_level = convertView.findViewById(R.id.tv_listview_search_result_team_level);
         TextView tv_listview_search_result_team_member = convertView.findViewById(R.id.tv_listview_search_result_team_member);
+        ImageView iv_listview_search_result_pre_payment = convertView.findViewById(R.id.iv_listview_search_result_pre_payment);
+        TextView tv_listview_search_result_pre_payment = convertView.findViewById(R.id.tv_listview_search_result_pre_payment);
 
         try {
             JSONObject mJSONObject = mDataJSONArray.getJSONObject(position);
@@ -103,6 +106,14 @@ public class SearchResultListViewAdapter extends BaseAdapter {
             tv_listview_search_result_team_name.setText(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_host_name)).toString());
             tv_listview_search_result_team_level.setText(mApplicationTM.getC002().get(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_team_lvl)).toString()));
             tv_listview_search_result_team_member.setText(mApplicationTM.getC003().get(mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_hope_team_member)).toString()));
+            String pre_payment_at = mJSONObject.get(mContext.getString(R.string.matchProclist_result_pre_payment_at))==null?"":mJSONObject.get(mContext.getString(R.string.matchProclist_result_pre_payment_at)).toString();
+            if("Y".equals(pre_payment_at)) {
+                iv_listview_search_result_pre_payment.setVisibility(View.VISIBLE);
+                tv_listview_search_result_pre_payment.setVisibility(View.VISIBLE);
+            }else {
+                iv_listview_search_result_pre_payment.setVisibility(View.GONE);
+                tv_listview_search_result_pre_payment.setVisibility(View.GONE);
+            }
 
             final String match_id = mJSONObject.get(mContext.getString(R.string.searchmatchlist_result_match_id)).toString();
 
