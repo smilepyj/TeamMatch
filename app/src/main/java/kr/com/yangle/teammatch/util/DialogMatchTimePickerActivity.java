@@ -29,7 +29,7 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
     CheckBox cb_dialog_match_time_picker_check_pay;
     Button bt_dialog_match_time_picker_ok;
 
-    int mStartTime, mEndTime;
+    int mStartTime, mEndTime, mCurTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +126,8 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
         final Calendar mCalendar = Calendar.getInstance();
 
         tv_dialog_match_time_picker_time_start.setText(String.valueOf(mCalendar.get(Calendar.HOUR_OF_DAY)) + getString(R.string.match_time_picker_dialog_hour_text));
-        mStartTime = mCalendar.get(Calendar.HOUR_OF_DAY);
+        mCurTime = mCalendar.get(Calendar.HOUR_OF_DAY);
+        mStartTime = mCurTime + 1;
         mEndTime = mStartTime + 1;
         tv_dialog_match_time_picker_time_end.setText(String.valueOf(mEndTime) + getString(R.string.match_time_picker_dialog_hour_text));
     }
@@ -180,6 +181,11 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
      * Created by maloman72 on 2018-11-14
      * */
     private void Close() {
+        if(mCurTime + 1 > mStartTime) {
+            mApplicationTM.makeToast(mContext, mContext.getString(R.string.match_time_picker_dialog_check_time_2));
+            return;
+        }
+
         if(mEndTime - mStartTime < 4 && mEndTime - mStartTime > 0) {
             Intent mIntent = new Intent();
             String resultStartTime, resultEndTime;
@@ -213,5 +219,6 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
         } else {
             mApplicationTM.makeToast(mContext, mContext.getString(R.string.match_time_picker_dialog_check_time));
         }
+
     }
 }

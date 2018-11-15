@@ -126,7 +126,8 @@
     <string name="match_time_picker_dialog_check_pay_yes">Y</string>
     <string name="match_time_picker_dialog_check_pay_no">N</string>
 
-    <string name="match_time_picker_dialog_check_time">매치 시간은 최소 1시간 ~ 최대 3시간 사이로 설정해 주세요. </string>
+    <string name="match_time_picker_dialog_check_time">매치 시간은 최소 1시간 ~ 최대 3시간 사이로 설정해 주세요.</string>
+    <string name="match_time_picker_dialog_check_time_2">매치 시작 시간은 현재시간보다 최소 1시간 이후로 설정해 주세요.</string>
 
     <!-- Match Apply Dialog -->
     <string name="match_apply_extra_title">TITLE</string>

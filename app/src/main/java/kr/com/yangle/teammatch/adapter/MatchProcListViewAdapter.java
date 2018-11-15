@@ -164,6 +164,7 @@ public class MatchProcListViewAdapter extends BaseAdapter {
             }else if("C004004".equals(match_proc_cd)) {
                 match_proc_cd_name = "매치 진행 중";
                 match_proc_type = "5";
+                tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_4));
             }else if("C004005".equals(match_proc_cd)) {
                 if("Y".equals(eval_at)) {
                     match_proc_cd_name = "매치 완료";
