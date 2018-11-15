@@ -42,14 +42,16 @@ public class MatchProcListViewAdapter extends BaseAdapter {
 
     private Service mService;
 
-    public MatchProcListViewAdapter(Context context, JSONArray jsonArray) {
-        mDataJSONArray = jsonArray;
-        mDataJSONArrayCnt = mDataJSONArray.length();
-
+    public MatchProcListViewAdapter(Context context) {
         mContext = context;
         mApplicationTM = (ApplicationTM) mContext.getApplicationContext();
 
         mService = new Service(mContext);
+    }
+
+    public void setMDataJSONArray(JSONArray jsonArray) {
+        mDataJSONArray = jsonArray;
+        mDataJSONArrayCnt = mDataJSONArray.length();
     }
 
     @Override

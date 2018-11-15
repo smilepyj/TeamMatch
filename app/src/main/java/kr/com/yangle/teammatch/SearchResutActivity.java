@@ -43,6 +43,8 @@ public class SearchResutActivity extends AppCompatActivity {
 
     ListView lv_search_result_match;
 
+    SearchResultListViewAdapter mSearchResultListViewAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,9 +84,22 @@ public class SearchResutActivity extends AppCompatActivity {
         search_team_lvl = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_team_lvl));
         search_team_lvl_cnt = getIntent().getIntExtra(getString(R.string.search_match_extra_search_team_lvl_cnt), 0);
 
+        mSearchResultListViewAdapter = new SearchResultListViewAdapter(mContext);
+        lv_search_result_match.setAdapter(mSearchResultListViewAdapter);
+
         setSearchCondition();
 
         mService.searchMatchList(searchMatchList_Listener, search_date, search_time, search_area_group, search_area, search_ground, search_team_member, search_team_lvl);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            mService.searchMatchList(searchMatchList_Listener, search_date, search_time, search_area_group, search_area, search_ground, search_team_member, search_team_lvl);
+        }catch(Exception e) {
+            Log.e(TAG, "SearchResutActivity onResume - " + e);
+        }
     }
 
     @Override
@@ -163,10 +178,13 @@ public class SearchResutActivity extends AppCompatActivity {
                 if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
 
-                    SearchResultListViewAdapter mSearchResultListViewAdapter = new SearchResultListViewAdapter(mContext, mJSONArray);
-                    lv_search_result_match.setAdapter(mSearchResultListViewAdapter);
+                    mSearchResultListViewAdapter.setMDataJSONArray(mJSONArray);
+                    mSearchResultListViewAdapter.notifyDataSetChanged();
 
                 } else {
+                    mSearchResultListViewAdapter.setMDataJSONArray(new JSONArray());
+                    mSearchResultListViewAdapter.notifyDataSetChanged();
+
                     mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
                 }
             } catch (Exception e) {

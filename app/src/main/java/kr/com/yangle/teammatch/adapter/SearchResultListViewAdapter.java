@@ -38,14 +38,16 @@ public class SearchResultListViewAdapter extends BaseAdapter {
 
     private Service mService;
 
-    public SearchResultListViewAdapter(Context context, JSONArray jsonArray) {
-        mDataJSONArray = jsonArray;
-        mDataJSONArrayCnt = mDataJSONArray.length();
-
+    public SearchResultListViewAdapter(Context context) {
         mContext = context;
         mApplicationTM = (ApplicationTM) mContext.getApplicationContext();
 
         mService = new Service(mContext);
+    }
+
+    public void setMDataJSONArray(JSONArray jsonArray) {
+        mDataJSONArray = jsonArray;
+        mDataJSONArrayCnt = mDataJSONArray.length();
     }
 
     @Override

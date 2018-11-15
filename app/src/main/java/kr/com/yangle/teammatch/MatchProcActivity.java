@@ -36,6 +36,8 @@ public class MatchProcActivity extends AppCompatActivity {
 
     ListView lv_match_hist;
 
+    MatchProcListViewAdapter mMatchProcListViewAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,20 @@ public class MatchProcActivity extends AppCompatActivity {
 
         lv_match_hist = findViewById(R.id.lv_match_hist);
 
+        mMatchProcListViewAdapter = new MatchProcListViewAdapter(mContext);
+        lv_match_hist.setAdapter(mMatchProcListViewAdapter);
+
         mService.searchMatchProcList(searchMatchProcList_Listener);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            mService.searchMatchProcList(searchMatchProcList_Listener);
+        }catch(Exception e) {
+            Log.e(TAG, "MatchProcActivity onResume - " + e);
+        }
     }
 
     @Override
@@ -93,10 +108,13 @@ public class MatchProcActivity extends AppCompatActivity {
                 if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
 
-                    MatchProcListViewAdapter mMatchProcListViewAdapter = new MatchProcListViewAdapter(mContext, mJSONArray);
-                    lv_match_hist.setAdapter(mMatchProcListViewAdapter);
+                    mMatchProcListViewAdapter.setMDataJSONArray(mJSONArray);
+                    mMatchProcListViewAdapter.notifyDataSetChanged();
 
                 } else {
+                    mMatchProcListViewAdapter.setMDataJSONArray(new JSONArray());
+                    mMatchProcListViewAdapter.notifyDataSetChanged();
+
                     mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
                 }
             } catch (Exception e) {
