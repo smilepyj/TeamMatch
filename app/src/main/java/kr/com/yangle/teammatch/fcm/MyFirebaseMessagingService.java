@@ -1,4 +1,4 @@
-package kr.com.yangle.teammatch;
+package kr.com.yangle.teammatch.fcm;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -15,6 +15,9 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Map;
 
+import kr.com.yangle.teammatch.ApplicationTM;
+import kr.com.yangle.teammatch.MainActivity;
+import kr.com.yangle.teammatch.R;
 import kr.com.yangle.teammatch.util.DialogAlertActivity;
 import kr.com.yangle.teammatch.util.DialogMatchApplyActivity;
 import kr.com.yangle.teammatch.util.DialogMatchSuccessActivity;
@@ -34,7 +37,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Log.e(TAG, data + "");
 
-        sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), data);
+        if(openPushAlert(data)) {
+            sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), data);
+        }
     }
 
     private void sendNotification(String title, String message, Map<String, String> data) {
@@ -53,13 +58,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
 
-        openPushAlert(data);
-
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0 , notificationBuilder.build());
     }
 
-    private void openPushAlert(Map<String, String> data) {
+    private boolean openPushAlert(Map<String, String> data) {
+        boolean bNotification = false;
+
         try {
             mApplicationTM = (ApplicationTM) getApplication();
 
@@ -79,7 +84,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 String hope_match_ground = data.get("hope_match_ground");
 
                 if (team_id.equals(host_team_id)) {
-                    // 닫기, 등록정보 확인
+                    bNotification = true;
+
                     Intent mIntent = new Intent(getApplicationContext(), DialogMatchApplyActivity.class);
                     mIntent.putExtra(getApplicationContext().getString(R.string.match_apply_extra_title), "매치 신청");
                     mIntent.putExtra(getApplicationContext().getString(R.string.match_apply_extra_contents), "상대편이 매치를 신청하였습니다.\n수락하시겠습니까?");
@@ -111,6 +117,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 String hope_match_ground_cost = data.get("hope_match_ground_cost");
 
                 if(team_id.equals(host_team_id)) {
+                    bNotification = true;
+
                     Intent mIntent = new Intent(getApplicationContext(), DialogMatchSuccessActivity.class);
                     mIntent.putExtra(getString(R.string.match_success_extra_type), "HOST");
                     mIntent.putExtra("SUB_TITLE", "매치 전에 구장에 연락해 구장이용료를\n결제하시길 바랍니다.");
@@ -122,6 +130,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     mIntent.putExtra("NOTICE", "경기 시작 전/후 상대팀에게 구장이용료의\n절반을 받으시길 바랍니다.");
                     startActivity(mIntent);
                 }else if(team_id.equals(guest_team_id)){
+                    bNotification = true;
+
                     Intent mIntent = new Intent(getApplicationContext(), DialogMatchSuccessActivity.class);
                     mIntent.putExtra(getString(R.string.match_success_extra_type), "GUEST");
                     mIntent.putExtra("SUB_TITLE", "매치가 성사 되었습니다.\n상대방이 결제중입니다.");
@@ -140,7 +150,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 String guest_team_id = data.get("guest_team_id");
 
                 if(team_id.equals(guest_team_id)){
-                    // 닫기, 등록정보 확인
+                    bNotification = true;
+
                     Intent mIntent = new Intent(getApplicationContext(), DialogAlertActivity.class);
                     mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_title), "매치 거절");
                     mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents_header), "");
@@ -148,6 +159,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_cancel_text), "닫기");
                     mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_ok_text), "신청정보 확인");
                     mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 3);
+                    startActivity(mIntent);
                 }
             }else if("6".equals(match_alert_type)) {
                 String match_id = data.get("match_id");
@@ -163,6 +175,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 String hope_match_ground = data.get("hope_match_ground");
 
                 if(team_id.equals(host_team_id)){
+                    bNotification = true;
+
                     Intent mIntent = new Intent(getApplicationContext(), DialogRatingActivity.class);
                     mIntent.putExtra(getString(R.string.match_success_extra_type), "HOST");
                     mIntent.putExtra("MATCH_ID", match_id);
@@ -174,6 +188,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     mIntent.putExtra("MATCH_TIME", hope_match_time);
                     startActivity(mIntent);
                 }else if(team_id.equals(guest_team_id)){
+                    bNotification = true;
+
                     Intent mIntent = new Intent(getApplicationContext(), DialogRatingActivity.class);
                     mIntent.putExtra(getString(R.string.match_success_extra_type), "GUEST");
                     mIntent.putExtra("MATCH_ID", match_id);
@@ -187,7 +203,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 }
             }
         }catch(Exception e) {
+            bNotification = false;
             Log.e(TAG, "openPushAlert - " + e);
         }
+
+        return bNotification;
     }
 }
