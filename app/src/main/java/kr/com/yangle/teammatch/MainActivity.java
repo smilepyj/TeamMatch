@@ -2,11 +2,15 @@ package kr.com.yangle.teammatch;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -22,8 +26,13 @@ import android.widget.TextView;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import kr.com.yangle.teammatch.util.BackPressCloseHandler;
 import kr.com.yangle.teammatch.util.DialogAlertActivity;
+
+import static com.kakao.util.helper.Utility.getPackageInfo;
 
 public class MainActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -97,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
         LayoutSet();
 
         tv_navigation_user_name.setText(mApplicationTM.getUserName());
+
+        Log.e(TAG, "keyHash : " + getKeyHash(mContext));
     }
 
     /**
@@ -216,5 +227,22 @@ public class MainActivity extends AppCompatActivity {
         } else {
             ll_main_button_param.weight = 2.75f;
         }
+    }
+
+    public String getKeyHash(Context context) {
+        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
+        if (packageInfo == null)
+            return null;
+
+        for (Signature signature : packageInfo.signatures) {
+            try {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                return Base64.encodeToString(md.digest(), Base64.NO_WRAP);
+            } catch (NoSuchAlgorithmException e) {
+                Log.e(TAG, "Unable to get MessageDigest. signature=" + signature, e);
+            }
+        }
+        return null;
     }
 }

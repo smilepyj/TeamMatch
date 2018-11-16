@@ -36,6 +36,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:11.8.0'
     implementation 'com.google.firebase:firebase-messaging:11.8.0'
     implementation files('libs/libDaumMapAndroid.jar')
+    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: project.KAKAO_SDK_VERSION
+    implementation group: 'com.kakao.sdk', name: 'kakaonavi', version: project.KAKAO_SDK_VERSION
 }
 
 apply plugin: 'com.google.gms.google-services'

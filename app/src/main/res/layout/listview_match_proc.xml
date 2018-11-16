@@ -248,12 +248,14 @@
                                 android:id="@+id/iv_listview_match_proc_pre_payment"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
                                 android:background="@drawable/ic_pay" />
 
                             <TextView
                                 android:id="@+id/tv_listview_match_proc_pre_payment"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
                                 android:fontFamily="@font/notosanskr_medium"
                                 android:includeFontPadding="false"
                                 android:text="@string/match_proc_pre_payment_yes"
