@@ -53,8 +53,8 @@
                         android:weightSum="10">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="170dp"
+                                android:layout_height="170dp"
                                 android:background="@drawable/ic_main_logo" />
                     </LinearLayout>
 
@@ -83,7 +83,7 @@
                             android:paddingHorizontal="@dimen/bt_main_padding"
                             android:text="@string/main_search_match"
                             android:textColor="@color/color_535353"
-                            android:textSize="@dimen/font_size_22" />
+                            android:textSize="@dimen/font_size_20" />
 
                         <Space
                             android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                             android:paddingHorizontal="@dimen/bt_main_padding"
                             android:text="@string/main_registration_match"
                             android:textColor="@color/color_535353"
-                            android:textSize="@dimen/font_size_22" />
+                            android:textSize="@dimen/font_size_20" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

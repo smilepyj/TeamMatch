@@ -14,11 +14,28 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.kakao.auth.ISessionCallback;
+import com.kakao.auth.Session;
+import com.kakao.network.ErrorResult;
+import com.kakao.usermgmt.LoginButton;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.kakao.usermgmt.callback.MeResponseCallback;
+import com.kakao.usermgmt.callback.MeV2ResponseCallback;
+import com.kakao.usermgmt.callback.UnLinkResponseCallback;
+import com.kakao.usermgmt.response.MeV2Response;
+import com.kakao.usermgmt.response.model.UserProfile;
+import com.kakao.util.exception.KakaoException;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
@@ -40,9 +57,11 @@ public class LoginActivity extends AppCompatActivity {
 
     OAuthLoginButton bt_login_naver;
 
-    LinearLayout ll_login_kakao;
+    LoginButton bt_login_kakao;
 
     private OAuthLogin mOAuthLogin;
+
+    private SessionCallback callback;
 
     TextView tv_login_term_service, tv_login_privacy;
 
@@ -59,19 +78,37 @@ public class LoginActivity extends AppCompatActivity {
         mService = new Service(mContext);
 
         bt_login_naver = findViewById(R.id.bt_login_naver);
-        ll_login_kakao = findViewById(R.id.ll_login_kakao);
+        bt_login_kakao = findViewById(R.id.bt_login_kakao);
 
         tv_login_term_service = findViewById(R.id.tv_login_term_service);
         tv_login_privacy = findViewById(R.id.tv_login_privacy);
 
         bt_login_naver.setOAuthLoginHandler(mOAuthLoginHandler);
 
-        ll_login_kakao.setOnClickListener(mOnClickListener);
+//        bt_login_kakao.setOnClickListener(mOnClickListener);
+
+        bt_login_kakao.performClick();
 
         tv_login_term_service.setOnClickListener(mOnClickListener);
         tv_login_privacy.setOnClickListener(mOnClickListener);
 
         initNaverLogin();
+        initKakaoLogin();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+            return;
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Session.getCurrentSession().removeCallback(callback);
     }
 
     /**
@@ -96,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent mIntent;
 
             switch (v.getId()) {
-                case R.id.ll_login_kakao :
+                case R.id.bt_login_kakao :
                     mApplicationTM.makeToast(mContext, getString(R.string.login_kakao_not_support));
                     break;
                 case R.id.tv_login_term_service :
@@ -145,6 +182,65 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     };
+
+    private void initKakaoLogin() {
+        callback = new SessionCallback();
+        Session.getCurrentSession().addCallback(callback);
+        Session.getCurrentSession().checkAndImplicitOpen();
+    }
+
+    public class SessionCallback implements ISessionCallback {
+
+        // 로그인에 성공한 상태
+        @Override
+        public void onSessionOpened() {
+            requestMe();
+        }
+
+        // 로그인에 실패한 상태
+        @Override
+        public void onSessionOpenFailed(KakaoException exception) {
+            Log.e("SessionCallback :: ", "onSessionOpenFailed : " + exception.getMessage());
+        }
+
+        // 사용자 정보 요청
+        public void requestMe() {
+            List<String> keys = new ArrayList<>();
+            keys.add("properties.nickname");
+            keys.add("properties.profile_image");
+            keys.add("kakao_account.email");
+
+            UserManagement.getInstance().me(keys, new MeV2ResponseCallback() {
+                @Override
+                public void onFailure(ErrorResult errorResult) {
+                    Log.d(TAG, "onFailure : " + errorResult.getErrorMessage());
+                }
+
+                @Override
+                public void onSessionClosed(ErrorResult errorResult) {
+                    Log.e(TAG, "onSessionClosed : " + errorResult.getErrorMessage());
+                }
+
+                @Override
+                public void onSuccess(MeV2Response response) {
+                    Log.d(TAG, "user id : " + response.getId());
+                    Log.d(TAG, "email: " + response.getKakaoAccount().getEmail());
+                    Log.d(TAG, "profile image: " + response.getProfileImagePath());
+
+                    String email_id = response.getKakaoAccount().getEmail();
+
+                    if(!"".equals(email_id)) {
+                        mApplicationTM.setUserEmail(response.getKakaoAccount().getEmail());
+                        mApplicationTM.setUserName(response.getNickname());
+
+                        mService.userLogin(userLogin_Listener, mApplicationTM.getUserEmail());
+                    }else {
+                        mApplicationTM.makeToast(mContext, "이메일 제공을 동의해 주시기 바랍니다.");
+                    }
+                }
+            });
+        }
+    }
 
     ResponseListener naverSearchProfile_Listener = new ResponseListener() {
         @Override

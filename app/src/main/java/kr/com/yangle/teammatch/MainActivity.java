@@ -25,6 +25,10 @@ import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.kakao.network.ErrorResult;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.kakao.usermgmt.callback.UnLinkResponseCallback;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -244,5 +248,49 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return null;
+    }
+
+    private void Logout() {
+        try {
+            UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+                @Override
+                public void onCompleteLogout() {
+                    Log.e(TAG, "Kakao LogOut");
+                }
+            });
+
+            UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() {
+                @Override
+                public void onFailure(ErrorResult errorResult) {
+
+                }
+
+                @Override
+                public void onSessionClosed(ErrorResult errorResult) {
+                    Log.e(TAG, "onSessionClosed : " + errorResult.getErrorMessage());
+                    //redirectLoginActivity();
+                }
+
+                @Override
+                public void onNotSignedUp() {
+                    //redirectSignupActivity();
+                }
+
+                @Override
+                public void onSuccess(Long userId) {
+                    Log.e(TAG, "UnLink onSuccess");
+
+                    Intent mIntent = new Intent(mContext, LoginActivity.class);
+                    startActivity(mIntent);
+                    finish();
+                    //redirectLoginActivity();
+                }
+            });
+        } catch (Exception e) {
+            mApplicationTM.makeToast(mContext, getString(R.string.error_network));
+            Log.e(TAG, "Logout - " + e);
+        } finally {
+            mApplicationTM.stopProgress();
+        }
     }
 }

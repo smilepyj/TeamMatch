@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kakao.auth.KakaoSDK;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -23,11 +25,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import kr.com.yangle.teammatch.kakao.KakaoSDKAdapter;
+
 public class ApplicationTM extends Application {
     private final String TAG = this.getClass().getSimpleName();
 
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
+
+    private static ApplicationTM instance;
 
     Context mContext;
 
@@ -42,7 +48,17 @@ public class ApplicationTM extends Application {
         mEditor.apply();
 
         mContext = this;
+        instance = this;
+
         setMapbyCode();
+
+        KakaoSDK.init(new KakaoSDKAdapter());
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        instance = null;
     }
 
     /**
@@ -373,4 +389,13 @@ public class ApplicationTM extends Application {
 
         return mResult;
     }
+
+    public static ApplicationTM getGlobalApplicationContext() {
+        if (instance == null) {
+            throw new IllegalStateException("This Application does not inherit com.kakao.GlobalApplication");
+        }
+
+        return instance;
+    }
+
 }
