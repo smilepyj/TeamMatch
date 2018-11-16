@@ -29,6 +29,7 @@ import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.kakao.usermgmt.callback.UnLinkResponseCallback;
+import com.nhn.android.naverlogin.OAuthLogin;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -181,7 +182,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.ll_navigation_logout :
                     dl_activity_main.closeDrawers();
-                    mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
+                    Logout();
+                    //mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
                     break;
                 case R.id.bt_main_search_match:
                     mIntent = new Intent(mContext, SearchMatchActivity.class);
@@ -252,40 +254,80 @@ public class MainActivity extends AppCompatActivity {
 
     private void Logout() {
         try {
-            UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
-                @Override
-                public void onCompleteLogout() {
-                    Log.e(TAG, "Kakao LogOut");
-                }
-            });
+            String loginType = mApplicationTM.getLoginType();
 
-            UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() {
-                @Override
-                public void onFailure(ErrorResult errorResult) {
+            if(mContext.getString(R.string.login_naver_login_type).equals(loginType)) {
 
-                }
+                OAuthLogin mOAuthLogin = OAuthLogin.getInstance();
+                mOAuthLogin.init(mContext, getString(R.string.login_naver_client_id), getString(R.string.login_naver_client_secret), getString(R.string.app_name));
+                mOAuthLogin.logout(mContext);
 
-                @Override
-                public void onSessionClosed(ErrorResult errorResult) {
-                    Log.e(TAG, "onSessionClosed : " + errorResult.getErrorMessage());
-                    //redirectLoginActivity();
-                }
+                mApplicationTM.setLoginType("");
+                mApplicationTM.setUserId("");
+                mApplicationTM.setUserEmail("");
+                mApplicationTM.setUserName("");
+                mApplicationTM.setTeamId("");
 
-                @Override
-                public void onNotSignedUp() {
-                    //redirectSignupActivity();
-                }
+                Intent mIntent = new Intent(mContext, IntroActivity.class);
+                startActivity(mIntent);
+                finish();
 
-                @Override
-                public void onSuccess(Long userId) {
-                    Log.e(TAG, "UnLink onSuccess");
+                /*if(mOAuthLogin.logout(mContext)) {
+                    mApplicationTM.setLoginType("");
+                    mApplicationTM.setUserId("");
+                    mApplicationTM.setUserName("");
+                    mApplicationTM.setTeamId("");
 
-                    Intent mIntent = new Intent(mContext, LoginActivity.class);
+                    Intent mIntent = new Intent(mContext, IntroActivity.class);
                     startActivity(mIntent);
                     finish();
-                    //redirectLoginActivity();
-                }
-            });
+                }else {
+                    Log.e(TAG, "errorCode:" + OAuthLogin.getInstance().getLastErrorCode(mContext));
+                    Log.e(TAG, "errorDesc:" + OAuthLogin.getInstance().getLastErrorDesc(mContext));
+                }*/
+            }else if(mContext.getString(R.string.login_kakao_login_type).equals(loginType)){
+
+                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+                    @Override
+                    public void onCompleteLogout() {
+                        Log.e(TAG, "Kakao LogOut");
+                    }
+                });
+
+                UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() {
+                    @Override
+                    public void onFailure(ErrorResult errorResult) {
+
+                    }
+
+                    @Override
+                    public void onSessionClosed(ErrorResult errorResult) {
+                        Log.e(TAG, "onSessionClosed : " + errorResult.getErrorMessage());
+                        //redirectLoginActivity();
+                    }
+
+                    @Override
+                    public void onNotSignedUp() {
+                        //redirectSignupActivity();
+                    }
+
+                    @Override
+                    public void onSuccess(Long userId) {
+                        Log.e(TAG, "UnLink onSuccess");
+
+                        mApplicationTM.setLoginType("");
+                        mApplicationTM.setUserId("");
+                        mApplicationTM.setUserEmail("");
+                        mApplicationTM.setUserName("");
+                        mApplicationTM.setTeamId("");
+
+                        Intent mIntent = new Intent(mContext, IntroActivity.class);
+                        startActivity(mIntent);
+                        finish();
+                        //redirectLoginActivity();
+                    }
+                });
+            }
         } catch (Exception e) {
             mApplicationTM.makeToast(mContext, getString(R.string.error_network));
             Log.e(TAG, "Logout - " + e);

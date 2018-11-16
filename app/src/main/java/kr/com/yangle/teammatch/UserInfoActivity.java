@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,6 +51,8 @@ public class UserInfoActivity extends AppCompatActivity {
 
     TextView tv_user_info_add_grounds;
 
+    InputMethodManager imm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +68,8 @@ public class UserInfoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+
+        imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
 
         et_user_info_user_name = findViewById(R.id.et_user_info_user_name);
         et_user_info_phone_number = findViewById(R.id.et_user_info_phone_number);
@@ -94,10 +99,16 @@ public class UserInfoActivity extends AppCompatActivity {
         if(getString(R.string.user_info_type_update).equals(mActivityType)) {
             bt_user_info_save.setText(getString(R.string.user_info_update));
 
-            mService.searchUserInfo(searchUserInfo_Listener, mApplicationTM.getUserEmail());
+            mService.searchUserInfo(searchUserInfo_Listener, mApplicationTM.getUserId());
         } else {
             et_user_info_user_name.setText(mApplicationTM.getUserName());
         }
+    }
+
+    public void linearOnClick(View v) {
+        imm.hideSoftInputFromWindow(et_user_info_user_name.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(et_user_info_phone_number.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(et_user_info_team_name.getWindowToken(), 0);
     }
 
     @Override
@@ -375,7 +386,7 @@ public class UserInfoActivity extends AppCompatActivity {
 //            }
 //        }
 
-        mService.insertUserInfo(insertUserInfo_Listener, mApplicationTM.getUserEmail(), user_name, user_telnum, team_name, hope_ground, team_level_code, team_age_code);
+        mService.insertUserInfo(insertUserInfo_Listener, mApplicationTM.getUserId(), mApplicationTM.getUserEmail(), user_name, user_telnum, team_name, hope_ground, team_level_code, team_age_code);
     }
 
     /**
@@ -416,7 +427,7 @@ public class UserInfoActivity extends AppCompatActivity {
             team_level_code = mApplicationTM.getKeybyMap(mApplicationTM.getC002(), bt_user_info_level.getText().toString());
         }
 
-        mService.updateUserInfo(insertUserInfo_Listener, mApplicationTM.getUserEmail(), user_name, user_telnum, search_user_team_id, team_name, hope_ground, team_level_code, team_age_code);
+        mService.updateUserInfo(insertUserInfo_Listener, mApplicationTM.getUserId(), mApplicationTM.getUserEmail(), user_name, user_telnum, search_user_team_id, team_name, hope_ground, team_level_code, team_age_code);
     }
 
     /**
@@ -434,6 +445,8 @@ public class UserInfoActivity extends AppCompatActivity {
 
                     if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                         mApplicationTM.makeToast(mContext, getString(R.string.user_info_service_input_sucess));
+
+                        mApplicationTM.setUserName(et_user_info_user_name.getText().toString());
 
                         Intent mInent = new Intent(mContext, MainActivity.class);
                         startActivity(mInent);

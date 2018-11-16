@@ -32,6 +32,7 @@ import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -223,19 +224,26 @@ public class LoginActivity extends AppCompatActivity {
 
                 @Override
                 public void onSuccess(MeV2Response response) {
-                    Log.d(TAG, "user id : " + response.getId());
-                    Log.d(TAG, "email: " + response.getKakaoAccount().getEmail());
-                    Log.d(TAG, "profile image: " + response.getProfileImagePath());
+                    try {
+                        Log.d(TAG, "user id : " + response.getId());
+                        Log.d(TAG, "email: " + response.getKakaoAccount().getEmail());
+                        Log.d(TAG, "profile image: " + response.getProfileImagePath());
 
-                    String email_id = response.getKakaoAccount().getEmail();
+                        double id = response.getId();
 
-                    if(!"".equals(email_id)) {
-                        mApplicationTM.setUserEmail(response.getKakaoAccount().getEmail());
-                        mApplicationTM.setUserName(response.getNickname());
+                        if(!"".equals(id)) {
+                            mApplicationTM.setLoginType(mContext.getString(R.string.login_kakao_login_type));
+                            mApplicationTM.setUserId(mContext.getString(R.string.login_kakao_login_type) + "_" + new DecimalFormat("###.#####").format(id));
+                            mApplicationTM.setUserEmail(response.getKakaoAccount().getEmail());
+                            mApplicationTM.setUserName(response.getNickname());
 
-                        mService.userLogin(userLogin_Listener, mApplicationTM.getUserEmail());
-                    }else {
-                        mApplicationTM.makeToast(mContext, "이메일 제공을 동의해 주시기 바랍니다.");
+                            mService.userLogin(userLogin_Listener, mApplicationTM.getUserId(), mApplicationTM.getUserEmail());
+                        }
+                    } catch (Exception e) {
+                        mApplicationTM.makeToast(mContext, getString(R.string.error_network));
+                        Log.e(TAG, "MeV2ResponseCallback onSuccess - " + e);
+                    } finally {
+                        mApplicationTM.stopProgress();
                     }
                 }
             });
@@ -254,11 +262,13 @@ public class LoginActivity extends AppCompatActivity {
                     if(mContext.getString(R.string.login_naver_success).equals(mJSONObject.get(getString(R.string.login_naver_result_code)))) {
                         JSONObject mResult = mJSONObject.getJSONObject(mContext.getString(R.string.login_naver_response));
 
-                        if(!"".equals(mResult.get(mContext.getString(R.string.login_naver_result_email)))) {
+                        if(!"".equals(mResult.get(mContext.getString(R.string.login_naver_result_id)))) {
+                            mApplicationTM.setLoginType(mContext.getString(R.string.login_naver_login_type));
+                            mApplicationTM.setUserId(mContext.getString(R.string.login_naver_login_type) + "_" + mResult.get(mContext.getString(R.string.login_naver_result_id)).toString());
                             mApplicationTM.setUserEmail(mResult.get(mContext.getString(R.string.login_naver_result_email)).toString());
                             mApplicationTM.setUserName(mResult.get(mContext.getString(R.string.login_naver_result_name)).toString());
 
-                            mService.userLogin(userLogin_Listener, mApplicationTM.getUserEmail());
+                            mService.userLogin(userLogin_Listener, mApplicationTM.getUserId(), mApplicationTM.getUserEmail());
                         }
                     }
                 } else {

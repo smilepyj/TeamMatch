@@ -149,6 +149,32 @@ public class ApplicationTM extends Application {
     }
 
     /**
+     * Data 선언 - Login Type
+     * Created by maloman72 on 2018-10-31
+     * */
+    public void setLoginType(String loginType) {
+        mEditor.putString("LOGIN_TYPE", loginType);
+        mEditor.apply();
+    }
+
+    public String getLoginType() {
+        return mSharedPreferences.getString("LOGIN_TYPE", "");
+    }
+
+    /**
+     * Data 선언 - User ID
+     * Created by maloman72 on 2018-10-31
+     * */
+    public void setUserId(String userId) {
+        mEditor.putString("USER_ID", userId);
+        mEditor.apply();
+    }
+
+    public String getUserId() {
+        return mSharedPreferences.getString("USER_ID", "");
+    }
+
+    /**
      * Data 선언 - User Email
      * Created by maloman72 on 2018-10-31
      * */

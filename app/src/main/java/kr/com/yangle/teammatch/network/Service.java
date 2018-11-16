@@ -68,12 +68,13 @@ public class Service {
      * 로그인 서비스
      * Created by maloman72 on 2018-10-31
      * */
-    public void userLogin(ResponseListener responseListener, String email_id) {
+    public void userLogin(ResponseListener responseListener, String user_id, String user_email) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.userlogin_service);
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.userlogin_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.userlogin_param_user_id), user_id);
+            mJSONObject.put(mContext.getString(R.string.userlogin_param_user_email), user_email);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
@@ -95,12 +96,13 @@ public class Service {
      * 회원정보 등록 서비스
      * Created by maloman72 on 2018-10-31
      * */
-    public void insertUserInfo(ResponseListener responseListener, String email_id, String user_name, String user_telnum, String team_name, ArrayList<String> hope_grounds, String team_level_code, String team_age_code) {
+    public void insertUserInfo(ResponseListener responseListener, String user_id, String user_email, String user_name, String user_telnum, String team_name, ArrayList<String> hope_grounds, String team_level_code, String team_age_code) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.insertuserinfo_service);
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_user_id), user_id);
+            mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_user_email), user_email);
             mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_user_name), user_name);
             mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_user_telnum), user_telnum);
             mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_team_name), team_name);
@@ -119,12 +121,13 @@ public class Service {
      * 회원정보 수정 서비스
      * Created by maloman72 on 2018-10-31
      * */
-    public void updateUserInfo(ResponseListener responseListener, String email_id, String user_name, String user_telnum, String team_id, String team_name, ArrayList<String> hope_grounds, String team_level_code, String team_age_code) {
+    public void updateUserInfo(ResponseListener responseListener, String user_id, String user_email, String user_name, String user_telnum, String team_id, String team_name, ArrayList<String> hope_grounds, String team_level_code, String team_age_code) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.updateuserinfo_service);
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_user_id), user_id);
+            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_user_email), user_email);
             mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_user_name), user_name);
             mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_user_telnum), user_telnum);
             mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_team_id), team_id);
@@ -144,12 +147,12 @@ public class Service {
      * 회원정보 조회 서비스
      * Created by maloman72 on 2018-10-31
      * */
-    public void searchUserInfo(ResponseListener responseListener, String email_id) {
+    public void searchUserInfo(ResponseListener responseListener, String user_id) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchuserinfo_service);
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.searchuserinfo_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.searchuserinfo_user_id), user_id);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
@@ -164,10 +167,10 @@ public class Service {
     public void searchMatchList(ResponseListener responseListener, String search_date, String search_start_time, String search_area_group, String search_area, String search_ground, String search_team_member, String search_team_lvl) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchmatchlist_service);
-            String email_id = mApplicationTM.getUserEmail();
+            String user_id = mApplicationTM.getUserId();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_user_id), user_id);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_date), search_date);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_start_time), search_start_time);
             mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_search_area_group), search_area_group);
@@ -192,10 +195,10 @@ public class Service {
     public void searchGroundList(ResponseListener responseListener, String search_type_code, String search_loc_lat, String search_loc_lon, String search_area_code, String search_area_group_code) {
         try {
             String mURL = mContext.getString(R.string.service_url) + "ground/searchGroundList";
-            String email_id = mApplicationTM.getUserEmail(), search_count = "50", search_page = "1";
+            String user_id = mApplicationTM.getUserId(), search_count = "50", search_page = "1";
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put("email_id", email_id);
+            mJSONObject.put("user_id", user_id);
             mJSONObject.put("search_type_code", search_type_code);
             mJSONObject.put("search_loc_lat", search_loc_lat);
             mJSONObject.put("search_loc_lon", search_loc_lon);
@@ -218,10 +221,10 @@ public class Service {
     public void searchGroundDetail(ResponseListener responseListener, String ground_id) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.ground_detail_service);
-            String email_id = mApplicationTM.getUserEmail();
+            String user_id = mApplicationTM.getUserId();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.ground_detail_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.ground_detail_param_user_id), user_id);
             mJSONObject.put(mContext.getString(R.string.ground_detail_param_ground_id), ground_id);
 
             Offer(mURL, mJSONObject, responseListener);
@@ -238,10 +241,10 @@ public class Service {
     public void searchAreaGroupList(ResponseListener responseListener) {
         try {
             String mURL = mContext.getString(R.string.service_url) + "etc/searchAreaGroupList";
-            String email_id = mApplicationTM.getUserEmail();
+            String user_id = mApplicationTM.getUserId();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put("email_id", email_id);
+            mJSONObject.put("user_id", user_id);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
@@ -257,10 +260,10 @@ public class Service {
     public void searchAreaList(ResponseListener responseListener, String area_group_code) {
         try {
             String mURL = mContext.getString(R.string.service_url) + "etc/searchAreaList";
-            String email_id = mApplicationTM.getUserEmail();
+            String user_id = mApplicationTM.getUserId();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put("email_id", email_id);
+            mJSONObject.put("user_id", user_id);
             mJSONObject.put("area_group_code", area_group_code);
 
             Offer(mURL, mJSONObject, responseListener);
@@ -276,10 +279,10 @@ public class Service {
     public void searchMatchProcList(ResponseListener responseListener) {
         try {
             String mURL = mContext.getString(R.string.service_url) + "matchHist/searchMatchProcList";
-            String email_id = mApplicationTM.getUserEmail(), team_id = mApplicationTM.getTeamId(), search_count = "50", search_page = "1";
+            String user_id = mApplicationTM.getUserId(), team_id = mApplicationTM.getTeamId(), search_count = "50", search_page = "1";
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put("email_id", email_id);
+            mJSONObject.put("user_id", user_id);
             mJSONObject.put("team_id", team_id);
             mJSONObject.put("search_count", search_count);
             mJSONObject.put("search_page", search_page);
@@ -297,10 +300,10 @@ public class Service {
     public void searchRankList(ResponseListener responseListener, String search_area_group, String search_team_name) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.ranking_service);
-            String email_id = mApplicationTM.getUserEmail(), search_count = "50", search_page = "1";
+            String user_id = mApplicationTM.getUserId(), search_count = "50", search_page = "1";
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.ranking_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.ranking_param_user_id), user_id);
             mJSONObject.put(mContext.getString(R.string.ranking_param_search_area_group), search_area_group);
             mJSONObject.put(mContext.getString(R.string.ranking_param_search_team_name), search_team_name);
             mJSONObject.put(mContext.getString(R.string.ranking_param_search_count), search_count);
@@ -319,10 +322,10 @@ public class Service {
     public void applyMatch(ResponseListener responseListener, String match_id) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.applyMatch_service);
-            String email_id = mApplicationTM.getUserEmail();
+            String user_id = mApplicationTM.getUserId();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.applyMatch_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.applyMatch_param_user_id), user_id);
             mJSONObject.put(mContext.getString(R.string.applyMatch_param_match_id), match_id);
 
             Offer(mURL, mJSONObject, responseListener);
@@ -339,10 +342,10 @@ public class Service {
     public void registMatch(ResponseListener responseListener, String match_hope_ground_id, String match_hope_date, String match_hope_start_time, String match_hope_end_time, String match_hope_team_member, String match_hope_team_lvl, String pre_payment_at) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.registMatch_service);
-            String email_id = mApplicationTM.getUserEmail();
+            String user_id = mApplicationTM.getUserId();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.searchmatchlist_param_user_id), user_id);
             mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_ground_id), match_hope_ground_id);
             mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_date), match_hope_date);
             mJSONObject.put(mContext.getString(R.string.registMatch_param_match_hope_start_time), match_hope_start_time);
@@ -365,10 +368,10 @@ public class Service {
     public void acceptMatch(ResponseListener responseListener, String match_id, String match_apply_id, String accept_reject_type) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.acceptMatch_service);
-            String email_id = mApplicationTM.getUserEmail();
+            String user_id = mApplicationTM.getUserId();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.acceptMatch_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.acceptMatch_param_user_id), user_id);
             mJSONObject.put(mContext.getString(R.string.acceptMatch_param_match_id), match_id);
             mJSONObject.put(mContext.getString(R.string.acceptMatch_param_match_apply_id), match_apply_id);
             mJSONObject.put(mContext.getString(R.string.acceptMatch_param_accept_reject_type), accept_reject_type);
@@ -389,10 +392,10 @@ public class Service {
     public void evalMatch(ResponseListener responseListener, String match_id, String team_id,  String match_point) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.evalMatch_service);
-            String email_id = mApplicationTM.getUserEmail();
+            String user_id = mApplicationTM.getUserId();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.evalMatch_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.evalMatch_param_user_id), user_id);
             mJSONObject.put(mContext.getString(R.string.evalMatch_param_match_id), match_id);
             mJSONObject.put(mContext.getString(R.string.evalMatch_param_team_id), team_id);
             mJSONObject.put(mContext.getString(R.string.evalMatch_param_match_point), match_point);
@@ -411,10 +414,10 @@ public class Service {
     public void searchMatchAlertInfo(ResponseListener responseListener, String match_id, String match_apply_id, String match_alert_type) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchMatchAlertInfo_service);
-            String email_id = mApplicationTM.getUserEmail();
+            String user_id = mApplicationTM.getUserId();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_email_id), email_id);
+            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_user_id), user_id);
             mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_id), match_id);
             mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_apply_id), match_apply_id);
             mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_alert_type), match_alert_type);

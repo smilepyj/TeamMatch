@@ -107,13 +107,13 @@ public class IntroActivity extends AppCompatActivity {
      * Created by maloman72 on 2018-11-10
      * */
     private void CheckLogin() {
-        if("".equals(mApplicationTM.getUserEmail())) {
+        if("".equals(mApplicationTM.getUserId())) {
             Intent mIntent = new Intent(mContext, LoginActivity.class);
             startActivity(mIntent);
             finish();
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         } else {
-            mService.userLogin(userLogin_Listener, mApplicationTM.getUserEmail());
+            mService.userLogin(userLogin_Listener, mApplicationTM.getUserId(), mApplicationTM.getUserEmail());
         }
     }
 

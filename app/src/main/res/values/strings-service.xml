@@ -7,10 +7,16 @@
     <string name="login_naver_result_code">resultcode</string>
     <string name="login_naver_response">response</string>
 
+    <string name="login_naver_result_id">id</string>
     <string name="login_naver_result_email">email</string>
     <string name="login_naver_result_name">name</string>
 
     <string name="login_naver_success">00</string>
+
+    <string name="login_naver_login_type">naver</string>
+
+    <!-- Kakao Login Data -->
+    <string name="login_kakao_login_type">kakao</string>
 
     <!-- Service URL -->
     <string name="service_url">http://fm0800.cafe24.com:15101/tmServer/</string>
@@ -29,14 +35,16 @@
 
     <!-- userLogin Service -->
     <string name="userlogin_service">login/userLogin</string>
-    <string name="userlogin_param_email_id">email_id</string>
+    <string name="userlogin_param_user_id">user_id</string>
+    <string name="userlogin_param_user_email">user_email</string>
 
     <string name="userlogin_result_user_name">user_name</string>
     <string name="userlogin_result_team_id">team_id</string>
 
     <!-- insertUserInfo Service -->
     <string name="insertuserinfo_service">user/insertUserInfo</string>
-    <string name="insertuserinfo_param_email_id">email_id</string>
+    <string name="insertuserinfo_param_user_id">user_id</string>
+    <string name="insertuserinfo_param_user_email">user_email</string>
     <string name="insertuserinfo_param_user_name">user_name</string>
     <string name="insertuserinfo_param_user_telnum">user_telnum</string>
     <string name="insertuserinfo_param_team_name">team_name</string>
@@ -46,7 +54,8 @@
 
     <!-- updateUserInfo Service -->
     <string name="updateuserinfo_service">user/updateUserInfo</string>
-    <string name="updateuserinfo_param_email_id">email_id</string>
+    <string name="updateuserinfo_param_user_id">user_id</string>
+    <string name="updateuserinfo_param_user_email">user_email</string>
     <string name="updateuserinfo_param_user_name">user_name</string>
     <string name="updateuserinfo_param_user_telnum">user_telnum</string>
     <string name="updateuserinfo_param_team_id">team_id</string>
@@ -57,7 +66,7 @@
 
     <!-- serarchUserInfo Service -->
     <string name="searchuserinfo_service">user/searchUserInfo</string>
-    <string name="searchuserinfo_email_id">email_id</string>
+    <string name="searchuserinfo_user_id">user_id</string>
 
     <string name="searchuserinfo_result_user_name">user_name</string>
     <string name="searchuserinfo_result_user_telnum">user_telnum</string>
@@ -69,7 +78,7 @@
 
     <!-- searchMatchList Service -->
     <string name="searchmatchlist_service">match/searchMatchList</string>
-    <string name="searchmatchlist_param_email_id">email_id</string>
+    <string name="searchmatchlist_param_user_id">user_id</string>
     <string name="searchmatchlist_param_search_date">search_date</string>
     <string name="searchmatchlist_param_search_start_time">search_start_time</string>
     <string name="searchmatchlist_param_search_area_group">search_area_group</string>
@@ -97,12 +106,12 @@
 
     <!-- applyMatch Service -->
     <string name="applyMatch_service">match/applyMatch</string>
-    <string name="applyMatch_param_email_id">email_id</string>
+    <string name="applyMatch_param_user_id">user_id</string>
     <string name="applyMatch_param_match_id">match_id</string>
 
     <!-- registMatch Service -->
     <string name="registMatch_service">match/registMatch</string>
-    <string name="registMatch_param_email_id">email_id</string>
+    <string name="registMatch_param_user_id">user_id</string>
     <string name="registMatch_param_match_hope_ground_id">match_hope_ground_id</string>
     <string name="registMatch_param_match_hope_date">match_hope_date</string>
     <string name="registMatch_param_match_hope_start_time">match_hope_start_time</string>
@@ -113,14 +122,14 @@
 
     <!-- acceptMatch Service -->
     <string name="acceptMatch_service">match/acceptMatch</string>
-    <string name="acceptMatch_param_email_id">email_id</string>
+    <string name="acceptMatch_param_user_id">user_id</string>
     <string name="acceptMatch_param_match_id">match_id</string>
     <string name="acceptMatch_param_match_apply_id">match_apply_id</string>
     <string name="acceptMatch_param_accept_reject_type">accept_reject_type</string>
 
     <!-- evalMatch Service -->
     <string name="evalMatch_service">match/evalMatch</string>
-    <string name="evalMatch_param_email_id">email_id</string>
+    <string name="evalMatch_param_user_id">user_id</string>
     <string name="evalMatch_param_match_id">match_id</string>
     <string name="evalMatch_param_team_id">team_id</string>
     <string name="evalMatch_param_match_point">match_point</string>
@@ -149,14 +158,14 @@
 
     <!-- searchMatchAlertInfo Service -->
     <string name="searchMatchAlertInfo_service">match/searchMatchAlertInfo</string>
-    <string name="searchMatchAlertInfo_param_email_id">email_id</string>
+    <string name="searchMatchAlertInfo_param_user_id">user_id</string>
     <string name="searchMatchAlertInfo_param_match_id">match_id</string>
     <string name="searchMatchAlertInfo_param_match_apply_id">match_apply_id</string>
     <string name="searchMatchAlertInfo_param_match_alert_type">match_alert_type</string>
 
     <!-- Ranking Service-->
     <string name="ranking_service">rank/searchRankList</string>
-    <string name="ranking_param_email_id">email_id</string>
+    <string name="ranking_param_user_id">user_id</string>
     <string name="ranking_param_search_area_group">search_area_group</string>
     <string name="ranking_param_search_team_name">search_team_name</string>
     <string name="ranking_param_search_count">search_count</string>
@@ -170,7 +179,7 @@
 
     <!-- groundDetail Service -->
     <string name="ground_detail_service">ground/searchGroundDetail</string>
-    <string name="ground_detail_param_email_id">email_id</string>
+    <string name="ground_detail_param_user_id">user_id</string>
     <string name="ground_detail_param_ground_id">ground_id</string>
 
     <string name="ground_detail_result_ground_id">ground_id</string>
