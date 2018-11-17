@@ -450,6 +450,9 @@ public class UserInfoActivity extends AppCompatActivity {
                         mApplicationTM.makeToast(mContext, getString(R.string.user_info_service_input_sucess));
 
                         mApplicationTM.setUserName(et_user_info_user_name.getText().toString());
+                        mApplicationTM.setTeamAge(mApplicationTM.getKeybyMap(mApplicationTM.getC001(), bt_user_info_age.getText().toString()));
+                        mApplicationTM.setTeamLevel(mApplicationTM.getKeybyMap(mApplicationTM.getC002(), bt_user_info_level.getText().toString()));
+                        mApplicationTM.setHopeGrounds( new JSONArray(hope_ground));
 
                         Intent mInent = new Intent(mContext, MainActivity.class);
                         startActivity(mInent);
