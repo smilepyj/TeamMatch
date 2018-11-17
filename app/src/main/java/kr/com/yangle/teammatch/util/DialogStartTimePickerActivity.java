@@ -92,8 +92,8 @@ public class DialogStartTimePickerActivity extends AppCompatActivity {
     private void setTime() {
         final Calendar mCalendar = Calendar.getInstance();
 
-        tv_dialog_time_picker_time.setText(String.valueOf(mCalendar.get(Calendar.HOUR_OF_DAY)) + getString(R.string.start_time_picker_dialog_hour_text));
-        mTime = mCalendar.get(Calendar.HOUR_OF_DAY);
+        mTime = mCalendar.get(Calendar.HOUR_OF_DAY) + 1;
+        tv_dialog_time_picker_time.setText(String.valueOf(mTime) + getString(R.string.start_time_picker_dialog_hour_text));
     }
 
     /**

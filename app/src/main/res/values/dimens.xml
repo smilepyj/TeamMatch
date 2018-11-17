@@ -30,6 +30,7 @@
     <dimen name="dimen_size_40">40dp</dimen>
     <dimen name="dimen_size_45">45dp</dimen>
     <dimen name="dimen_size_50">50dp</dimen>
+    <dimen name="dimen_size_52">52dp</dimen>
     <dimen name="dimen_size_60">60dp</dimen>
     <dimen name="dimen_size_68">68dp</dimen>
     <dimen name="dimen_size_85">85dp</dimen>

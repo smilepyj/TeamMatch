@@ -125,10 +125,11 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
     private void setTime() {
         final Calendar mCalendar = Calendar.getInstance();
 
-        tv_dialog_match_time_picker_time_start.setText(String.valueOf(mCalendar.get(Calendar.HOUR_OF_DAY)) + getString(R.string.match_time_picker_dialog_hour_text));
         mCurTime = mCalendar.get(Calendar.HOUR_OF_DAY);
         mStartTime = mCurTime + 1;
         mEndTime = mStartTime + 1;
+
+        tv_dialog_match_time_picker_time_start.setText(String.valueOf(mStartTime) + getString(R.string.match_time_picker_dialog_hour_text));
         tv_dialog_match_time_picker_time_end.setText(String.valueOf(mEndTime) + getString(R.string.match_time_picker_dialog_hour_text));
     }
 

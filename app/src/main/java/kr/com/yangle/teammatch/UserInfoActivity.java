@@ -153,8 +153,11 @@ public class UserInfoActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK){
             switch (requestCode){
                 case 1:
-                    hope_ground = data.getStringArrayListExtra("search_ground");
-                    hope_ground_name = data.getStringArrayListExtra("search_ground_name");
+                    hope_ground = data.getStringArrayListExtra("search_hope_ground");
+                    hope_ground_name = data.getStringArrayListExtra("search_hope_ground_name");
+
+                    Log.e(TAG, hope_ground + "");
+                    Log.e(TAG, hope_ground_name + "");
 
                     if (hope_ground_name != null && hope_ground_name.size() > 0) {
                         if(hope_ground_name.size() >= 1) {
@@ -218,7 +221,7 @@ public class UserInfoActivity extends AppCompatActivity {
                         removeSelectedHopeGround(3);
                         break;
                     case R.id.tv_user_info_add_grounds:
-                        Intent mIntent = new Intent(mContext, SearchGroundActivity.class);
+                        Intent mIntent = new Intent(mContext, SearchHopeGroundActivity.class);
                         mIntent.putExtra("callActivityFlag", 3);
                         startActivityForResult(mIntent, 1);
                         break;

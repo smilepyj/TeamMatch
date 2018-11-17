@@ -192,13 +192,14 @@ public class Service {
      * 구장 검색 서비스
      * Created by maloman72 on 218-11-04
      * */
-    public void searchGroundList(ResponseListener responseListener, String search_type_code, String search_loc_lat, String search_loc_lon, String search_area_code, String search_area_group_code) {
+    public void searchGroundList(ResponseListener responseListener, String search_page_code, String search_type_code, String search_loc_lat, String search_loc_lon, String search_area_code, String search_area_group_code) {
         try {
             String mURL = mContext.getString(R.string.service_url) + "ground/searchGroundList";
             String user_id = mApplicationTM.getUserId(), search_count = "50", search_page = "1";
 
             JSONObject mJSONObject = new JSONObject();
             mJSONObject.put("user_id", user_id);
+            mJSONObject.put("search_page_code", search_page_code);
             mJSONObject.put("search_type_code", search_type_code);
             mJSONObject.put("search_loc_lat", search_loc_lat);
             mJSONObject.put("search_loc_lon", search_loc_lon);

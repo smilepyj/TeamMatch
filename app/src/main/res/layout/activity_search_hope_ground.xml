@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SearchResutActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="1dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:titleTextColor="@color/color_toolbar_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/notosanskr_regular"
+            android:text="@string/search_ground_title"
+            android:textColor="@color/color_toolbar_title"
+            android:textSize="@dimen/font_size_16" />
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.9"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <Button
+                android:id="@+id/bt_search_hope_ground_type_1"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
+                android:background="@drawable/selector_button_ground_type"
+                android:text="@string/search_hope_ground_type_1"
+                android:textColor="@drawable/selector_button_ground_type_text"
+                android:textSize="@dimen/font_size_16" />
+
+            <Button
+                android:id="@+id/bt_search_hope_ground_type_2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="@drawable/selector_button_ground_type"
+                android:text="@string/search_hope_ground_type_2"
+                android:textColor="@drawable/selector_button_ground_type_text"
+                android:textSize="@dimen/font_size_16" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:id="@+id/ll_search_hope_ground_type_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/lv_search_hope_ground_type_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_search_hope_ground_type_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="10">
+
+                <ListView
+                    android:id="@+id/lv_search_hope_ground_type_2_1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:choiceMode="singleChoice" />
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_search_hope_ground_border" />
+
+                <ListView
+                    android:id="@+id/lv_search_hope_ground_type_2_2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:choiceMode="singleChoice" />
+
+                <LinearLayout
+                    android:id="@+id/ll_search_hope_ground_type_2_3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <Button
+                        android:id="@+id/bt_search_hope_ground_type_2_3_close"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:includeFontPadding="false"
+                        android:layout_height="60dp"
+                        android:background="@drawable/ic_button_ground_type"
+                        android:text="닫  기"
+                        android:textColor="@drawable/selector_button_ground_type_text"
+                        android:textSize="@dimen/font_size_16" />
+
+                    <ListView
+                        android:id="@+id/lv_search_hope_ground_type_2_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_search_hope_ground_border" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/color_search_hope_ground_layout_select_ground"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <HorizontalScrollView
+                android:id="@+id/hs_search_hope_ground_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/ll_search_hope_ground_result_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:id="@+id/ll_search_hope_ground_result_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_search_hope_ground_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/search_ground_select"
+                    android:textColor="@color/color_search_ground_contents"
+                    android:textSize="@dimen/font_size_16" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_search_hope_ground_border" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.1"
+            android:background="@color/color_search_hope_ground_layout_select_ground"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <Button
+                android:id="@+id/bt_search_hope_ground_select_end"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
+                android:layout_weight="9"
+                android:minHeight="0dp"
+                android:background="@drawable/selector_button_select_end"
+                android:text="@string/search_ground_select_end"
+                android:textColor="@drawable/selector_button_select_end_text"
+                android:textSize="@dimen/font_size_20" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

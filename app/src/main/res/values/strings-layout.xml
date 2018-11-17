@@ -87,6 +87,13 @@
     <string name="search_ground_select_end">선택 완료</string>
     <string name="search_ground_select">원하시는 구장을 선택해주세요.</string>
 
+    <!-- SearchHopeGround Activity -->
+    <string name="search_hope_ground_title">선호구장선택</string>
+    <string name="search_hope_ground_type_1">가까운 구장</string>
+    <string name="search_hope_ground_type_2">지역</string>
+    <string name="search_hope_ground_select_end">선택 완료</string>
+    <string name="search_hope_ground_select">원하시는 선호구장을 선택해주세요.</string>
+
     <!-- SearchResult Activity -->
     <string name="search_result_title">실시간 매치정보</string>
     <string name="search_result_condition_ground">구장</string>

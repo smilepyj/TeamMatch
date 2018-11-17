@@ -49,7 +49,7 @@ public class SearchGroundActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
-    String search_type_code, search_loc_lat, search_loc_lon, search_area_code, area_group_code, search_area_group_code;
+    String search_page_code, search_type_code, search_loc_lat, search_loc_lon, search_area_code, area_group_code, search_area_group_code;
     Button bt_search_ground_type_1, bt_search_ground_type_2, bt_search_ground_type_3, bt_search_ground_select_end;
     ListView lv_search_ground_type_1, lv_search_ground_type_2, lv_search_ground_type_3_1, lv_search_ground_type_3_2, lv_search_ground_type_3_3;
     LinearLayout ll_search_ground_type_1, ll_search_ground_type_2, ll_search_ground_type_3, ll_search_ground_result_1, ll_search_ground_result_2;
@@ -92,12 +92,13 @@ public class SearchGroundActivity extends AppCompatActivity {
             finish();
         }
 
+        search_page_code = "";
         search_type_code = "F";
         search_loc_lat = "";
         search_loc_lon = "";
         search_area_code = "";
 
-        mService.searchGroundList(searchGroundList1_Listener, search_type_code, search_loc_lat, search_loc_lon, search_area_code, search_area_group_code);
+        mService.searchGroundList(searchGroundList1_Listener, search_page_code, search_type_code, search_loc_lat, search_loc_lon, search_area_code, search_area_group_code);
 
         bt_search_ground_type_1 = findViewById(R.id.bt_search_ground_type_1);
         bt_search_ground_type_2 = findViewById(R.id.bt_search_ground_type_2);
@@ -165,7 +166,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                     search_area_code = "";
                     search_area_group_code = "";
 
-                    mService.searchGroundList(searchGroundList1_Listener, search_type_code, search_loc_lat, search_loc_lon, search_area_code, search_area_group_code);
+                    mService.searchGroundList(searchGroundList1_Listener, search_page_code, search_type_code, search_loc_lat, search_loc_lon, search_area_code, search_area_group_code);
                     break;
                 case R.id.bt_search_ground_type_2 :
                     setButtonGroundType();
@@ -185,7 +186,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                     search_area_code = "";
                     search_area_group_code = "";
 
-                    mService.searchGroundList(searchGroundList2_Listener, search_type_code, search_loc_lat, search_loc_lon, search_area_code, search_area_group_code);
+                    mService.searchGroundList(searchGroundList2_Listener, search_page_code, search_type_code, search_loc_lat, search_loc_lon, search_area_code, search_area_group_code);
                     break;
                 case R.id.bt_search_ground_type_3 :
                     setButtonGroundType();
@@ -377,7 +378,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                     search_area_group_code = "";
                 }
 
-                mService.searchGroundList(searchGroundList3_Listener, search_type_code, search_loc_lat, search_loc_lon, search_area_code, search_area_group_code);
+                mService.searchGroundList(searchGroundList3_Listener, search_page_code, search_type_code, search_loc_lat, search_loc_lon, search_area_code, search_area_group_code);
             }catch(Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "mOnItemClickListener - " + e);

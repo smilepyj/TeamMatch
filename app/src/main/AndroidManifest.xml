@@ -75,6 +75,9 @@
             android:name=".SearchGroundActivity"
             android:screenOrientation="sensorPortrait" />
         <activity
+            android:name=".SearchHopeGroundActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
             android:name=".RegistMatchActivity"
             android:screenOrientation="sensorPortrait" />
         <activity
