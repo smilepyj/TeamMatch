@@ -14,6 +14,7 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -160,49 +161,53 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             Intent mIntent;
 
-            switch (v.getId()) {
-                case R.id.ib_navigation_close :
-                    dl_activity_main.closeDrawers();
-                    break;
-                case R.id.ll_navigation_user :
-                    dl_activity_main.closeDrawers();
-                    mIntent = new Intent(mContext, UserInfoActivity.class);
-                    mIntent.putExtra(getString(R.string.user_info_intent_extra), getString(R.string.user_info_type_update));
-                    startActivity(mIntent);
-                    break;
-                case R.id.ll_navigation_match :
-                    dl_activity_main.closeDrawers();
-                    mIntent = new Intent(mContext, MatchProcActivity.class);
-                    startActivity(mIntent);
-                    break;
-                case R.id.ll_navigation_ranking :
-                    dl_activity_main.closeDrawers();
-                    mIntent = new Intent(mContext, RankingActivity.class);
-                    startActivity(mIntent);
-                    break;
-                case R.id.ll_navigation_logout :
-                    dl_activity_main.closeDrawers();
-                    Logout();
-                    //mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
-                    break;
-                case R.id.bt_main_search_match:
-                    mIntent = new Intent(mContext, SearchMatchActivity.class);
-                    startActivity(mIntent);
-                    break;
-                case R.id.bt_main_registration_match:
-                    mIntent = new Intent(mContext, RegistMatchActivity.class);
-                    startActivity(mIntent);
-                    break;
-                case R.id.ll_main_in_progress_matching:
-                    mIntent = new Intent(mContext, MatchProcActivity.class);
-                    startActivity(mIntent);
-                    break;
-                case R.id.ll_main_ranking:
-                    mIntent = new Intent(mContext, RankingActivity.class);
-                    startActivity(mIntent);
-                    break;
-                default:
-                    break;
+            try {
+                switch (v.getId()) {
+                    case R.id.ib_navigation_close:
+                        dl_activity_main.closeDrawers();
+                        break;
+                    case R.id.ll_navigation_user:
+                        dl_activity_main.closeDrawers();
+                        mIntent = new Intent(mContext, UserInfoActivity.class);
+                        mIntent.putExtra(getString(R.string.user_info_intent_extra), getString(R.string.user_info_type_update));
+                        startActivity(mIntent);
+                        break;
+                    case R.id.ll_navigation_match:
+                        dl_activity_main.closeDrawers();
+                        mIntent = new Intent(mContext, MatchProcActivity.class);
+                        startActivity(mIntent);
+                        break;
+                    case R.id.ll_navigation_ranking:
+                        dl_activity_main.closeDrawers();
+                        mIntent = new Intent(mContext, RankingActivity.class);
+                        startActivity(mIntent);
+                        break;
+                    case R.id.ll_navigation_logout:
+                        dl_activity_main.closeDrawers();
+                        Logout();
+                        //mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
+                        break;
+                    case R.id.bt_main_search_match:
+                        mIntent = new Intent(mContext, SearchMatchActivity.class);
+                        startActivity(mIntent);
+                        break;
+                    case R.id.bt_main_registration_match:
+                        mIntent = new Intent(mContext, RegistMatchActivity.class);
+                        startActivity(mIntent);
+                        break;
+                    case R.id.ll_main_in_progress_matching:
+                        mIntent = new Intent(mContext, MatchProcActivity.class);
+                        startActivity(mIntent);
+                        break;
+                    case R.id.ll_main_ranking:
+                        mIntent = new Intent(mContext, RankingActivity.class);
+                        startActivity(mIntent);
+                        break;
+                    default:
+                        break;
+                }
+            }catch(Exception e) {
+                Log.e(TAG, "mOnClickListener - " + e);
             }
         }
     };
@@ -270,21 +275,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent mIntent = new Intent(mContext, IntroActivity.class);
                 startActivity(mIntent);
-                finish();
 
-                /*if(mOAuthLogin.logout(mContext)) {
-                    mApplicationTM.setLoginType("");
-                    mApplicationTM.setUserId("");
-                    mApplicationTM.setUserName("");
-                    mApplicationTM.setTeamId("");
 
-                    Intent mIntent = new Intent(mContext, IntroActivity.class);
-                    startActivity(mIntent);
-                    finish();
-                }else {
-                    Log.e(TAG, "errorCode:" + OAuthLogin.getInstance().getLastErrorCode(mContext));
-                    Log.e(TAG, "errorDesc:" + OAuthLogin.getInstance().getLastErrorDesc(mContext));
-                }*/
             }else if(mContext.getString(R.string.login_kakao_login_type).equals(loginType)){
 
                 UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {

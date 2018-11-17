@@ -76,7 +76,7 @@ public class GroundLocationActivity extends AppCompatActivity {
         mapView.setDaumMapApiKey("79f45e8d30e69de7771e9f1030c5529b");
         ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.rl_ground_location);
         MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(ground_loc_lat, ground_loc_lon);
-        mapView.setMapCenterPoint(mapPoint, true);
+        mapView.setMapCenterPoint(mapPoint, false);
         //true면 앱 실행 시 애니메이션 효과가 나오고 false면 애니메이션이 나오지않음.
         mapViewContainer.addView(mapView);
 
