@@ -91,6 +91,14 @@ public class SearchMatchActivity extends AppCompatActivity {
         bt_search_match_level_nothing.setOnClickListener(mOnClickListener);
         bt_search_match_search.setOnClickListener(mOnClickListener);
 
+        search_area_group = new ArrayList<String>();
+        search_area = new ArrayList<String>();
+        search_ground = new ArrayList<String>();
+        search_team_lvl = new ArrayList<String>();
+        search_area_group_name = new ArrayList<String>();
+        search_area_name = new ArrayList<String>();
+        search_ground_name = new ArrayList<String>();
+
         setLoadTeamLevel();
     }
 

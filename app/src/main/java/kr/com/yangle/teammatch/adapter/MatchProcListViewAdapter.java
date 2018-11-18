@@ -190,6 +190,10 @@ public class MatchProcListViewAdapter extends BaseAdapter {
                 match_proc_cd_name = "매치 반려";
                 match_proc_type = "8";
                 tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_6));
+            }else if("C004999".equals(match_proc_cd)) {
+                match_proc_cd_name = "매치 만료";
+                match_proc_type = "999";
+                tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_313131));
             }else {
                 match_proc_cd_name = "매치 완료";
                 match_proc_type = "7";
@@ -236,6 +240,8 @@ public class MatchProcListViewAdapter extends BaseAdapter {
                         mApplicationTM.makeToast(mContext, "종료된 매치 입니다.");
                     }else if("8".equals(match_proc_type)) {
                         mApplicationTM.makeToast(mContext, "해당 구장이 이미 예약되어 있습니다.");
+                    }else if("999".equals(match_proc_type)){
+                        mApplicationTM.makeToast(mContext, "매치가 성사되지 않아 자동 만료 되었습니다.");
                     }
                 }
             });

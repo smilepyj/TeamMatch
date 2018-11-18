@@ -243,11 +243,11 @@ public class RankingActivity extends AppCompatActivity {private final String TAG
                     mDate = new SimpleDateFormat(getString(R.string.search_result_date_format_base), Locale.getDefault()).parse(mJSONObject.get(getString(R.string.result_search_end_date)).toString());
                     String mEndDate = new SimpleDateFormat(getString(R.string.search_result_date_format_view), Locale.getDefault()).format(mDate);
                     tv_ranking_term.setText(getString(R.string.ranking_week_term) + mStartDate + getString(R.string.ranking_week_dash) + mEndDate);
-
                 }
             } catch (Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "searchRankList_Listener - " + e);
+                e.printStackTrace();
             } finally {
                 mApplicationTM.stopProgress();
             }
