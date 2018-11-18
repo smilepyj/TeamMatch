@@ -73,7 +73,7 @@ public class GroundLocationActivity extends AppCompatActivity {
         ground_loc_lon = getIntent().getDoubleExtra("ground_loc_lon", 0.0);
 
         MapView mapView = new MapView(this);
-        mapView.setDaumMapApiKey("79f45e8d30e69de7771e9f1030c5529b");
+        mapView.setDaumMapApiKey(getString(R.string.kakao_app_key));
         ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.rl_ground_location);
         MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(ground_loc_lat, ground_loc_lon);
         mapView.setMapCenterPoint(mapPoint, false);

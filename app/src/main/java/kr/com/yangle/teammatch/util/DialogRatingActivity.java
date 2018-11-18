@@ -103,7 +103,7 @@ public class DialogRatingActivity extends AppCompatActivity {
         team_id = getIntent().getStringExtra("TEAM_ID");
         String team_name = getIntent().getStringExtra("TEAM_NAME");
         String team_lvl = getIntent().getStringExtra("TEAM_LVL");
-        String team_point = getIntent().getStringExtra("TEAM_POINT");
+        String team_point = "".equals(getIntent().getStringExtra("TEAM_POINT"))?"0":getIntent().getStringExtra("TEAM_POINT");
         String ground_name = getIntent().getStringExtra("GROUND_NAME");
         String match_time = getIntent().getStringExtra("MATCH_TIME");
 
@@ -122,9 +122,7 @@ public class DialogRatingActivity extends AppCompatActivity {
                 JSONObject mJSONObject = new JSONObject(responseEvent.getResultData());
 
                 if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(mContext.getString(R.string.result_code)))) {
-
                     mApplicationTM.makeToast(mContext, "매치 평가가 입력되었습니다.");
-
                 } else {
                     mApplicationTM.makeToast(mContext, mJSONObject.get(mContext.getString(R.string.result_message)).toString());
                 }

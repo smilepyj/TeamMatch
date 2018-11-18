@@ -100,50 +100,19 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     startActivity(mIntent);
                 }
             }else if("2".equals(match_alert_type)) {
-                String match_id = data.get("match_id");
                 String host_team_id = data.get("host_team_id");
-                String host_team_name = data.get("host_team_name");
-                String host_team_lvl = data.get("host_team_lvl");
-                String host_team_point = data.get("host_team_point");
-                String host_team_user_name = data.get("host_team_user_name");
-                String host_team_user_tel = data.get("host_team_user_tel");
                 String guest_team_id = data.get("guest_team_id");
-                String guest_team_name = data.get("guest_team_name");
-                String guest_team_lvl = data.get("guest_team_lvl");
-                String guest_team_point = data.get("guest_team_point");
-                String hope_match_time = data.get("hope_match_time");
-                String hope_match_ground = data.get("hope_match_ground");
-                String hope_match_ground_tel = data.get("hope_match_ground_tel");
-                String hope_match_ground_cost = data.get("hope_match_ground_cost");
 
-                if(team_id.equals(host_team_id)) {
+                if(team_id.equals(guest_team_id) || team_id.equals(host_team_id) ){
                     bNotification = true;
 
-                    Intent mIntent = new Intent(getApplicationContext(), DialogMatchSuccessActivity.class);
-                    mIntent.putExtra(getString(R.string.match_success_extra_type), "HOST");
-                    mIntent.putExtra("SUB_TITLE", "매치 전에 구장에 연락해 구장이용료를\n결제하시길 바랍니다.");
-                    mIntent.putExtra("SUB_TITLE_ETC", "(선 결제의 경우에는 동의 및 확인만 눌러주시면 됩니다.)");
-                    mIntent.putExtra("GROUND_NAME", hope_match_ground);
-                    mIntent.putExtra("GROUND_TEL", hope_match_ground_tel);
-                    mIntent.putExtra("MATCH_TIME", hope_match_time);
-                    mIntent.putExtra("GROUND_COST", hope_match_ground_cost);
-                    mIntent.putExtra("NOTICE", "경기 시작 전/후 상대팀에게 구장이용료의\n절반을 받으시길 바랍니다.");
-                    startActivity(mIntent);
-                }else if(team_id.equals(guest_team_id)){
-                    bNotification = true;
-
-                    Intent mIntent = new Intent(getApplicationContext(), DialogMatchSuccessActivity.class);
-                    mIntent.putExtra(getString(R.string.match_success_extra_type), "GUEST");
-                    mIntent.putExtra("SUB_TITLE", "매치가 성사 되었습니다.\n상대방이 결제중입니다.");
-                    mIntent.putExtra("TEAM_NAME", host_team_name);
-                    mIntent.putExtra("TEAM_LVL", host_team_lvl);
-                    mIntent.putExtra("TEAM_POINT", host_team_point);
-                    mIntent.putExtra("TEAM_USER_NAME", host_team_user_name);
-                    mIntent.putExtra("TEAM_USER_TEL", host_team_user_tel);
-                    mIntent.putExtra("GROUND_NAME", hope_match_ground);
-                    mIntent.putExtra("MATCH_TIME", hope_match_time);
-                    mIntent.putExtra("GROUND_COST", hope_match_ground_cost);
-                    mIntent.putExtra("NOTICE", "경기 시작 전/후 상대팀에게 구장이용료의\n절반을 정산해 주시길 바랍니다.");
+                    Intent mIntent = new Intent(getApplicationContext(), DialogAlertActivity.class);
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_title), "매치 성사");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents_header), "");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents), "매치가 성사 되었습니다.\n구장 이용여부 확인 중입니다.");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_cancel_text), "닫기");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_ok_text), "신청정보 확인");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 3);
                     startActivity(mIntent);
                 }
             }else if("3".equals(match_alert_type)) {
@@ -161,16 +130,98 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 3);
                     startActivity(mIntent);
                 }
-            }else if("6".equals(match_alert_type)) {
+            }else if("4".equals(match_alert_type)) {
                 String match_id = data.get("match_id");
                 String host_team_id = data.get("host_team_id");
                 String host_team_name = data.get("host_team_name");
                 String host_team_lvl = data.get("host_team_lvl");
                 String host_team_point = data.get("host_team_point");
+                String host_team_user_name = data.get("host_team_user_name");
+                String host_team_user_tel = data.get("host_team_user_tel");
                 String guest_team_id = data.get("guest_team_id");
                 String guest_team_name = data.get("guest_team_name");
                 String guest_team_lvl = data.get("guest_team_lvl");
                 String guest_team_point = data.get("guest_team_point");
+                String guest_team_user_name = data.get("guest_team_user_name");
+                String guest_team_user_tel = data.get("guest_team_user_tel");
+                String hope_match_time = data.get("hope_match_time");
+                String hope_match_ground = data.get("hope_match_ground");
+                String hope_match_ground_tel = data.get("hope_match_ground_tel");
+                String hope_match_ground_cost = data.get("hope_match_ground_cost");
+
+                if(team_id.equals(host_team_id)) {
+                    bNotification = true;
+
+                    Intent mIntent = new Intent(getApplicationContext(), DialogMatchSuccessActivity.class);
+                    mIntent.putExtra(getString(R.string.match_success_extra_type), "HOST");
+                    mIntent.putExtra("SUB_TITLE", getString(R.string.match_success_dialog_sub_title_regist));
+                    mIntent.putExtra("SUB_TITLE_ETC", getString(R.string.match_success_dialog_sub_title_etc_proc));
+                    mIntent.putExtra("MATCH_ID", match_id);
+                    mIntent.putExtra("HOST_TEAM_NAME", host_team_name);
+                    mIntent.putExtra("HOST_TEAM_LVL", host_team_lvl);
+                    mIntent.putExtra("HOST_TEAM_POINT", host_team_point);
+                    mIntent.putExtra("HOST_TEAM_USER_NAME", host_team_user_name);
+                    mIntent.putExtra("HOST_TEAM_USER_TEL", host_team_user_tel);
+                    mIntent.putExtra("GUEST_TEAM_NAME", guest_team_name);
+                    mIntent.putExtra("GUEST_TEAM_LVL", guest_team_lvl);
+                    mIntent.putExtra("GUEST_TEAM_POINT", guest_team_point);
+                    mIntent.putExtra("GUEST_TEAM_USER_NAME", guest_team_user_name);
+                    mIntent.putExtra("GUEST_TEAM_USER_TEL", guest_team_user_tel);
+                    mIntent.putExtra("HOPE_MATCH_GROUND", hope_match_ground);
+                    mIntent.putExtra("MATCH_TIME", hope_match_time);
+                    mIntent.putExtra("GROUND_TEL", hope_match_ground_tel);
+                    mIntent.putExtra("GROUND_COST", hope_match_ground_cost);
+                    mIntent.putExtra("NOTICE", getString(R.string.match_success_dialog_contents_proc));
+                    startActivity(mIntent);
+
+                }else if(team_id.equals(guest_team_id)){
+                    bNotification = true;
+
+                    Intent mIntent = new Intent(getApplicationContext(), DialogMatchSuccessActivity.class);
+                    mIntent.putExtra("SUB_TITLE", getString(R.string.match_success_dialog_sub_title_proc));
+                    mIntent.putExtra("MATCH_ID", match_id);
+                    mIntent.putExtra("HOST_TEAM_NAME", host_team_name);
+                    mIntent.putExtra("HOST_TEAM_LVL", host_team_lvl);
+                    mIntent.putExtra("HOST_TEAM_POINT", host_team_point);
+                    mIntent.putExtra("HOST_TEAM_USER_NAME", host_team_user_name);
+                    mIntent.putExtra("HOST_TEAM_USER_TEL", host_team_user_tel);
+                    mIntent.putExtra("GUEST_TEAM_NAME", guest_team_name);
+                    mIntent.putExtra("GUEST_TEAM_LVL", guest_team_lvl);
+                    mIntent.putExtra("GUEST_TEAM_POINT", guest_team_point);
+                    mIntent.putExtra("GUEST_TEAM_USER_NAME", guest_team_user_name);
+                    mIntent.putExtra("GUEST_TEAM_USER_TEL", guest_team_user_tel);
+                    mIntent.putExtra("HOPE_MATCH_GROUND", hope_match_ground);
+                    mIntent.putExtra("MATCH_TIME", hope_match_time);
+                    mIntent.putExtra("GROUND_TEL", hope_match_ground_tel);
+                    mIntent.putExtra("GROUND_COST", hope_match_ground_cost);
+                    mIntent.putExtra("NOTICE", getString(R.string.match_success_dialog_contents_regist));
+                    startActivity(mIntent);
+                }
+            }else if("5".equals(match_alert_type)) {
+                String guest_team_id = data.get("guest_team_id");
+
+                if(team_id.equals(guest_team_id)){
+                    bNotification = true;
+
+                    Intent mIntent = new Intent(getApplicationContext(), DialogAlertActivity.class);
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_title), "매치 반려");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents_header), "");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents), "해당 구장이 이미 예약되어 있습니다.\n다른 일정 또는 구장으로 매치를 다시 진행하시길 바랍니다.");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_cancel_text), "닫기");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_ok_text), "신청정보 확인");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 4);
+                    startActivity(mIntent);
+                }
+            }else if("6".equals(match_alert_type)) {
+                String match_id = data.get("match_id");
+                String host_team_id = data.get("host_team_id");
+                String host_team_name = data.get("host_team_name");
+                String host_team_lvl = data.get("host_team_lvl");
+                String host_team_point = data.get("host_team_point")==null?"0":data.get("host_team_point");
+                String guest_team_id = data.get("guest_team_id");
+                String guest_team_name = data.get("guest_team_name");
+                String guest_team_lvl = data.get("guest_team_lvl");
+                String guest_team_point = data.get("guest_team_point")==null?"0":data.get("guest_team_point");
                 String hope_match_time = data.get("hope_match_time");
                 String hope_match_ground = data.get("hope_match_ground");
 

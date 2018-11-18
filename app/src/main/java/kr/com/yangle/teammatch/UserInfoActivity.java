@@ -452,6 +452,10 @@ public class UserInfoActivity extends AppCompatActivity {
                     if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                         mApplicationTM.makeToast(mContext, getString(R.string.user_info_service_input_sucess));
 
+                        JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
+                        JSONObject mResult = mJSONArray.getJSONObject(0);
+
+                        mApplicationTM.setTeamId(mResult.getString("team_id"));
                         mApplicationTM.setUserName(et_user_info_user_name.getText().toString());
                         mApplicationTM.setTeamAge(mApplicationTM.getKeybyMap(mApplicationTM.getC001(), bt_user_info_age.getText().toString()));
                         mApplicationTM.setTeamLevel(mApplicationTM.getKeybyMap(mApplicationTM.getC002(), bt_user_info_level.getText().toString()));

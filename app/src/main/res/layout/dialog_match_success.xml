@@ -79,6 +79,80 @@
             android:padding="@dimen/dimen_size_5">
 
             <LinearLayout
+                android:id="@+id/ll_match_success_dialog_proc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/match_success_dialog_ground"
+                        android:textColor="@color/color_007338"
+                        android:textSize="@dimen/font_size_14"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_5"
+                    android:layout_marginTop="@dimen/dimen_size_2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dimen_size_5">
+
+                    <TextView
+                        android:id="@+id/tv_match_success_ground_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textSize="@dimen/font_size_14"
+                        android:textColor="@color/color_313131"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_success_dialog_parenthesis_open"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <TextView
+                        android:id="@+id/tv_match_success_phone_ground"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_success_dialog_parenthesis_close"
+                        android:textColor="@color/color_313131"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <ImageButton
+                        android:id="@+id/ib_match_success_call_ground"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_size_5"
+                        android:background="@drawable/ic_phone_call" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/ll_match_success_dialog_regist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -221,82 +295,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_match_success_dialog_proc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_size_5"
-                android:visibility="gone"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:includeFontPadding="false"
-                        android:text="@string/match_success_dialog_ground"
-                        android:textColor="@color/color_007338"
-                        android:textSize="@dimen/font_size_14"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimen_size_5"
-                    android:layout_marginTop="@dimen/dimen_size_2"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingStart="@dimen/dimen_size_5">
-
-                    <TextView
-                        android:id="@+id/tv_match_success_ground_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:includeFontPadding="false"
-                        android:textSize="@dimen/font_size_14"
-                        android:textColor="@color/color_313131"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/match_success_dialog_parenthesis_open"
-                        android:textColor="@color/color_313131"
-                        android:textSize="@dimen/font_size_14" />
-
-                    <TextView
-                        android:id="@+id/tv_match_success_phone_ground"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dimen_size_5"
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:includeFontPadding="false"
-                        android:textColor="@color/color_313131"
-                        android:textSize="@dimen/font_size_14" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/match_success_dialog_parenthesis_close"
-                        android:textColor="@color/color_313131"
-                        android:textSize="@dimen/font_size_14" />
-
-                    <ImageButton
-                        android:id="@+id/ib_match_success_call_ground"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dimen_size_5"
-                        android:background="@drawable/ic_phone_call" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -315,7 +313,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_size_10"
+                android:layout_marginBottom="@dimen/dimen_size_5"
                 android:layout_marginStart="@dimen/dimen_size_5"
                 android:layout_marginTop="@dimen/dimen_size_2"
                 android:gravity="center_vertical"

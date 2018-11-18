@@ -58,8 +58,6 @@ public class MatchProcActivity extends AppCompatActivity {
 
         mMatchProcListViewAdapter = new MatchProcListViewAdapter(mContext);
         lv_match_hist.setAdapter(mMatchProcListViewAdapter);
-
-        mService.searchMatchProcList(searchMatchProcList_Listener);
     }
 
     @Override
@@ -83,19 +81,6 @@ public class MatchProcActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    View.OnClickListener mOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.bt_search_result_change_condition :
-                    finish();
-                    break;
-                default :
-                    break;
-            }
-        }
-    };
 
     ResponseListener searchMatchProcList_Listener = new ResponseListener() {
         @Override

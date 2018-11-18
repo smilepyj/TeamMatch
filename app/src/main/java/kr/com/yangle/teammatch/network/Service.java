@@ -279,7 +279,7 @@ public class Service {
      * */
     public void searchMatchProcList(ResponseListener responseListener) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + "matchHist/searchMatchProcList";
+            String mURL = mContext.getString(R.string.service_url) + "matchProc/searchMatchProcList";
             String user_id = mApplicationTM.getUserId(), team_id = mApplicationTM.getTeamId(), search_count = "50", search_page = "1";
 
             JSONObject mJSONObject = new JSONObject();
@@ -412,16 +412,16 @@ public class Service {
      * 매치 알람 정보 조회 서비스
      * Created by maloman72 on 218-11-01
      * */
-    public void searchMatchAlertInfo(ResponseListener responseListener, String match_id, String match_apply_id, String match_alert_type) {
+    public void searchMatchAlertInfo(ResponseListener responseListener, String match_id, String match_apply_id, String match_proc_type) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchMatchAlertInfo_service);
+            String mURL = mContext.getString(R.string.service_url)  + mContext.getString(R.string.searchMatchAlertInfo_service);
             String user_id = mApplicationTM.getUserId();
 
             JSONObject mJSONObject = new JSONObject();
             mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_user_id), user_id);
             mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_id), match_id);
             mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_apply_id), match_apply_id);
-            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_alert_type), match_alert_type);
+            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_proc_type), match_proc_type);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {

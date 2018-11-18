@@ -161,7 +161,7 @@
     <string name="searchMatchAlertInfo_param_user_id">user_id</string>
     <string name="searchMatchAlertInfo_param_match_id">match_id</string>
     <string name="searchMatchAlertInfo_param_match_apply_id">match_apply_id</string>
-    <string name="searchMatchAlertInfo_param_match_alert_type">match_alert_type</string>
+    <string name="searchMatchAlertInfo_param_match_proc_type">match_proc_type</string>
 
     <!-- Ranking Service-->
     <string name="ranking_service">rank/searchRankList</string>

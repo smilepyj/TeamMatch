@@ -47,6 +47,8 @@
     <dimen name="dimen_size_165">165dp</dimen>
     <dimen name="dimen_size_170">170dp</dimen>
     <dimen name="dimen_size_178">178dp</dimen>
+    <dimen name="dimen_size_200">200dp</dimen>
+    <dimen name="dimen_size_220">220dp</dimen>
     <dimen name="dimen_size_240">240dp</dimen>
     <dimen name="dimen_size_260">260dp</dimen>
     <dimen name="dimen_size_280">280dp</dimen>
@@ -57,6 +59,8 @@
     <dimen name="dimen_size_400">400dp</dimen>
     <dimen name="dimen_size_425">425dp</dimen>
     <dimen name="dimen_size_430">430dp</dimen>
+    <dimen name="dimen_size_424">424dp</dimen>
+    <dimen name="dimen_size_484">484dp</dimen>
 
     <!-- Layout Size -->
     <dimen name="ll_under_line">1dp</dimen>

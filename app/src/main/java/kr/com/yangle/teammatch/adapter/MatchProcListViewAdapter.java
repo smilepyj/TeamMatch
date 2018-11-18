@@ -186,6 +186,10 @@ public class MatchProcListViewAdapter extends BaseAdapter {
                     match_proc_type = "6";
                     tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_4));
                 }
+            }else if("C004007".equals(match_proc_cd)) {
+                match_proc_cd_name = "매치 반려";
+                match_proc_type = "8";
+                tv_match_proc_name.setTextColor(ContextCompat.getColor(mContext, R.color.color_listview_match_proc_name_6));
             }else {
                 match_proc_cd_name = "매치 완료";
                 match_proc_type = "7";
@@ -221,15 +225,17 @@ public class MatchProcListViewAdapter extends BaseAdapter {
                     }else if("2".equals(match_proc_type)) {
                         mService.searchMatchAlertInfo(searchMatchAlertInfo_Listener, match_id, match_apply_id, match_proc_type);
                     }else if("3".equals(match_proc_type)) {
-
+                        mApplicationTM.makeToast(mContext, "상대팀의 승낙여부가 나올때까지 기다려주세요.");
                     }else if("4".equals(match_proc_type)) {
-                        mService.searchMatchAlertInfo(searchMatchAlertInfo_Listener, match_id, match_apply_id, match_proc_type);
+                        mApplicationTM.makeToast(mContext, "구장이용 가능 여부를 확인 중입니다.");
                     }else if("5".equals(match_proc_type)) {
-
+                        mService.searchMatchAlertInfo(searchMatchAlertInfo_Listener, match_id, match_apply_id, match_proc_type);
                     }else if("6".equals(match_proc_type)) {
                         mService.searchMatchAlertInfo(searchMatchAlertInfo_Listener, match_id, match_apply_id, match_proc_type);
                     }else if("7".equals(match_proc_type)) {
-
+                        mApplicationTM.makeToast(mContext, "종료된 매치 입니다.");
+                    }else if("8".equals(match_proc_type)) {
+                        mApplicationTM.makeToast(mContext, "해당 구장이 이미 예약되어 있습니다.");
                     }
                 }
             });
@@ -257,7 +263,7 @@ public class MatchProcListViewAdapter extends BaseAdapter {
 
                     String match_alert_type = data.getString("match_alert_type");
 
-                    if("1".equals(match_alert_type)) {
+                    if("2".equals(match_alert_type)) {
                         Intent mIntent = new Intent(mContext, DialogMatchApplyActivity.class);
                         mIntent.putExtra(mContext.getString(R.string.match_apply_extra_title), "매치 신청");
                         mIntent.putExtra(mContext.getString(R.string.match_apply_extra_contents), "상대편이 매치를 신청하였습니다.\n수락하시겠습니까?");
@@ -270,8 +276,8 @@ public class MatchProcListViewAdapter extends BaseAdapter {
                         mIntent.putExtra(mContext.getString(R.string.match_apply_extra_match_time), data.getString("hope_match_time"));
                         mIntent.putExtra(mContext.getString(R.string.match_apply_extra_match_ground), data.getString("hope_match_ground"));
                         mContext.startActivity(mIntent);
-                    }else if("2".equals(match_alert_type)) {
-                        String match_id = data.getString("match_id");
+                    }else if("4".equals(match_alert_type)) {
+                        /*String match_id = data.getString("match_id");
                         String host_team_id = data.getString("host_team_id");
                         String host_team_name = data.getString("host_team_name");
                         String host_team_lvl = data.getString("host_team_lvl");
@@ -312,6 +318,70 @@ public class MatchProcListViewAdapter extends BaseAdapter {
                             mIntent.putExtra("MATCH_TIME", hope_match_time);
                             mIntent.putExtra("GROUND_COST", hope_match_ground_cost);
                             mIntent.putExtra("NOTICE", "경기 시작 전/후 상대팀에게 구장이용료의\n절반을 정산해 주시길 바랍니다.");
+                            mContext.startActivity(mIntent);
+                        }*/
+
+                        String match_id = data.getString("match_id");
+                        String host_team_id = data.getString("host_team_id");
+                        String host_team_name = data.getString("host_team_name");
+                        String host_team_lvl = data.getString("host_team_lvl");
+                        String host_team_point = data.getString("host_team_point");
+                        String host_team_user_name = data.getString("host_team_user_name");
+                        String host_team_user_tel = data.getString("host_team_user_tel");
+                        String guest_team_id = data.getString("guest_team_id");
+                        String guest_team_name = data.getString("guest_team_name");
+                        String guest_team_lvl = data.getString("guest_team_lvl");
+                        String guest_team_point = data.getString("guest_team_point");
+                        String guest_team_user_name = data.getString("guest_team_user_name");
+                        String guest_team_user_tel = data.getString("guest_team_user_tel");
+                        String hope_match_time = data.getString("hope_match_time");
+                        String hope_match_ground = data.getString("hope_match_ground");
+                        String hope_match_ground_tel = data.getString("hope_match_ground_tel");
+                        String hope_match_ground_cost = data.getString("hope_match_ground_cost");
+
+                        if(mApplicationTM.getTeamId().equals(host_team_id)) {
+                            Intent mIntent = new Intent(mContext, DialogMatchSuccessActivity.class);
+                            mIntent.putExtra(mContext.getString(R.string.match_success_extra_type), "HOST");
+                            mIntent.putExtra("SUB_TITLE", mContext.getString(R.string.match_success_dialog_sub_title_regist));
+                            mIntent.putExtra("SUB_TITLE_ETC", mContext.getString(R.string.match_success_dialog_sub_title_etc_proc));
+                            mIntent.putExtra("MATCH_ID", match_id);
+                            mIntent.putExtra("HOST_TEAM_NAME", host_team_name);
+                            mIntent.putExtra("HOST_TEAM_LVL", host_team_lvl);
+                            mIntent.putExtra("HOST_TEAM_POINT", host_team_point);
+                            mIntent.putExtra("HOST_TEAM_USER_NAME", host_team_user_name);
+                            mIntent.putExtra("HOST_TEAM_USER_TEL", host_team_user_tel);
+                            mIntent.putExtra("GUEST_TEAM_NAME", guest_team_name);
+                            mIntent.putExtra("GUEST_TEAM_LVL", guest_team_lvl);
+                            mIntent.putExtra("GUEST_TEAM_POINT", guest_team_point);
+                            mIntent.putExtra("GUEST_TEAM_USER_NAME", guest_team_user_name);
+                            mIntent.putExtra("GUEST_TEAM_USER_TEL", guest_team_user_tel);
+                            mIntent.putExtra("HOPE_MATCH_GROUND", hope_match_ground);
+                            mIntent.putExtra("MATCH_TIME", hope_match_time);
+                            mIntent.putExtra("GROUND_TEL", hope_match_ground_tel);
+                            mIntent.putExtra("GROUND_COST", hope_match_ground_cost);
+                            mIntent.putExtra("NOTICE", mContext.getString(R.string.match_success_dialog_contents_proc));
+                            mContext.startActivity(mIntent);
+
+                        }else if(mApplicationTM.getTeamId().equals(guest_team_id)){
+                            Intent mIntent = new Intent(mContext, DialogMatchSuccessActivity.class);
+                            mIntent.putExtra(mContext.getString(R.string.match_success_extra_type), "GUEST");
+                            mIntent.putExtra("SUB_TITLE", mContext.getString(R.string.match_success_dialog_sub_title_proc));
+                            mIntent.putExtra("MATCH_ID", match_id);
+                            mIntent.putExtra("HOST_TEAM_NAME", host_team_name);
+                            mIntent.putExtra("HOST_TEAM_LVL", host_team_lvl);
+                            mIntent.putExtra("HOST_TEAM_POINT", host_team_point);
+                            mIntent.putExtra("HOST_TEAM_USER_NAME", host_team_user_name);
+                            mIntent.putExtra("HOST_TEAM_USER_TEL", host_team_user_tel);
+                            mIntent.putExtra("GUEST_TEAM_NAME", guest_team_name);
+                            mIntent.putExtra("GUEST_TEAM_LVL", guest_team_lvl);
+                            mIntent.putExtra("GUEST_TEAM_POINT", guest_team_point);
+                            mIntent.putExtra("GUEST_TEAM_USER_NAME", guest_team_user_name);
+                            mIntent.putExtra("GUEST_TEAM_USER_TEL", guest_team_user_tel);
+                            mIntent.putExtra("HOPE_MATCH_GROUND", hope_match_ground);
+                            mIntent.putExtra("MATCH_TIME", hope_match_time);
+                            mIntent.putExtra("GROUND_TEL", hope_match_ground_tel);
+                            mIntent.putExtra("GROUND_COST", hope_match_ground_cost);
+                            mIntent.putExtra("NOTICE", mContext.getString(R.string.match_success_dialog_contents_regist));
                             mContext.startActivity(mIntent);
                         }
 

@@ -60,6 +60,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_alert_aialog_two_btn"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_size_52"
         android:orientation="horizontal"
@@ -84,6 +85,25 @@
             android:fontFamily="@font/notosanskr_medium"
             android:includeFontPadding="false"
             android:background="@drawable/ic_button_alert_dialog_ok"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font_size_15" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_alert_aialog_one_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_50"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/bt_alert_dialog_confirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ic_button_alert_dialog_ok"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/font_size_15" />
     </LinearLayout>

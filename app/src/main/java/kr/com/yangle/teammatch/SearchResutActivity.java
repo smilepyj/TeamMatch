@@ -94,8 +94,6 @@ public class SearchResutActivity extends AppCompatActivity {
         lv_search_result_match.setAdapter(mSearchResultListViewAdapter);
 
         setSearchCondition();
-
-        mService.searchMatchList(searchMatchList_Listener, search_date, search_time, search_area_group, search_area, search_ground, search_team_member, search_team_lvl);
     }
 
     @Override

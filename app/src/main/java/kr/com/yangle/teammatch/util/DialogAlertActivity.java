@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import kr.com.yangle.teammatch.ApplicationTM;
@@ -20,7 +21,9 @@ public class DialogAlertActivity extends AppCompatActivity {
     ApplicationTM mApplicationTM;
 
     TextView tv_alert_dialog_title, tv_alert_dialog_contents_header, tv_alert_dialog_contents;
-    Button bt_alert_dialog_cancel, bt_alert_dialog_ok;
+    Button bt_alert_dialog_cancel, bt_alert_dialog_ok, bt_alert_dialog_confirm;
+
+    LinearLayout ll_alert_aialog_two_btn, ll_alert_aialog_one_btn;
 
     int mType = 0;
 
@@ -39,9 +42,14 @@ public class DialogAlertActivity extends AppCompatActivity {
 
         bt_alert_dialog_cancel = findViewById(R.id.bt_alert_dialog_cancel);
         bt_alert_dialog_ok = findViewById(R.id.bt_alert_dialog_ok);
+        bt_alert_dialog_confirm = findViewById(R.id.bt_alert_dialog_confirm);
+
+        ll_alert_aialog_two_btn = findViewById(R.id.ll_alert_aialog_two_btn);
+        ll_alert_aialog_one_btn = findViewById(R.id.ll_alert_aialog_one_btn);
 
         bt_alert_dialog_cancel.setOnClickListener(mOnClickListener);
         bt_alert_dialog_ok.setOnClickListener(mOnClickListener);
+        bt_alert_dialog_confirm.setOnClickListener(mOnClickListener);
 
         tv_alert_dialog_title.setText(getIntent().getStringExtra(getString(R.string.alert_dialog_title)));
         tv_alert_dialog_contents_header.setText(getIntent().getStringExtra(getString(R.string.alert_dialog_contents_header)));
@@ -49,8 +57,14 @@ public class DialogAlertActivity extends AppCompatActivity {
 
         bt_alert_dialog_cancel.setText(getIntent().getStringExtra(getString(R.string.alert_dialog_cancel_text)));
         bt_alert_dialog_ok.setText(getIntent().getStringExtra(getString(R.string.alert_dialog_ok_text)));
+        bt_alert_dialog_confirm.setText("확  인");
 
         mType = getIntent().getIntExtra(getString(R.string.alert_dialog_type), 0);
+
+        if("4".equals(mType)) {
+            ll_alert_aialog_two_btn.setVisibility(View.GONE);
+            ll_alert_aialog_one_btn.setVisibility(View.VISIBLE);
+        }
     }
 
     View.OnClickListener mOnClickListener = new View.OnClickListener() {
@@ -85,6 +99,9 @@ public class DialogAlertActivity extends AppCompatActivity {
                         default :
                             break;
                     }
+                    break;
+                case R.id.bt_alert_dialog_confirm :
+                    finish();
                     break;
                 default :
                     break;
