@@ -285,37 +285,37 @@ public class UserInfoActivity extends AppCompatActivity {
         mAlertDialogBuilder.show();
     }
 
-    /**
+    /*
      * 팀레벨 Spinner AlertDialog
      * Created by maloman72 on 2018-11-05
      * */
-    private void TeamLevle_AlertDialog() {
-        AlertDialog.Builder mAlertDialogBuilder = new AlertDialog.Builder(mContext);
-        mAlertDialogBuilder.setTitle(getString(R.string.user_info_team_level_dialog_title));
-
-        final ArrayAdapter<String> mArrayAdapter = new ArrayAdapter<>(mContext, android.R.layout.select_dialog_item);
-
-        for(int i = 0; i < getResources().getStringArray(R.array.C002_data).length; i++) {
-            mArrayAdapter.add(getResources().getStringArray(R.array.C002_data)[i]);
-        }
-
-        mAlertDialogBuilder.setNegativeButton(getString(R.string.user_info_dialog_cancel), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-
-        mAlertDialogBuilder.setAdapter(mArrayAdapter, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                bt_user_info_level.setText(mArrayAdapter.getItem(i));
-                dialogInterface.dismiss();
-            }
-        });
-
-        mAlertDialogBuilder.show();
-    }
+//    private void TeamLevle_AlertDialog() {
+//        AlertDialog.Builder mAlertDialogBuilder = new AlertDialog.Builder(mContext);
+//        mAlertDialogBuilder.setTitle(getString(R.string.user_info_team_level_dialog_title));
+//
+//        final ArrayAdapter<String> mArrayAdapter = new ArrayAdapter<>(mContext, android.R.layout.select_dialog_item);
+//
+//        for(int i = 0; i < getResources().getStringArray(R.array.C002_data).length; i++) {
+//            mArrayAdapter.add(getResources().getStringArray(R.array.C002_data)[i]);
+//        }
+//
+//        mAlertDialogBuilder.setNegativeButton(getString(R.string.user_info_dialog_cancel), new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                dialogInterface.dismiss();
+//            }
+//        });
+//
+//        mAlertDialogBuilder.setAdapter(mArrayAdapter, new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                bt_user_info_level.setText(mArrayAdapter.getItem(i));
+//                dialogInterface.dismiss();
+//            }
+//        });
+//
+//        mAlertDialogBuilder.show();
+//    }
 
     /**
      * 회원 정보 등록 데이터 체크
@@ -326,7 +326,7 @@ public class UserInfoActivity extends AppCompatActivity {
         String user_telnum = et_user_info_phone_number.getText().toString();
         String team_name = et_user_info_team_name.getText().toString();
 //        ArrayList<String> hope_grounds = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.default_team_code)));
-        String team_age_code = "";
+        String team_age_code;
 
         if("".equals(user_name)) {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_user_name) + getString(R.string.user_info_check_input_space));
@@ -406,7 +406,7 @@ public class UserInfoActivity extends AppCompatActivity {
         String user_telnum = et_user_info_phone_number.getText().toString();
         String team_name = et_user_info_team_name.getText().toString();
 //        ArrayList<String> hope_grounds = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.default_team_code)));
-        String team_level_code = "", team_age_code = "";
+        String team_age_code = "";
 
         if("".equals(user_name)) {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_user_name) + getString(R.string.user_info_check_input_space));
@@ -433,7 +433,7 @@ public class UserInfoActivity extends AppCompatActivity {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_level) + getString(R.string.user_info_check_select_not));
         }
 
-        mService.updateUserInfo(insertUserInfo_Listener, mApplicationTM.getUserId(), mApplicationTM.getUserEmail(), user_name, user_telnum, search_user_team_id, team_name, hope_ground, team_level_code, team_age_code);
+        mService.updateUserInfo(updateUserInfo_Listener, mApplicationTM.getUserId(), mApplicationTM.getUserEmail(), user_name, user_telnum, search_user_team_id, team_name, hope_ground, team_level_code, team_age_code);
     }
 
     /**
@@ -450,7 +450,7 @@ public class UserInfoActivity extends AppCompatActivity {
                     Log.e(TAG, mJSONObject.toString());
 
                     if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
-                        mApplicationTM.makeToast(mContext, getString(R.string.user_info_service_input_sucess));
+                        mApplicationTM.makeToast(mContext, getString(R.string.user_info_service_input_success));
 
                         JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
                         JSONObject mResult = mJSONArray.getJSONObject(0);
@@ -475,6 +475,30 @@ public class UserInfoActivity extends AppCompatActivity {
                 Log.e(TAG, "insertUserInfo_Listener - " + e);
             } finally {
                 mApplicationTM.stopProgress();
+            }
+        }
+    };
+
+    ResponseListener updateUserInfo_Listener = new ResponseListener() {
+        @Override
+        public void receive(ResponseEvent responseEvent) {
+            try {
+                if(responseEvent.getResultData() != null) {
+                    JSONObject mJSONObject = new JSONObject(responseEvent.getResultData());
+
+                    Log.e(TAG, mJSONObject.toString());
+
+                    if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
+                        mApplicationTM.makeToast(mContext, getString(R.string.user_info_service_update_success));
+                    } else {
+                        mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
+                    }
+                } else {
+                    mApplicationTM.makeToast(mContext, getString(R.string.error_network));
+                }
+            } catch (Exception e) {
+                mApplicationTM.makeToast(mContext, getString(R.string.error_network));
+                Log.e(TAG, "updateUserInfo_Listener - " + e);
             }
         }
     };
@@ -587,7 +611,7 @@ public class UserInfoActivity extends AppCompatActivity {
         }
     };
 
-    public void removeSelectedHopeGround(int index) throws Exception {
+    public void removeSelectedHopeGround(int index) {
         hope_ground.remove(index);
         hope_ground_name.remove(index);
 

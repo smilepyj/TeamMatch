@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:onClick="linearOnClick"
+    android:orientation="vertical"
     tools:context=".UserInfoActivity">
 
     <android.support.v7.widget.Toolbar
@@ -14,14 +14,13 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimaryDark"
         android:elevation="1dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:titleTextColor="@color/color_toolbar_title">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanskr_regular"
             android:layout_gravity="center"
+            android:fontFamily="@font/notosanskr_regular"
             android:text="@string/user_info_title"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/font_size_17" />
@@ -39,498 +38,498 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="9"
-            android:gravity="center"
             android:orientation="vertical"
+            android:paddingTop="@dimen/dimen_size_15"
             android:weightSum="10">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="9.5"
-                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:weightSum="10">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/user_info_user_name"
+                    android:textColor="@color/color_userinfo_title"
+                    android:textSize="@dimen/font_size_20"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2.5"
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:gravity="center_vertical"
-                        android:text="@string/user_info_user_name"
-                        android:textColor="@color/color_userinfo_title"
-                        android:textSize="@dimen/font_size_20"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/et_user_info_user_name"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="7.5"
-                        android:background="@drawable/ic_edittext"
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:hint="@string/user_info_user_name_hint"
-                        android:textColor="@color/color_userinfo_input"
-                        android:textSize="@dimen/font_size_20" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:gravity="top"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/color_userinfo_border" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2.5"
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:gravity="center_vertical"
-                        android:text="@string/user_info_phone_number"
-                        android:textColor="@color/color_userinfo_title"
-                        android:textSize="@dimen/font_size_20"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/et_user_info_phone_number"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="7.5"
-                        android:background="@drawable/ic_edittext"
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:hint="@string/user_info_phone_number_hint"
-                        android:inputType="phone"
-                        android:textColor="@color/color_userinfo_input"
-                        android:textSize="@dimen/font_size_20" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:gravity="top"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/color_userinfo_border" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2.5"
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:gravity="center_vertical"
-                        android:text="@string/user_info_team_name"
-                        android:textColor="@color/color_userinfo_title"
-                        android:textSize="@dimen/font_size_20"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/et_user_info_team_name"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="7.5"
-                        android:background="@drawable/ic_edittext"
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:hint="@string/user_info_team_name_hint"
-                        android:textColor="@color/color_userinfo_input"
-                        android:textSize="@dimen/font_size_20" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:gravity="top"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/color_userinfo_border" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2.5"
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:gravity="center_vertical"
-                        android:text="@string/user_info_team_age"
-                        android:textColor="@color/color_userinfo_title"
-                        android:textSize="@dimen/font_size_20"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="7.5"
-                        android:gravity="center_vertical|start"
-                        android:orientation="horizontal"
-                        android:weightSum="10">
-
-                        <Button
-                            android:id="@+id/bt_user_info_age"
-                            style="?android:attr/borderlessButtonStyle"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:includeFontPadding="false"
-                            android:background="@drawable/selector_button_user_info"
-                            android:fontFamily="@font/notosanskr_medium"
-                            android:minHeight="0dp"
-                            android:text="@string/user_info_select"
-                            android:textColor="@drawable/selector_button_user_info_text"
-                            android:textSize="@dimen/font_size_18" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:gravity="top"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/color_userinfo_border" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/et_user_info_user_name"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:layout_weight="7.5"
+                    android:background="@drawable/ic_edittext"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:hint="@string/user_info_user_name_hint"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/color_userinfo_input"
+                    android:textSize="@dimen/font_size_20" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_userinfo_border" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/user_info_phone_number"
+                    android:textColor="@color/color_userinfo_title"
+                    android:textSize="@dimen/font_size_20"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_user_info_phone_number"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7.5"
+                    android:background="@drawable/ic_edittext"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:hint="@string/user_info_phone_number_hint"
+                    android:includeFontPadding="false"
+                    android:inputType="phone"
+                    android:textColor="@color/color_userinfo_input"
+                    android:textSize="@dimen/font_size_20" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_userinfo_border" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/user_info_team_name"
+                    android:textColor="@color/color_userinfo_title"
+                    android:textSize="@dimen/font_size_20"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_user_info_team_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7.5"
+                    android:background="@drawable/ic_edittext"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:hint="@string/user_info_team_name_hint"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/color_userinfo_input"
+                    android:textSize="@dimen/font_size_20" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_userinfo_border" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/user_info_team_age"
+                    android:textColor="@color/color_userinfo_title"
+                    android:textSize="@dimen/font_size_20"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7.5"
+                    android:gravity="center_vertical|start"
                     android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2.5"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/notosanskr_regular"
-                            android:text="@string/user_info_hope_field"
-                            android:textColor="@color/color_userinfo_title"
-                            android:textSize="@dimen/font_size_20"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="7.5"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:weightSum="10">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:weightSum="10">
-
-                            <Button
-                                android:id="@+id/bt_user_info_hope_grounds_1"
-                                style="?android:attr/borderlessButtonStyle"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="4.9"
-                                android:background="@drawable/selector_button_user_info"
-                                android:includeFontPadding="false"
-                                android:drawableRight="@drawable/ic_close"
-                                android:drawablePadding="3dp"
-                                android:fontFamily="@font/notosanskr_medium"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginBottom="2dp"
-                                android:minHeight="0dp"
-                                android:paddingEnd="@dimen/bt_user_info_hope_grounds"
-                                android:text="@string/user_info_hope_grounds_1"
-                                android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_14"
-                                android:visibility="gone"/>
-
-                            <Space
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.2" />
-
-                            <Button
-                                android:id="@+id/bt_user_info_hope_grounds_2"
-                                style="?android:attr/borderlessButtonStyle"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:includeFontPadding="false"
-                                android:layout_weight="4.9"
-                                android:background="@drawable/selector_button_user_info"
-                                android:drawableRight="@drawable/ic_close"
-                                android:drawablePadding="3dp"
-                                android:fontFamily="@font/notosanskr_medium"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginBottom="2dp"
-                                android:minHeight="0dp"
-                                android:paddingEnd="@dimen/bt_user_info_hope_grounds"
-                                android:text="@string/user_info_hope_grounds_2"
-                                android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_14"
-                                android:visibility="gone"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="0.2" />
-
-                        <!--<LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="3.1"
-                            android:gravity="center"
-                            android:orientation="horizontal"
-                            android:weightSum="10">-->
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:weightSum="10">
-
-                            <Button
-                                android:id="@+id/bt_user_info_hope_grounds_3"
-                                style="?android:attr/borderlessButtonStyle"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:includeFontPadding="false"
-                                android:layout_weight="4.9"
-                                android:background="@drawable/selector_button_user_info"
-                                android:drawableRight="@drawable/ic_close"
-                                android:drawablePadding="3dp"
-                                android:fontFamily="@font/notosanskr_medium"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginBottom="2dp"
-                                android:minHeight="0dp"
-                                android:paddingEnd="@dimen/bt_user_info_hope_grounds"
-                                android:text="@string/user_info_hope_grounds_3"
-                                android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_14"
-                                android:visibility="gone"/>
-
-                            <Space
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.2" />
-
-                            <Button
-                                android:id="@+id/bt_user_info_hope_grounds_4"
-                                style="?android:attr/borderlessButtonStyle"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:includeFontPadding="false"
-                                android:layout_weight="4.9"
-                                android:background="@drawable/selector_button_user_info"
-                                android:drawableRight="@drawable/ic_close"
-                                android:drawablePadding="3dp"
-                                android:fontFamily="@font/notosanskr_medium"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginBottom="2dp"
-                                android:minHeight="0dp"
-                                android:paddingEnd="@dimen/bt_user_info_hope_grounds"
-                                android:text="@string/user_info_hope_grounds_4"
-                                android:textColor="@drawable/selector_button_user_info_text"
-                                android:textSize="@dimen/font_size_14"
-                                android:visibility="gone"/>
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="0.2" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tv_user_info_add_grounds"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="7dp"
-                                android:layout_marginBottom="7dp"
-                                android:includeFontPadding="false"
-                                android:fontFamily="@font/notosanskr_regular"
-                                android:text="@string/user_info_add_grounds"
-                                android:textColor="@color/color_userinfo_title"
-                                android:textSize="@dimen/font_size_16" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:gravity="top"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/color_userinfo_border" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2.5"
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:gravity="center_vertical"
-                        android:text="@string/user_info_team_level"
-                        android:textColor="@color/color_userinfo_title"
-                        android:textSize="@dimen/font_size_20"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="7.5"
-                        android:gravity="center_vertical|start"
-                        android:orientation="horizontal"
-                        android:weightSum="10">
-
-                        <Button
-                            android:id="@+id/bt_user_info_level"
-                            style="?android:attr/borderlessButtonStyle"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:includeFontPadding="false"
-                            android:layout_weight="3.5"
-                            android:background="@drawable/selector_button_user_info"
-                            android:fontFamily="@font/notosanskr_medium"
-                            android:minHeight="0dp"
-                            android:text="@string/user_info_select"
-                            android:textColor="@drawable/selector_button_user_info_text"
-                            android:textSize="@dimen/font_size_18" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6.5"
-                            android:gravity="center_vertical|end"
-                            android:orientation="horizontal"
-                            android:weightSum="6.5">
-
-                            <Button
-                                android:id="@+id/bt_user_info_level_test"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                style="?android:attr/borderlessButtonStyle"
-                                android:layout_weight="3"
-                                android:background="@drawable/ic_button_user_info_level_test"
-                                android:fontFamily="@font/notosanskr_medium"
-                                android:text="@string/user_info_self_check"
-                                android:textColor="@color/color_userinfo_button_level_test_text"
-                                android:textSize="@dimen/font_size_12"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:gravity="top"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/color_userinfo_border" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.8"
-                    android:gravity="bottom"
-                    android:orientation="vertical"
                     android:weightSum="10">
 
                     <Button
-                        android:id="@+id/bt_user_info_save"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:id="@+id/bt_user_info_age"
                         style="?android:attr/borderlessButtonStyle"
-                        android:layout_weight="5"
-                        android:includeFontPadding="false"
-                        android:background="@drawable/selector_button_search"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:background="@drawable/selector_button_user_info"
                         android:fontFamily="@font/notosanskr_medium"
+                        android:includeFontPadding="false"
                         android:minHeight="0dp"
-                        android:text="@string/user_info_save"
-                        android:textColor="@drawable/selector_button_search_text"
+                        android:text="@string/user_info_select"
+                        android:textColor="@drawable/selector_button_user_info_text"
                         android:textSize="@dimen/font_size_18" />
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_userinfo_border" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/user_info_hope_field"
+                        android:textColor="@color/color_userinfo_title"
+                        android:textSize="@dimen/font_size_20"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7.5"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <Button
+                            android:id="@+id/bt_user_info_hope_grounds_1"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_weight="4.9"
+                            android:background="@drawable/selector_button_user_info"
+                            android:drawablePadding="3dp"
+                            android:drawableRight="@drawable/ic_close_white"
+                            android:fontFamily="@font/notosanskr_medium"
+                            android:includeFontPadding="false"
+                            android:minHeight="0dp"
+                            android:paddingEnd="@dimen/bt_user_info_hope_grounds"
+                            android:text="@string/user_info_hope_grounds_1"
+                            android:textColor="@drawable/selector_button_user_info_text"
+                            android:textSize="@dimen/font_size_14"
+                            android:visibility="gone" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2" />
+
+                        <Button
+                            android:id="@+id/bt_user_info_hope_grounds_2"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_weight="4.9"
+                            android:background="@drawable/selector_button_user_info"
+                            android:drawablePadding="3dp"
+                            android:drawableRight="@drawable/ic_close_white"
+                            android:fontFamily="@font/notosanskr_medium"
+                            android:includeFontPadding="false"
+                            android:minHeight="0dp"
+                            android:paddingEnd="@dimen/bt_user_info_hope_grounds"
+                            android:text="@string/user_info_hope_grounds_2"
+                            android:textColor="@drawable/selector_button_user_info_text"
+                            android:textSize="@dimen/font_size_14"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2" />
+
+                    <!--<LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3.1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="10">-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <Button
+                            android:id="@+id/bt_user_info_hope_grounds_3"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_weight="4.9"
+                            android:background="@drawable/selector_button_user_info"
+                            android:drawablePadding="3dp"
+                            android:drawableRight="@drawable/ic_close_white"
+                            android:fontFamily="@font/notosanskr_medium"
+                            android:includeFontPadding="false"
+                            android:minHeight="0dp"
+                            android:paddingEnd="@dimen/bt_user_info_hope_grounds"
+                            android:text="@string/user_info_hope_grounds_3"
+                            android:textColor="@drawable/selector_button_user_info_text"
+                            android:textSize="@dimen/font_size_14"
+                            android:visibility="gone" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2" />
+
+                        <Button
+                            android:id="@+id/bt_user_info_hope_grounds_4"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_weight="4.9"
+                            android:background="@drawable/selector_button_user_info"
+                            android:drawablePadding="3dp"
+                            android:drawableRight="@drawable/ic_close_white"
+                            android:fontFamily="@font/notosanskr_medium"
+                            android:includeFontPadding="false"
+                            android:minHeight="0dp"
+                            android:paddingEnd="@dimen/bt_user_info_hope_grounds"
+                            android:text="@string/user_info_hope_grounds_4"
+                            android:textColor="@drawable/selector_button_user_info_text"
+                            android:textSize="@dimen/font_size_14"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_user_info_add_grounds"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="7dp"
+                            android:layout_marginTop="7dp"
+                            android:fontFamily="@font/notosanskr_regular"
+                            android:includeFontPadding="false"
+                            android:text="@string/user_info_add_grounds"
+                            android:textColor="@color/color_userinfo_title"
+                            android:textSize="@dimen/font_size_16" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_userinfo_border" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:gravity="center_vertical"
+                    android:text="@string/user_info_team_level"
+                    android:textColor="@color/color_userinfo_title"
+                    android:textSize="@dimen/font_size_20"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7.5"
+                    android:gravity="center_vertical|start"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <Button
+                        android:id="@+id/bt_user_info_level"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.5"
+                        android:background="@drawable/selector_button_user_info"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:includeFontPadding="false"
+                        android:minHeight="0dp"
+                        android:text="@string/user_info_select"
+                        android:textColor="@drawable/selector_button_user_info_text"
+                        android:textSize="@dimen/font_size_18" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6.5"
+                        android:gravity="center_vertical|end"
+                        android:orientation="horizontal"
+                        android:weightSum="6.5">
+
+                        <Button
+                            android:id="@+id/bt_user_info_level_test"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:background="@drawable/ic_button_user_info_level_test"
+                            android:fontFamily="@font/notosanskr_medium"
+                            android:text="@string/user_info_self_check"
+                            android:textColor="@color/color_userinfo_button_level_test_text"
+                            android:textSize="@dimen/font_size_12"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_userinfo_border" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2.75"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <Button
+                    android:id="@+id/bt_user_info_save"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/selector_button_search"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:includeFontPadding="false"
+                    android:minHeight="0dp"
+                    android:text="@string/user_info_save"
+                    android:textColor="@drawable/selector_button_search_text"
+                    android:textSize="@dimen/font_size_18" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

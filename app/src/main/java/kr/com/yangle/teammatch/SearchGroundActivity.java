@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -24,10 +22,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import kr.com.yangle.teammatch.adapter.SearchGroundType1ListViewAdapter;
 import kr.com.yangle.teammatch.adapter.SearchGroundType2ListViewAdapter;
@@ -1160,11 +1156,14 @@ public class SearchGroundActivity extends AppCompatActivity {
                     Typeface mTypeface = getResources().getFont(R.font.notosanskr_medium);
                     btn.setTypeface(mTypeface);
                     btn.setIncludeFontPadding(false);
+                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
+                } else {
+                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_8));
                 }
-                btn.setMinHeight(0);
                 btn.setPadding(mPaddingSize, 0, mPaddingSize, 0);
-                btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
-                Drawable icon = getResources().getDrawable(R.drawable.ic_close);
+                btn.setMinHeight(0);
+
+                Drawable icon = getResources().getDrawable(R.drawable.ic_close_white);
                 icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
                 btn.setCompoundDrawables(null, null, icon, null);
                 btn.setCompoundDrawablePadding(10);
@@ -1262,12 +1261,14 @@ public class SearchGroundActivity extends AppCompatActivity {
                     Typeface mTypeface = getResources().getFont(R.font.notosanskr_medium);
                     btn.setTypeface(mTypeface);
                     btn.setIncludeFontPadding(false);
+                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
+                } else {
+                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_8));
                 }
-                btn.setMinHeight(0);
                 btn.setPadding(mPaddingSize, 0, mPaddingSize, 0);
+                btn.setMinHeight(0);
 
-                btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
-                Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close);
+                Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close_white);
                 icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
                 btn.setCompoundDrawables(null, null, icon, null);
                 btn.setCompoundDrawablePadding(10);
@@ -1329,11 +1330,14 @@ public class SearchGroundActivity extends AppCompatActivity {
                     Typeface mTypeface = getResources().getFont(R.font.notosanskr_medium);
                     btn.setTypeface(mTypeface);
                     btn.setIncludeFontPadding(false);
+                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
+                } else {
+                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_8));
                 }
-                btn.setMinHeight(0);
                 btn.setPadding(mPaddingSize, 0, mPaddingSize, 0);
-                btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
-                Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close);
+                btn.setMinHeight(0);
+
+                Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close_white);
                 icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
                 btn.setCompoundDrawables(null, null, icon, null);
                 btn.setCompoundDrawablePadding(10);

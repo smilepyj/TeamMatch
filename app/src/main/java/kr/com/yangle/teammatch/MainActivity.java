@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     View ll_navigation_draw;
 
-    LinearLayout ll_main_button, ll_main_in_progress_matching, ll_main_ranking, ll_navigation_user, ll_navigation_match, ll_navigation_ranking, ll_navigation_logout;
+    LinearLayout ll_main_button, ll_main_in_progress_matching, ll_main_ranking, ll_navigation_user, ll_navigation_match, ll_navigation_ranking, ll_navigation_logout, ll_navigation_space, ll_navigation_footer;
 
     Button bt_main_search_match, bt_main_registration_match;
 
@@ -88,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
         ll_navigation_match = findViewById(R.id.ll_navigation_match);
         ll_navigation_ranking = findViewById(R.id.ll_navigation_ranking);
         ll_navigation_logout = findViewById(R.id.ll_navigation_logout);
+        ll_navigation_footer = findViewById(R.id.ll_navigation_footer);
+        ll_navigation_space = findViewById(R.id.ll_navigation_space);
         tv_navigation_user_name = findViewById(R.id.tv_navigation_user_name);
 
         ll_main_button = findViewById(R.id.ll_main_button);
@@ -102,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
         ll_navigation_match.setOnClickListener(mOnClickListener);
         ll_navigation_ranking.setOnClickListener(mOnClickListener);
         ll_navigation_logout.setOnClickListener(mOnClickListener);
+        ll_navigation_footer.setOnClickListener(mOnClickListener);
+        ll_navigation_space.setOnClickListener(mOnClickListener);
 
         ll_main_in_progress_matching.setOnClickListener(mOnClickListener);
         ll_main_ranking.setOnClickListener(mOnClickListener);
@@ -167,25 +172,28 @@ public class MainActivity extends AppCompatActivity {
                         dl_activity_main.closeDrawers();
                         break;
                     case R.id.ll_navigation_user:
-                        dl_activity_main.closeDrawers();
                         mIntent = new Intent(mContext, UserInfoActivity.class);
                         mIntent.putExtra(getString(R.string.user_info_intent_extra), getString(R.string.user_info_type_update));
                         startActivity(mIntent);
+                        dl_activity_main.closeDrawers();
                         break;
                     case R.id.ll_navigation_match:
-                        dl_activity_main.closeDrawers();
                         mIntent = new Intent(mContext, MatchProcActivity.class);
                         startActivity(mIntent);
+                        dl_activity_main.closeDrawers();
                         break;
                     case R.id.ll_navigation_ranking:
-                        dl_activity_main.closeDrawers();
                         mIntent = new Intent(mContext, RankingActivity.class);
                         startActivity(mIntent);
+                        dl_activity_main.closeDrawers();
                         break;
                     case R.id.ll_navigation_logout:
                         dl_activity_main.closeDrawers();
                         Logout();
                         //mApplicationTM.makeToast(mContext, getString(R.string.cording_message));
+                        break;
+                    case R.id.ll_navigation_footer :
+                    case R.id.ll_navigation_space :
                         break;
                     case R.id.bt_main_search_match:
                         mIntent = new Intent(mContext, SearchMatchActivity.class);

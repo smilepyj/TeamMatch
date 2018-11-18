@@ -3,9 +3,9 @@
     android:id="@+id/ll_navigation_draw"
     android:layout_width="@dimen/dimen_size_260"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:layout_gravity="end"
     android:background="@color/colorWhite"
+    android:gravity="center"
     android:orientation="vertical"
     android:weightSum="10">
 
@@ -21,7 +21,7 @@
             android:id="@+id/ib_navigation_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_date_close"/>
+            android:background="@drawable/ic_close_black" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,8 +54,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6.25"
-        android:padding="@dimen/dimen_size_15"
         android:orientation="vertical"
+        android:padding="@dimen/dimen_size_15"
         android:weightSum="8">
 
         <LinearLayout
@@ -63,15 +63,15 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingStart="@dimen/dimen_size_20"
-            android:gravity="center_vertical">
+            android:paddingStart="@dimen/dimen_size_20">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dimen_size_10"
-                android:background="@drawable/ic_menu_team"/>
+                android:background="@drawable/ic_menu_team" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
                 android:includeFontPadding="false"
                 android:text="@string/navigation_item_user"
                 android:textColor="@color/color_313131"
-                android:textSize="@dimen/font_size_14"/>
+                android:textSize="@dimen/font_size_14" />
         </LinearLayout>
 
         <LinearLayout
@@ -88,15 +88,15 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingStart="@dimen/dimen_size_20"
-            android:gravity="center_vertical">
+            android:paddingStart="@dimen/dimen_size_20">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dimen_size_10"
-                android:background="@drawable/ic_menu_football"/>
+                android:background="@drawable/ic_menu_football" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
                 android:includeFontPadding="false"
                 android:text="@string/navigation_item_match"
                 android:textColor="@color/color_313131"
-                android:textSize="@dimen/font_size_14"/>
+                android:textSize="@dimen/font_size_14" />
         </LinearLayout>
 
         <LinearLayout
@@ -113,15 +113,15 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingStart="@dimen/dimen_size_20"
-            android:gravity="center_vertical">
+            android:paddingStart="@dimen/dimen_size_20">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dimen_size_10"
-                android:background="@drawable/ic_menu_trophy"/>
+                android:background="@drawable/ic_menu_trophy" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
                 android:includeFontPadding="false"
                 android:text="@string/navigation_item_ranking"
                 android:textColor="@color/color_313131"
-                android:textSize="@dimen/font_size_14"/>
+                android:textSize="@dimen/font_size_14" />
         </LinearLayout>
 
         <LinearLayout
@@ -138,15 +138,15 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingStart="@dimen/dimen_size_20"
-            android:gravity="center_vertical">
+            android:paddingStart="@dimen/dimen_size_20">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dimen_size_10"
-                android:background="@drawable/ic_menu_login"/>
+                android:background="@drawable/ic_menu_login" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -155,22 +155,34 @@
                 android:includeFontPadding="false"
                 android:text="@string/navigation_item_logout"
                 android:textColor="@color/color_313131"
-                android:textSize="@dimen/font_size_14"/>
+                android:textSize="@dimen/font_size_14" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_navigation_space"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_navigation_footer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.5"
-        android:orientation="horizontal"
         android:background="@color/color_00AE55"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_menu_call"/>
+            android:background="@drawable/ic_menu_call" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -186,7 +198,7 @@
                 android:text="@string/navigation_call_center"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/font_size_12"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -197,7 +209,7 @@
                 android:text="@string/navigation_call_number"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/font_size_25"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

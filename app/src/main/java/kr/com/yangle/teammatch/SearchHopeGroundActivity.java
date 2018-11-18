@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import kr.com.yangle.teammatch.adapter.SearchGroundType1ListViewAdapter;
 import kr.com.yangle.teammatch.adapter.SearchGroundType2ListViewAdapter;
 import kr.com.yangle.teammatch.adapter.SearchGroundType3_1ListViewAdapter;
 import kr.com.yangle.teammatch.adapter.SearchGroundType3_2ListViewAdapter;
@@ -567,7 +566,7 @@ public class SearchHopeGroundActivity extends AppCompatActivity {
                 btn.setMinHeight(0);
                 btn.setPadding(mPaddingSize, 0, mPaddingSize, 0);
                 btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
-                Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close);
+                Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close_white);
                 icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
                 btn.setCompoundDrawables(null, null, icon, null);
                 btn.setCompoundDrawablePadding(10);

@@ -1,29 +1,28 @@
 package kr.com.yangle.teammatch.util;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import kr.com.yangle.teammatch.ApplicationTM;
-import kr.com.yangle.teammatch.MatchProcActivity;
 import kr.com.yangle.teammatch.R;
 
 public class DialogTermServiceActivity extends AppCompatActivity {
-    private final String TAG = this.getClass().getSimpleName();
+//    private final String TAG = this.getClass().getSimpleName();
 
     Context mContext;
     ApplicationTM mApplicationTM;
 
+    LinearLayout ll_term_service_close;
     TextView tv_alert_dialog_title, tv_alert_dialog_contents;
     ImageButton ib_term_service_close;
-
-    int mType = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +37,8 @@ public class DialogTermServiceActivity extends AppCompatActivity {
         tv_alert_dialog_contents = findViewById(R.id.tv_term_service_contents);
         ib_term_service_close = findViewById(R.id.ib_term_service_close);
         ib_term_service_close.setOnClickListener(mOnClickListener);
+
+        LayoutSet();
 
         tv_alert_dialog_title.setText("풋살매치 이용 약관");
 
@@ -281,4 +282,28 @@ public class DialogTermServiceActivity extends AppCompatActivity {
             }
         }
     };
+
+    private void LayoutSet() {
+        DisplayMetrics mDisplayMetrics_margin = getResources().getDisplayMetrics();
+        int mHeightMarginsSize = Math.round(10 * mDisplayMetrics_margin.density);
+        int mWidthMarginsSize = Math.round(25 * mDisplayMetrics_margin.density);
+
+        Display mDisplay = getWindowManager().getDefaultDisplay();
+        double mRealWidth, mRealHeight;
+
+        DisplayMetrics mDisplayMetrics = new DisplayMetrics();
+        mDisplay.getRealMetrics(mDisplayMetrics);
+        mRealWidth = mDisplayMetrics.widthPixels;
+        mRealHeight = mDisplayMetrics.heightPixels;
+
+        LinearLayout.LayoutParams ll_term_service_close_param = (LinearLayout.LayoutParams) ll_term_service_close.getLayoutParams();
+
+        double mScreenRate = mRealHeight / mRealWidth;
+
+        if (mScreenRate >= 2) {
+            ll_term_service_close_param.setMargins(mHeightMarginsSize, mHeightMarginsSize, mHeightMarginsSize, mHeightMarginsSize);
+        } else {
+            ll_term_service_close_param.setMargins(mWidthMarginsSize, mHeightMarginsSize, mWidthMarginsSize, mHeightMarginsSize);
+        }
+    }
 }

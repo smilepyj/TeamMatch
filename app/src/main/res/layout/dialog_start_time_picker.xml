@@ -19,7 +19,7 @@
             android:id="@+id/ib_dialog_time_picker_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_date_close" />
+            android:background="@drawable/ic_close_black" />
     </LinearLayout>
 
     <LinearLayout

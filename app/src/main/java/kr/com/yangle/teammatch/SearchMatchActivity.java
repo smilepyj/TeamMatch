@@ -41,9 +41,6 @@ public class SearchMatchActivity extends AppCompatActivity {
     Button bt_search_match_time_nothing, bt_search_match_number_nothing, bt_search_match_number_5, bt_search_match_number_6, bt_search_match_level_challenger, bt_search_match_level_diamond,
             bt_search_match_level_platinum, bt_search_match_level_gold, bt_search_match_level_silver, bt_search_match_level_nothing, bt_search_match_search;
 
-    String intent_search_area, intent_search_ground;
-    int intent_search_ground_cnt;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

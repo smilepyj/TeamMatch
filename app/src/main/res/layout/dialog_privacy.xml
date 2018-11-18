@@ -2,23 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/dimen_size_340"
-    android:layout_height="600dp"
+    android:layout_height="@dimen/dimen_size_600"
     android:background="@drawable/ic_dialog_background"
     android:orientation="vertical"
     tools:context=".util.DialogAlertActivity">
 
     <LinearLayout
+        android:id="@+id/ll_privacy_close"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
-        android:orientation="horizontal"
-        android:padding="@dimen/dimen_size_5">
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/ib_privacy_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_date_close" />
+            android:background="@drawable/ic_close_black" />
     </LinearLayout>
 
     <LinearLayout
@@ -52,13 +52,14 @@
             <TextView
                 android:id="@+id/tv_privacy_contents"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_size_5"
+                android:layout_marginStart="@dimen/dimen_size_5"
+                android:layout_marginTop="@dimen/dimen_size_5"
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
-                android:layout_marginHorizontal="@dimen/dimen_size_5"
-                android:layout_marginTop="@dimen/dimen_size_5"
-                android:textColor="@color/color_privacy_dialog_contents"
                 android:lineSpacingMultiplier="1.5"
+                android:textColor="@color/color_privacy_dialog_contents"
                 android:textSize="@dimen/font_size_15" />
 
         </ScrollView>

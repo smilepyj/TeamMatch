@@ -3,24 +3,26 @@ package kr.com.yangle.teammatch.util;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import kr.com.yangle.teammatch.ApplicationTM;
 import kr.com.yangle.teammatch.R;
 
 public class DialogPrivacyActivity extends AppCompatActivity {
-    private final String TAG = this.getClass().getSimpleName();
+//    private final String TAG = this.getClass().getSimpleName();
 
     Context mContext;
     ApplicationTM mApplicationTM;
 
+    LinearLayout ll_privacy_close;
     TextView tv_privacy_title, tv_privacy_contents;
     ImageButton ib_privacy_close;
-
-    int mType = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,13 @@ public class DialogPrivacyActivity extends AppCompatActivity {
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
+        ll_privacy_close = findViewById(R.id.ll_privacy_close);
         tv_privacy_title = findViewById(R.id.tv_privacy_title);
         tv_privacy_contents = findViewById(R.id.tv_privacy_contents);
         ib_privacy_close = findViewById(R.id.ib_privacy_close);
         ib_privacy_close.setOnClickListener(mOnClickListener);
+
+        LayoutSet();
 
         tv_privacy_title.setText("개인정보 취급방침");
 
@@ -130,4 +135,28 @@ public class DialogPrivacyActivity extends AppCompatActivity {
             }
         }
     };
+
+    private void LayoutSet() {
+        DisplayMetrics mDisplayMetrics_margin = getResources().getDisplayMetrics();
+        int mHeightMarginsSize = Math.round(10 * mDisplayMetrics_margin.density);
+        int mWidthMarginsSize = Math.round(25 * mDisplayMetrics_margin.density);
+
+        Display mDisplay = getWindowManager().getDefaultDisplay();
+        double mRealWidth, mRealHeight;
+
+        DisplayMetrics mDisplayMetrics = new DisplayMetrics();
+        mDisplay.getRealMetrics(mDisplayMetrics);
+        mRealWidth = mDisplayMetrics.widthPixels;
+        mRealHeight = mDisplayMetrics.heightPixels;
+
+        LinearLayout.LayoutParams ll_privacy_close_param = (LinearLayout.LayoutParams) ll_privacy_close.getLayoutParams();
+
+        double mScreenRate = mRealHeight / mRealWidth;
+
+        if (mScreenRate >= 2) {
+            ll_privacy_close_param.setMargins(mHeightMarginsSize, mHeightMarginsSize, mHeightMarginsSize, mHeightMarginsSize);
+        } else {
+            ll_privacy_close_param.setMargins(mWidthMarginsSize, mHeightMarginsSize, mWidthMarginsSize, mHeightMarginsSize);
+        }
+    }
 }

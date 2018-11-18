@@ -8,7 +8,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -64,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private SessionCallback callback;
 
+    LinearLayout ll_login_kakao;
     TextView tv_login_term_service, tv_login_privacy;
 
     @Override
@@ -78,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mService = new Service(mContext);
 
+        ll_login_kakao = findViewById(R.id.ll_login_kakao);
         bt_login_naver = findViewById(R.id.bt_login_naver);
         bt_login_kakao = findViewById(R.id.bt_login_kakao);
 
@@ -86,12 +90,12 @@ public class LoginActivity extends AppCompatActivity {
 
         bt_login_naver.setOAuthLoginHandler(mOAuthLoginHandler);
 
-//        bt_login_kakao.setOnClickListener(mOnClickListener);
-
         bt_login_kakao.performClick();
 
         tv_login_term_service.setOnClickListener(mOnClickListener);
         tv_login_privacy.setOnClickListener(mOnClickListener);
+
+        LayoutSet();
 
         initNaverLogin();
         initKakaoLogin();
@@ -151,10 +155,31 @@ public class LoginActivity extends AppCompatActivity {
         }
     };
 
-    private void GoMain() {
-        Intent mIntent = new Intent(mContext, MainActivity.class);
-        startActivity(mIntent);
-        finish();
+    private void LayoutSet() {
+        DisplayMetrics mDisplayMetrics_margin = getResources().getDisplayMetrics();
+        int mSmallMarginsSize = Math.round(15 * mDisplayMetrics_margin.density);
+        int mMiddleMarginsSize = Math.round(20 * mDisplayMetrics_margin.density);
+        int mLargeMarginsSize = Math.round(40 * mDisplayMetrics_margin.density);
+
+        Display mDisplay = getWindowManager().getDefaultDisplay();
+        double mRealWidth, mRealHeight;
+
+        DisplayMetrics mDisplayMetrics = new DisplayMetrics();
+        mDisplay.getRealMetrics(mDisplayMetrics);
+        mRealWidth = mDisplayMetrics.widthPixels;
+        mRealHeight = mDisplayMetrics.heightPixels;
+
+        LinearLayout.LayoutParams ll_login_kakao_param = (LinearLayout.LayoutParams) ll_login_kakao.getLayoutParams();
+
+        double mScreenRate = mRealHeight / mRealWidth;
+
+        if (mScreenRate <= 1.6) {
+            ll_login_kakao_param.setMargins(mMiddleMarginsSize, 0, mMiddleMarginsSize, 0);
+        } else if (mScreenRate >= 2) {
+            ll_login_kakao_param.setMargins(mLargeMarginsSize, 0, mLargeMarginsSize, 0);
+        } else {
+            ll_login_kakao_param.setMargins(mSmallMarginsSize, 0, mSmallMarginsSize, 0);
+        }
     }
 
     private void initNaverLogin() {

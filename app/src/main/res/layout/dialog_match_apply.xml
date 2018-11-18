@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dimen_size_5"
             android:layout_marginStart="@dimen/dimen_size_5"
-            android:layout_marginTop="@dimen/dimen_size_5"
             android:fontFamily="@font/notosanskr_regular"
             android:gravity="center"
             android:includeFontPadding="false"

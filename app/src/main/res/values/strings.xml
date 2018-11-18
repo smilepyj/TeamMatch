@@ -28,7 +28,8 @@
 
     <string name="user_info_check_input_space">란을 입력해 주세요.</string>
     <string name="user_info_check_select_not">을 선택해 주세요.</string>
-    <string name="user_info_service_input_sucess">회원 정보 저장에 성공하였습니다.</string>
+    <string name="user_info_service_input_success">회원 정보 저장에 성공하였습니다.</string>
+    <string name="user_info_service_update_success">회원 정보 수정에 성공하였습니다.</string>
     <string name="user_info_input_exit">회원정보를 저장하지 않고 나갈 경우 회원 가입을 새로이 진행하셔야 합니다.\n그래도 정말 종료하시겠습니까?</string>
 
     <string name="user_info_team_age_dialog_title">팀 연령 선택</string>
@@ -55,7 +56,7 @@
     <!-- SearchResult Activity -->
     <string name="search_result_date_format_base">yyyymmdd</string>
     <string name="search_result_date_format_view">yyyy년 mm월 dd일</string>
-    <string name="search_result_time_format_base">HH</string>
+    <string name="search_result_time_format_base">HHmmss</string>
     <string name="search_result_time_format_view">HH시</string>
 
     <string name="search_result_nothing_time">시간무관</string>

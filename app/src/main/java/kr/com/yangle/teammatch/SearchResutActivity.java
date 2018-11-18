@@ -62,7 +62,7 @@ public class SearchResutActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
 
         ll_search_result_yes = findViewById(R.id.ll_search_result_yes);
         ll_search_result_no = findViewById(R.id.ll_search_result_no);
