@@ -700,7 +700,6 @@ public class SearchRegistGroundActivity extends AppCompatActivity {
                     Typeface mTypeface = getResources().getFont(R.font.notosanskr_medium);
                     btn.setTypeface(mTypeface);
                     btn.setIncludeFontPadding(false);
-                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
                 }
                 btn.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
                 btn.setMinHeight(0);
