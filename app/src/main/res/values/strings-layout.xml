@@ -94,6 +94,14 @@
     <string name="search_hope_ground_select_end">선택 완료</string>
     <string name="search_hope_ground_select">원하시는 선호구장을 선택해주세요.</string>
 
+    <!-- SearchGround Activity -->
+    <string name="search_regist_ground_title">구장검색</string>
+    <string name="search_regist_ground_type_1">나의 선호구장</string>
+    <string name="search_regist_ground_type_2">가까운 구장</string>
+    <string name="search_regist_ground_type_3">지역</string>
+    <string name="search_regist_ground_select_end">선택 완료</string>
+    <string name="search_regist_ground_select">원하시는 구장을 선택해주세요.</string>
+
     <!-- SearchResult Activity -->
     <string name="search_result_title">실시간 매치정보</string>
     <string name="search_result_condition_ground">구장</string>
@@ -233,7 +241,7 @@
     <!-- SelfCheck Activity -->
     <string name="self_check_title">우리팀 레벨 자가진단</string>
     <string name="self_check_01">01</string>
-    <string name="self_check_01_title">당신의 연령대는 얼마입니까?</string>
+    <string name="self_check_01_title">당신의 연령대는 무엇입니까?</string>
     <string name="self_check_01_1">1. 10대</string>
     <string name="self_check_01_2">2. 20대</string>
     <string name="self_check_01_3">3. 30대</string>
@@ -253,19 +261,19 @@
     <string name="self_check_03_3">3. 2회</string>
     <string name="self_check_03_4">4. 3회 이상</string>
     <string name="self_check_04">04</string>
-    <string name="self_check_04_title">매치시 득점 평균은 어떻게 됩니까?</string>
+    <string name="self_check_04_title">경기 중 평균 득점은 얼마나 됩니까?</string>
     <string name="self_check_04_1">1. 2점 이상</string>
     <string name="self_check_04_2">2. 4점 이상</string>
     <string name="self_check_04_3">3. 6점 이상</string>
     <string name="self_check_04_4">4. 10점 이상</string>
     <string name="self_check_05">05</string>
-    <string name="self_check_05_title">매치시 실점 평균은 어떻게 됩니까?</string>
+    <string name="self_check_05_title">경기 중 평균 실점은 얼마나 됩니까?</string>
     <string name="self_check_05_1">1. 3점 이하</string>
     <string name="self_check_05_2">2. 5점 이하</string>
     <string name="self_check_05_3">3. 8점 이하</string>
     <string name="self_check_05_4">4. 10점 이상</string>
     <string name="self_check_06">06</string>
-    <string name="self_check_06_title">한달에 풋살 모임 평균 횟수는 어떻게 됩니까?</string>
+    <string name="self_check_06_title">한달에 풋살 모임 평균 횟수는 얼마나 됩니까?</string>
     <string name="self_check_06_1">1. 1회</string>
     <string name="self_check_06_2">2. 2회</string>
     <string name="self_check_06_3">3. 3회</string>

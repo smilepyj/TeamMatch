@@ -365,23 +365,26 @@ public class SearchMatchActivity extends AppCompatActivity {
      * */
     private void Check_searchMatchList() {
         if("-".equals(search_date)) {
-            mApplicationTM.makeToast(mContext, getString(R.string.search_match_check_date));
-            return;
+//            mApplicationTM.makeToast(mContext, getString(R.string.search_match_check_date));
+//            return;
+            search_date = "";
         }
 
         if("-".equals(search_time)) {
-            mApplicationTM.makeToast(mContext, getString(R.string.search_match_check_time));
-            return;
+//            mApplicationTM.makeToast(mContext, getString(R.string.search_match_check_time));
+//            return;
+            search_time = "";
         }
 
         if("-".equals(search_team_member)) {
-            mApplicationTM.makeToast(mContext, getString(R.string.search_match_check_member));
-            return;
+//            mApplicationTM.makeToast(mContext, getString(R.string.search_match_check_member));
+//            return;
+            search_team_member = "";
         }
 
         if(search_team_lvl == null && search_team_lvl.size() == 0 && !bt_search_match_level_nothing.isSelected()) {
-            mApplicationTM.makeToast(mContext, getString(R.string.search_match_check_level));
-            return;
+//            mApplicationTM.makeToast(mContext, getString(R.string.search_match_check_level));
+//            return;
         }
 
         Intent mIntent = new Intent(mContext, SearchResutActivity.class);

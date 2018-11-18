@@ -38,11 +38,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.e(TAG, data + "");
 
         if(openPushAlert(data)) {
-            sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), data);
+            sendNotification(data);
         }
     }
 
-    private void sendNotification(String title, String message, Map<String, String> data) {
+    private void sendNotification(Map<String, String> data) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -52,8 +52,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_dialog_info))
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(title)
-                .setContentText(message)
+                .setContentTitle(data.get("title"))
+                .setContentText(data.get("body"))
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
@@ -114,6 +114,29 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_ok_text), "신청정보 확인");
                     mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 3);
                     startActivity(mIntent);
+                }else {
+                    String reject_team_ids = data.get("reject_team_ids");
+
+                    if(!"".equals(reject_team_ids)) {
+                        String[] reject_team_list = reject_team_ids.split("\\|");
+
+                        for(String reject_team : reject_team_list) {
+                            if(team_id.equals(reject_team)) {
+                                bNotification = true;
+
+                                Intent mIntent = new Intent(getApplicationContext(), DialogAlertActivity.class);
+                                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_title), "매치 거절");
+                                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents_header), "");
+                                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents), "상대편이 당신의 매치신청을 거절하였습니다.\n다른 매치를 신청해주세요.");
+                                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_cancel_text), "닫기");
+                                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_ok_text), "신청정보 확인");
+                                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 3);
+                                startActivity(mIntent);
+
+                                break;
+                            }
+                        }
+                    }
                 }
             }else if("3".equals(match_alert_type)) {
                 String guest_team_id = data.get("guest_team_id");
