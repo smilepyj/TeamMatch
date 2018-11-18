@@ -58,7 +58,7 @@ public class SearchMatchActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
 
         ll_search_match_field = findViewById(R.id.ll_search_match_field);
         tv_search_match_field = findViewById(R.id.tv_search_match_field);

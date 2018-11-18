@@ -21,8 +21,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
@@ -43,7 +41,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
     String mActivityType;
 
-    String search_user_team_id;
+    String search_user_team_id, team_level_code;
 
     EditText et_user_info_user_name, et_user_info_phone_number, et_user_info_team_name;
 
@@ -67,7 +65,7 @@ public class UserInfoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
 
         imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
 
@@ -194,7 +192,10 @@ public class UserInfoActivity extends AppCompatActivity {
                         bt_user_info_hope_grounds_3.setVisibility(View.GONE);
                         bt_user_info_hope_grounds_4.setVisibility(View.GONE);
                     }
-
+                    break;
+                case 3 :
+                    team_level_code = data.getStringExtra(getString(R.string.self_check_level));
+                    bt_user_info_level.setText(mApplicationTM.getC002().get(team_level_code));
                     break;
             }
         }
@@ -204,6 +205,8 @@ public class UserInfoActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             try {
+                Intent mIntent;
+
                 switch (v.getId()) {
                     case R.id.bt_user_info_age:
                         TeamAge_AlertDialog();
@@ -221,12 +224,16 @@ public class UserInfoActivity extends AppCompatActivity {
                         removeSelectedHopeGround(3);
                         break;
                     case R.id.tv_user_info_add_grounds:
-                        Intent mIntent = new Intent(mContext, SearchHopeGroundActivity.class);
+                        mIntent = new Intent(mContext, SearchHopeGroundActivity.class);
                         mIntent.putExtra("callActivityFlag", 3);
                         startActivityForResult(mIntent, 1);
                         break;
                     case R.id.bt_user_info_level:
-                        TeamLevle_AlertDialog();
+//                        TeamLevle_AlertDialog();
+                        break;
+                    case R.id.bt_user_info_level_test :
+                        mIntent = new Intent(mContext, SelfCheckActivity.class);
+                        startActivityForResult(mIntent, 3);
                         break;
                     case R.id.bt_user_info_save:
                         if (getString(R.string.user_info_type_input).equals(mActivityType)) {
@@ -319,7 +326,7 @@ public class UserInfoActivity extends AppCompatActivity {
         String user_telnum = et_user_info_phone_number.getText().toString();
         String team_name = et_user_info_team_name.getText().toString();
 //        ArrayList<String> hope_grounds = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.default_team_code)));
-        String team_level_code = "", team_age_code = "";
+        String team_age_code = "";
 
         if("".equals(user_name)) {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_user_name) + getString(R.string.user_info_check_input_space));
@@ -368,8 +375,6 @@ public class UserInfoActivity extends AppCompatActivity {
         if(getString(R.string.user_info_select).equals(bt_user_info_level.getText().toString())) {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_level) + getString(R.string.user_info_check_select_not));
             return;
-        } else {
-            team_level_code = mApplicationTM.getKeybyMap(mApplicationTM.getC002(), bt_user_info_level.getText().toString());
         }
 
 //        if(!bt_user_info_level_challenger.isSelected() && !bt_user_info_level_diamond.isSelected() && !bt_user_info_level_platinum.isSelected() && !bt_user_info_level_gold.isSelected() && !bt_user_info_level_silver.isSelected()) {
@@ -426,8 +431,6 @@ public class UserInfoActivity extends AppCompatActivity {
 
         if(getString(R.string.user_info_select).equals(bt_user_info_level.getText().toString())) {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_level) + getString(R.string.user_info_check_select_not));
-        } else {
-            team_level_code = mApplicationTM.getKeybyMap(mApplicationTM.getC002(), bt_user_info_level.getText().toString());
         }
 
         mService.updateUserInfo(insertUserInfo_Listener, mApplicationTM.getUserId(), mApplicationTM.getUserEmail(), user_name, user_telnum, search_user_team_id, team_name, hope_ground, team_level_code, team_age_code);
@@ -507,7 +510,7 @@ public class UserInfoActivity extends AppCompatActivity {
                         bt_user_info_age.setText(getResources().getStringArray(R.array.C001_data)[4]);
                     }
 
-                    mApplicationTM.setTeamAge(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_level_code)).toString());
+                    mApplicationTM.setTeamLevel(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_level_code)).toString());
                     if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_level_code)).equals(getResources().getStringArray(R.array.C002_code)[0])) {
                         bt_user_info_level.setText(getResources().getStringArray(R.array.C002_data)[0]);
                     } else if(mResult.get(mContext.getString(R.string.searchuserinfo_result_team_level_code)).equals(getResources().getStringArray(R.array.C002_code)[1])) {

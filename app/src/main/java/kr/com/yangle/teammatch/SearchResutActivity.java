@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -37,6 +38,8 @@ public class SearchResutActivity extends AppCompatActivity {
 
     int search_area_group_cnt, search_area_cnt, search_ground_cnt, search_team_lvl_cnt;
 
+    LinearLayout ll_search_result_yes, ll_search_result_no;
+
     TextView tv_search_result_ground, tv_search_result_date, tv_search_result_time, tv_search_result_member, tv_search_result_level;
 
     Button bt_search_result_change_condition;
@@ -60,6 +63,9 @@ public class SearchResutActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+
+        ll_search_result_yes = findViewById(R.id.ll_search_result_yes);
+        ll_search_result_no = findViewById(R.id.ll_search_result_no);
 
         tv_search_result_ground = findViewById(R.id.tv_search_result_ground);
         tv_search_result_date = findViewById(R.id.tv_search_result_date);
@@ -181,11 +187,15 @@ public class SearchResutActivity extends AppCompatActivity {
                     mSearchResultListViewAdapter.setMDataJSONArray(mJSONArray);
                     mSearchResultListViewAdapter.notifyDataSetChanged();
 
+                    ll_search_result_no.setVisibility(View.GONE);
+                    ll_search_result_yes.setVisibility(View.VISIBLE);
                 } else {
                     mSearchResultListViewAdapter.setMDataJSONArray(new JSONArray());
                     mSearchResultListViewAdapter.notifyDataSetChanged();
 
-                    mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
+//                    mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
+                    ll_search_result_yes.setVisibility(View.GONE);
+                    ll_search_result_no.setVisibility(View.VISIBLE);
                 }
             } catch (Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));

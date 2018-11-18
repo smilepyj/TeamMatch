@@ -104,6 +104,8 @@
     <string name="search_result_change_condition">조건\n변경</string>
     <string name="search_result_pre_payment_yes">결제완료</string>
 
+    <string name="search_result_no">죄송합니다.\n요청하신 조건의 매치가 없습니다.\n다시 검색해주세요.</string>
+
     <!-- ListView SearchResult -->
     <string name="listview_search_result_request">매치신청</string>
 
@@ -227,4 +229,53 @@
     <string name="rating_dialog_sub_title">상대팀 실력과 매너 등을 종합한 점수로\n평가해주세요.</string>
     <string name="rating_dialog_max_score">/ 100점</string>
     <string name="rating_dialog_complete">평가완료</string>
+
+    <!-- SelfCheck Activity -->
+    <string name="self_check_title">우리팀 레벨 자가진단</string>
+    <string name="self_check_01">01</string>
+    <string name="self_check_01_title">당신의 연령대는 얼마입니까?</string>
+    <string name="self_check_01_1">1. 10대</string>
+    <string name="self_check_01_2">2. 20대</string>
+    <string name="self_check_01_3">3. 30대</string>
+    <string name="self_check_01_4">4. 40대</string>
+    <string name="self_check_01_5">5. 50대</string>
+    <string name="self_check_02">02</string>
+    <string name="self_check_02_title">풋살팀을 구성한지 얼마나 되었습니까?</string>
+    <string name="self_check_02_1">1. 6개월 미만</string>
+    <string name="self_check_02_2">2. 1년 이상</string>
+    <string name="self_check_02_3">3. 2년 이상</string>
+    <string name="self_check_02_4">4. 3년 이상</string>
+    <string name="self_check_02_5">5. 5년 이상</string>
+    <string name="self_check_03">03</string>
+    <string name="self_check_03_title">각종 풋살 대회에서 수상경력이 있습니까?</string>
+    <string name="self_check_03_1">1. 없음</string>
+    <string name="self_check_03_2">2. 1회</string>
+    <string name="self_check_03_3">3. 2회</string>
+    <string name="self_check_03_4">4. 3회 이상</string>
+    <string name="self_check_04">04</string>
+    <string name="self_check_04_title">매치시 득점 평균은 어떻게 됩니까?</string>
+    <string name="self_check_04_1">1. 2점 이상</string>
+    <string name="self_check_04_2">2. 4점 이상</string>
+    <string name="self_check_04_3">3. 6점 이상</string>
+    <string name="self_check_04_4">4. 10점 이상</string>
+    <string name="self_check_05">05</string>
+    <string name="self_check_05_title">매치시 실점 평균은 어떻게 됩니까?</string>
+    <string name="self_check_05_1">1. 3점 이하</string>
+    <string name="self_check_05_2">2. 5점 이하</string>
+    <string name="self_check_05_3">3. 8점 이하</string>
+    <string name="self_check_05_4">4. 10점 이상</string>
+    <string name="self_check_06">06</string>
+    <string name="self_check_06_title">한달에 풋살 모임 평균 횟수는 어떻게 됩니까?</string>
+    <string name="self_check_06_1">1. 1회</string>
+    <string name="self_check_06_2">2. 2회</string>
+    <string name="self_check_06_3">3. 3회</string>
+    <string name="self_check_06_4">4. 4회</string>
+    <string name="self_check_06_5">5. 5회 이상</string>
+    <string name="self_check_before">이전</string>
+    <string name="self_check_after">다음</string>
+    <string name="self_check_diagnosis">진단</string>
+    <string name="self_check_result_title">나의 팀 레벨은</string>
+    <string name="self_check_result_contents">입니다.</string>
+    <string name="self_check_result_recheck">다시점검</string>
+    <string name="self_check_result_ok">확인</string>
 </resources>

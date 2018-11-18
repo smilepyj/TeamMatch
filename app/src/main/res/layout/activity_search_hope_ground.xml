@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:elevation="1dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:titleTextColor="@color/color_toolbar_title">
@@ -22,8 +22,8 @@
             android:layout_gravity="center"
             android:fontFamily="@font/notosanskr_regular"
             android:text="@string/search_ground_title"
-            android:textColor="@color/color_toolbar_title"
-            android:textSize="@dimen/font_size_16" />
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font_size_17" />
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout

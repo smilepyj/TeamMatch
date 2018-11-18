@@ -85,7 +85,7 @@ public class SearchGroundActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
 
         callActivityFlag = getIntent().getIntExtra("callActivityFlag",0);
         if(callActivityFlag != 1 && callActivityFlag != 2 && callActivityFlag != 3) {

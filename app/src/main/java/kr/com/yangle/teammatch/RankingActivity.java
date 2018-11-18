@@ -64,7 +64,7 @@ public class RankingActivity extends AppCompatActivity {private final String TAG
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
 
         ll_ranking_term = findViewById(R.id.ll_ranking_term);
         ll_ranking_search = findViewById(R.id.ll_ranking_search);

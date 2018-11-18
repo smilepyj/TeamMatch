@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SelfCheckActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="1dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:titleTextColor="@color/color_toolbar_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/notosanskr_regular"
+            android:text="@string/self_check_title"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font_size_17" />
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/ll_self_check_question"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:id="@+id/ll_self_check_01"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8.75"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dimen_size_15"
+                android:paddingTop="@dimen/dimen_size_25">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_01"
+                    android:textColor="@color/color_00AE55"
+                    android:textSize="@dimen/font_size_22"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_10"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_01_title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_size_18"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingEnd="@dimen/dimen_size_25"
+                android:paddingStart="@dimen/dimen_size_25">
+
+                <Button
+                    android:id="@+id/bt_self_check_01_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_01_1"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_01_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_01_2"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_01_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_01_3"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_01_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_01_4"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_01_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_01_5"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_self_check_02"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8.75"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dimen_size_15"
+                android:paddingTop="@dimen/dimen_size_25">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_02"
+                    android:textColor="@color/color_00AE55"
+                    android:textSize="@dimen/font_size_22"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_10"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_02_title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_size_18"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingEnd="@dimen/dimen_size_25"
+                android:paddingStart="@dimen/dimen_size_25">
+
+                <Button
+                    android:id="@+id/bt_self_check_02_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_02_1"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_02_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_02_2"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_02_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_02_3"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_02_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_02_4"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_02_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_02_5"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_self_check_03"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8.75"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dimen_size_15"
+                android:paddingTop="@dimen/dimen_size_25">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_03"
+                    android:textColor="@color/color_00AE55"
+                    android:textSize="@dimen/font_size_22"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_10"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_03_title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_size_18"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingEnd="@dimen/dimen_size_25"
+                android:paddingStart="@dimen/dimen_size_25">
+
+                <Button
+                    android:id="@+id/bt_self_check_03_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_03_1"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_03_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_03_2"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_03_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_03_3"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_03_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_03_4"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_self_check_04"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8.75"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dimen_size_15"
+                android:paddingTop="@dimen/dimen_size_25">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_04"
+                    android:textColor="@color/color_00AE55"
+                    android:textSize="@dimen/font_size_22"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_10"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_04_title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_size_18"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingEnd="@dimen/dimen_size_25"
+                android:paddingStart="@dimen/dimen_size_25">
+
+                <Button
+                    android:id="@+id/bt_self_check_04_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_04_1"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_04_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_04_2"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_04_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_04_3"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_04_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_04_4"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_self_check_05"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8.75"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dimen_size_15"
+                android:paddingTop="@dimen/dimen_size_25">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_05"
+                    android:textColor="@color/color_00AE55"
+                    android:textSize="@dimen/font_size_22"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_10"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_05_title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_size_18"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingEnd="@dimen/dimen_size_25"
+                android:paddingStart="@dimen/dimen_size_25">
+
+                <Button
+                    android:id="@+id/bt_self_check_05_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_05_1"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_05_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_05_2"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_05_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_05_3"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_05_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_05_4"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_self_check_06"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8.75"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dimen_size_15"
+                android:paddingTop="@dimen/dimen_size_25">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_06"
+                    android:textColor="@color/color_00AE55"
+                    android:textSize="@dimen/font_size_22"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_10"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_06_title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_size_18"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingEnd="@dimen/dimen_size_25"
+                android:paddingStart="@dimen/dimen_size_25">
+
+                <Button
+                    android:id="@+id/bt_self_check_06_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_06_1"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_06_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_06_2"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_06_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_06_3"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_06_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_06_4"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+
+                <Button
+                    android:id="@+id/bt_self_check_06_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_3"
+                    android:layout_marginTop="@dimen/dimen_size_3"
+                    android:background="@drawable/selector_button_self_check"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/self_check_06_5"
+                    android:textColor="@drawable/selector_button_self_check_text"
+                    android:textSize="@dimen/font_size_18" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.25"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_1"
+                android:background="@color/color_959595" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_self_check_before"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_check_before"
+                        android:drawablePadding="@dimen/dimen_size_5"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:text="@string/self_check_before"
+                        android:textColor="@color/color_959595"
+                        android:textSize="@dimen/font_size_18" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_self_check_after"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/dimen_size_5"
+                        android:drawableRight="@drawable/ic_check_after"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:text="@string/self_check_after"
+                        android:textColor="@color/color_959595"
+                        android:textSize="@dimen/font_size_18" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_self_check_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/ll_self_check_result_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/self_check_result_title"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/font_size_25"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_self_check_result_contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_self_check_result_title"
+            android:layout_marginTop="@dimen/dimen_size_15"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_self_check_result_stamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_circular"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_self_check_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/font_size_30"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/ll_self_check_result_stamp"
+                android:layout_toRightOf="@id/ll_self_check_result_stamp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/self_check_result_contents"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/font_size_18" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_self_check_result_contents"
+            android:layout_marginTop="@dimen/dimen_size_40"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <Button
+                android:id="@+id/bt_self_check_recheck"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4.25"
+                android:background="@drawable/ic_button_self_check_recheck"
+                android:text="@string/self_check_result_recheck"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/font_size_18" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25" />
+
+            <Button
+                android:id="@+id/bt_self_check_ok"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4.25"
+                android:background="@drawable/ic_button_self_check_ok"
+                android:text="@string/self_check_result_ok"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/font_size_18" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

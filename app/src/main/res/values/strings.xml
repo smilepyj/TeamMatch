@@ -145,4 +145,8 @@
     <string name="match_success_extra_type">TYPE</string>
     <string name="match_success_extra_regist">REGIST</string>
     <string name="match_success_extra_proc">PROC</string>
+
+    <!-- SelfCheck Activity -->
+    <string name="self_check_level">TEAM_LEVEL</string>
+    <string name="self_check_blank">선택을 하지 않은 문항이 있습니다. 돌아가 모든 문항을 선택해 주세요.</string>
 </resources>
