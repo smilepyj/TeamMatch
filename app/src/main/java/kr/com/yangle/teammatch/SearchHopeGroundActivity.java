@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -552,10 +553,12 @@ public class SearchHopeGroundActivity extends AppCompatActivity {
                     Typeface mTypeface = getResources().getFont(R.font.notosanskr_medium);
                     btn.setTypeface(mTypeface);
                     btn.setIncludeFontPadding(false);
+                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
                 }
+                btn.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
                 btn.setMinHeight(0);
                 btn.setPadding(mPaddingSize, 0, mPaddingSize, 0);
-                btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
+
                 Drawable icon = getApplicationContext().getResources().getDrawable(R.drawable.ic_close_white);
                 icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
                 btn.setCompoundDrawables(null, null, icon, null);

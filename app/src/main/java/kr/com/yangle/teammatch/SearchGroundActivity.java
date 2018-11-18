@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -1082,10 +1083,8 @@ public class SearchGroundActivity extends AppCompatActivity {
                     Typeface mTypeface = getResources().getFont(R.font.notosanskr_medium);
                     btn.setTypeface(mTypeface);
                     btn.setIncludeFontPadding(false);
-                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
-                } else {
-                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_8));
                 }
+                btn.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
                 btn.setPadding(mPaddingSize, 0, mPaddingSize, 0);
                 btn.setMinHeight(0);
 
@@ -1187,10 +1186,8 @@ public class SearchGroundActivity extends AppCompatActivity {
                     Typeface mTypeface = getResources().getFont(R.font.notosanskr_medium);
                     btn.setTypeface(mTypeface);
                     btn.setIncludeFontPadding(false);
-                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
-                } else {
-                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_8));
                 }
+                btn.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
                 btn.setPadding(mPaddingSize, 0, mPaddingSize, 0);
                 btn.setMinHeight(0);
 
@@ -1256,10 +1253,8 @@ public class SearchGroundActivity extends AppCompatActivity {
                     Typeface mTypeface = getResources().getFont(R.font.notosanskr_medium);
                     btn.setTypeface(mTypeface);
                     btn.setIncludeFontPadding(false);
-                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_5));
-                } else {
-                    btn.setTextSize(getResources().getDimensionPixelSize(R.dimen.font_size_8));
                 }
+                btn.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
                 btn.setPadding(mPaddingSize, 0, mPaddingSize, 0);
                 btn.setMinHeight(0);
 
