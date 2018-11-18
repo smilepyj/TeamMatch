@@ -354,7 +354,7 @@ public class RegistMatchActivity extends AppCompatActivity {
      * Created by maloman72 on 2018-11-01
      */
     private void Check_insertMatchList() {
-        if (regist_ground.size() <= 0) {
+        if (regist_ground == null || regist_ground.size() <= 0) {
             mApplicationTM.makeToast(mContext, getString(R.string.regist_match_check_ground));
             return;
         }

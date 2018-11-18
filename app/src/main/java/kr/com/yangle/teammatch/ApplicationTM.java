@@ -376,11 +376,13 @@ public class ApplicationTM extends Application {
     public String ArrayListToStringParser(ArrayList<String> arrayList) {
         String returnData = "";
 
-        for(int i = 0; i < arrayList.size(); i++) {
-            returnData += arrayList.get(i);
+        if(arrayList != null) {
+            for (int i = 0; i < arrayList.size(); i++) {
+                returnData += arrayList.get(i);
 
-            if(i != arrayList.size() - 1) {
-                returnData += "|";
+                if (i != arrayList.size() - 1) {
+                    returnData += "|";
+                }
             }
         }
 
