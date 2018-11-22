@@ -44,7 +44,7 @@ public class DefinitionNetwork {
             NetworkAsyncTask mNetworkAsyncTask = new NetworkAsyncTask(responseListener);
             mNetworkAsyncTask.execute(serviceURL, serviceData);
         } catch (Exception e) {
-            Log.e(TAG, "Service - " + e);
+            Log.e(TAG, "Networking - " + e);
             mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
         }
     }

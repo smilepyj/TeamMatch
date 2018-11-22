@@ -40,7 +40,7 @@ public class DialogMatchApplyActivity extends AppCompatActivity {
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        mService = new Service(mContext);
+        mService = new Service(this);
 
         tv_match_apply_title = findViewById(R.id.tv_match_apply_title);
         tv_match_apply_contents = findViewById(R.id.tv_match_apply_contents);
@@ -107,7 +107,7 @@ public class DialogMatchApplyActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
                 Log.e(TAG, "searchMatchList_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
                 finish();
             }
         }

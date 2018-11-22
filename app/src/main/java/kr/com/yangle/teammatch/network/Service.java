@@ -1,5 +1,6 @@
 package kr.com.yangle.teammatch.network;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
@@ -20,6 +21,7 @@ import kr.com.yangle.teammatch.R;
 public class Service {
     private final String TAG = this.getClass().getSimpleName();
 
+    private Activity mActivity;
     private Context mContext;
     private ApplicationTM mApplicationTM;
 
@@ -29,8 +31,9 @@ public class Service {
      * 선언부
      * Created by maloman72 on 2018-10-31
      * */
-    public Service(Context context) {
-        mContext = context;
+    public Service(Activity activity) {
+        mActivity = activity;
+        mContext = mActivity;
         mApplicationTM = (ApplicationTM) mContext.getApplicationContext();
 
         mDefinitionNetwork = new DefinitionNetwork(mContext);
@@ -43,7 +46,7 @@ public class Service {
             Log.e(TAG, "Offer - " + mData);
 
             if(mData != null) {
-                mApplicationTM.startProgress(mContext, "");
+                mApplicationTM.startCustomProgressDialog(mActivity, "");
 
                 mDefinitionNetwork.Networking(serviceURL, mData, responseListener);
             } else {
@@ -56,7 +59,7 @@ public class Service {
 
     private void NaverOffer(String serviceURL, String serviceData, ResponseListener responseListener) {
         try {
-            mApplicationTM.startProgress(mContext, "");
+            mApplicationTM.startCustomProgressDialog(mActivity, "");
 
             mDefinitionNetwork.NaverNetworking(serviceURL, serviceData, responseListener);
         } catch (Exception e) {

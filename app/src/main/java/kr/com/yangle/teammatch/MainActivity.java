@@ -337,7 +337,7 @@ public class MainActivity extends AppCompatActivity {
             mApplicationTM.makeToast(mContext, getString(R.string.error_network));
             Log.e(TAG, "Logout - " + e);
         } finally {
-            mApplicationTM.stopProgress();
+            mApplicationTM.stopCustomProgressDialog();
         }
     }
 

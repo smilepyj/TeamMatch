@@ -58,7 +58,7 @@ public class RankingActivity extends AppCompatActivity {private final String TAG
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        mService = new Service(mContext);
+        mService = new Service(this);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -215,7 +215,7 @@ public class RankingActivity extends AppCompatActivity {private final String TAG
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "searchMatchList_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };
@@ -249,7 +249,7 @@ public class RankingActivity extends AppCompatActivity {private final String TAG
                 Log.e(TAG, "searchRankList_Listener - " + e);
                 e.printStackTrace();
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };

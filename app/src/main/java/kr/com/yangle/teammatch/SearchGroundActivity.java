@@ -76,7 +76,7 @@ public class SearchGroundActivity extends AppCompatActivity {
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        mService = new Service(mContext);
+        mService = new Service(this);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -461,7 +461,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "searchMatchList_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };
@@ -485,7 +485,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "searchMatchList_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };
@@ -521,7 +521,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "searchMatchList_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };
@@ -545,7 +545,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "searchMatchList_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };
@@ -572,7 +572,7 @@ public class SearchGroundActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "searchAreaList_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };

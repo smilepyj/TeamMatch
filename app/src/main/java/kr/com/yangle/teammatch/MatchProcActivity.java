@@ -14,12 +14,7 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import kr.com.yangle.teammatch.adapter.MatchProcListViewAdapter;
-import kr.com.yangle.teammatch.adapter.SearchResultListViewAdapter;
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
@@ -46,7 +41,7 @@ public class MatchProcActivity extends AppCompatActivity {
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        mService = new Service(mContext);
+        mService = new Service(this);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,7 +51,7 @@ public class MatchProcActivity extends AppCompatActivity {
 
         lv_match_hist = findViewById(R.id.lv_match_hist);
 
-        mMatchProcListViewAdapter = new MatchProcListViewAdapter(mContext);
+        mMatchProcListViewAdapter = new MatchProcListViewAdapter(this);
         lv_match_hist.setAdapter(mMatchProcListViewAdapter);
     }
 
@@ -106,7 +101,7 @@ public class MatchProcActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "searchMatchProcList_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };

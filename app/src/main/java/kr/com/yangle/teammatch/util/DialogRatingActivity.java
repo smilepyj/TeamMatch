@@ -42,7 +42,7 @@ public class DialogRatingActivity extends AppCompatActivity {
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        mService = new Service(mContext);
+        mService = new Service(this);
 
         tv_rating_team_name = findViewById(R.id.tv_rating_team_name);
         tv_rating_team_lvl = findViewById(R.id.tv_rating_team_lvl);
@@ -130,7 +130,7 @@ public class DialogRatingActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
                 Log.e(TAG, "searchMatchList_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
                 finish();
             }
         }

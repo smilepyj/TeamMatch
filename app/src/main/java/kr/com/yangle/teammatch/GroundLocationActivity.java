@@ -60,7 +60,7 @@ public class GroundLocationActivity extends AppCompatActivity {
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        mService = new Service(mContext);
+        mService = new Service(this);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

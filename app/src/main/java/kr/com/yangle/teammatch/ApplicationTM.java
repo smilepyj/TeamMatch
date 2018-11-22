@@ -9,9 +9,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
+import android.support.v7.app.AppCompatDialog;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -322,10 +328,67 @@ public class ApplicationTM extends Application {
         }
     }
 
-/**
- * Alert Dialogs
- * Created by maloman72 on 2017-02-17
- * */
+    /**
+     * Custom Progress Dialog
+     * Created by maloman72 on 2018-11-22
+     * */
+    private AppCompatDialog mAppCompatDialog;
+
+    public void startCustomProgressDialog(Activity activity, String message) {
+        if(activity == null || activity.isFinishing()) {
+            return;
+        }
+
+        if(mAppCompatDialog != null && mAppCompatDialog.isShowing()) {
+            updateCustomProgressDialog(message);
+        } else {
+            mAppCompatDialog = new AppCompatDialog(activity);
+            mAppCompatDialog.setCancelable(false);
+            mAppCompatDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            mAppCompatDialog.setContentView(R.layout.dialog_progress_loading);
+            mAppCompatDialog.show();
+        }
+
+        final ImageView iv_progress_loading = mAppCompatDialog.findViewById(R.id.iv_progress_loading);
+        final AnimationDrawable mAnimationDrawable = (AnimationDrawable) iv_progress_loading.getBackground();
+        iv_progress_loading.post(new Runnable() {
+            @Override
+            public void run() {
+                mAnimationDrawable.start();
+            }
+        });
+
+        TextView tv_progress_loading = mAppCompatDialog.findViewById(R.id.tv_progress_loading);
+        if("".equals(message)) {
+            tv_progress_loading.setText("잠시만 기다려 주십시오...");
+        } else {
+            tv_progress_loading.setText(message);
+        }
+    }
+
+    public void updateCustomProgressDialog(String message) {
+        if(mAppCompatDialog == null || !mAppCompatDialog.isShowing()) {
+            return;
+        }
+
+        TextView tv_progress_loading = mAppCompatDialog.findViewById(R.id.tv_progress_loading);
+        if("".equals(message)) {
+            tv_progress_loading.setText("잠시만 기다려 주십시오...");
+        } else {
+            tv_progress_loading.setText(message);
+        }
+    }
+
+    public void stopCustomProgressDialog() {
+        if(mAppCompatDialog != null && mAppCompatDialog.isShowing()) {
+            mAppCompatDialog.dismiss();
+        }
+    }
+
+    /**
+     * Alert Dialogs
+     * Created by maloman72 on 2017-02-17
+     * */
 
     /** Common */
     public void commonAlertDialog(Context context, String title, String message) {

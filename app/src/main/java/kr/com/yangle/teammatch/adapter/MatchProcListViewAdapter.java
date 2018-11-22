@@ -1,5 +1,6 @@
 package kr.com.yangle.teammatch.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.ContextCompat;
@@ -11,7 +12,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -38,16 +38,18 @@ public class MatchProcListViewAdapter extends BaseAdapter {
     private JSONArray mDataJSONArray = null;
     private int mDataJSONArrayCnt = 0;
 
+    private Activity mActivity;
     private Context mContext;
     private ApplicationTM mApplicationTM;
 
     private Service mService;
 
-    public MatchProcListViewAdapter(Context context) {
-        mContext = context;
+    public MatchProcListViewAdapter(Activity activity) {
+        mActivity = activity;
+        mContext = activity;
         mApplicationTM = (ApplicationTM) mContext.getApplicationContext();
 
-        mService = new Service(mContext);
+        mService = new Service(mActivity);
     }
 
     public void setMDataJSONArray(JSONArray jsonArray) {
@@ -436,7 +438,7 @@ public class MatchProcListViewAdapter extends BaseAdapter {
                 mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
                 Log.e(TAG, "searchMatchAlertInfo_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };

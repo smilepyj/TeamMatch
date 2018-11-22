@@ -39,7 +39,7 @@ public class IntroActivity extends AppCompatActivity {
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        mService = new Service(mContext);
+        mService = new Service(this);
 
         tv_intro_version = findViewById(R.id.tv_intro_version);
 
@@ -155,7 +155,7 @@ public class IntroActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "userLogin_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };

@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mBackPressCloseHandler = new BackPressCloseHandler(this);
 
-        mService = new Service(mContext);
+        mService = new Service(this);
 
         ll_login_kakao = findViewById(R.id.ll_login_kakao);
         bt_login_naver = findViewById(R.id.bt_login_naver);
@@ -268,7 +268,7 @@ public class LoginActivity extends AppCompatActivity {
                         mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                         Log.e(TAG, "MeV2ResponseCallback onSuccess - " + e);
                     } finally {
-                        mApplicationTM.stopProgress();
+                        mApplicationTM.stopCustomProgressDialog();
                     }
                 }
             });
@@ -303,7 +303,7 @@ public class LoginActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "naverSearchProfile_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };
@@ -345,7 +345,7 @@ public class LoginActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "userLogin_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };

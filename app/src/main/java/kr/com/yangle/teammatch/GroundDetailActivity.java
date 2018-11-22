@@ -1,5 +1,6 @@
 package kr.com.yangle.teammatch;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -33,6 +34,7 @@ import kr.com.yangle.teammatch.network.Service;
 public class GroundDetailActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
 
+    Activity mActivity;
     Context mContext;
     ApplicationTM mApplicationTM;
 
@@ -57,10 +59,11 @@ public class GroundDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ground_detail);
 
+        mActivity = this;
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        mService = new Service(mContext);
+        mService = new Service(this);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -242,7 +245,7 @@ public class GroundDetailActivity extends AppCompatActivity {
                 Log.e(TAG, "searchGroundDetail_Listener - " + e);
                 e.printStackTrace();
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };
@@ -277,7 +280,7 @@ public class GroundDetailActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mApplicationTM.startProgress(mContext, "");
+            mApplicationTM.startCustomProgressDialog(mActivity, "");
         }
 
         @Override
@@ -299,7 +302,7 @@ public class GroundDetailActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             mImageView.setImageBitmap(bitmap);
-            mApplicationTM.stopProgress();
+            mApplicationTM.stopCustomProgressDialog();
         }
     }
 }

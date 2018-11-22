@@ -1,5 +1,6 @@
 package kr.com.yangle.teammatch.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -34,16 +35,18 @@ public class SearchResultListViewAdapter extends BaseAdapter {
     private JSONArray mDataJSONArray;
     private int mDataJSONArrayCnt;
 
+    private Activity mActivity;
     private Context mContext;
     private ApplicationTM mApplicationTM;
 
     private Service mService;
 
-    public SearchResultListViewAdapter(Context context) {
-        mContext = context;
+    public SearchResultListViewAdapter(Activity activity) {
+        mActivity = activity;
+        mContext = activity;
         mApplicationTM = (ApplicationTM) mContext.getApplicationContext();
 
-        mService = new Service(mContext);
+        mService = new Service(mActivity);
     }
 
     public void setMDataJSONArray(JSONArray jsonArray) {
@@ -176,7 +179,7 @@ public class SearchResultListViewAdapter extends BaseAdapter {
                 mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
                 Log.e(TAG, "searchMatchList_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };

@@ -56,7 +56,7 @@ public class SearchResutActivity extends AppCompatActivity {
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        mService = new Service(mContext);
+        mService = new Service(this);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -90,7 +90,7 @@ public class SearchResutActivity extends AppCompatActivity {
         search_team_lvl = getIntent().getStringExtra(getString(R.string.searchmatchlist_param_search_team_lvl));
         search_team_lvl_cnt = getIntent().getIntExtra(getString(R.string.search_match_extra_search_team_lvl_cnt), 0);
 
-        mSearchResultListViewAdapter = new SearchResultListViewAdapter(mContext);
+        mSearchResultListViewAdapter = new SearchResultListViewAdapter(this);
         lv_search_result_match.setAdapter(mSearchResultListViewAdapter);
 
         setSearchCondition();
@@ -199,7 +199,7 @@ public class SearchResutActivity extends AppCompatActivity {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "searchMatchList_Listener - " + e);
             } finally {
-                mApplicationTM.stopProgress();
+                mApplicationTM.stopCustomProgressDialog();
             }
         }
     };
