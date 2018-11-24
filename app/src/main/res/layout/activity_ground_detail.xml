@@ -165,6 +165,24 @@
                     android:includeFontPadding="false"
                     android:textColor="@color/color_313131"
                     android:textSize="@dimen/font_size_16" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/listview_item_sidebar_margin_horizontal"
+                    android:background="@color/color_listview_match_proc_sidebar"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:minHeight="0dp"
+                    android:textSize="@dimen/font_size_5" />
+
+                <TextView
+                    android:id="@+id/tv_ground_detail_field_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/color_313131"
+                    android:textSize="@dimen/font_size_16" />
             </LinearLayout>
         </LinearLayout>
 

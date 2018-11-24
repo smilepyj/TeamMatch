@@ -1,5 +1,6 @@
 package kr.com.yangle.teammatch.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -14,6 +15,7 @@ import org.json.JSONObject;
 
 import kr.com.yangle.teammatch.ApplicationTM;
 import kr.com.yangle.teammatch.R;
+import kr.com.yangle.teammatch.network.Service;
 
 public class RankingListViewAdapter extends BaseAdapter {
     private final String TAG = this.getClass().getSimpleName();
@@ -22,15 +24,23 @@ public class RankingListViewAdapter extends BaseAdapter {
     private JSONArray mDataJSONArray;
     private int mDataJSONArrayCnt;
 
+    private Activity mActivity;
     private Context mContext;
     private ApplicationTM mApplicationTM;
 
-    public  RankingListViewAdapter(Context context, JSONArray jsonArray) {
+    private Service mService;
+
+    public  RankingListViewAdapter(Activity activity) {
+        mActivity = activity;
+        mContext = activity;
+        mApplicationTM = (ApplicationTM) mContext.getApplicationContext();
+
+        mService = new Service(mActivity);
+    }
+
+    public void setMDataJSONArray(JSONArray jsonArray) {
         mDataJSONArray = jsonArray;
         mDataJSONArrayCnt = mDataJSONArray.length();
-
-        mContext = context;
-        mApplicationTM = (ApplicationTM) mContext.getApplicationContext();
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,6 +34,8 @@ public class MatchProcActivity extends AppCompatActivity {
 
     MatchProcListViewAdapter mMatchProcListViewAdapter;
 
+    LinearLayout ll_match_proc_result_yes, ll_match_proc_result_no;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,9 @@ public class MatchProcActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+
+        ll_match_proc_result_yes = findViewById(R.id.ll_match_proc_result_yes);
+        ll_match_proc_result_no = findViewById(R.id.ll_match_proc_result_no);
 
         lv_match_hist = findViewById(R.id.lv_match_hist);
 
@@ -95,8 +101,14 @@ public class MatchProcActivity extends AppCompatActivity {
                     mMatchProcListViewAdapter.setMDataJSONArray(new JSONArray());
                     mMatchProcListViewAdapter.notifyDataSetChanged();
 
-                    mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
+                    ll_match_proc_result_yes.setVisibility(View.GONE);
+                    ll_match_proc_result_no.setVisibility(View.VISIBLE);
+
+                    if(!mContext.getString(R.string.service_nothing).equals(mJSONObject.get(getString(R.string.result_code)))) {
+                        mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
+                    }
                 }
+
             } catch (Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "searchMatchProcList_Listener - " + e);

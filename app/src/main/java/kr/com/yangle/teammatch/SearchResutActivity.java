@@ -191,9 +191,12 @@ public class SearchResutActivity extends AppCompatActivity {
                     mSearchResultListViewAdapter.setMDataJSONArray(new JSONArray());
                     mSearchResultListViewAdapter.notifyDataSetChanged();
 
-//                    mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
                     ll_search_result_yes.setVisibility(View.GONE);
                     ll_search_result_no.setVisibility(View.VISIBLE);
+
+                    if(!mContext.getString(R.string.service_nothing).equals(mJSONObject.get(getString(R.string.result_code)))) {
+                        mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
+                    }
                 }
             } catch (Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));

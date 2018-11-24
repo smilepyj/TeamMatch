@@ -99,7 +99,7 @@ public class Service {
      * 회원정보 등록 서비스
      * Created by maloman72 on 2018-10-31
      * */
-    public void insertUserInfo(ResponseListener responseListener, String user_id, String user_email, String user_name, String user_telnum, String team_name, ArrayList<String> hope_grounds, String team_level_code, String team_age_code) {
+    public void insertUserInfo(ResponseListener responseListener, String user_id, String user_email, String user_name, String user_telnum, String team_name, String active_area_group_code, ArrayList<String> hope_grounds, String team_level_code, String team_age_code) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.insertuserinfo_service);
 
@@ -109,6 +109,7 @@ public class Service {
             mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_user_name), user_name);
             mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_user_telnum), user_telnum);
             mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_team_name), team_name);
+            mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_active_area_group_code), active_area_group_code);
             mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_hope_grounds), mApplicationTM.ArrayListToStringParser(hope_grounds));
             mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_team_level_code), team_level_code);
             mJSONObject.put(mContext.getString(R.string.insertuserinfo_param_team_age_code), team_age_code);
@@ -124,7 +125,7 @@ public class Service {
      * 회원정보 수정 서비스
      * Created by maloman72 on 2018-10-31
      * */
-    public void updateUserInfo(ResponseListener responseListener, String user_id, String user_email, String user_name, String user_telnum, String team_id, String team_name, ArrayList<String> hope_grounds, String team_level_code, String team_age_code) {
+    public void updateUserInfo(ResponseListener responseListener, String user_id, String user_email, String user_name, String user_telnum, String team_id, String team_name, String active_area_group_code, ArrayList<String> hope_grounds, String team_level_code, String team_age_code) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.updateuserinfo_service);
 
@@ -135,6 +136,7 @@ public class Service {
             mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_user_telnum), user_telnum);
             mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_team_id), team_id);
             mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_team_name), team_name);
+            mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_active_area_group_code), active_area_group_code);
             mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_hope_grounds), mApplicationTM.ArrayListToStringParser(hope_grounds));
             mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_team_level_code), team_level_code);
             mJSONObject.put(mContext.getString(R.string.updateuserinfo_param_team_age_code), team_age_code);

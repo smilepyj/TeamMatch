@@ -339,6 +339,7 @@ public class SearchMatchActivity extends AppCompatActivity {
 
             }
         }, mCalendar.get(Calendar.YEAR), mCalendar.get(Calendar.MONTH), mCalendar.get(Calendar.DATE));
+        mDatePickerDialog.getDatePicker().setMinDate(mCalendar.getTimeInMillis());
         mDatePickerDialog.show();
     }
 

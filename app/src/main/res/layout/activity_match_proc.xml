@@ -40,6 +40,7 @@
             android:background="@color/color_search_result_button_change_border" />
 
         <LinearLayout
+            android:id="@+id/ll_match_proc_result_yes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -62,6 +63,31 @@
                     android:divider="@null"
                     android:dividerHeight="0dp" />
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_match_proc_result_no"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="10"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_sorry" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:fontFamily="@font/notosanskr_regular"
+                android:gravity="center"
+                android:text="@string/match_proc_result_no"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/font_size_15" />
         </LinearLayout>
 
     </LinearLayout>

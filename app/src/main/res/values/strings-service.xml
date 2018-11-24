@@ -48,6 +48,7 @@
     <string name="insertuserinfo_param_user_name">user_name</string>
     <string name="insertuserinfo_param_user_telnum">user_telnum</string>
     <string name="insertuserinfo_param_team_name">team_name</string>
+    <string name="insertuserinfo_param_active_area_group_code">active_area_group_code</string>
     <string name="insertuserinfo_param_hope_grounds">hope_grounds</string>
     <string name="insertuserinfo_param_team_level_code">team_level_code</string>
     <string name="insertuserinfo_param_team_age_code">team_age_code</string>
@@ -60,6 +61,7 @@
     <string name="updateuserinfo_param_user_telnum">user_telnum</string>
     <string name="updateuserinfo_param_team_id">team_id</string>
     <string name="updateuserinfo_param_team_name">team_name</string>
+    <string name="updateuserinfo_param_active_area_group_code">active_area_group_code</string>
     <string name="updateuserinfo_param_hope_grounds">hope_grounds</string>
     <string name="updateuserinfo_param_team_level_code">team_level_code</string>
     <string name="updateuserinfo_param_team_age_code">team_age_code</string>
@@ -72,6 +74,8 @@
     <string name="searchuserinfo_result_user_telnum">user_telnum</string>
     <string name="searchuserinfo_result_team_id">team_id</string>
     <string name="searchuserinfo_result_team_name">team_name</string>
+    <string name="searchuserinfo_result_active_area_group_code">active_area_group_code</string>
+    <string name="searchuserinfo_result_active_area_group_name">active_area_group_name</string>
     <string name="searchuserinfo_result_team_age_code">team_age_code</string>
     <string name="searchuserinfo_result_team_level_code">team_level_code</string>
     <string name="searchuserinfo_result_hope_grounds">hope_grounds</string>

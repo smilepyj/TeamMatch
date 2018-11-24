@@ -38,6 +38,8 @@
     <string name="user_info_user_name_hint">이름을 입력해주세요.</string>
     <string name="user_info_phone_number">연락처</string>
     <string name="user_info_phone_number_hint">연락처를 입력해주세요.</string>
+    <string name="user_info_active_area_group">활동지역</string>
+    <string name="user_info_active_area_group_hint">시/도</string>
     <string name="user_info_team_name">팀이름</string>
     <string name="user_info_team_name_hint">팀이름을 입력해주세요.</string>
     <string name="user_info_team_age">팀연령</string>
@@ -146,6 +148,8 @@
     <string name="match_proc_opponent_info">상대팀정보</string>
     <string name="match_proc_pre_payment_yes">결제완료</string>
 
+    <string name="match_proc_result_no">죄송합니다.\n요청하신 조건의 매치이력이 없습니다.\n다시 검색해주세요.</string>
+
     <!-- Ranking Activity -->
     <string name="ranking_title">랭킹정보</string>
     <string name="ranking_label_area">지역</string>
@@ -168,6 +172,8 @@
 
     <string name="ranking_fluctuation_nothing_text">-</string>
     <string name="ranking_fluctuation_new_text">new</string>
+
+    <string name="ranking_result_no">죄송합니다.\n요청하신 조건의 랭킹이 없습니다.\n다시 검색해주세요.</string>
     
     <!-- Start Time Picker Dialog -->
     <string name="start_time_picker_dialog_title">시작시간</string>

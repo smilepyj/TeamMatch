@@ -31,7 +31,9 @@ import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
 
-public class RankingActivity extends AppCompatActivity {private final String TAG = this.getClass().getSimpleName();
+public class RankingActivity extends AppCompatActivity {
+
+    private final String TAG = this.getClass().getSimpleName();
 
     Context mContext;
     ApplicationTM mApplicationTM;
@@ -40,7 +42,7 @@ public class RankingActivity extends AppCompatActivity {private final String TAG
 
     Toolbar toolbar;
 
-    LinearLayout ll_ranking_term, ll_ranking_search, ll_ranking_search_init;
+    LinearLayout ll_ranking_term, ll_ranking_search, ll_ranking_search_init, ll_ranking_result_yes, ll_ranking_result_no;
     Button bt_ranking_total, bt_ranking_week, bt_ranking_area;
     TextView tv_ranking_term;
     ListView lv_ranking;
@@ -49,6 +51,8 @@ public class RankingActivity extends AppCompatActivity {private final String TAG
     JSONArray area_groups;
 
     String search_area_group, search_team_name;
+
+    RankingListViewAdapter mRankingListViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,8 @@ public class RankingActivity extends AppCompatActivity {private final String TAG
         ll_ranking_term = findViewById(R.id.ll_ranking_term);
         ll_ranking_search = findViewById(R.id.ll_ranking_search);
         ll_ranking_search_init = findViewById(R.id.ll_ranking_search_init);
+        ll_ranking_result_yes = findViewById(R.id.ll_ranking_result_yes);
+        ll_ranking_result_no = findViewById(R.id.ll_ranking_result_no);
 
         bt_ranking_total = findViewById(R.id.bt_ranking_total);
         bt_ranking_week = findViewById(R.id.bt_ranking_week);
@@ -90,8 +96,19 @@ public class RankingActivity extends AppCompatActivity {private final String TAG
         search_area_group = "";
         search_team_name = "";
 
-        mService.searchAreaGroupList(searchAreaGroupList_Listener);
-        mService.searchRankList(searchRankList_Listener, search_area_group, search_team_name);
+        mRankingListViewAdapter = new RankingListViewAdapter(this);
+        lv_ranking.setAdapter(mRankingListViewAdapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            mService.searchAreaGroupList(searchAreaGroupList_Listener);
+            mService.searchRankList(searchRankList_Listener, search_area_group, search_team_name);
+        }catch(Exception e) {
+            Log.e(TAG, "RankingActivity onResume - " + e);
+        }
     }
 
     @Override
@@ -231,10 +248,18 @@ public class RankingActivity extends AppCompatActivity {private final String TAG
                 if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
 
-                    RankingListViewAdapter mRankingListViewAdapter = new RankingListViewAdapter(mContext, mJSONArray);
-                    lv_ranking.setAdapter(mRankingListViewAdapter);
+                    mRankingListViewAdapter.setMDataJSONArray(mJSONArray);
+                    mRankingListViewAdapter.notifyDataSetChanged();
                 } else {
-                    mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
+                    mRankingListViewAdapter.setMDataJSONArray(new JSONArray());
+                    mRankingListViewAdapter.notifyDataSetChanged();
+
+                    ll_ranking_result_yes.setVisibility(View.GONE);
+                    ll_ranking_result_no.setVisibility(View.VISIBLE);
+
+                    if(!mContext.getString(R.string.service_nothing).equals(mJSONObject.get(getString(R.string.result_code)))) {
+                        mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
+                    }
                 }
 
                 if(ll_ranking_term.getVisibility() == View.VISIBLE) {

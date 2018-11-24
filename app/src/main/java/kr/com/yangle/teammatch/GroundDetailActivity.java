@@ -18,18 +18,27 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.kakao.kakaonavi.KakaoNaviParams;
+import com.kakao.kakaonavi.KakaoNaviService;
+import com.kakao.kakaonavi.Location;
+import com.kakao.kakaonavi.NaviOptions;
+import com.kakao.kakaonavi.options.CoordType;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
+import kr.com.yangle.teammatch.util.LocationUtil;
 
 public class GroundDetailActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -46,7 +55,7 @@ public class GroundDetailActivity extends AppCompatActivity {
 
     ImageView iv_ground_detail_photo, iv_ground_detail_inout, iv_ground_detail_park, iv_ground_detail_shower, iv_ground_detail_light, iv_ground_detail_shop, iv_ground_detail_shoes, iv_ground_detail_socks,
             iv_ground_detail_film;
-    TextView tv_ground_detail_name, tv_ground_detail_location, tv_ground_detail_operation, tv_ground_detail_hour_1, tv_ground_detail_cost_1, tv_ground_detail_hour_2, tv_ground_detail_cost_2, tv_ground_detail_inout,
+    TextView tv_ground_detail_name, tv_ground_detail_location, tv_ground_detail_operation, tv_ground_detail_field_count, tv_ground_detail_hour_1, tv_ground_detail_cost_1, tv_ground_detail_hour_2, tv_ground_detail_cost_2, tv_ground_detail_inout,
             tv_ground_detail_park, tv_ground_detail_shower, tv_ground_detail_light, tv_ground_detail_shop, tv_ground_detail_shoes, tv_ground_detail_socks, tv_ground_detail_film;
     Button bt_ground_detail_map, bt_ground_detail_call;
 
@@ -88,6 +97,7 @@ public class GroundDetailActivity extends AppCompatActivity {
         tv_ground_detail_name = findViewById(R.id.tv_ground_detail_name);
         tv_ground_detail_location = findViewById(R.id.tv_ground_detail_location);
         tv_ground_detail_operation = findViewById(R.id.tv_ground_detail_operation);
+        tv_ground_detail_field_count = findViewById(R.id.tv_ground_detail_field_count);
         tv_ground_detail_hour_1 = findViewById(R.id.tv_ground_detail_hour_1);
         tv_ground_detail_cost_1 = findViewById(R.id.tv_ground_detail_cost_1);
         tv_ground_detail_hour_2 = findViewById(R.id.tv_ground_detail_hour_2);
@@ -134,6 +144,14 @@ public class GroundDetailActivity extends AppCompatActivity {
                     mIntent.putExtra("ground_loc_lat", mGround_Loc_Lat);
                     mIntent.putExtra("ground_loc_lon", mGround_Loc_Lon);
                     mContext.startActivity(mIntent);
+
+                    /*LocationUtil location = new LocationUtil(mContext);
+
+                    final KakaoNaviParams.Builder builder = KakaoNaviParams.newBuilder(
+                            Location.newBuilder(mGround_Name, mGround_Loc_Lon, mGround_Loc_Lat).build())
+                            .setNaviOptions(NaviOptions.newBuilder().setCoordType(CoordType.WGS84).setStartX(location.getLastLongitude()).setStartY(location.getLastLatitude()).build());
+                    KakaoNaviService.getInstance().navigate(mContext, builder.build());*/
+
                     break;
                 case R.id.bt_ground_detail_call :
                     if(mGround_Phone_Num != null) {
@@ -174,6 +192,7 @@ public class GroundDetailActivity extends AppCompatActivity {
                     mTime = new SimpleDateFormat(getString(R.string.ground_detail_time_format), Locale.getDefault()).parse(mResult.get(getString(R.string.ground_detail_result_close_time)).toString());
                     String mEndTime = new SimpleDateFormat(getString(R.string.ground_detail_time_view), Locale.getDefault()).format(mTime);
                     tv_ground_detail_operation.setText(mStartTime + getString(R.string.ground_detail_operation_hyphen) + mEndTime);
+                    tv_ground_detail_field_count.setText("경기장 " + mResult.get(getString(R.string.ground_detail_result_field_count)).toString() + "개");
 
                     if(getString(R.string.ground_detail_option_out).equals(mResult.get(getString(R.string.ground_detail_result_in_out_gbn)))) {
                         iv_ground_detail_inout.setBackgroundResource(R.drawable.ic_inout_on);
@@ -293,7 +312,7 @@ public class GroundDetailActivity extends AppCompatActivity {
                 mBitmap = BitmapFactory.decodeStream(mInputStream);
             } catch (Exception e) {
                 Log.e(TAG, "LoadImageAsyncTask - " + e);
-                mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
+//                mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
             }
 
             return mBitmap;
@@ -301,7 +320,13 @@ public class GroundDetailActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Bitmap bitmap) {
-            mImageView.setImageBitmap(bitmap);
+
+            if(bitmap == null) {
+                iv_ground_detail_photo.setVisibility(View.GONE);
+                ll_ground_detail_no_photo.setVisibility(View.VISIBLE);
+            }else {
+                mImageView.setImageBitmap(bitmap);
+            }
             mApplicationTM.stopCustomProgressDialog();
         }
     }

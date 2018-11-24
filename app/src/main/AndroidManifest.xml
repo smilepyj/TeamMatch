@@ -32,6 +32,9 @@
         <meta-data
             android:name="com.kakao.sdk.ClientSecret"
             android:value="GstZKojiExUv0KW84dVY0rMNuaxfzgnw" />
+        <meta-data
+            android:name="com.kakao.sdk.kakaonavi.useWebView"
+            android:value="true" />
 
         <service android:name=".fcm.MyFirebaseMessagingService">
             <intent-filter>
