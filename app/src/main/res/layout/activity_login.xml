@@ -35,7 +35,8 @@
         <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
             android:id="@+id/bt_login_naver"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_size_60" />
+            android:layout_height="@dimen/dimen_size_60"
+            android:visibility="gone"/>
 
         <Space
             android:layout_width="match_parent"
