@@ -46,7 +46,7 @@
     <string name="user_info_hope_field">희망구장</string>
     <string name="user_info_add_grounds">&#160;추가하기 +</string>
     <string name="user_info_team_level">팀 레벨</string>
-    <string name="user_info_self_check">우리팀레벨\n확인하기</string>
+    <string name="user_info_self_check">레벨테스트</string>
     <string name="user_info_save">저장하기</string>
     <string name="user_info_update">수정하기</string>
 

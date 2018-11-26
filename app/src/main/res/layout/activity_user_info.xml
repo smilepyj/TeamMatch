@@ -527,20 +527,21 @@
                         android:layout_height="match_parent"
                         android:layout_weight="6.5"
                         android:gravity="center_vertical|end"
-                        android:orientation="horizontal"
-                        android:weightSum="6.5">
+                        android:orientation="horizontal">
 
                         <Button
                             android:id="@+id/bt_user_info_level_test"
                             style="?android:attr/borderlessButtonStyle"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="3"
+                            android:drawableLeft="@drawable/ic_search_level"
+                            android:drawablePadding="@dimen/dimen_size_5"
                             android:background="@drawable/ic_button_user_info_level_test"
                             android:fontFamily="@font/notosanskr_medium"
+                            android:includeFontPadding="false"
                             android:text="@string/user_info_self_check"
-                            android:textColor="@color/color_userinfo_button_level_test_text"
-                            android:textSize="@dimen/font_size_12"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/font_size_14"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>

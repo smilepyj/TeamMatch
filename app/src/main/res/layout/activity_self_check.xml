@@ -38,7 +38,7 @@
             android:id="@+id/ll_self_check_01"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8.75"
+            android:layout_weight="8.85"
             android:orientation="vertical"
             android:visibility="visible">
 
@@ -156,7 +156,7 @@
             android:id="@+id/ll_self_check_02"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8.75"
+            android:layout_weight="8.85"
             android:orientation="vertical"
             android:visibility="gone">
 
@@ -274,7 +274,7 @@
             android:id="@+id/ll_self_check_03"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8.75"
+            android:layout_weight="8.85"
             android:orientation="vertical"
             android:visibility="gone">
 
@@ -378,7 +378,7 @@
             android:id="@+id/ll_self_check_04"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8.75"
+            android:layout_weight="8.85"
             android:orientation="vertical"
             android:visibility="gone">
 
@@ -482,7 +482,7 @@
             android:id="@+id/ll_self_check_05"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8.75"
+            android:layout_weight="8.85"
             android:orientation="vertical"
             android:visibility="gone">
 
@@ -586,7 +586,7 @@
             android:id="@+id/ll_self_check_06"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8.75"
+            android:layout_weight="8.85"
             android:orientation="vertical"
             android:visibility="gone">
 
@@ -703,7 +703,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.25"
+            android:layout_weight="1.15"
             android:orientation="vertical">
 
             <LinearLayout
@@ -720,10 +720,12 @@
                 android:weightSum="10">
 
                 <LinearLayout
+                    android:id="@+id/ll_self_check_before"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2.5"
+                    android:layout_weight="5"
                     android:gravity="center"
+                    android:background="@color/color_C9C9C9"
                     android:orientation="horizontal">
 
                     <TextView
@@ -731,24 +733,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_check_before"
-                        android:drawablePadding="@dimen/dimen_size_5"
+                        android:drawablePadding="@dimen/dimen_size_10"
                         android:fontFamily="@font/notosanskr_regular"
                         android:gravity="center_vertical"
                         android:includeFontPadding="false"
                         android:text="@string/self_check_before"
-                        android:textColor="@color/color_959595"
-                        android:textSize="@dimen/font_size_18" />
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/font_size_22"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="5" />
-
                 <LinearLayout
+                    android:id="@+id/ll_self_check_after"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2.5"
+                    android:layout_weight="5"
+                    android:background="@color/color_007338"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -756,14 +756,15 @@
                         android:id="@+id/tv_self_check_after"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawablePadding="@dimen/dimen_size_5"
+                        android:drawablePadding="@dimen/dimen_size_10"
                         android:drawableRight="@drawable/ic_check_after"
                         android:fontFamily="@font/notosanskr_regular"
                         android:gravity="center_vertical"
                         android:includeFontPadding="false"
                         android:text="@string/self_check_after"
-                        android:textColor="@color/color_959595"
-                        android:textSize="@dimen/font_size_18" />
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/font_size_22"
+                        android:textStyle="bold"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

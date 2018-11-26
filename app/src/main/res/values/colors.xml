@@ -4,13 +4,12 @@
     <color name="colorPrimaryDark">#B5B5B5</color>
     <color name="colorAccent">#00AE55</color>
 
-    <color name="colorBlack">#000000</color>
-    <color name="colorWhite">#FFFFFF</color>
     <color name="colorInvisible">#FFFFFFFF</color>
-
+    <color name="colorWhite">#FFFFFF</color>
     <color name="color_F4F4F4">#F4F4F4</color>
     <color name="color_DCDCDC">#DCDCDC</color>
     <color name="color_D2D2D2">#D2D2D2</color>
+    <color name="color_C9C9C9">#C9C9C9</color>
     <color name="color_B5B5B5">#B5B5B5</color>
     <color name="color_ADADAD">#ADADAD</color>
     <color name="color_A8A8A8">#A8A8A8</color>
@@ -19,9 +18,11 @@
     <color name="color_626262">#626262</color>
     <color name="color_535353">#535353</color>
     <color name="color_313131">#313131</color>
+    <color name="colorBlack">#000000</color>
 
-    <color name="color_D6352A">#D6352A</color>
+    <color name="color_ED3D32">#ED3D32</color>
     <color name="color_E60012">#E60012</color>
+    <color name="color_D6352A">#D6352A</color>
 
     <color name="color_00AE55">#00AE55</color>
     <color name="color_007338">#007338</color>
@@ -49,9 +50,6 @@
     <color name="color_userinfo_button_press">#00AE55</color>
     <color name="color_userinfo_button_press_stroke">#00AE55</color>
     <color name="color_userinfo_button_press_text">#FFFFFF</color>
-    <color name="color_userinfo_button_level_test">#3A5795</color>
-    <color name="color_userinfo_button_level_test_stroke">#3A5795</color>
-    <color name="color_userinfo_button_level_test_text">#FFFFFF</color>
 
     <!-- searchmatch Activity -->
     <color name="color_searchmatch_title">#959595</color>

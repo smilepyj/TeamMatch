@@ -20,7 +20,7 @@ public class SelfCheckActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
-    LinearLayout ll_self_check_question, ll_self_check_01, ll_self_check_02, ll_self_check_03, ll_self_check_04, ll_self_check_05, ll_self_check_06;
+    LinearLayout ll_self_check_question, ll_self_check_01, ll_self_check_02, ll_self_check_03, ll_self_check_04, ll_self_check_05, ll_self_check_06, ll_self_check_before, ll_self_check_after;
     RelativeLayout rl_self_check_result;
     Button bt_self_check_01_1, bt_self_check_01_2, bt_self_check_01_3, bt_self_check_01_4, bt_self_check_01_5, bt_self_check_02_1, bt_self_check_02_2, bt_self_check_02_3, bt_self_check_02_4, bt_self_check_02_5,
             bt_self_check_03_1, bt_self_check_03_2, bt_self_check_03_3, bt_self_check_03_4, bt_self_check_04_1, bt_self_check_04_2, bt_self_check_04_3, bt_self_check_04_4, bt_self_check_05_1, bt_self_check_05_2,
@@ -56,6 +56,8 @@ public class SelfCheckActivity extends AppCompatActivity {
         ll_self_check_04 = findViewById(R.id.ll_self_check_04);
         ll_self_check_05 = findViewById(R.id.ll_self_check_05);
         ll_self_check_06 = findViewById(R.id.ll_self_check_06);
+        ll_self_check_before = findViewById(R.id.ll_self_check_before);
+        ll_self_check_after = findViewById(R.id.ll_self_check_after);
         bt_self_check_01_1 = findViewById(R.id.bt_self_check_01_1);
         bt_self_check_01_2 = findViewById(R.id.bt_self_check_01_2);
         bt_self_check_01_3 = findViewById(R.id.bt_self_check_01_3);
@@ -117,6 +119,8 @@ public class SelfCheckActivity extends AppCompatActivity {
         bt_self_check_06_3.setOnClickListener(mOnClickListener);
         bt_self_check_06_4.setOnClickListener(mOnClickListener);
         bt_self_check_06_5.setOnClickListener(mOnClickListener);
+        ll_self_check_before.setOnClickListener(mOnClickListener);
+        ll_self_check_after.setOnClickListener(mOnClickListener);
         tv_self_check_before.setOnClickListener(mOnClickListener);
         tv_self_check_after.setOnClickListener(mOnClickListener);
 
@@ -221,9 +225,11 @@ public class SelfCheckActivity extends AppCompatActivity {
                 case R.id.bt_self_check_06_5 :
                     SelfCheck06(5);
                     break;
+                case R.id.ll_self_check_after :
                 case R.id.tv_self_check_after :
                     SetPage(false);
                     break;
+                case R.id.ll_self_check_before :
                 case R.id.tv_self_check_before :
                     SetPage(true);
                     break;
@@ -434,6 +440,11 @@ public class SelfCheckActivity extends AppCompatActivity {
      * Created by maloman72
      * */
     private void SetPage(boolean mCase) {
+        if((mPage == 1 && mScore[0] == null) || (mPage == 2 && mScore[1] == null) || (mPage == 3 && mScore[2] == null) || (mPage == 4 && mScore[3] == null) || (mPage == 5 && mScore[4] == null) || (mPage == 6 && mScore[5] == null)) {
+            mApplicationTM.makeToast(mContext, getString(R.string.self_check_blank));
+            return;
+        }
+
         if(mCase) {
             if(mPage >= 2) {
                 mPage = mPage - 1;
@@ -493,12 +504,7 @@ public class SelfCheckActivity extends AppCompatActivity {
         int resultScore = 0;
 
         for(int i = 0; i < mScore.length; i++) {
-            if(mScore[i] != null) {
-                resultScore = resultScore + mScore[i];
-            } else {
-                mApplicationTM.makeToast(mContext, getString(R.string.self_check_blank));
-                return;
-            }
+            resultScore = resultScore + mScore[i];
         }
 
         if(resultScore >= 90) {
