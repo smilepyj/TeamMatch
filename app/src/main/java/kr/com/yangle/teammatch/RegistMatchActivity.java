@@ -275,6 +275,7 @@ public class RegistMatchActivity extends AppCompatActivity {
         } else if (mApplicationTM.getTeamLevel().equals(getResources().getStringArray(R.array.C002_code)[4])) {
             bt_regist_match_level_silver.setSelected(true);
         }
+        regist_team_lvl = mApplicationTM.getTeamLevel();
     }
 
     /**

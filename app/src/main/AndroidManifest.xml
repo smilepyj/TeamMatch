@@ -34,7 +34,7 @@
             android:value="GstZKojiExUv0KW84dVY0rMNuaxfzgnw" />
         <meta-data
             android:name="com.kakao.sdk.kakaonavi.useWebView"
-            android:value="true" />
+            android:value="false" />
 
         <service android:name=".fcm.MyFirebaseMessagingService">
             <intent-filter>

@@ -5,16 +5,15 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +21,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Space;
 import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -302,12 +300,22 @@ public class MainActivity extends AppCompatActivity {
                 UserManagement.getInstance().requestUnlink(new UnLinkResponseCallback() {
                     @Override
                     public void onFailure(ErrorResult errorResult) {
-
+                        Log.e(TAG, "onFailure : " + errorResult.getErrorMessage());
                     }
 
                     @Override
                     public void onSessionClosed(ErrorResult errorResult) {
                         Log.e(TAG, "onSessionClosed : " + errorResult.getErrorMessage());
+
+                        mApplicationTM.setLoginType("");
+                        mApplicationTM.setUserId("");
+                        mApplicationTM.setUserEmail("");
+                        mApplicationTM.setUserName("");
+                        mApplicationTM.setTeamId("");
+
+                        Intent mIntent = new Intent(mContext, IntroActivity.class);
+                        startActivity(mIntent);
+                        finish();
                         //redirectLoginActivity();
                     }
 
@@ -345,6 +353,8 @@ public class MainActivity extends AppCompatActivity {
         String match_alert_type = getIntent().getStringExtra("MATCH_ALERT_TYPE");
 
         String team_id = mApplicationTM.getTeamId();
+
+        Log.e(TAG, "match_alert_type : " + match_alert_type);
 
         if("1".equals(match_alert_type)) {
             String match_alert_at = getIntent().getStringExtra("MATCH_ALERT_AT");

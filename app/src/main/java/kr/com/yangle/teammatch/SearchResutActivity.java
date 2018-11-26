@@ -137,7 +137,7 @@ public class SearchResutActivity extends AppCompatActivity {
      * */
     private void setSearchCondition() {
         try {
-            tv_search_result_ground.setText(getString(R.string.search_result_condition_ground) + "(" + search_area_group_cnt + search_area_cnt + search_ground_cnt + ")");
+            tv_search_result_ground.setText(getString(R.string.search_result_condition_ground) + "(" + (search_area_group_cnt + search_area_cnt + search_ground_cnt) + ")");
 
             Date mDate = new SimpleDateFormat(getString(R.string.search_result_date_format_base), Locale.getDefault()).parse(search_date);
             String mHopeDate = new SimpleDateFormat(getString(R.string.search_result_date_format_view), Locale.getDefault()).format(mDate);
