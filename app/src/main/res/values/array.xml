@@ -67,14 +67,18 @@
         <item>C004003</item>
         <item>C004004</item>
         <item>C004005</item>
+        <item>C004007</item>
+        <item>C004999</item>
     </string-array>
 
     <string-array name="C004_data">
-        <item>매칭 등록</item>
-        <item>매칭 신청</item>
-        <item>매칭 성사</item>
-        <item>매칭 완료</item>
-        <item>매칭 중단</item>
+        <item>매치 등록</item>
+        <item>매치 신청</item>
+        <item>매치 성사</item>
+        <item>매치 완료</item>
+        <item>매치 중단</item>
+        <item>매치 반려</item>
+        <item>매치 평가 완료</item>
     </string-array>
     
     <string-array name="C005_code">
