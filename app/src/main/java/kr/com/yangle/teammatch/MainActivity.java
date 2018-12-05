@@ -560,6 +560,30 @@ public class MainActivity extends AppCompatActivity {
                 mIntent.putExtra("MATCH_TIME", hope_match_time);
                 startActivity(mIntent);
             }
+        }else if("10".equals(match_alert_type)) {
+            String type = getIntent().getStringExtra(getString(R.string.match_success_extra_type));
+            String host_team_id = getIntent().getStringExtra("HOST_TEAM_ID");
+            String guest_team_id = getIntent().getStringExtra("GUEST_TEAM_ID");
+
+            if(team_id.equals(host_team_id)){
+                Intent mIntent = new Intent(getApplicationContext(), DialogAlertActivity.class);
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_title), "구장이용 승인 완료");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents_header), "");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents), "구장사용이 승인되었습니다. 구장이용료를 결제하시고 상대팀과 연락하시길 바랍니다.\n(선 결제의 경우에는 동의 및 확인만 하시면 됩니다.)");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_cancel_text), "닫기");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_ok_text), "신청정보 확인");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 4);
+                startActivity(mIntent);
+            }else if(team_id.equals(guest_team_id)){
+                Intent mIntent = new Intent(getApplicationContext(), DialogAlertActivity.class);
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_title), "구장이용 승인 완료");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents_header), "");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents), "구장사용이 승인되었습니다. 상대팀이 구장 사용료를 결제하고 있습니다. 상대팀과 연락하시길 바랍니다.");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_cancel_text), "닫기");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_ok_text), "신청정보 확인");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 4);
+                startActivity(mIntent);
+            }
         }
     }
 }

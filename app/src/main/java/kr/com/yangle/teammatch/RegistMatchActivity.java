@@ -142,7 +142,7 @@ public class RegistMatchActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.ll_regist_match_field:
-                    Intent mIntent = new Intent(mContext, SearchGroundActivity.class);
+                    Intent mIntent = new Intent(mContext, SearchRegistGroundActivity.class);
                     mIntent.putExtra("callActivityFlag", 2);
                     startActivityForResult(mIntent, 1);
                     break;
@@ -217,8 +217,8 @@ public class RegistMatchActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK){
             switch (requestCode){
                 case 1:
-                    regist_ground = data.getStringArrayListExtra("search_ground");
-                    regist_ground_name = data.getStringArrayListExtra("search_ground_name");
+                    regist_ground = data.getStringArrayListExtra("search_regist_ground");
+                    regist_ground_name = data.getStringArrayListExtra("search_regist_ground_name");
 
                     List<String> regist_ground_texts = new ArrayList<String>();
 

@@ -76,7 +76,7 @@ public class SearchRegistGroundActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
 
-        search_page_code = "";
+        search_page_code = "HOPE";
         search_type_code = "F";
         search_loc_lat = "";
         search_loc_lon = "";
@@ -239,26 +239,9 @@ public class SearchRegistGroundActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> adapterView, View v, int position, long id) {
 
             try {
-                JSONObject jsonObject = (JSONObject) adapterView.getAdapter().getItem(position);
-
-                String ground_id = jsonObject.get("ground_id")==null?"":jsonObject.get("ground_id").toString();
-
-                boolean curChecked = mSearchGroundType1ListViewAdapter.getChecked(position);
-
-                if("F".equals(ground_id)) {
-                    mSearchGroundType1ListViewAdapter.setAllChecked(!curChecked);
-                }else {
-                    mSearchGroundType1ListViewAdapter.setChecked(position);
-                    if(mSearchGroundType1ListViewAdapter.isTotalChecked()) {
-                        mSearchGroundType1ListViewAdapter.setChecked(0, true);
-                    }else {
-                        mSearchGroundType1ListViewAdapter.setChecked(0, false);
-                    }
-                }
+                mSearchGroundType1ListViewAdapter.setChecked(position);
                 mSearchGroundType1ListViewAdapter.notifyDataSetChanged();
-
                 setSelectedGroundResult(1);
-
             }catch(Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "mOnItemClickListener_1 - " + e);
@@ -274,21 +257,9 @@ public class SearchRegistGroundActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> adapterView, View v, int position, long id) {
 
             try {
-                JSONObject jsonObject = (JSONObject) adapterView.getAdapter().getItem(position);
-
-                String ground_id = jsonObject.get("ground_id")==null?"":jsonObject.get("ground_id").toString();
-
-                boolean curChecked = mSearchGroundType2ListViewAdapter.getChecked(position);
-
-                if("N".equals(ground_id)) {
-                    mSearchGroundType2ListViewAdapter.setAllChecked(!curChecked);
-                }else {
-                    mSearchGroundType2ListViewAdapter.setChecked(position);
-                }
+                mSearchGroundType2ListViewAdapter.setChecked(position);
                 mSearchGroundType2ListViewAdapter.notifyDataSetChanged();
-
                 setSelectedGroundResult(2);
-
             }catch(Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
                 Log.e(TAG, "mOnItemClickListener_2 - " + e);
@@ -367,24 +338,8 @@ public class SearchRegistGroundActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> adapterView, View v, int position, long id) {
 
             try {
-                JSONObject jsonObject = (JSONObject) adapterView.getAdapter().getItem(position);
-
-                String ground_id = jsonObject.get("ground_id")==null?"":jsonObject.get("ground_id").toString();
-
-                boolean curChecked = mSearchGroundType3_3ListViewAdapter.getChecked(position);
-
-                if("L".equals(ground_id) || "T".equals(ground_id) || "P".equals(ground_id)) {
-                    mSearchGroundType3_3ListViewAdapter.setAllChecked(!curChecked);
-                }else {
-                    mSearchGroundType3_3ListViewAdapter.setChecked(position);
-                    if(mSearchGroundType3_3ListViewAdapter.isTotalChecked()) {
-                        mSearchGroundType3_3ListViewAdapter.setChecked(0, true);
-                    }else {
-                        mSearchGroundType3_3ListViewAdapter.setChecked(0, false);
-                    }
-                }
+                mSearchGroundType3_3ListViewAdapter.setChecked(position);
                 mSearchGroundType3_3ListViewAdapter.notifyDataSetChanged();
-
                 setSelectedGroundResult(3);
 
             }catch(Exception e) {
@@ -551,11 +506,7 @@ public class SearchRegistGroundActivity extends AppCompatActivity {
                 if(search_regist_grounds.size() == mSearchGroundType1ListViewAdapter.getCount()-1) {
                     mSearchGroundType1ListViewAdapter.setAllChecked(true);
                 }else {
-                    Log.e(TAG, "count : " + search_regist_grounds.size());
-
                     for (int i = 0; i < search_regist_grounds.size(); i++) {
-                        Log.e(TAG, search_regist_grounds.get(i) + "");
-
                         for (int j = 1; j < mSearchGroundType1ListViewAdapter.getCount(); j++) {
                             JSONObject jsonObject = ((JSONObject) mSearchGroundType1ListViewAdapter.getItem(j));
                             if (search_regist_grounds.get(i).getString("ground_id").equals(jsonObject.getString("ground_id"))) {
@@ -618,7 +569,7 @@ public class SearchRegistGroundActivity extends AppCompatActivity {
 
                 boolean[] isCheckedAll = mSearchGroundType1ListViewAdapter.getCheckedAll();
 
-                for (int i = 1; i < isCheckedAll.length; i++) {
+                for (int i = 0; i < isCheckedAll.length; i++) {
                     if (isCheckedAll[i]) {
                         JSONObject search_regist_ground = (JSONObject) mSearchGroundType1ListViewAdapter.getItem(i);
 

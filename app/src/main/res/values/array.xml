@@ -84,10 +84,12 @@
     <string-array name="C005_code">
         <item>C005001</item>
         <item>C005002</item>
+        <!--<item>C005003</item>-->
     </string-array>
 
     <string-array name="C005_data">
-        <item>1시간</item>
-        <item>2시간</item>
+        <item>주간</item>
+        <item>야간</item>
+        <!--<item>심야</item>-->
     </string-array>
 </resources>

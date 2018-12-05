@@ -2,8 +2,8 @@ package kr.com.yangle.teammatch.util;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -14,7 +14,7 @@ import kr.com.yangle.teammatch.ApplicationTM;
 import kr.com.yangle.teammatch.MatchProcActivity;
 import kr.com.yangle.teammatch.R;
 
-public class DialogAlertActivity extends AppCompatActivity {
+public class DialogGroundLocationActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
 
     Context mContext;
@@ -92,11 +92,6 @@ public class DialogAlertActivity extends AppCompatActivity {
                             finish();
                             break;
                         case 3 :
-                            mIntent = new Intent(mContext, MatchProcActivity.class);
-                            startActivity(mIntent);
-                            finish();
-                            break;
-                        case 4 :
                             mIntent = new Intent(mContext, MatchProcActivity.class);
                             startActivity(mIntent);
                             finish();

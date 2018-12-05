@@ -269,6 +269,27 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     intent.putExtra("HOPE_MATCH_TIME", hope_match_time);
                     intent.putExtra("HOPE_MATCH_GROUND", hope_match_ground);
                 }
+            } else if("10".equals(match_alert_type)) {
+                String match_id = data.get("match_id");
+                String host_team_id = data.get("host_team_id");
+                String guest_team_id = data.get("guest_team_id");
+
+                if(team_id.equals(host_team_id)){
+                    bNotification = true;
+
+                    intent.putExtra(getString(R.string.match_success_extra_type), "HOST");
+                    intent.putExtra("MATCH_ID", match_id);
+                    intent.putExtra("HOST_TEAM_ID", host_team_id);
+                    intent.putExtra("GUEST_TEAM_ID", guest_team_id);
+
+                }else if(team_id.equals(guest_team_id)){
+                    bNotification = true;
+
+                    intent.putExtra(getString(R.string.match_success_extra_type), "GUEST");
+                    intent.putExtra("MATCH_ID", match_id);
+                    intent.putExtra("HOST_TEAM_ID", host_team_id);
+                    intent.putExtra("GUEST_TEAM_ID", guest_team_id);
+                }
             }
         }catch(Exception e) {
             bNotification = false;
@@ -542,6 +563,33 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     mIntent.putExtra("TEAM_POINT", host_team_point);
                     mIntent.putExtra("GROUND_NAME", hope_match_ground);
                     mIntent.putExtra("MATCH_TIME", hope_match_time);
+                    startActivity(mIntent);
+                }
+            } else if("10".equals(match_alert_type)) {
+                String host_team_id = data.get("host_team_id");
+                String guest_team_id = data.get("guest_team_id");
+
+                if(team_id.equals(host_team_id)){
+                    bNotification = true;
+
+                    Intent mIntent = new Intent(getApplicationContext(), DialogAlertActivity.class);
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_title), "구장이용 승인 완료");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents_header), "");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents), "구장사용이 승인되었습니다. 구장이용료를 결제하시고 상대팀과 연락하시길 바랍니다.\n(선 결제의 경우에는 동의 및 확인만 하시면 됩니다.)");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_cancel_text), "닫기");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_ok_text), "신청정보 확인");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 4);
+                    startActivity(mIntent);
+                }else if(team_id.equals(guest_team_id)){
+                    bNotification = true;
+
+                    Intent mIntent = new Intent(getApplicationContext(), DialogAlertActivity.class);
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_title), "구장이용 승인 완료");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents_header), "");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents), "구장사용이 승인되었습니다. 상대팀이 구장 사용료를 결제하고 있습니다. 상대팀과 연락하시길 바랍니다.");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_cancel_text), "닫기");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_ok_text), "신청정보 확인");
+                    mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 4);
                     startActivity(mIntent);
                 }
             }

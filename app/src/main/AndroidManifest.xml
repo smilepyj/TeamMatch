@@ -80,6 +80,9 @@
             android:name=".SearchHopeGroundActivity"
             android:screenOrientation="sensorPortrait" />
         <activity
+            android:name=".SearchRegistGroundActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
             android:name=".RegistMatchActivity"
             android:screenOrientation="sensorPortrait" />
         <activity
@@ -117,6 +120,9 @@
             android:theme="@style/DialogTheme" />
         <activity
             android:name=".util.DialogRatingActivity"
+            android:theme="@style/DialogTheme" />
+        <activity
+            android:name=".util.DialogGroundLocationActivity"
             android:theme="@style/DialogTheme" />
         <activity
             android:name="com.kakao.auth.authorization.authcode.KakaoWebViewActivity"

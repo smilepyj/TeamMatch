@@ -7,8 +7,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,12 +18,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.kakao.kakaonavi.KakaoNaviParams;
-import com.kakao.kakaonavi.KakaoNaviService;
-import com.kakao.kakaonavi.Location;
-import com.kakao.kakaonavi.NaviOptions;
-import com.kakao.kakaonavi.options.CoordType;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,13 +26,13 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
+import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
+import kr.com.yangle.teammatch.adapter.GroundDetailAutoScrollAdapter;
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
-import kr.com.yangle.teammatch.util.LocationUtil;
 
 public class GroundDetailActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -251,7 +245,20 @@ public class GroundDetailActivity extends AppCompatActivity {
                     JSONArray ground_image = mResult.getJSONArray(getString(R.string.ground_detail_result_ground_img));
 
                     if(ground_image.length() > 0) {
-                        setGroundPhoto(ground_image);
+                        //setGroundPhoto(ground_image);
+                        ArrayList<String> ground_images = new ArrayList<String>();
+                        for(int i = 0 ; i < ground_image.length() ; i++) {
+                            String ground_image_url = ((JSONObject)ground_image.get(i)).getString(getString(R.string.ground_detail_result_thumb_img_url));
+                            ground_images.add(ground_image_url);
+                        }
+
+                        AutoScrollViewPager autoScrollViewPager = findViewById(R.id.vp_ground_detail_photo);
+                        GroundDetailAutoScrollAdapter scrollAdapter = new GroundDetailAutoScrollAdapter(mContext, ground_images);
+                        autoScrollViewPager.setAdapter(scrollAdapter);
+                        autoScrollViewPager.setInterval(5000);
+                        autoScrollViewPager.setScrollDurationFactor(3);
+                        autoScrollViewPager.startAutoScroll();
+
                     } else {
                         iv_ground_detail_photo.setVisibility(View.GONE);
                         ll_ground_detail_no_photo.setVisibility(View.VISIBLE);
@@ -277,7 +284,7 @@ public class GroundDetailActivity extends AppCompatActivity {
         try {
             JSONObject mImage = ground_image.getJSONObject(0);
 
-            new LoadImageAsyncTask(iv_ground_detail_photo, mContext).execute(mImage.get(getString(R.string.ground_detail_result_img_url)).toString());
+            new LoadImageAsyncTask(iv_ground_detail_photo, mContext).execute(mImage.get(getString(R.string.ground_detail_result_thumb_img_url)).toString());
         } catch(Exception e) {
             Log.e(TAG, "setGroundPhoto - " + e);
         }
