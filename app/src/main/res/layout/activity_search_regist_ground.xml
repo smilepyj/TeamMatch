@@ -234,7 +234,7 @@
                     android:fontFamily="@font/notosanskr_regular"
                     android:includeFontPadding="false"
                     android:text="@string/search_regist_ground_select"
-                    android:textColor="@color/color_search_regist_ground_contents"
+                    android:textColor="@color/color_A0A0A0"
                     android:textSize="@dimen/font_size_16" />
             </LinearLayout>
 

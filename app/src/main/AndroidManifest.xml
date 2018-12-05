@@ -128,8 +128,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SelfCheckActivity"
+        <activity
+            android:name=".SelfCheckActivity"
             android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".util.DialogReportActivity"
+            android:theme="@style/DialogTheme" />
     </application>
 
 </manifest>

@@ -39,6 +39,7 @@ import kr.com.yangle.teammatch.util.DialogAlertActivity;
 import kr.com.yangle.teammatch.util.DialogMatchApplyActivity;
 import kr.com.yangle.teammatch.util.DialogMatchSuccessActivity;
 import kr.com.yangle.teammatch.util.DialogRatingActivity;
+import kr.com.yangle.teammatch.util.DialogReportActivity;
 
 import static com.kakao.util.helper.Utility.getPackageInfo;
 
@@ -56,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
     View ll_navigation_draw;
 
-    LinearLayout ll_main_button, ll_main_in_progress_matching, ll_main_ranking, ll_navigation_user, ll_navigation_match, ll_navigation_ranking, ll_navigation_logout, ll_navigation_space, ll_navigation_footer;
+    LinearLayout ll_main_button, ll_main_in_progress_matching, ll_main_ranking, ll_navigation_user, ll_navigation_match, ll_navigation_ranking, ll_navigation_logout, ll_navigation_space, ll_navigation_report,
+            ll_navigation_footer;
 
     Button bt_main_search_match, bt_main_registration_match;
 
@@ -90,8 +92,10 @@ public class MainActivity extends AppCompatActivity {
         ll_navigation_match = findViewById(R.id.ll_navigation_match);
         ll_navigation_ranking = findViewById(R.id.ll_navigation_ranking);
         ll_navigation_logout = findViewById(R.id.ll_navigation_logout);
-        ll_navigation_footer = findViewById(R.id.ll_navigation_footer);
         ll_navigation_space = findViewById(R.id.ll_navigation_space);
+        ll_navigation_report = findViewById(R.id.ll_navigation_report);
+        ll_navigation_footer = findViewById(R.id.ll_navigation_footer);
+
         tv_navigation_user_name = findViewById(R.id.tv_navigation_user_name);
 
         ll_main_button = findViewById(R.id.ll_main_button);
@@ -106,8 +110,9 @@ public class MainActivity extends AppCompatActivity {
         ll_navigation_match.setOnClickListener(mOnClickListener);
         ll_navigation_ranking.setOnClickListener(mOnClickListener);
         ll_navigation_logout.setOnClickListener(mOnClickListener);
-        ll_navigation_footer.setOnClickListener(mOnClickListener);
+        ll_navigation_report.setOnClickListener(mOnClickListener);
         ll_navigation_space.setOnClickListener(mOnClickListener);
+        ll_navigation_footer.setOnClickListener(mOnClickListener);
 
         ll_main_in_progress_matching.setOnClickListener(mOnClickListener);
         ll_main_ranking.setOnClickListener(mOnClickListener);
@@ -212,6 +217,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.ll_main_ranking:
                         mIntent = new Intent(mContext, RankingActivity.class);
+                        startActivity(mIntent);
+                        break;
+                    case R.id.ll_navigation_report :
+                        dl_activity_main.closeDrawers();
+                        mIntent = new Intent(mContext, DialogReportActivity.class);
                         startActivity(mIntent);
                         break;
                     default:

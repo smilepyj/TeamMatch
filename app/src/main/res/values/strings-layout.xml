@@ -29,6 +29,7 @@
     <string name="navigation_item_match">나의 매치 정보</string>
     <string name="navigation_item_ranking">풋매랭킹</string>
     <string name="navigation_item_logout">로그아웃</string>
+    <string name="navigation_item_report">버그/불편사항 신고</string>
     <string name="navigation_call_center">풋살매치 고객센터</string>
     <string name="navigation_call_number">1544-7979</string>
 
@@ -292,4 +293,10 @@
     <string name="self_check_result_contents">입니다.</string>
     <string name="self_check_result_recheck">다시점검</string>
     <string name="self_check_result_ok">확인</string>
+
+    <!--Report Dialog -->
+    <string name="report_title">버그/불편사항 신고하기</string>
+    <string name="report_sub_contents">신고해주신 사항은 최대한\n빠르게 처리할 수 있도록 하겠습니다. 감사합니다!</string>
+    <string name="report_cancel">취 소</string>
+    <string name="report_send">신고하기</string>
 </resources>

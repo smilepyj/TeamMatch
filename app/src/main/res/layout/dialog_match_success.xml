@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/dimen_size_340"
     android:layout_height="@dimen/dimen_size_430"
-    android:background="@drawable/ic_dialog_background"
+    android:background="@drawable/dr_background_dialog"
     android:orientation="vertical"
     tools:context=".util.DialogMatchSuccessActivity">
 
@@ -428,7 +428,7 @@
             android:id="@+id/bt_match_success_agree"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/ic_button_alert_dialog_ok"
+            android:background="@drawable/dr_button_dialog_ok"
             android:text="@string/match_success_dialog_agree"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/font_size_15" />

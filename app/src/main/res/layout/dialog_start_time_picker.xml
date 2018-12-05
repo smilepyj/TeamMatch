@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/dimen_size_320"
     android:layout_height="@dimen/dimen_size_330"
-    android:background="@drawable/ic_dialog_background"
+    android:background="@drawable/dr_background_dialog"
     android:orientation="vertical"
     android:padding="@dimen/dimen_size_10"
     tools:context=".util.DialogStartTimePickerActivity">

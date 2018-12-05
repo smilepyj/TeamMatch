@@ -7,6 +7,8 @@
     <color name="colorInvisible">#FFFFFFFF</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="color_F4F4F4">#F4F4F4</color>
+    <color name="color_F2F2F2">#F2F2F2</color>
+    <color name="color_E0E0E0">#E0E0E0</color>
     <color name="color_DCDCDC">#DCDCDC</color>
     <color name="color_D2D2D2">#D2D2D2</color>
     <color name="color_C9C9C9">#C9C9C9</color>
@@ -15,6 +17,7 @@
     <color name="color_A8A8A8">#A8A8A8</color>
     <color name="color_959595">#959595</color>
     <color name="color_7D7D7D">#7D7D7D</color>
+    <color name="color_A0A0A0">#A0A0A0</color>
     <color name="color_626262">#626262</color>
     <color name="color_535353">#535353</color>
     <color name="color_313131">#313131</color>
@@ -83,12 +86,10 @@
     <color name="color_listview_search_result_border">#D2D2D2</color>
 
     <!-- SearchGround Activity -->
-    <color name="color_search_ground_contents">#A0A0A0</color>
     <color name="color_search_ground_border">#D2D2D2</color>
     <color name="color_search_ground_layout_select_ground">#F8F8FA</color>
 
     <color name="color_search_ground_button_type_enable">#F8F8FA</color>
-    <color name="color_search_ground_button_type_enable_text">#A0A0A0</color>
     <color name="color_search_ground_button_type_press">#00AE55</color>
     <color name="color_search_ground_button_type_press_text">#FFFFFF</color>
     <color name="color_search_ground_button_stroke">#E5E5E5</color>
@@ -101,12 +102,10 @@
     <color name="color_search_ground_button_select_end_press_text">#FFFFFF</color>
 
     <!-- SearchHopeGround Activity -->
-    <color name="color_search_hope_ground_contents">#A0A0A0</color>
     <color name="color_search_hope_ground_border">#D2D2D2</color>
     <color name="color_search_hope_ground_layout_select_ground">#F8F8FA</color>
 
     <color name="color_search_hope_ground_button_type_enable">#F8F8FA</color>
-    <color name="color_search_hope_ground_button_type_enable_text">#A0A0A0</color>
     <color name="color_search_hope_ground_button_type_press">#00AE55</color>
     <color name="color_search_hope_ground_button_type_press_text">#FFFFFF</color>
     <color name="color_search_hope_ground_button_stroke">#E5E5E5</color>
@@ -119,12 +118,10 @@
     <color name="color_search_hope_ground_button_select_end_press_text">#FFFFFF</color>
 
     <!-- SearchRegistGround Activity -->
-    <color name="color_search_regist_ground_contents">#A0A0A0</color>
     <color name="color_search_regist_ground_border">#D2D2D2</color>
     <color name="color_search_regist_ground_layout_select_ground">#F8F8FA</color>
 
     <color name="color_search_regist_ground_button_type_enable">#F8F8FA</color>
-    <color name="color_search_regist_ground_button_type_enable_text">#A0A0A0</color>
     <color name="color_search_regist_ground_button_type_press">#00AE55</color>
     <color name="color_search_regist_ground_button_type_press_text">#FFFFFF</color>
     <color name="color_search_regist_ground_button_stroke">#E5E5E5</color>
@@ -173,7 +170,6 @@
 
     <!-- Ranking Activity -->
     <color name="color_ranking_button_tab_enable">#F8F8FA</color>
-    <color name="color_ranking_button_tab_enable_text">#A0A0A0</color>
     <color name="color_ranking_button_tab_press">#00AE55</color>
     <color name="color_ranking_button_tab_press_text">#FFFFFF</color>
     <color name="color_ranking_button_stroke">#E5E5E5</color>

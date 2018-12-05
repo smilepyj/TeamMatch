@@ -210,4 +210,9 @@
     <string name="ground_detail_result_ground_img">ground_img</string>
     <string name="ground_detail_result_img_url">img_url</string>
     <string name="ground_detail_result_thumb_img_url">thumb_img_url</string>
+
+    <!-- insertInconventReport Service -->
+    <string name="insertInconventReport_service">etc/insertInconventReport</string>
+    <string name="insertInconventReport_param_user_id">user_id</string>
+    <string name="insertInconventReport_param_inconvent_cn">inconvent_cn</string>
 </resources>

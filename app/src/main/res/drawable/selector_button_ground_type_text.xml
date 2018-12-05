@@ -7,5 +7,5 @@
         android:color="@color/color_search_ground_button_type_press_text" />
 
 
-    <item android:color="@color/color_search_ground_button_type_enable_text" />
+    <item android:color="@color/color_A0A0A0" />
 </selector>

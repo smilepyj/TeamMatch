@@ -150,4 +150,7 @@
     <!-- SelfCheck Activity -->
     <string name="self_check_level">TEAM_LEVEL</string>
     <string name="self_check_blank">문항에 답변하지 않았습니다. 선택 후 넘어가세요.</string>
+
+    <!-- Report Dialog -->
+    <string name="dialog_report_send_success">전송에 성공하셨습니다.</string>
 </resources>

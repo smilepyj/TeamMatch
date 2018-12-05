@@ -53,7 +53,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6.25"
+        android:layout_weight="5.5"
         android:orientation="vertical"
         android:padding="@dimen/dimen_size_15"
         android:weightSum="8">
@@ -62,7 +62,7 @@
             android:id="@+id/ll_navigation_user"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.1"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="@dimen/dimen_size_20">
@@ -87,7 +87,7 @@
             android:id="@+id/ll_navigation_match"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.1"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="@dimen/dimen_size_20">
@@ -112,7 +112,7 @@
             android:id="@+id/ll_navigation_ranking"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.1"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="@dimen/dimen_size_20">
@@ -137,7 +137,7 @@
             android:id="@+id/ll_navigation_logout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.1"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="@dimen/dimen_size_20">
@@ -162,11 +162,49 @@
             android:id="@+id/ll_navigation_space"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="4">
+            android:layout_weight="3.6">
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.75"
+        android:gravity="center_vertical"
+        android:background="@color/color_F2F2F2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_size_1"
+            android:background="@color/color_E0E0E0" />
+
+        <LinearLayout
+            android:id="@+id/ll_navigation_report"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dimen_size_35"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_size_10"
+                android:background="@drawable/ic_menu_siren"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/navigation_item_report"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/font_size_14" />
         </LinearLayout>
     </LinearLayout>
 

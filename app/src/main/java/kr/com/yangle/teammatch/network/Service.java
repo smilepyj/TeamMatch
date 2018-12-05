@@ -434,4 +434,22 @@ public class Service {
         }
 
     }
+
+    /**
+     * 불편사항 신고 서비스
+     * Created by maloman72 on 2018-12-04
+     * */
+    public void insertInconventReport(ResponseListener responseListener, String inconvent_cn) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.insertInconventReport_service);
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.insertInconventReport_param_user_id), mApplicationTM.getUserId());
+            mJSONObject.put(mContext.getString(R.string.insertInconventReport_param_inconvent_cn), inconvent_cn);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "insertInconventReport - " + e);
+        }
+    }
 }
