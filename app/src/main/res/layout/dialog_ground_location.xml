@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/dimen_size_340"
     android:layout_height="@dimen/dimen_size_280"
-    android:background="@drawable/ic_dialog_background"
+    android:background="@drawable/ic_listview_item_background"
     android:orientation="vertical"
     tools:context=".util.DialogAlertActivity">
 

@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout ll_main_button, ll_main_in_progress_matching, ll_main_ranking, ll_navigation_user, ll_navigation_match, ll_navigation_ranking, ll_navigation_logout, ll_navigation_space, ll_navigation_report,
             ll_navigation_footer;
 
-    Button bt_main_search_match, bt_main_registration_match;
+    Button bt_main_search_match, bt_main_registration_match, bt_main_in_progress_matching;
 
     ImageButton ib_navigation_close;
     TextView tv_navigation_user_name;
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_new);
 
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
@@ -99,11 +99,12 @@ public class MainActivity extends AppCompatActivity {
         tv_navigation_user_name = findViewById(R.id.tv_navigation_user_name);
 
         ll_main_button = findViewById(R.id.ll_main_button);
-        ll_main_in_progress_matching = findViewById(R.id.ll_main_in_progress_matching);
-        ll_main_ranking = findViewById(R.id.ll_main_ranking);
+//        ll_main_in_progress_matching = findViewById(R.id.ll_main_in_progress_matching);
+//        ll_main_ranking = findViewById(R.id.ll_main_ranking);
 
         bt_main_search_match = findViewById(R.id.bt_main_search_match);
         bt_main_registration_match = findViewById(R.id.bt_main_registration_match);
+        bt_main_in_progress_matching = findViewById(R.id.bt_main_in_progress_matching);
 
         ib_navigation_close.setOnClickListener(mOnClickListener);
         ll_navigation_user.setOnClickListener(mOnClickListener);
@@ -114,11 +115,12 @@ public class MainActivity extends AppCompatActivity {
         ll_navigation_space.setOnClickListener(mOnClickListener);
         ll_navigation_footer.setOnClickListener(mOnClickListener);
 
-        ll_main_in_progress_matching.setOnClickListener(mOnClickListener);
-        ll_main_ranking.setOnClickListener(mOnClickListener);
+//        ll_main_in_progress_matching.setOnClickListener(mOnClickListener);
+//        ll_main_ranking.setOnClickListener(mOnClickListener);
 
         bt_main_search_match.setOnClickListener(mOnClickListener);
         bt_main_registration_match.setOnClickListener(mOnClickListener);
+        bt_main_in_progress_matching.setOnClickListener(mOnClickListener);
 
         LayoutSet();
 
@@ -211,14 +213,14 @@ public class MainActivity extends AppCompatActivity {
                         mIntent = new Intent(mContext, RegistMatchActivity.class);
                         startActivity(mIntent);
                         break;
-                    case R.id.ll_main_in_progress_matching:
+                    case R.id.bt_main_in_progress_matching:
                         mIntent = new Intent(mContext, MatchProcActivity.class);
                         startActivity(mIntent);
                         break;
-                    case R.id.ll_main_ranking:
-                        mIntent = new Intent(mContext, RankingActivity.class);
-                        startActivity(mIntent);
-                        break;
+//                    case R.id.ll_main_ranking:
+//                        mIntent = new Intent(mContext, RankingActivity.class);
+//                        startActivity(mIntent);
+//                        break;
                     case R.id.ll_navigation_report :
                         dl_activity_main.closeDrawers();
                         mIntent = new Intent(mContext, DialogReportActivity.class);

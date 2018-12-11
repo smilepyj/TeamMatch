@@ -33,6 +33,7 @@ public class DialogTermServiceActivity extends AppCompatActivity {
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
+        ll_term_service_close = findViewById(R.id.ll_term_service_close);
         tv_alert_dialog_title = findViewById(R.id.tv_term_service_title);
         tv_alert_dialog_contents = findViewById(R.id.tv_term_service_contents);
         ib_term_service_close = findViewById(R.id.ib_term_service_close);

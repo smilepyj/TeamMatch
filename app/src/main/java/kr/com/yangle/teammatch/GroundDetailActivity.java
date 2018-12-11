@@ -260,7 +260,8 @@ public class GroundDetailActivity extends AppCompatActivity {
                         autoScrollViewPager.startAutoScroll();
 
                     } else {
-                        iv_ground_detail_photo.setVisibility(View.GONE);
+                        AutoScrollViewPager autoScrollViewPager = findViewById(R.id.vp_ground_detail_photo);
+                        autoScrollViewPager.setVisibility(View.GONE);
                         ll_ground_detail_no_photo.setVisibility(View.VISIBLE);
                     }
                 } else {
