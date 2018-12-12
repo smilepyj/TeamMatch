@@ -10,7 +10,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.kakao.kakaonavi.KakaoNaviParams;
+import com.kakao.kakaonavi.KakaoNaviService;
+import com.kakao.kakaonavi.Location;
+import com.kakao.kakaonavi.NaviOptions;
+import com.kakao.kakaonavi.options.CoordType;
+
 import kr.com.yangle.teammatch.ApplicationTM;
+import kr.com.yangle.teammatch.GroundLocationActivity;
 import kr.com.yangle.teammatch.MatchProcActivity;
 import kr.com.yangle.teammatch.R;
 
@@ -20,51 +27,34 @@ public class DialogGroundLocationActivity extends AppCompatActivity {
     Context mContext;
     ApplicationTM mApplicationTM;
 
-    TextView tv_alert_dialog_title, tv_alert_dialog_contents_header, tv_alert_dialog_contents;
-    Button bt_alert_dialog_cancel, bt_alert_dialog_ok, bt_alert_dialog_confirm;
+    LinearLayout ll_alert_ground_location_1, ll_alert_ground_location_2, ll_alert_ground_location_3, ll_alert_ground_location_4;
 
-    LinearLayout ll_alert_aialog_two_btn, ll_alert_aialog_one_btn;
-
-    int mType = 0;
+    String mGround_Name;
+    double mGround_Loc_Lat, mGround_Loc_Lon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.dialog_alert);
+        setContentView(R.layout.dialog_ground_location);
 
         mContext = this;
         mApplicationTM = (ApplicationTM) getApplication();
 
-        tv_alert_dialog_title = findViewById(R.id.tv_alert_dialog_title);
-        tv_alert_dialog_contents_header = findViewById(R.id.tv_alert_dialog_contents_header);
-        tv_alert_dialog_contents = findViewById(R.id.tv_alert_dialog_contents);
+        ll_alert_ground_location_1 = findViewById(R.id.ll_alert_ground_location_1);
+        ll_alert_ground_location_2 = findViewById(R.id.ll_alert_ground_location_2);
+        ll_alert_ground_location_3 = findViewById(R.id.ll_alert_ground_location_3);
+        ll_alert_ground_location_4 = findViewById(R.id.ll_alert_ground_location_4);
 
-        bt_alert_dialog_cancel = findViewById(R.id.bt_alert_dialog_cancel);
-        bt_alert_dialog_ok = findViewById(R.id.bt_alert_dialog_ok);
-        bt_alert_dialog_confirm = findViewById(R.id.bt_alert_dialog_confirm);
+        ll_alert_ground_location_1.setOnClickListener(mOnClickListener);
+        ll_alert_ground_location_2.setOnClickListener(mOnClickListener);
+        ll_alert_ground_location_3.setOnClickListener(mOnClickListener);
+        ll_alert_ground_location_4.setOnClickListener(mOnClickListener);
 
-        ll_alert_aialog_two_btn = findViewById(R.id.ll_alert_aialog_two_btn);
-        ll_alert_aialog_one_btn = findViewById(R.id.ll_alert_aialog_one_btn);
+        mGround_Name = getIntent().getStringExtra("ground_name");
+        mGround_Loc_Lat = getIntent().getDoubleExtra("ground_loc_lat", 0.0);
+        mGround_Loc_Lon = getIntent().getDoubleExtra("ground_loc_lon", 0.0);
 
-        bt_alert_dialog_cancel.setOnClickListener(mOnClickListener);
-        bt_alert_dialog_ok.setOnClickListener(mOnClickListener);
-        bt_alert_dialog_confirm.setOnClickListener(mOnClickListener);
-
-        tv_alert_dialog_title.setText(getIntent().getStringExtra(getString(R.string.alert_dialog_title)));
-        tv_alert_dialog_contents_header.setText(getIntent().getStringExtra(getString(R.string.alert_dialog_contents_header)));
-        tv_alert_dialog_contents.setText(getIntent().getStringExtra(getString(R.string.alert_dialog_contents)));
-
-        bt_alert_dialog_cancel.setText(getIntent().getStringExtra(getString(R.string.alert_dialog_cancel_text)));
-        bt_alert_dialog_ok.setText(getIntent().getStringExtra(getString(R.string.alert_dialog_ok_text)));
-        bt_alert_dialog_confirm.setText("확  인");
-
-        mType = getIntent().getIntExtra(getString(R.string.alert_dialog_type), 0);
-
-        if("4".equals(mType)) {
-            ll_alert_aialog_two_btn.setVisibility(View.GONE);
-            ll_alert_aialog_one_btn.setVisibility(View.VISIBLE);
-        }
     }
 
     View.OnClickListener mOnClickListener = new View.OnClickListener() {
@@ -73,34 +63,27 @@ public class DialogGroundLocationActivity extends AppCompatActivity {
             Intent mIntent;
 
             switch (v.getId()) {
-                case R.id.bt_alert_dialog_cancel :
+                case R.id.ll_alert_ground_location_1 :
+                    mIntent = new Intent(mContext, GroundLocationActivity.class);
+                    mIntent.putExtra("ground_name", mGround_Name);
+                    mIntent.putExtra("ground_loc_lat", mGround_Loc_Lat);
+                    mIntent.putExtra("ground_loc_lon", mGround_Loc_Lon);
+                    mContext.startActivity(mIntent);
                     finish();
                     break;
-                case R.id.bt_alert_dialog_ok :
-                    switch (mType) {
-                        case 0 :
-                            finish();
-                            break;
-                        case 1 :
-                            mIntent = new Intent(mContext, MatchProcActivity.class);
-                            startActivity(mIntent);
-                            finish();
-                            break;
-                        case 2 :
-                            mIntent = new Intent(mContext, MatchProcActivity.class);
-                            startActivity(mIntent);
-                            finish();
-                            break;
-                        case 3 :
-                            mIntent = new Intent(mContext, MatchProcActivity.class);
-                            startActivity(mIntent);
-                            finish();
-                            break;
-                        default :
-                            break;
-                    }
+                case R.id.ll_alert_ground_location_2 :
+                    LocationUtil location = new LocationUtil(mContext);
+
+                    final KakaoNaviParams.Builder builder = KakaoNaviParams.newBuilder(
+                            Location.newBuilder(mGround_Name, mGround_Loc_Lon, mGround_Loc_Lat).build())
+                            .setNaviOptions(NaviOptions.newBuilder().setCoordType(CoordType.WGS84).setStartX(location.getLastLongitude()).setStartY(location.getLastLatitude()).build());
+                    KakaoNaviService.getInstance().navigate(mContext, builder.build());
+                    finish();
                     break;
-                case R.id.bt_alert_dialog_confirm :
+                case R.id.ll_alert_ground_location_3 :
+                    finish();
+                    break;
+                case R.id.ll_alert_ground_location_4 :
                     finish();
                     break;
                 default :

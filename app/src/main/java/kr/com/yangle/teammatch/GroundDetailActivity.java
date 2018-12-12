@@ -33,6 +33,8 @@ import kr.com.yangle.teammatch.adapter.GroundDetailAutoScrollAdapter;
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
+import kr.com.yangle.teammatch.util.DialogGroundLocationActivity;
+import kr.com.yangle.teammatch.util.DialogMatchApplyActivity;
 
 public class GroundDetailActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -133,11 +135,11 @@ public class GroundDetailActivity extends AppCompatActivity {
 
             switch (v.getId()) {
                 case R.id.bt_ground_detail_map :
-                    mIntent = new Intent(mContext, GroundLocationActivity.class);
+                    mIntent = new Intent(mContext, DialogGroundLocationActivity.class);
                     mIntent.putExtra("ground_name", mGround_Name);
                     mIntent.putExtra("ground_loc_lat", mGround_Loc_Lat);
                     mIntent.putExtra("ground_loc_lon", mGround_Loc_Lon);
-                    mContext.startActivity(mIntent);
+                    startActivity(mIntent);
 
                     /*LocationUtil location = new LocationUtil(mContext);
 
