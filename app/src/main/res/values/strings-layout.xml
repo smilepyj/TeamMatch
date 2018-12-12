@@ -299,4 +299,10 @@
     <string name="report_sub_contents">신고해주신 사항은 최대한\n빠르게 처리할 수 있도록 하겠습니다. 감사합니다!</string>
     <string name="report_cancel">취 소</string>
     <string name="report_send">신고하기</string>
+
+    <!-- GroundLocation Dialog -->
+    <string name="ground_location_map">지도 보기</string>
+    <string name="ground_location_navi">카카오 내비</string>
+    <string name="ground_location_copy">주소 복사</string>
+    <string name="ground_location_cancel">닫 기</string>
 </resources>
