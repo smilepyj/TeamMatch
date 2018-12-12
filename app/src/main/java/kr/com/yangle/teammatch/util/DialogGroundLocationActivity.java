@@ -1,5 +1,7 @@
 package kr.com.yangle.teammatch.util;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +31,7 @@ public class DialogGroundLocationActivity extends AppCompatActivity {
 
     LinearLayout ll_alert_ground_location_1, ll_alert_ground_location_2, ll_alert_ground_location_3, ll_alert_ground_location_4;
 
-    String mGround_Name;
+    String mGround_Name, mGround_Ground_Addr;
     double mGround_Loc_Lat, mGround_Loc_Lon;
 
     @Override
@@ -54,6 +56,7 @@ public class DialogGroundLocationActivity extends AppCompatActivity {
         mGround_Name = getIntent().getStringExtra("ground_name");
         mGround_Loc_Lat = getIntent().getDoubleExtra("ground_loc_lat", 0.0);
         mGround_Loc_Lon = getIntent().getDoubleExtra("ground_loc_lon", 0.0);
+        mGround_Ground_Addr = getIntent().getStringExtra("ground_ground_addr");
 
     }
 
@@ -81,6 +84,12 @@ public class DialogGroundLocationActivity extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.ll_alert_ground_location_3 :
+                    ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                    ClipData clipData = ClipData.newPlainText("ground_addr", mGround_Ground_Addr);
+                    clipboardManager.setPrimaryClip(clipData);
+
+                    mApplicationTM.makeToast(mContext, "복사되었습니다.");
+
                     finish();
                     break;
                 case R.id.ll_alert_ground_location_4 :

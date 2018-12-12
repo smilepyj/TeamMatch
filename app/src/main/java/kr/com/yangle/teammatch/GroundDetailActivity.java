@@ -57,6 +57,7 @@ public class GroundDetailActivity extends AppCompatActivity {
 
     String mGround_Phone_Num = null;
     String mGround_Name;
+    String mGround_Ground_Addr;
     double mGround_Loc_Lat, mGround_Loc_Lon;
 
     @Override
@@ -139,6 +140,7 @@ public class GroundDetailActivity extends AppCompatActivity {
                     mIntent.putExtra("ground_name", mGround_Name);
                     mIntent.putExtra("ground_loc_lat", mGround_Loc_Lat);
                     mIntent.putExtra("ground_loc_lon", mGround_Loc_Lon);
+                    mIntent.putExtra("ground_ground_addr", mGround_Ground_Addr);
                     startActivity(mIntent);
 
                     /*LocationUtil location = new LocationUtil(mContext);
@@ -182,6 +184,7 @@ public class GroundDetailActivity extends AppCompatActivity {
                     mGround_Phone_Num = mResult.get(getString(R.string.ground_detail_result_ground_tel)).toString();
                     mGround_Name = mResult.get(getString(R.string.ground_detail_result_ground_name)).toString();
                     tv_ground_detail_name.setText(mGround_Name);
+                    mGround_Ground_Addr = mResult.get(getString(R.string.ground_detail_result_ground_addr)).toString();
                     tv_ground_detail_location.setText(mResult.get(getString(R.string.ground_detail_result_ground_addr)).toString());
                     Date mTime = new SimpleDateFormat(getString(R.string.ground_detail_time_format), Locale.getDefault()).parse(mResult.get(getString(R.string.ground_detail_result_open_time)).toString());
                     String mStartTime = new SimpleDateFormat(getString(R.string.ground_detail_time_view), Locale.getDefault()).format(mTime);
