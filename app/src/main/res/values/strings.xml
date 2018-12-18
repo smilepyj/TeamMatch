@@ -129,6 +129,7 @@
 
     <string name="match_time_picker_dialog_check_time">매치 시간은 최소 1시간 ~ 최대 3시간 사이로 설정해 주세요.</string>
     <string name="match_time_picker_dialog_check_time_2">매치 시작 시간은 현재시간보다 최소 1시간 이후로 설정해 주세요.</string>
+    <string name="match_time_picker_dialog_ckeck_pay">현재 베타서비스 중으로 구장비용을 미리 결제한 팀만 이용가능합니다.</string>
 
     <!-- Match Apply Dialog -->
     <string name="match_apply_extra_title">TITLE</string>
