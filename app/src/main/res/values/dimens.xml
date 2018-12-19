@@ -75,7 +75,6 @@
     <dimen name="ll_margin">7dp</dimen>
 
     <!-- Padding Size -->
-    <dimen name="bt_main_padding">15dp</dimen>
     <dimen name="tv_search_result_condition_padding">10dp</dimen>
     <dimen name="listview_search_result_margin_vertical">5dp</dimen>
     <dimen name="listview_search_result_padding_vertical">8dp</dimen>

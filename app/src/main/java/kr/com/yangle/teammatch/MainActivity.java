@@ -11,9 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -122,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         bt_main_registration_match.setOnClickListener(mOnClickListener);
         bt_main_in_progress_matching.setOnClickListener(mOnClickListener);
 
-        LayoutSet();
+//        LayoutSet();
 
         tv_navigation_user_name.setText(mApplicationTM.getUserName());
 
@@ -239,29 +237,29 @@ public class MainActivity extends AppCompatActivity {
      * 화면 비율에 따른 Button Height 조절
      * Created by maloman72 on 2018-11-05
      */
-    public void LayoutSet() {
-        Display mDisplay = getWindowManager().getDefaultDisplay();
-        double mRealWidth, mRealHeight;
-
-        DisplayMetrics mDisplayMetrics = new DisplayMetrics();
-        mDisplay.getRealMetrics(mDisplayMetrics);
-        mRealWidth = mDisplayMetrics.widthPixels;
-        mRealHeight = mDisplayMetrics.heightPixels;
-
-        Log.e(TAG, "mRealWidth - " + mRealWidth + ", mRealHeight - " + mRealHeight);
-
-        LinearLayout.LayoutParams ll_main_button_param = (LinearLayout.LayoutParams) ll_main_button.getLayoutParams();
-
-        double mScreenRate = mRealHeight / mRealWidth;
-
-        if (mScreenRate <= 1.6) {
-            ll_main_button_param.weight = 3f;
-        } else if (mScreenRate >= 2) {
-            ll_main_button_param.weight = 2.5f;
-        } else {
-            ll_main_button_param.weight = 2.75f;
-        }
-    }
+//    public void LayoutSet() {
+//        Display mDisplay = getWindowManager().getDefaultDisplay();
+//        double mRealWidth, mRealHeight;
+//
+//        DisplayMetrics mDisplayMetrics = new DisplayMetrics();
+//        mDisplay.getRealMetrics(mDisplayMetrics);
+//        mRealWidth = mDisplayMetrics.widthPixels;
+//        mRealHeight = mDisplayMetrics.heightPixels;
+//
+//        Log.e(TAG, "mRealWidth - " + mRealWidth + ", mRealHeight - " + mRealHeight);
+//
+//        LinearLayout.LayoutParams ll_main_button_param = (LinearLayout.LayoutParams) ll_main_button.getLayoutParams();
+//
+//        double mScreenRate = mRealHeight / mRealWidth;
+//
+//        if (mScreenRate <= 1.6) {
+//            ll_main_button_param.weight = 3f;
+//        } else if (mScreenRate >= 2) {
+//            ll_main_button_param.weight = 2.5f;
+//        } else {
+//            ll_main_button_param.weight = 2.75f;
+//        }
+//    }
 
     public String getKeyHash(Context context) {
         PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);

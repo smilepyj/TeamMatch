@@ -11,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
 import static android.content.Context.LOCATION_SERVICE;
+import static android.support.constraint.Constraints.TAG;
 
 public class LocationUtil {
 

@@ -19,6 +19,7 @@
     <string name="main_registration_match">매치등록</string>
     <string name="main_in_progress_matching">나의매치정보</string>
     <string name="main_ranking">풋매 랭킹</string>
+    <string name="main_copyright">Copyright 2018. info24. All right reserved.</string>
 
     <!-- ToolBar -->
     <string name="toolbar_item_navigation">메 뉴</string>
