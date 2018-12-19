@@ -145,6 +145,8 @@
     <string name="regist_match_level_nothing">무관</string>
     <string name="regist_match_insert">등록하기</string>
 
+    <string name="regist_match_beta_msg">현재 베타서비스 중으로 구장비용을 미리 결제한 팀만 이용가능합니다.</string>
+
     <!-- MatchProc Activity -->
     <string name="match_proc_title">진행 중 매치</string>
     <string name="match_proc_opponent_info">상대팀정보</string>

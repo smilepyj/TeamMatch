@@ -213,6 +213,8 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
                 mIntent.putExtra(getString(R.string.match_time_picker_dialog_check_pay), getString(R.string.match_time_picker_dialog_check_pay_yes));
             } else {
                 mIntent.putExtra(getString(R.string.match_time_picker_dialog_check_pay), getString(R.string.match_time_picker_dialog_check_pay_no));
+                mApplicationTM.makeToast(mContext, mContext.getString(R.string.match_time_picker_dialog_ckeck_pay));
+                return;
             }
 
             setResult(RESULT_OK, mIntent);
