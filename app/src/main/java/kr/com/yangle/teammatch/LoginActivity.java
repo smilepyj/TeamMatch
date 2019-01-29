@@ -4,10 +4,14 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -34,6 +38,8 @@ import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 
 import org.json.JSONObject;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,6 +53,8 @@ import kr.com.yangle.teammatch.util.BackPressCloseHandler;
 import kr.com.yangle.teammatch.util.DialogAlertActivity;
 import kr.com.yangle.teammatch.util.DialogPrivacyActivity;
 import kr.com.yangle.teammatch.util.DialogTermServiceActivity;
+
+import static com.kakao.util.helper.Utility.getPackageInfo;
 
 public class LoginActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -99,6 +107,8 @@ public class LoginActivity extends AppCompatActivity {
 
         initNaverLogin();
         initKakaoLogin();
+
+        Log.e(TAG, "keyHash : " + getKeyHash(mContext));
     }
 
     @Override
@@ -349,4 +359,25 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     };
+
+    public String getKeyHash(Context context) {
+        try {
+            PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+            if (packageInfo == null)
+                return null;
+
+            for (Signature signature : packageInfo.signatures) {
+                try {
+                    MessageDigest md = MessageDigest.getInstance("SHA");
+                    md.update(signature.toByteArray());
+                    return Base64.encodeToString(md.digest(), Base64.DEFAULT);
+                } catch (NoSuchAlgorithmException e) {
+                    Log.e(TAG, "Unable to get MessageDigest. signature=" + signature, e);
+                }
+            }
+        }catch(Exception e) {
+            Log.e(TAG, "getKeyHash - " + e);
+        }
+        return null;
+    }
 }

@@ -42,7 +42,7 @@
     <string name="search_match_check_member">매치 인원을 선택해 주세요.</string>
     <string name="search_match_check_level">희망 팀 레벨을 선택해 주세요.</string>
 
-    <string name="search_match_date_format_param">%d%d%s</string>
+    <string name="search_match_date_format_param">%d%s%s</string>
     <string name="search_match_date_format_view">%d년 %d월 %d일 %s</string>
     <string name="search_match_time_format_param">%d%d%d</string>
     <string name="search_match_time_format_view">%d시 %d분</string>

@@ -331,7 +331,14 @@ public class RegistMatchActivity extends AppCompatActivity {
      * Created by maloman72 on 2018-11-01
      * */
     private void setMatchTimePickerDialog() {
+
+        if("-".equals(regist_date)) {
+            mApplicationTM.makeToast(mContext, getString(R.string.regist_match_check_date));
+            return;
+        }
+
         Intent mIntent = new Intent(this, DialogMatchTimePickerActivity.class);
+        mIntent.putExtra("registDate", regist_date);
         startActivityForResult(mIntent, 2);
     }
 

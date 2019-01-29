@@ -30,6 +30,7 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
     Button bt_dialog_match_time_picker_ok;
 
     int mStartTime, mEndTime, mCurTime;
+    String mRegistDate, mCurDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +73,9 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
         cb_dialog_match_time_picker_check_pay.setOnClickListener(mOnClickListener);
 
         bt_dialog_match_time_picker_ok.setOnClickListener(mOnClickListener);
+
+        Intent mIntent = getIntent();
+        mRegistDate = mIntent.getStringExtra("registDate");
 
         setTime();
     }
@@ -125,6 +129,7 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
     private void setTime() {
         final Calendar mCalendar = Calendar.getInstance();
 
+        mCurDate = mCalendar.get(Calendar.YEAR) + (mCalendar.get(Calendar.MONTH) + 1) + mCalendar.get(Calendar.DATE) + "";
         mCurTime = mCalendar.get(Calendar.HOUR_OF_DAY);
         mStartTime = mCurTime + 1;
         mEndTime = mStartTime + 1;
@@ -182,7 +187,7 @@ public class DialogMatchTimePickerActivity extends AppCompatActivity {
      * Created by maloman72 on 2018-11-14
      * */
     private void Close() {
-        if(mCurTime + 1 > mStartTime) {
+        if(mCurTime + 1 > mStartTime && mRegistDate == mCurDate) {
             mApplicationTM.makeToast(mContext, mContext.getString(R.string.match_time_picker_dialog_check_time_2));
             return;
         }

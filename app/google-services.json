@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "432983747684",
-    "firebase_url": "https://teammatch-acdf5.firebaseio.com",
-    "project_id": "teammatch-acdf5",
-    "storage_bucket": "teammatch-acdf5.appspot.com"
+    "project_number": "839748575808",
+    "firebase_url": "https://teammatch-87744.firebaseio.com",
+    "project_id": "teammatch-87744",
+    "storage_bucket": "teammatch-87744.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:432983747684:android:b64a9d46c80b693c",
+        "mobilesdk_app_id": "1:839748575808:android:b64a9d46c80b693c",
         "android_client_info": {
           "package_name": "kr.com.yangle.teammatch"
         }
       },
       "oauth_client": [
         {
-          "client_id": "432983747684-nfmh44v9386cmdlesavvdldnev0jkt7r.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "kr.com.yangle.teammatch",
-            "certificate_hash": "19b6af3f47bd9d429076e0eb29280e1ed197fd55"
-          }
-        },
-        {
-          "client_id": "432983747684-1flmeppqk03phle62o4mm819csbprfhv.apps.googleusercontent.com",
+          "client_id": "839748575808-mclkc7f74slsuskuefd2fv35r05qeb5r.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAFCkXTYSQkPsGGmG4fCaUxL49gtcvvjlc"
+          "current_key": "AIzaSyA-uegGjlISj3ZD6P2qr3KmN5cZV1ak1vk"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "432983747684-1flmeppqk03phle62o4mm819csbprfhv.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
