@@ -55,6 +55,8 @@ public class MarketVersionCheck {
                 }
             } catch (Exception e) {
                 Log.e(TAG, "MVC_AsyncTask - " + e);
+                Intent mIntent = new Intent("UpdateCheck");
+                LocalBroadcastManager.getInstance(mContext).sendBroadcast(mIntent);
             }
 
 
@@ -75,6 +77,8 @@ public class MarketVersionCheck {
                     }
                 } else {
                     Log.e(TAG, "MVC_AsyncTask - System Error!!!");
+                    Intent mIntent = new Intent("UpdateCheck");
+                    LocalBroadcastManager.getInstance(mContext).sendBroadcast(mIntent);
                 }
             } else {
                 Intent mIntent = new Intent("UpdateCheck");
