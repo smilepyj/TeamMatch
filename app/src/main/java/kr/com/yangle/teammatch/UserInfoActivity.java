@@ -365,49 +365,15 @@ public class UserInfoActivity extends AppCompatActivity {
             team_age_code = mApplicationTM.getKeybyMap(mApplicationTM.getC001(), bt_user_info_age.getText().toString());
         }
 
-        if(hope_ground.size() <= 0) {
+        /*if(hope_ground.size() <= 0) {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_hope_field) + getString(R.string.user_info_check_select_not));
             return;
-        }
-
-//        if(!bt_user_info_age_10.isSelected() && !bt_user_info_age_20.isSelected() && !bt_user_info_age_30.isSelected() && !bt_user_info_age_40.isSelected() && !bt_user_info_age_50.isSelected()) {
-//            mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_age) + getString(R.string.user_info_check_select_not));
-//            return;
-//        } else {
-//            if(bt_user_info_age_10.isSelected()) {
-//                team_age_code = getResources().getStringArray(R.array.C001_code)[0];
-//            } else if(bt_user_info_age_20.isSelected()) {
-//                team_age_code = getResources().getStringArray(R.array.C001_code)[1];
-//            } else if(bt_user_info_age_30.isSelected()) {
-//                team_age_code = getResources().getStringArray(R.array.C001_code)[2];
-//            } else if(bt_user_info_age_40.isSelected()) {
-//                team_age_code = getResources().getStringArray(R.array.C001_code)[3];
-//            } else if(bt_user_info_age_50.isSelected()) {
-//                team_age_code = getResources().getStringArray(R.array.C001_code)[4];
-//            }
-//        }
+        }*/
 
         if(getString(R.string.user_info_select).equals(bt_user_info_level.getText().toString())) {
             mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_level) + getString(R.string.user_info_check_select_not));
             return;
         }
-
-//        if(!bt_user_info_level_challenger.isSelected() && !bt_user_info_level_diamond.isSelected() && !bt_user_info_level_platinum.isSelected() && !bt_user_info_level_gold.isSelected() && !bt_user_info_level_silver.isSelected()) {
-//            mApplicationTM.makeToast(mContext, getString(R.string.user_info_team_level) + getString(R.string.user_info_check_select_not));
-//            return;
-//        } else {
-//            if(bt_user_info_level_challenger.isSelected()) {
-//                team_level_code = getResources().getStringArray(R.array.C002_code)[0];
-//            } else if(bt_user_info_level_diamond.isSelected()) {
-//                team_level_code = getResources().getStringArray(R.array.C002_code)[1];
-//            } else if(bt_user_info_level_platinum.isSelected()) {
-//                team_level_code = getResources().getStringArray(R.array.C002_code)[2];
-//            } else if(bt_user_info_level_gold.isSelected()) {
-//                team_level_code = getResources().getStringArray(R.array.C002_code)[3];
-//            } else if(bt_user_info_level_silver.isSelected()) {
-//                team_level_code = getResources().getStringArray(R.array.C002_code)[4];
-//            }
-//        }
 
         mService.insertUserInfo(insertUserInfo_Listener, mApplicationTM.getUserId(), mApplicationTM.getUserEmail(), user_name, user_telnum, team_name, active_area_group_code, hope_ground, team_level_code, team_age_code);
     }
