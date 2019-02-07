@@ -44,6 +44,7 @@ dependencies {
     api('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
         exclude module: 'support-v4'
     }
+    implementation 'org.jsoup:jsoup:1.9.2'
 }
 
 apply plugin: 'com.google.gms.google-services'

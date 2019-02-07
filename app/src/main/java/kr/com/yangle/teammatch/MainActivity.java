@@ -33,11 +33,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import kr.com.yangle.teammatch.util.BackPressCloseHandler;
-import kr.com.yangle.teammatch.util.DialogAlertActivity;
-import kr.com.yangle.teammatch.util.DialogMatchApplyActivity;
-import kr.com.yangle.teammatch.util.DialogMatchSuccessActivity;
-import kr.com.yangle.teammatch.util.DialogRatingActivity;
-import kr.com.yangle.teammatch.util.DialogReportActivity;
+import kr.com.yangle.teammatch.dialog.DialogAlertActivity;
+import kr.com.yangle.teammatch.dialog.DialogMatchApplyActivity;
+import kr.com.yangle.teammatch.dialog.DialogMatchSuccessActivity;
+import kr.com.yangle.teammatch.dialog.DialogRatingActivity;
+import kr.com.yangle.teammatch.dialog.DialogReportActivity;
 
 import static com.kakao.util.helper.Utility.getPackageInfo;
 

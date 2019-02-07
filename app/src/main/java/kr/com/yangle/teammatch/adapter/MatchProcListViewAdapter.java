@@ -27,9 +27,9 @@ import kr.com.yangle.teammatch.R;
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
-import kr.com.yangle.teammatch.util.DialogMatchApplyActivity;
-import kr.com.yangle.teammatch.util.DialogMatchSuccessActivity;
-import kr.com.yangle.teammatch.util.DialogRatingActivity;
+import kr.com.yangle.teammatch.dialog.DialogMatchApplyActivity;
+import kr.com.yangle.teammatch.dialog.DialogMatchSuccessActivity;
+import kr.com.yangle.teammatch.dialog.DialogRatingActivity;
 
 public class MatchProcListViewAdapter extends BaseAdapter {
     private final String TAG = this.getClass().getSimpleName();

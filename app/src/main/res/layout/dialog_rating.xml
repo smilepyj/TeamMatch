@@ -5,7 +5,7 @@
     android:layout_height="@dimen/dimen_size_340"
     android:background="@drawable/dr_background_dialog"
     android:orientation="vertical"
-    tools:context=".util.DialogRatingActivity">
+    tools:context=".dialog.DialogRatingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

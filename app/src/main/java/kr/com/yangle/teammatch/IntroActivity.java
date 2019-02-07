@@ -1,26 +1,27 @@
 package kr.com.yangle.teammatch;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.TextView;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.util.HashMap;
 
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
+import kr.com.yangle.teammatch.util.MarketVersionCheck;
 
 public class IntroActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -28,6 +29,7 @@ public class IntroActivity extends AppCompatActivity {
     ApplicationTM mApplicationTM;
 
     private Service mService;
+    MarketVersionCheck mMarketVersionCheck;
 
     TextView tv_intro_version;
 
@@ -45,16 +47,9 @@ public class IntroActivity extends AppCompatActivity {
 
         tv_intro_version.setText(mApplicationTM.getVersion());
 
-        Handler mHandler = new Handler();
-        mHandler.postDelayed(mRunnable, 1500);
+        mMarketVersionCheck = new MarketVersionCheck(mContext);
+        LocalBroadcastManager.getInstance(this).registerReceiver(mLocalBroadcastReceiver, new IntentFilter("UpdateCheck"));
     }
-
-    Runnable mRunnable = new Runnable() {
-        @Override
-        public void run() {
-            CheckPermission();
-        }
-    };
 
     /**
      * Back Button Listener
@@ -102,6 +97,21 @@ public class IntroActivity extends AppCompatActivity {
         }
     }
 
+    private BroadcastReceiver mLocalBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Handler mHandler = new Handler();
+            mHandler.postDelayed(mRunnable, 1500);
+        }
+    };
+
+    Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+            CheckPermission();
+        }
+    };
+
     /**
      * Check Login
      * Created by maloman72 on 2018-11-10
@@ -110,6 +120,7 @@ public class IntroActivity extends AppCompatActivity {
         if("".equals(mApplicationTM.getUserId())) {
             Intent mIntent = new Intent(mContext, LoginActivity.class);
             startActivity(mIntent);
+            LocalBroadcastManager.getInstance(mContext).unregisterReceiver(mLocalBroadcastReceiver);
             finish();
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         } else {
@@ -144,6 +155,7 @@ public class IntroActivity extends AppCompatActivity {
                         }
 
                         startActivity(mIntent);
+                        LocalBroadcastManager.getInstance(mContext).unregisterReceiver(mLocalBroadcastReceiver);
                         finish();
                     } else {
                         mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());

@@ -25,9 +25,8 @@ import java.util.Locale;
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
-import kr.com.yangle.teammatch.util.DialogMatchTimePickerActivity;
-import kr.com.yangle.teammatch.util.DialogStartTimePickerActivity;
-import kr.com.yangle.teammatch.util.DialogAlertActivity;
+import kr.com.yangle.teammatch.dialog.DialogMatchTimePickerActivity;
+import kr.com.yangle.teammatch.dialog.DialogAlertActivity;
 
 public class RegistMatchActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();

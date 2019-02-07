@@ -6,7 +6,7 @@
     android:background="@drawable/dr_background_dialog"
     android:orientation="vertical"
     android:weightSum="4"
-    tools:context=".util.DialogAlertActivity">
+    tools:context=".dialog.DialogAlertActivity">
 
     <LinearLayout
         android:id="@+id/ll_alert_ground_location_1"

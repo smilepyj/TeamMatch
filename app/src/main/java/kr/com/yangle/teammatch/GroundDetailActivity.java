@@ -33,8 +33,7 @@ import kr.com.yangle.teammatch.adapter.GroundDetailAutoScrollAdapter;
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
-import kr.com.yangle.teammatch.util.DialogGroundLocationActivity;
-import kr.com.yangle.teammatch.util.DialogMatchApplyActivity;
+import kr.com.yangle.teammatch.dialog.DialogGroundLocationActivity;
 
 public class GroundDetailActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();

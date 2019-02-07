@@ -26,7 +26,7 @@ import kr.com.yangle.teammatch.R;
 import kr.com.yangle.teammatch.network.ResponseEvent;
 import kr.com.yangle.teammatch.network.ResponseListener;
 import kr.com.yangle.teammatch.network.Service;
-import kr.com.yangle.teammatch.util.DialogAlertActivity;
+import kr.com.yangle.teammatch.dialog.DialogAlertActivity;
 
 public class SearchResultListViewAdapter extends BaseAdapter {
     private final String TAG = this.getClass().getSimpleName();

@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
-import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -22,10 +21,10 @@ import java.util.Map;
 import kr.com.yangle.teammatch.ApplicationTM;
 import kr.com.yangle.teammatch.MainActivity;
 import kr.com.yangle.teammatch.R;
-import kr.com.yangle.teammatch.util.DialogAlertActivity;
-import kr.com.yangle.teammatch.util.DialogMatchApplyActivity;
-import kr.com.yangle.teammatch.util.DialogMatchSuccessActivity;
-import kr.com.yangle.teammatch.util.DialogRatingActivity;
+import kr.com.yangle.teammatch.dialog.DialogAlertActivity;
+import kr.com.yangle.teammatch.dialog.DialogMatchApplyActivity;
+import kr.com.yangle.teammatch.dialog.DialogMatchSuccessActivity;
+import kr.com.yangle.teammatch.dialog.DialogRatingActivity;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = MyFirebaseMessagingService.class.getSimpleName();

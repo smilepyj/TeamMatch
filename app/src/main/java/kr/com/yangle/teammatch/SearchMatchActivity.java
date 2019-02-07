@@ -20,7 +20,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-import kr.com.yangle.teammatch.util.DialogStartTimePickerActivity;
+import kr.com.yangle.teammatch.dialog.DialogStartTimePickerActivity;
 
 public class SearchMatchActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();

@@ -1,4 +1,4 @@
-package kr.com.yangle.teammatch.util;
+package kr.com.yangle.teammatch.dialog;
 
 import android.content.Context;
 import android.content.Intent;

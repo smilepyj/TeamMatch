@@ -1,4 +1,4 @@
-package kr.com.yangle.teammatch.util;
+package kr.com.yangle.teammatch.dialog;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -22,6 +22,7 @@ import kr.com.yangle.teammatch.ApplicationTM;
 import kr.com.yangle.teammatch.GroundLocationActivity;
 import kr.com.yangle.teammatch.MatchProcActivity;
 import kr.com.yangle.teammatch.R;
+import kr.com.yangle.teammatch.util.LocationUtil;
 
 public class DialogGroundLocationActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();

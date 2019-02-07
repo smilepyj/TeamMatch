@@ -92,37 +92,37 @@
             android:name=".RankingActivity"
             android:screenOrientation="sensorPortrait" />
         <activity
-            android:name=".util.DialogStartTimePickerActivity"
+            android:name=".dialog.DialogStartTimePickerActivity"
             android:theme="@style/DialogTheme" />
         <activity
-            android:name=".util.DialogAlertActivity"
+            android:name=".dialog.DialogAlertActivity"
             android:theme="@style/DialogTheme" />
         <activity
-            android:name=".util.DialogTermServiceActivity"
+            android:name=".dialog.DialogTermServiceActivity"
             android:theme="@style/DialogTheme" />
         <activity
-            android:name=".util.DialogPrivacyActivity"
+            android:name=".dialog.DialogPrivacyActivity"
             android:theme="@style/DialogTheme" />
         <activity
             android:name=".GroundDetailActivity"
             android:screenOrientation="sensorPortrait" />
         <activity
-            android:name=".util.DialogMatchTimePickerActivity"
+            android:name=".dialog.DialogMatchTimePickerActivity"
             android:theme="@style/DialogTheme" />
         <activity
             android:name=".GroundLocationActivity"
             android:screenOrientation="sensorPortrait" />
         <activity
-            android:name=".util.DialogMatchApplyActivity"
+            android:name=".dialog.DialogMatchApplyActivity"
             android:theme="@style/DialogTheme" />
         <activity
-            android:name=".util.DialogMatchSuccessActivity"
+            android:name=".dialog.DialogMatchSuccessActivity"
             android:theme="@style/DialogTheme" />
         <activity
-            android:name=".util.DialogRatingActivity"
+            android:name=".dialog.DialogRatingActivity"
             android:theme="@style/DialogTheme" />
         <activity
-            android:name=".util.DialogGroundLocationActivity"
+            android:name=".dialog.DialogGroundLocationActivity"
             android:theme="@style/DialogTheme" />
         <activity
             android:name="com.kakao.auth.authorization.authcode.KakaoWebViewActivity"
@@ -138,7 +138,7 @@
             android:name=".SelfCheckActivity"
             android:screenOrientation="sensorPortrait" />
         <activity
-            android:name=".util.DialogReportActivity"
+            android:name=".dialog.DialogReportActivity"
             android:theme="@style/DialogTheme" />
     </application>
 

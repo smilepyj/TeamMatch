@@ -8,6 +8,9 @@
     <string name="cording_message_ranking_area">지역랭킹 서비스는 추후 제공 됩니다...</string>
     <string name="cording_message_search_grounds">구장 검색화면을 개발 중이여서 4개 구장을 강제로 입력합니다.</string>
     <string name="permission_message">권한 사용에 동의하시지 않으시면 어플리케이션의 사용이 불가능합니다. 권한사용에 동의해주세요.</string>
+    <string name="update_title">업데이트 알림</string>
+    <string name="update_message">새로운 버전이 있습니다. 업데이트 하시겠습니까?</string>
+    <string name="compulsion_update_message">열심히 만들어서 새버전을 업데이트 했습니다. 더 편해진 풋살매치를 이용해 보세요.</string>
 
     <!-- Error Message -->
     <string name="error_network">서비스 통신 중 에러가 발생하였습니다. 잠시 후 다시 시도해 주세요.</string>
@@ -17,6 +20,8 @@
     <string name="alert_dialog_close">닫기</string>
     <string name="alert_dialog_cancel">취소</string>
     <string name="alert_dialog_exit">종료</string>
+    <string name="alert_dialog_update">업데이트</string>
+    <string name="alert_dailog_next">다음에</string>
 
     <!-- Login Activity -->
     <string name="login_kakao_not_support">카카오톡 로그인은 아직 지원하지 않습니다.\n네이버 로그인을 이용해 주세요.</string>

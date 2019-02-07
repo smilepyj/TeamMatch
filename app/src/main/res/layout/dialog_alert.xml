@@ -5,7 +5,7 @@
     android:layout_height="@dimen/dimen_size_280"
     android:background="@drawable/dr_background_dialog"
     android:orientation="vertical"
-    tools:context=".util.DialogAlertActivity">
+    tools:context=".dialog.DialogAlertActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
