@@ -560,6 +560,29 @@ public class MainActivity extends AppCompatActivity {
                 mIntent.putExtra("MATCH_TIME", hope_match_time);
                 startActivity(mIntent);
             }
+        }else if("9".equals(match_alert_type)) {
+            String push_team_type = getIntent().getStringExtra("PUSH_TEAM_TYPE");
+            String push_team_id = getIntent().getStringExtra("PUSH_TEAM_ID");
+
+            if(team_id.equals(push_team_id)){
+
+                String contents = "";
+
+                if("host".equals(push_team_type)) {
+                    contents = "상대편이 성사된 매치를 취소하셨습니다.\n매치 등록 상태로 돌아갑니다.";
+                }else {
+                    contents = "상대편이 성사된 매치를 취소하셨습니다.\n다시매칭을 시도해주세요.";
+                }
+
+                Intent mIntent = new Intent(getApplicationContext(), DialogAlertActivity.class);
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_title), "매치 취소 요청");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents_header), "");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_contents), contents);
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_cancel_text), "닫기");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_ok_text), "매치정보 확인");
+                mIntent.putExtra(getApplicationContext().getString(R.string.alert_dialog_type), 4);
+                startActivity(mIntent);
+            }
         }else if("10".equals(match_alert_type)) {
             String type = getIntent().getStringExtra(getString(R.string.match_success_extra_type));
             String host_team_id = getIntent().getStringExtra("HOST_TEAM_ID");

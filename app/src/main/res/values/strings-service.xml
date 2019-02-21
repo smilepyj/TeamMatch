@@ -167,6 +167,16 @@
     <string name="searchMatchAlertInfo_param_match_apply_id">match_apply_id</string>
     <string name="searchMatchAlertInfo_param_match_proc_type">match_proc_type</string>
 
+    <!-- registMatchCancel Service -->
+    <string name="registMatchCancel_service">match/registMatchCancel</string>
+    <string name="registMatchCancel_param_user_id">user_id</string>
+    <string name="registMatchCancel_param_match_id">match_id</string>
+
+    <!-- acceptMatchCancel Service -->
+    <string name="acceptMatchCancel_service">match/acceptMatchCancel</string>
+    <string name="acceptMatchCancel_param_user_id">user_id</string>
+    <string name="acceptMatchCancel_param_match_id">match_id</string>
+
     <!-- Ranking Service-->
     <string name="ranking_service">rank/searchRankList</string>
     <string name="ranking_param_user_id">user_id</string>

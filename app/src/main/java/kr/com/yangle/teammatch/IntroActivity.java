@@ -48,6 +48,7 @@ public class IntroActivity extends AppCompatActivity {
         tv_intro_version.setText(mApplicationTM.getVersion());
 
         mMarketVersionCheck = new MarketVersionCheck(mContext);
+
         LocalBroadcastManager.getInstance(this).registerReceiver(mLocalBroadcastReceiver, new IntentFilter("UpdateCheck"));
     }
 

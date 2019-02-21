@@ -436,6 +436,46 @@ public class Service {
     }
 
     /**
+     * 매치 등록 취소 서비스
+     * Created by maloman72 on 218-11-01
+     * */
+    public void registMatchCancel(ResponseListener responseListener, String match_id) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.registMatchCancel_service);
+            String user_id = mApplicationTM.getUserId();
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.registMatchCancel_param_user_id), user_id);
+            mJSONObject.put(mContext.getString(R.string.registMatchCancel_param_match_id), match_id);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "registMatchCancel - " + e);
+        }
+
+    }
+
+    /**
+     * 매치 취소 서비스
+     * Created by maloman72 on 218-11-01
+     * */
+    public void acceptMatchCancel(ResponseListener responseListener, String match_id) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.acceptMatchCancel_service);
+            String user_id = mApplicationTM.getUserId();
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.acceptMatchCancel_param_user_id), user_id);
+            mJSONObject.put(mContext.getString(R.string.acceptMatchCancel_param_match_id), match_id);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "acceptMatchCancel - " + e);
+        }
+
+    }
+
+    /**
      * 불편사항 신고 서비스
      * Created by maloman72 on 2018-12-04
      * */

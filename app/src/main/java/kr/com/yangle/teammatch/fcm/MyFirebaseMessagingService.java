@@ -268,6 +268,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     intent.putExtra("HOPE_MATCH_TIME", hope_match_time);
                     intent.putExtra("HOPE_MATCH_GROUND", hope_match_ground);
                 }
+            } else if("9".equals(match_alert_type)) {
+                String push_team_type = data.get("push_team_type");
+                String push_team_id = data.get("push_team_id");
+
+                if(team_id.equals(push_team_id)){
+                    bNotification = true;
+
+                    intent.putExtra("PUSH_TEAM_TYPE", push_team_type);
+                    intent.putExtra("PUSH_TEAM_ID", push_team_id);
+                }
             } else if("10".equals(match_alert_type)) {
                 String match_id = data.get("match_id");
                 String host_team_id = data.get("host_team_id");
@@ -563,6 +573,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     mIntent.putExtra("GROUND_NAME", hope_match_ground);
                     mIntent.putExtra("MATCH_TIME", hope_match_time);
                     startActivity(mIntent);
+                }
+            } else if("9".equals(match_alert_type)) {
+                String push_team_type = data.get("push_team_type");
+                String push_team_id = data.get("push_team_id");
+
+                if(team_id.equals(push_team_id)){
+                    bNotification = true;
+
+                    intent.putExtra("PUSH_TEAM_TYPE", push_team_type);
+                    intent.putExtra("PUSH_TEAM_ID", push_team_id);
                 }
             } else if("10".equals(match_alert_type)) {
                 String host_team_id = data.get("host_team_id");

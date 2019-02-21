@@ -1,7 +1,9 @@
 package kr.com.yangle.teammatch.adapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -124,7 +126,25 @@ public class SearchResultListViewAdapter extends BaseAdapter {
             ll_listview_search_result_request.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mService.applyMatch(applyMatch_Listener, match_id);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+
+                    builder.setTitle("매치 신청 확인")
+                            .setMessage("매치 신청을 하시겠습니까?")
+                            .setPositiveButton("매치 신청", new DialogInterface.OnClickListener(){
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    mService.applyMatch(applyMatch_Listener, match_id);
+                                }
+                            })
+                            .setNegativeButton("취소", new DialogInterface.OnClickListener(){
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             });
 

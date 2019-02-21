@@ -98,6 +98,9 @@
             android:name=".dialog.DialogAlertActivity"
             android:theme="@style/DialogTheme" />
         <activity
+            android:name=".dialog.DialogOkAlertActivity"
+            android:theme="@style/DialogTheme" />
+        <activity
             android:name=".dialog.DialogTermServiceActivity"
             android:theme="@style/DialogTheme" />
         <activity
